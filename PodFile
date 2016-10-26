@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+target 'ClassUp-iOS' do
+    pod 'Alamofire', '~> 4.0'
+    pod 'SwiftCharts', :git => 'https://github.com/i-schuetz/SwiftCharts.git'
+    pod 'SwiftyJSON'
+    pod 'Just'
+end
