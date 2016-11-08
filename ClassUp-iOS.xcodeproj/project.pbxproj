@@ -11,6 +11,21 @@
 		A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAF11DB541A90011BFB6 /* Reachibility.swift */; };
 		A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8A1DC07947007114DA /* MainMenuVC.swift */; };
 		A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */; };
+		A456F8001DCF6D6500E844F9 /* TestDetailsTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */; };
+		A460411B1DCD8169004E9BDE /* TestDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460411A1DCD8169004E9BDE /* TestDetailsVC.swift */; };
+		A460411F1DCDE37B004E9BDE /* CompletedTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */; };
+		A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460411D1DCDE37B004E9BDE /* MarksProcessing.swift */; };
+		A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */; };
+		A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46041221DCDE4A2004E9BDE /* TestMarksEntryCell.swift */; };
+		A46041281DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46041231DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift */; };
+		A46041291DCDE4A2004E9BDE /* TestMarksEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46041241DCDE4A2004E9BDE /* TestMarksEntryVC.swift */; };
+		A460412A1DCDE4A2004E9BDE /* TestMarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46041251DCDE4A2004E9BDE /* TestMarksModel.swift */; };
+		A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46041261DCDE4A2004E9BDE /* TestModel.swift */; };
+		A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460412C1DCDE521004E9BDE /* TestCellVC.swift */; };
+		A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A460412E1DCDE56C004E9BDE /* HeaderCell.swift */; };
+		A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */; };
+		A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */; };
+		A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */; };
 		A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24C1DB3E56100EA2811 /* AppDelegate.swift */; };
 		A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24E1DB3E56100EA2811 /* ViewController.swift */; };
 		A482F2521DB3E56100EA2811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A482F2501DB3E56100EA2811 /* Main.storyboard */; };
@@ -36,6 +51,21 @@
 		A404FAF11DB541A90011BFB6 /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		A4166D8A1DC07947007114DA /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateClassSectionSubjectVC.swift; sourceTree = "<group>"; };
+		A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDetailsTBC.swift; sourceTree = "<group>"; };
+		A460411A1DCD8169004E9BDE /* TestDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDetailsVC.swift; sourceTree = "<group>"; };
+		A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTestVC.swift; sourceTree = "<group>"; };
+		A460411D1DCDE37B004E9BDE /* MarksProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksProcessing.swift; sourceTree = "<group>"; };
+		A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTestListVC.swift; sourceTree = "<group>"; };
+		A46041221DCDE4A2004E9BDE /* TestMarksEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMarksEntryCell.swift; sourceTree = "<group>"; };
+		A46041231DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMarksEntryHeaderCell.swift; sourceTree = "<group>"; };
+		A46041241DCDE4A2004E9BDE /* TestMarksEntryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMarksEntryVC.swift; sourceTree = "<group>"; };
+		A46041251DCDE4A2004E9BDE /* TestMarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMarksModel.swift; sourceTree = "<group>"; };
+		A46041261DCDE4A2004E9BDE /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		A460412C1DCDE521004E9BDE /* TestCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCellVC.swift; sourceTree = "<group>"; };
+		A460412E1DCDE56C004E9BDE /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSubjectsVC.swift; sourceTree = "<group>"; };
+		A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectSelectionCell.swift; sourceTree = "<group>"; };
+		A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		A482F2491DB3E56100EA2811 /* ClassUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClassUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A482F24C1DB3E56100EA2811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A482F24E1DB3E56100EA2811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,24 +138,39 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */,
+				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
+				A482F2531DB3E56100EA2811 /* Assets.xcassets */,
 				A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */,
 				A49081691DC11B5000A4170D /* AttendanceProcessing.swift */,
+				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
+				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
+				A482F2581DB3E56100EA2811 /* Info.plist */,
+				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
+				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
+				A482F2501DB3E56100EA2811 /* Main.storyboard */,
+				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
+				A460411D1DCDE37B004E9BDE /* MarksProcessing.swift */,
+				A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */,
+				A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */,
+				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
+				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
+				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
+				A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */,
 				A49081671DC1185C00A4170D /* StudentModel.swift */,
 				A49081651DC1180600A4170D /* StudentStopModel.swift */,
+				A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */,
+				A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */,
 				A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */,
 				A49081621DC1174800A4170D /* TakeAttendanceVC.swift */,
-				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
-				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
-				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
-				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
-				A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */,
-				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
-				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
+				A460412C1DCDE521004E9BDE /* TestCellVC.swift */,
+				A460411A1DCD8169004E9BDE /* TestDetailsVC.swift */,
+				A46041221DCDE4A2004E9BDE /* TestMarksEntryCell.swift */,
+				A46041231DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift */,
+				A46041241DCDE4A2004E9BDE /* TestMarksEntryVC.swift */,
+				A46041251DCDE4A2004E9BDE /* TestMarksModel.swift */,
+				A46041261DCDE4A2004E9BDE /* TestModel.swift */,
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
-				A482F2501DB3E56100EA2811 /* Main.storyboard */,
-				A482F2531DB3E56100EA2811 /* Assets.xcassets */,
-				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
-				A482F2581DB3E56100EA2811 /* Info.plist */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -258,16 +303,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */,
+				A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */,
+				A460412A1DCDE4A2004E9BDE /* TestMarksModel.swift in Sources */,
+				A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */,
 				A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */,
 				A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */,
+				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
+				A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */,
+				A456F8001DCF6D6500E844F9 /* TestDetailsTBC.swift in Sources */,
 				A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */,
+				A460411F1DCDE37B004E9BDE /* CompletedTestVC.swift in Sources */,
+				A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */,
 				A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */,
+				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
 				A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */,
+				A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
+				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
+				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
+				A460411B1DCD8169004E9BDE /* TestDetailsVC.swift in Sources */,
+				A46041291DCDE4A2004E9BDE /* TestMarksEntryVC.swift in Sources */,
 				A49081641DC1174800A4170D /* TakeAttendanceVC.swift in Sources */,
+				A46041281DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift in Sources */,
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,

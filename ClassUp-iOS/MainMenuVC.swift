@@ -182,7 +182,6 @@ class MainMenuVC: UIViewController {
         // Pass the selected object to the new view controller.
         switch triggering_menu  {
             case "takeUpdateAttendance":
-                
                 let destinationVC = segue.destination as! SelectDateClassSectionSubjectVC
                 destinationVC.trigger = triggering_menu
                 triggering_menu = ""
@@ -190,9 +189,9 @@ class MainMenuVC: UIViewController {
                 let destintionVC = segue.destination as! SelectDateClassSectionSubjectVC
                 destintionVC.trigger = triggering_menu
                 triggering_menu = ""
-//            case "to_tests_list":
-//                _ = segue.destinationViewController as! TestDetailsTBC
-//                triggering_menu = ""
+            case "to_tests_list":
+                _ = segue.destination as! TestDetailsTBC
+                triggering_menu = ""
             default:
                 break;
         }

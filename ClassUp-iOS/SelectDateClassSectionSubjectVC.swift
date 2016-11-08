@@ -31,9 +31,9 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     @IBOutlet weak var classPicker: UIPickerView!
 
     
-    var d: String = ""
-    var m: String = ""
-    var y: String = ""
+    var d: String = "1"
+    var m: String = "1"
+    var y: String = "1970"
     
     var max_marks: String = ""
     var passing_marks: String = ""
@@ -48,6 +48,8 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         // picker. In this case the didSelectRow method would not fired and hence we will not get any
         // values in selected_class, selected_section, and selected subject. In this case we will have 
         // to get the first values from the respective lists
+        print(m)
+        print(y)
         
         if (selected_class == "")   {
             selected_class = class_list[0]
@@ -200,39 +202,49 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         //let destinationVC = segue.destinationViewController as! TakeAttendanceTVC
-//        switch trigger  {
-//        case "takeUpdateAttendance":
-//            let destinationVC = segue.destinationViewController as! TakeAttendanceVC
-//            destinationVC.the_class = selected_class
-//            destinationVC.section = selected_section
-//            destinationVC.subject = selected_subject
-//            destinationVC.d = d
-//            destinationVC.m = m
-//            destinationVC.y = y
-//            if subject_list.contains("Main")    {
-//                destinationVC.whether_main = true
-//            }
-//            else    {
-//                destinationVC.whether_main = false
-//            }
-//            
-//        case "scheduleTest":
-//            let destinationVC = segue.destinationViewController as! TestDetailsVC
-//            destinationVC.the_class = selected_class
-//            destinationVC.section = selected_section
-//            destinationVC.subject = selected_subject
-//            destinationVC.d = d
-//            destinationVC.m = m
-//            destinationVC.y = y
-//            
-//            
-//        default:
-//            break
-//        }
+        switch trigger  {
+        case "takeUpdateAttendance":
+            let destinationVC = segue.destination as! TakeAttendanceVC
+            destinationVC.the_class = selected_class
+            destinationVC.section = selected_section
+            destinationVC.subject = selected_subject
+            
+            // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+            let index = d.index(d.startIndex, offsetBy: 9)
+            let dd = d.substring(from: index)
+            destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+            let mm = m.substring(from: index)
+            destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+            let yy = y.substring(from: index)
+            destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+            if subject_list.contains("Main")    {
+                destinationVC.whether_main = true
+            }
+            else    {
+                destinationVC.whether_main = false
+            }
+            
+        case "scheduleTest":
+            let destinationVC = segue.destination as! TestDetailsVC
+            destinationVC.the_class = selected_class
+            destinationVC.section = selected_section
+            destinationVC.subject = selected_subject
+            // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+            let index = d.index(d.startIndex, offsetBy: 9)
+            let dd = d.substring(from: index)
+            destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+            let mm = m.substring(from: index)
+            destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+            let yy = y.substring(from: index)
+            destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+
+        default:
+            break
+        }
     }
     
     func showAlert(title:String, message:String) {

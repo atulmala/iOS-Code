@@ -28,11 +28,62 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     var absentee_list_main: [String] = []
     var whether_main: Bool = true
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var toMainMenu: UIButton!
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer)    {
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began   {
+            let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
+            if tableView.indexPathForRow(at: touchPoint) != nil {
+                // ge the name of the student
+                
+                let cell = tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)! as IndexPath) as! TakeAttendanceCellTVC
+                let student = cell.full_name.text!
+                let alert: UIAlertController = UIAlertController(title: "Calling Parent", message: "Do you want to call \(student) 's Parent?", preferredStyle: .alert )
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+                
+                let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                    let server_ip = MiscFunction.getServerIP()
+                    
+                    // get the phone number of the parent
+                    let student_id = cell.id.text!
+                    var mob_no: String = ""
+                    var url = "\(server_ip)/student/get_parent/\(student_id)/"
+                    url = url.replacingOccurrences(of: " ", with: "%20")
+                    let j = JSON(Just.get(url).json!)
+                    let the_mob_no = j["parent_mobile1"]
+                    let mob = String(stringInterpolationSegment: the_mob_no)
+                    mob_no = "tel:\(mob)"
+                    let alertController = UIAlertController(title: mob_no, message: mob_no, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    let url1: NSURL = NSURL(string: mob_no)!
+                    if (UIApplication.shared.canOpenURL(url1 as URL))
+                    {
+                        UIApplication.shared.open(url1 as URL, options: [:], completionHandler: nil)
+                    }
+                    return
+                })
+                alert.addAction(confirmAction)
+                present(alert, animated: true, completion: nil)
+
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        // add the long tap functionality. Long tapping on a student's name will initiate a call to the parent
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TakeAttendanceVC.longPress(longPressGestureRecognizer:)))
+        self.view.addGestureRecognizer(longPressRecognizer)
+        
         // call the api to get the list of students, roll number and id
         let server_ip: String = MiscFunction.getServerIP()
         school_id = SessionManager.getSchoolId()
@@ -72,12 +123,9 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         // as subject name such as Social Sciences contain spaces, those need to be replace by %20
         
         attendance_list_url = attendance_list_url.replacingOccurrences(of: " ", with: "%20")
-        //print(attendance_list_url)
-        
+ 
         MiscFunction.sendRequestToServer(url: attendance_list_url, key: "student", list: &absentee_list, sender: "TakeAttendanceTVC")
         
-        
-                
         // Get also the list of students absent in the main attendance for this date
         // 25/08/2016 - We will only do this is Main subject exist for this school
         if whether_main {
@@ -102,25 +150,23 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        //let nav: UINavigationBar = (self.navigationController?.navigationBar)!
-        //nav.barStyle = UIBarStyle.BlackOpaque
-        //nav.barTintColor = UIColor.yellowColor()
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
-        //lable.backgroundColor = UIColor.whiteColor()
         lable.textColor = UIColor.black
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.center
         
         lable.text = "Attendance     \(the_class)-\(section)       \(d)/\(m)/\(y)  \(subject)"
         self.navigationItem.titleView = lable
-        //self.navigationItem.title = "Attendance     \(the_class)-\(section)       \(d)/\(m)/\(y)"
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -135,7 +181,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("cellForRowAtIndexPath row=\(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "attendance_cell", for: indexPath as IndexPath) as! TakeAttendanceCellTVC
-        //let cell = tableView.cellForRowAtIndexPath(indexPath) as! TakeAttendanceCellTVC
+        
         
         // Configure the cell...
         // we are storing id, class, section, date, month, and year as hidden in the cell
@@ -211,75 +257,45 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
             // class/section/subject/date was taken
             var url1 = "\(server_ip)/attendance/attendance_taken/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/\(teacher)/"
             url1 = url1.replacingOccurrences(of: " ", with: "%20")
-            Alamofire.request(.POST, url1).response { request, response, data, error in
-                //print(request)
-                //print(response)
-                //print(error)
+            Alamofire.request(url1, method: .post, encoding: JSONEncoding.default).responseJSON { response in
+                
             }
             
             // now, submit the details of absentees to the server. For conserving db space, we 
             // only keep track of absent students in a particular class on a particular day for a 
             // particular subject
+            
             var dictionary = [String:String]()
             for absentee_id in AttendanceProcessing.get_absentee_list()    {
                 dictionary[String(stringInterpolationSegment: absentee_id)] = String(stringInterpolationSegment: absentee_id)
             }
-            let url: NSURL = NSURL(string: ("\(server_ip)/attendance/update1/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/\(teacher)/").stringByReplacingOccurrencesOfString(" ", withString: "%20"))!
-                
-            // replace blanks, if any in subject with %20
-            //url = url.stringByReplacingOccurrencesOfString(" ", withString: "%20")
-                //print(url)
-                //Just.post(url)
-            let request = NSMutableURLRequest(url: url as URL)
-            request.httpMethod = "POST"
-            do  {
-                request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions(rawValue: 0))
-                print(request.httpBody)
-            } catch _{
-                request.httpBody    = nil
-            }
-            Alamofire.request(request as! URLRequestConvertible).response { request, response, data, error in
-                    //print(request)
-                    //print(response)
-                    //print(error)
-                }
             
+            let url: String = ("\(server_ip)/attendance/update1/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/\(teacher)/").replacingOccurrences(of: " ", with: "%20")
+                
+
+            Alamofire.request(url, method: .post, parameters: dictionary, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                
+                }
+
             if (AttendanceProcessing.get_correction_list()).count > 0   {
                 var dictionary2 = [String:String]()
                 for correction_id in AttendanceProcessing.get_correction_list() {
                     dictionary2[String(stringInterpolationSegment: correction_id)] = String(stringInterpolationSegment: correction_id)
                 }
                 print(dictionary2)
-                let url2: NSURL = NSURL(string: ("\(server_ip)/attendance/delete2/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/").stringByReplacingOccurrencesOfString(" ", withString: "%20"))!
-                let request2 = NSMutableURLRequest(url: url2 as URL)
-                do  {
-                    request2.httpBody = try JSONSerialization.data(withJSONObject: dictionary2, options: JSONSerialization.WritingOptions(rawValue: 0))
-                    print(request.httpBody)
-                } catch _{
-                    request2.httpBody    = nil
-                }
-                request2.httpMethod = "POST"
-                Alamofire.request(request2 as! URLRequestConvertible).response { request, response, data, error in
-                    //print(request)
-                    //print(response)
-                    //print(error)
+                let url2 = ("\(server_ip)/attendance/delete2/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/").replacingOccurrences(of: " ", with: "%20")
+                Alamofire.request(url2, method: .post, parameters: dictionary2, encoding: JSONEncoding.default).responseJSON { response in
                 }
             }
-            //self.presentViewController(final_confirm, animated: true , completion: nil)
-            //self.navigationController?.popViewControllerAnimated(true)
-            //self.navigationController?.popToRootViewControllerAnimated(true)
             self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
             return
-            
-            
         })
         alert.addAction(confirmAction)
         present(alert, animated: true, completion: nil)
         
-        //self.navigationController?.popToRootViewControllerAnimated(true)
         return
     }
-    
     
     
     /*

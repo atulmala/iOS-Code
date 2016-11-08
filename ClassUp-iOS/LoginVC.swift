@@ -41,6 +41,7 @@ class LoginVC: UIViewController {
             
             // if the user has typed a wrong username then server ip will be "error"
             let parameters: Parameters = ["user":userName as String]
+            
             Alamofire.request("\(server_ip)/auth/forgot_password/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 if let value: AnyObject = response.result.value as AnyObject? {
                     // handle the results as JSON, without a bunch of nested if loops
