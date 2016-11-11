@@ -32,6 +32,11 @@
 		A482F2541DB3E56100EA2811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A482F2531DB3E56100EA2811 /* Assets.xcassets */; };
 		A482F2571DB3E56100EA2811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */; };
 		A482F25F1DB3E69C00EA2811 /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = A482F25E1DB3E69C00EA2811 /* PodFile */; };
+		A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */; };
+		A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E11131DD4938F0008DF7D /* BusAttendanceCellTVC.swift */; };
+		A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E11141DD4938F0008DF7D /* BusAttendanceHeaderCell.swift */; };
+		A48E11191DD4938F0008DF7D /* BusAttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E11151DD4938F0008DF7D /* BusAttendanceVC.swift */; };
+		A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E11161DD4938F0008DF7D /* BusDelayMessageVC.swift */; };
 		A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */; };
 		A49081641DC1174800A4170D /* TakeAttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49081621DC1174800A4170D /* TakeAttendanceVC.swift */; };
 		A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49081651DC1180600A4170D /* StudentStopModel.swift */; };
@@ -74,6 +79,11 @@
 		A482F2561DB3E56100EA2811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A482F2581DB3E56100EA2811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A482F25E1DB3E69C00EA2811 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PodFile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteSelectionVC.swift; sourceTree = "<group>"; };
+		A48E11131DD4938F0008DF7D /* BusAttendanceCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusAttendanceCellTVC.swift; sourceTree = "<group>"; };
+		A48E11141DD4938F0008DF7D /* BusAttendanceHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusAttendanceHeaderCell.swift; sourceTree = "<group>"; };
+		A48E11151DD4938F0008DF7D /* BusAttendanceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusAttendanceVC.swift; sourceTree = "<group>"; };
+		A48E11161DD4938F0008DF7D /* BusDelayMessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDelayMessageVC.swift; sourceTree = "<group>"; };
 		A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeAttendanceCellTVC.swift; sourceTree = "<group>"; };
 		A49081621DC1174800A4170D /* TakeAttendanceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeAttendanceVC.swift; sourceTree = "<group>"; };
 		A49081651DC1180600A4170D /* StudentStopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentStopModel.swift; sourceTree = "<group>"; };
@@ -138,11 +148,15 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */,
+				A48E11131DD4938F0008DF7D /* BusAttendanceCellTVC.swift */,
+				A48E11141DD4938F0008DF7D /* BusAttendanceHeaderCell.swift */,
+				A48E11151DD4938F0008DF7D /* BusAttendanceVC.swift */,
+				A48E11161DD4938F0008DF7D /* BusDelayMessageVC.swift */,
 				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
 				A482F2531DB3E56100EA2811 /* Assets.xcassets */,
 				A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */,
 				A49081691DC11B5000A4170D /* AttendanceProcessing.swift */,
+				A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */,
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
 				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
 				A482F2581DB3E56100EA2811 /* Info.plist */,
@@ -164,6 +178,7 @@
 				A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */,
 				A49081621DC1174800A4170D /* TakeAttendanceVC.swift */,
 				A460412C1DCDE521004E9BDE /* TestCellVC.swift */,
+				A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */,
 				A460411A1DCD8169004E9BDE /* TestDetailsVC.swift */,
 				A46041221DCDE4A2004E9BDE /* TestMarksEntryCell.swift */,
 				A46041231DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift */,
@@ -304,10 +319,12 @@
 			files = (
 				A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */,
 				A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */,
+				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
 				A460412A1DCDE4A2004E9BDE /* TestMarksModel.swift in Sources */,
 				A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */,
 				A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */,
 				A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */,
+				A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */,
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
 				A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */,
@@ -317,6 +334,7 @@
 				A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */,
 				A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
+				A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
 				A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */,
 				A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */,
@@ -328,8 +346,10 @@
 				A46041291DCDE4A2004E9BDE /* TestMarksEntryVC.swift in Sources */,
 				A49081641DC1174800A4170D /* TakeAttendanceVC.swift in Sources */,
 				A46041281DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift in Sources */,
+				A48E11191DD4938F0008DF7D /* BusAttendanceVC.swift in Sources */,
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
+				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
