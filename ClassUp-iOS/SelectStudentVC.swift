@@ -16,8 +16,60 @@ class SelectStudentVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     var student_list: [StudentModel] = []
     var selected_student: [String] = []
 
+    @IBOutlet weak var tableView: UITableView!
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer)    {
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began   {
+            let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
+            if tableView.indexPathForRow(at: touchPoint) != nil {
+                // ge the name of the student
+                
+                let cell = tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)! as IndexPath) as! StudentSelectionCell
+                let student = cell.full_name.text!
+                let alert: UIAlertController = UIAlertController(title: "Calling Parent", message: "Do you want to call \(student) 's Parent?", preferredStyle: .alert )
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+                
+                let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                    let server_ip = MiscFunction.getServerIP()
+                    
+                    // get the phone number of the parent
+                    let student_id = cell.id.text!
+                    var mob_no: String = ""
+                    var url = "\(server_ip)/student/get_parent/\(student_id)/"
+                    url = url.replacingOccurrences(of: " ", with: "%20")
+                    let j = JSON(Just.get(url).json!)
+                    let the_mob_no = j["parent_mobile1"]
+                    let mob = String(stringInterpolationSegment: the_mob_no)
+                    mob_no = "tel:\(mob)"
+                    let alertController = UIAlertController(title: mob_no, message: mob_no, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    let url1: NSURL = NSURL(string: mob_no)!
+                    if (UIApplication.shared.canOpenURL(url1 as URL))
+                    {
+                        UIApplication.shared.open(url1 as URL, options: [:], completionHandler: nil)
+                    }
+                    return
+                })
+                alert.addAction(confirmAction)
+                present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add the long tap functionality. Long tapping on a student's name will initiate a call to the parent
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TakeAttendanceVC.longPress(longPressGestureRecognizer:)))
+        self.view.addGestureRecognizer(longPressRecognizer)
+
         // call the api to get the list of students, roll number and id
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
@@ -47,6 +99,7 @@ class SelectStudentVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
         lable.textColor = UIColor.black
