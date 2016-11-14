@@ -9,6 +9,24 @@
 /* Begin PBXBuildFile section */
 		A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAEF1DB532850011BFB6 /* SessionManager.swift */; };
 		A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAF11DB541A90011BFB6 /* Reachibility.swift */; };
+		A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */; };
+		A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */; };
+		A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */; };
+		A4053C9A1DD9C37E0090D89D /* SubjectSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C991DD9C37E0090D89D /* SubjectSelectionVC.swift */; };
+		A4053C9C1DD9C3AA0090D89D /* MessageToSchoolVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C9B1DD9C3AA0090D89D /* MessageToSchoolVC.swift */; };
+		A4053C9E1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C9D1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift */; };
+		A4053CA01DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C9F1DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift */; };
+		A4053CA21DD9C6F30090D89D /* ExamCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CA11DD9C6F30090D89D /* ExamCellTVC.swift */; };
+		A4053CA41DD9C77F0090D89D /* ExamResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CA31DD9C77F0090D89D /* ExamResultVC.swift */; };
+		A4053CA71DD9C7E90090D89D /* ExamResultCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CA51DD9C7E90090D89D /* ExamResultCellTVC.swift */; };
+		A4053CA81DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CA61DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift */; };
+		A4053CAA1DD9C8790090D89D /* ExampleDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CA91DD9C8790090D89D /* ExampleDefaults.swift */; };
+		A4053CAC1DD9C9970090D89D /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CAB1DD9C9970090D89D /* Env.swift */; };
+		A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */; };
+		A4053CB01DD9CBF50090D89D /* SubjectListCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */; };
+		A4053CB31DD9D0500090D89D /* SubjectMarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */; };
+		A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */; };
+		A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */; };
 		A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8A1DC07947007114DA /* MainMenuVC.swift */; };
 		A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */; };
 		A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */; };
@@ -35,6 +53,10 @@
 		A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */; };
 		A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */; };
 		A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */; };
+		A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */; };
+		A47365CB1DD97C2900EDA30D /* SelectWardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */; };
+		A47365CE1DD980DE00EDA30D /* WardListCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */; };
+		A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365CD1DD980DE00EDA30D /* WardListTVC.swift */; };
 		A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24C1DB3E56100EA2811 /* AppDelegate.swift */; };
 		A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24E1DB3E56100EA2811 /* ViewController.swift */; };
 		A482F2521DB3E56100EA2811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A482F2501DB3E56100EA2811 /* Main.storyboard */; };
@@ -63,6 +85,25 @@
 		66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404FAEF1DB532850011BFB6 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		A404FAF11DB541A90011BFB6 /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
+		A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceSummaryVC.swift; sourceTree = "<group>"; };
+		A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuAttSummaryHeaderCellTVC.swift; sourceTree = "<group>"; };
+		A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExamTermVC.swift; sourceTree = "<group>"; };
+		A4053C991DD9C37E0090D89D /* SubjectSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectSelectionVC.swift; sourceTree = "<group>"; };
+		A4053C9B1DD9C3AA0090D89D /* MessageToSchoolVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageToSchoolVC.swift; sourceTree = "<group>"; };
+		A4053C9D1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuAttSummaryCellTVC.swift; sourceTree = "<group>"; };
+		A4053C9F1DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectSelectionCellTVC.swift; sourceTree = "<group>"; };
+		A4053CA11DD9C6F30090D89D /* ExamCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamCellTVC.swift; sourceTree = "<group>"; };
+		A4053CA31DD9C77F0090D89D /* ExamResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamResultVC.swift; sourceTree = "<group>"; };
+		A4053CA51DD9C7E90090D89D /* ExamResultCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamResultCellTVC.swift; sourceTree = "<group>"; };
+		A4053CA61DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamResultHeaderCellTVC.swift; sourceTree = "<group>"; };
+		A4053CA91DD9C8790090D89D /* ExampleDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDefaults.swift; sourceTree = "<group>"; };
+		A4053CAB1DD9C9970090D89D /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectMarksHistoryVC.swift; sourceTree = "<group>"; };
+		A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListCellTVC.swift; sourceTree = "<group>"; };
+		A4053CB11DD9CF660090D89D /* SubjectMarksHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectMarksHistoryVC.swift; sourceTree = "<group>"; };
+		A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectMarksModel.swift; sourceTree = "<group>"; };
+		A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksHistoryHeaderCellTVC.swift; sourceTree = "<group>"; };
+		A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksHistoryCellTVC.swift; sourceTree = "<group>"; };
 		A4166D8A1DC07947007114DA /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateClassSectionSubjectVC.swift; sourceTree = "<group>"; };
 		A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceSummaryCellVC.swift; sourceTree = "<group>"; };
@@ -89,6 +130,10 @@
 		A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectSelectionCell.swift; sourceTree = "<group>"; };
 		A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentMenuVC.swift; sourceTree = "<group>"; };
+		A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWardVC.swift; sourceTree = "<group>"; };
+		A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardListCellTVC.swift; sourceTree = "<group>"; };
+		A47365CD1DD980DE00EDA30D /* WardListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardListTVC.swift; sourceTree = "<group>"; };
 		A482F2491DB3E56100EA2811 /* ClassUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClassUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A482F24C1DB3E56100EA2811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A482F24E1DB3E56100EA2811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,11 +192,11 @@
 			isa = PBXGroup;
 			children = (
 				A4D28AE41DB3F59A003B47F2 /* CartFile */,
-				A482F25E1DB3E69C00EA2811 /* PodFile */,
 				A482F24B1DB3E56100EA2811 /* ClassUp-iOS */,
-				A482F24A1DB3E56100EA2811 /* Products */,
-				74C006A9CE8D6483A980106E /* Pods */,
 				66A5EDF6397A6B8C438C1DB1 /* Frameworks */,
+				A482F25E1DB3E69C00EA2811 /* PodFile */,
+				74C006A9CE8D6483A980106E /* Pods */,
+				A482F24A1DB3E56100EA2811 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,11 +211,6 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
-				A45532141DD7823B0088A3C9 /* StudentSelectionCell.swift */,
-				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
-				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
-				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
 				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
 				A482F2531DB3E56100EA2811 /* Assets.xcassets */,
 				A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */,
@@ -182,26 +222,52 @@
 				A48E11151DD4938F0008DF7D /* BusAttendanceVC.swift */,
 				A48E11161DD4938F0008DF7D /* BusDelayMessageVC.swift */,
 				A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */,
+				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
+				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
+				A4053CAB1DD9C9970090D89D /* Env.swift */,
+				A4053CA11DD9C6F30090D89D /* ExamCellTVC.swift */,
+				A4053CA91DD9C8790090D89D /* ExampleDefaults.swift */,
+				A4053CA51DD9C7E90090D89D /* ExamResultCellTVC.swift */,
+				A4053CA61DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift */,
+				A4053CA31DD9C77F0090D89D /* ExamResultVC.swift */,
 				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
 				A482F2581DB3E56100EA2811 /* Info.plist */,
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
 				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
 				A482F2501DB3E56100EA2811 /* Main.storyboard */,
 				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
+				A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */,
+				A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */,
 				A460411D1DCDE37B004E9BDE /* MarksProcessing.swift */,
+				A4053C9B1DD9C3AA0090D89D /* MessageToSchoolVC.swift */,
 				A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */,
+				A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */,
 				A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */,
 				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
+				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
 				A455320C1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift */,
 				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
+				A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */,
+				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
+				A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */,
 				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
 				A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */,
 				A45532081DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift */,
+				A4053C9D1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift */,
+				A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */,
+				A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */,
 				A49081671DC1185C00A4170D /* StudentModel.swift */,
+				A45532141DD7823B0088A3C9 /* StudentSelectionCell.swift */,
 				A49081651DC1180600A4170D /* StudentStopModel.swift */,
+				A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */,
+				A4053CB11DD9CF660090D89D /* SubjectMarksHistoryVC.swift */,
+				A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */,
+				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 				A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */,
 				A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */,
+				A4053C9F1DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift */,
+				A4053C991DD9C37E0090D89D /* SubjectSelectionVC.swift */,
 				A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */,
 				A49081621DC1174800A4170D /* TakeAttendanceVC.swift */,
 				A460412C1DCDE521004E9BDE /* TestCellVC.swift */,
@@ -213,6 +279,8 @@
 				A46041251DCDE4A2004E9BDE /* TestMarksModel.swift */,
 				A46041261DCDE4A2004E9BDE /* TestModel.swift */,
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
+				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
+				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -344,19 +412,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
+				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
+				A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */,
+				A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */,
 				A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */,
 				A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */,
 				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
+				A4053CB01DD9CBF50090D89D /* SubjectListCellTVC.swift in Sources */,
+				A47365CE1DD980DE00EDA30D /* WardListCellTVC.swift in Sources */,
 				A460412A1DCDE4A2004E9BDE /* TestMarksModel.swift in Sources */,
 				A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */,
 				A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */,
 				A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */,
+				A47365CB1DD97C2900EDA30D /* SelectWardVC.swift in Sources */,
+				A4053CA81DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift in Sources */,
+				A4053CB31DD9D0500090D89D /* SubjectMarksModel.swift in Sources */,
+				A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */,
 				A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */,
+				A4053CA21DD9C6F30090D89D /* ExamCellTVC.swift in Sources */,
 				A45532151DD7823B0088A3C9 /* StudentSelectionCell.swift in Sources */,
 				A45532131DD77FFB0088A3C9 /* SelectStudentVC.swift in Sources */,
 				A455320D1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift in Sources */,
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
+				A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */,
+				A4053CA71DD9C7E90090D89D /* ExamResultCellTVC.swift in Sources */,
 				A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */,
 				A45532111DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift in Sources */,
 				A455320A1DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift in Sources */,
@@ -364,10 +445,14 @@
 				A456F8001DCF6D6500E844F9 /* TestDetailsTBC.swift in Sources */,
 				A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */,
 				A460411F1DCDE37B004E9BDE /* CompletedTestVC.swift in Sources */,
+				A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */,
 				A455320B1DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift in Sources */,
 				A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */,
 				A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */,
+				A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
+				A4053CAA1DD9C8790090D89D /* ExampleDefaults.swift in Sources */,
+				A4053C9A1DD9C37E0090D89D /* SubjectSelectionVC.swift in Sources */,
 				A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
 				A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */,
@@ -377,16 +462,21 @@
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
+				A4053CAC1DD9C9970090D89D /* Env.swift in Sources */,
 				A460411B1DCD8169004E9BDE /* TestDetailsVC.swift in Sources */,
+				A4053C9E1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift in Sources */,
+				A4053CA01DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift in Sources */,
 				A46041291DCDE4A2004E9BDE /* TestMarksEntryVC.swift in Sources */,
 				A49081641DC1174800A4170D /* TakeAttendanceVC.swift in Sources */,
 				A46041281DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift in Sources */,
+				A4053CA41DD9C77F0090D89D /* ExamResultVC.swift in Sources */,
 				A48E11191DD4938F0008DF7D /* BusAttendanceVC.swift in Sources */,
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,
+				A4053C9C1DD9C3AA0090D89D /* MessageToSchoolVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

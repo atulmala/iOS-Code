@@ -99,9 +99,9 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up
         // when the keyboard appears. So we register for keyboard notification
         NotificationCenter.default.addObserver(self, selector: #selector(TestMarksEntryVC.keyboardWillShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        //NotificationCenter.default.addObserver(self, #selector(TestMarksEntryVC.keyboardWillShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil);
+        
         NotificationCenter.default.addObserver(self, selector: #selector(TestMarksEntryVC.keyboardWillHide(note:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillHide:")), name: NSNotification.Name.UIKeyboardWillHide, object: nil);
+        
         
         
         let server_ip: String = MiscFunction.getServerIP()
