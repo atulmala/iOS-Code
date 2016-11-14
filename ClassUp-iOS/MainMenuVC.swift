@@ -67,8 +67,8 @@ class MainMenuVC: UIViewController {
     }
     @IBAction func logout(sender: UIButton) {
         SessionManager.logout()
-        //let vc: UIViewController = LoginVC()
-        //self.presentViewController(vc, animated: false, completion: nil)
+        let vc: UIViewController = LoginVC()
+        self.present(vc, animated: false, completion: nil)
         
         
     }
@@ -150,6 +150,7 @@ class MainMenuVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
         if comingFrom == "ReportBusDelay"    {
             message = "Message Sent"
             let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
@@ -158,7 +159,8 @@ class MainMenuVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
-
+        
+        
 
         
         // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary 

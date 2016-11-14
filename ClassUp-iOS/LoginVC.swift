@@ -13,6 +13,7 @@ import ReachabilitySwift
 
 
 class LoginVC: UIViewController {
+    var comingFrom: String = ""
     
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtLogin: UITextField!
@@ -140,6 +141,15 @@ class LoginVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         txtLogin.text = ""
         txtPassword.text = ""
+        if comingFrom == "PasswordChange"    {
+            let message = "Please Login with new Password"
+            let final_confirm = UIAlertController(title: "Password Changed", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue)   {

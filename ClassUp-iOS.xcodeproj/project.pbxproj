@@ -34,6 +34,7 @@
 		A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */; };
 		A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */; };
 		A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */; };
+		A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */; };
 		A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24C1DB3E56100EA2811 /* AppDelegate.swift */; };
 		A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482F24E1DB3E56100EA2811 /* ViewController.swift */; };
 		A482F2521DB3E56100EA2811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A482F2501DB3E56100EA2811 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSubjectsVC.swift; sourceTree = "<group>"; };
 		A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectSelectionCell.swift; sourceTree = "<group>"; };
 		A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
+		A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		A482F2491DB3E56100EA2811 /* ClassUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClassUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A482F24C1DB3E56100EA2811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A482F24E1DB3E56100EA2811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
 				A45532141DD7823B0088A3C9 /* StudentSelectionCell.swift */,
 				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
 				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
@@ -354,6 +357,7 @@
 				A455320D1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift in Sources */,
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
+				A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */,
 				A45532111DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift in Sources */,
 				A455320A1DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift in Sources */,
 				A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */,
