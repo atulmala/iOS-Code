@@ -146,6 +146,7 @@ class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableVie
         var chartPoints = [
             createChartPoint(dateStr: date_list[0], percent: perc_list[0], readFormatter: readFormatter, displayFormatter: displayFormatter)
         ]
+        
         for var i in 1..<date_list.count {
             chartPoints.append(createChartPoint(dateStr: date_list[i], percent: perc_list[i], readFormatter: readFormatter, displayFormatter: displayFormatter))
         }
@@ -205,6 +206,7 @@ class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableVie
             //return "\(self.formatter.stringFromNumber(NSNumber(self.scalar))!)%"
         }
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
