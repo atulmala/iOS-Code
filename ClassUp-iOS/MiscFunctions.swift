@@ -84,8 +84,8 @@ class MiscFunction  {
     }
 
     class func getInitialServerIP(usr:String) -> String  {
-        server_ip = "http://127.0.0.1:8000"
-        //server_ip = "https://www.classupclient.com"
+        //server_ip = "http://127.0.0.1:8000"
+        server_ip = "https://www.classupclient.com"
         
         return server_ip;
     }

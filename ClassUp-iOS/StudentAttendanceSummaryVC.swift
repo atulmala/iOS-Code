@@ -103,12 +103,14 @@ class StudentAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITab
         
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //print("inside header processing of pending test")
-    let header_cell = tableView.dequeueReusableCell(withIdentifier: "stu_att_summary_header_cell") as! StuAttSummaryHeaderCellTVC
-    header_cell.backgroundColor = UIColor.cyan
-    return header_cell
+        let header_cell = tableView.dequeueReusableCell(withIdentifier: "stu_att_summary_header_cell") as! StuAttSummaryHeaderCellTVC
+        header_cell.backgroundColor = UIColor.cyan
+        return header_cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

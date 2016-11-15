@@ -147,7 +147,7 @@ class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableVie
             createChartPoint(dateStr: date_list[0], percent: perc_list[0], readFormatter: readFormatter, displayFormatter: displayFormatter)
         ]
         
-        for var i in 1..<date_list.count {
+        for  i in 1..<date_list.count {
             chartPoints.append(createChartPoint(dateStr: date_list[i], percent: perc_list[i], readFormatter: readFormatter, displayFormatter: displayFormatter))
         }
         
@@ -244,6 +244,10 @@ class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableVie
     //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
     //    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //print("inside header processing of pending test")

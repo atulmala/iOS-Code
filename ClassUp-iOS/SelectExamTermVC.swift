@@ -11,7 +11,7 @@ import SwiftyJSON
 import Just
 
 
-class SelectExamTermVC: UIViewController {
+class SelectExamTermVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var student_id: String = ""
     var student_full_name: String = ""
     
@@ -54,19 +54,19 @@ class SelectExamTermVC: UIViewController {
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return exam_list.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exam_list_cell", for: indexPath as IndexPath) as! ExamCellTVC
         
         cell.exam_title.text = exam_list[indexPath.row].exam_title
@@ -76,15 +76,15 @@ class SelectExamTermVC: UIViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("a cell has been  tapped")
         let cell = tableView.cellForRow(at: indexPath as IndexPath) as! ExamCellTVC
         exam_id = cell.exam_id.text!
