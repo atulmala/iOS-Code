@@ -77,6 +77,7 @@
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
+		A4F2C94C1E1BF082000BC0CD /* CommunicationHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */; };
 		DD67D170529E938ED446578B /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
+		A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicationHistoryVC.swift; sourceTree = "<group>"; };
 		C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
 				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
 				A482F2501DB3E56100EA2811 /* Main.storyboard */,
+				A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */,
 				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
 				A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */,
 				A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */,
@@ -460,6 +463,7 @@
 				A45532121DD77FFB0088A3C9 /* SelectClassSectionVC.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
+				A4F2C94C1E1BF082000BC0CD /* CommunicationHistoryVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
 				A4053CAC1DD9C9970090D89D /* Env.swift in Sources */,

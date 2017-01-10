@@ -26,18 +26,24 @@ class ComposeMessageVCViewController: UIViewController {
             showAlert(title: "Error", message: "Message is empty!")
         }
         else    {
+            let alert: UIAlertController = UIAlertController(title: "Confirm Message(s) Sending", message: "Are you sure to send the message(s)?", preferredStyle: .alert )
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            alert.addAction(cancelAction)
             var dict = [String:String]()
             dict["message"] = the_message
             dict["teacher"] = SessionManager.getLoggedInUser() as String
             dict["whole_class"] = "false"
-            if whole_class  {
+            if self.whole_class  {
                 dict["whole_class"] = "true"
-                dict["class"] = the_class
-                dict["section"] = section
+                dict["class"] = self.the_class
+                dict["section"] = self.section
             }
             
-            for i in 0 ..< student_list.count  {
-                dict[MiscFunction.randomStringWithLength(len: 4) as String] = student_list[i]
+            for i in 0 ..< self.student_list.count  {
+                dict[MiscFunction.randomStringWithLength(len: 4) as String] = self.student_list[i]
             }
             print(dict)
             let server_ip = MiscFunction.getServerIP()
@@ -46,18 +52,16 @@ class ComposeMessageVCViewController: UIViewController {
             Alamofire.request(url, method: .post, parameters: dict, encoding: JSONEncoding.default).responseJSON { response in
                 
             }
-
-            
-            performSegue(withIdentifier: "unwindToMainMenu", sender: self)
+            self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
             self.dismiss(animated: true, completion: nil)
             return
-
+            })
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
         }
     }
     
     @IBAction func cancel(sender: UIButton) {
-        
-        
         cancelled = true
         performSegue(withIdentifier: "unwindToMainMenu", sender: self)
         dismiss(animated: false, completion: nil)
