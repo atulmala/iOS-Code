@@ -27,6 +27,8 @@
 		A4053CB31DD9D0500090D89D /* SubjectMarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */; };
 		A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */; };
 		A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */; };
+		A40DFFFB1E46259500711694 /* MessageHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DFFFA1E46259500711694 /* MessageHistoryVC.swift */; };
+		A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DFFFC1E46264900711694 /* MessageHistoryCellTableViewCell.swift */; };
 		A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8A1DC07947007114DA /* MainMenuVC.swift */; };
 		A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */; };
 		A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */; };
@@ -77,7 +79,6 @@
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
-		A4F2C94C1E1BF082000BC0CD /* CommunicationHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */; };
 		DD67D170529E938ED446578B /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,8 @@
 		A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectMarksModel.swift; sourceTree = "<group>"; };
 		A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksHistoryHeaderCellTVC.swift; sourceTree = "<group>"; };
 		A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarksHistoryCellTVC.swift; sourceTree = "<group>"; };
+		A40DFFFA1E46259500711694 /* MessageHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHistoryVC.swift; sourceTree = "<group>"; };
+		A40DFFFC1E46264900711694 /* MessageHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		A4166D8A1DC07947007114DA /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateClassSectionSubjectVC.swift; sourceTree = "<group>"; };
 		A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceSummaryCellVC.swift; sourceTree = "<group>"; };
@@ -157,7 +160,6 @@
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
-		A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicationHistoryVC.swift; sourceTree = "<group>"; };
 		C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,7 +240,6 @@
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
 				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
 				A482F2501DB3E56100EA2811 /* Main.storyboard */,
-				A4F2C94B1E1BF082000BC0CD /* CommunicationHistoryVC.swift */,
 				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
 				A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */,
 				A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */,
@@ -284,6 +285,8 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
+				A40DFFFA1E46259500711694 /* MessageHistoryVC.swift */,
+				A40DFFFC1E46264900711694 /* MessageHistoryCellTableViewCell.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				A455320D1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift in Sources */,
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
+				A40DFFFB1E46259500711694 /* MessageHistoryVC.swift in Sources */,
 				A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */,
 				A4053CA71DD9C7E90090D89D /* ExamResultCellTVC.swift in Sources */,
 				A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */,
@@ -456,6 +460,7 @@
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
 				A4053CAA1DD9C8790090D89D /* ExampleDefaults.swift in Sources */,
 				A4053C9A1DD9C37E0090D89D /* SubjectSelectionVC.swift in Sources */,
+				A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */,
 				A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
 				A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */,
@@ -463,7 +468,6 @@
 				A45532121DD77FFB0088A3C9 /* SelectClassSectionVC.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
-				A4F2C94C1E1BF082000BC0CD /* CommunicationHistoryVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
 				A4053CAC1DD9C9970090D89D /* Env.swift in Sources */,

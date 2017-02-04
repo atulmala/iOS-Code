@@ -49,6 +49,11 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "CommunicateWithSchool"
         performSegue(withIdentifier: "selectWard", sender: self)
     }
+    
+    @IBAction func communicationHistory(_ sender: UIButton) {
+        triggeringMenu = "CommunicationHistory"
+        performSegue(withIdentifier: "to_communication_history", sender: self)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -56,6 +61,10 @@ class ParentMenuVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         switch triggeringMenu   {
+            case "CommunicationHistory":
+                let destinationVC = segue.destination as! MessageHistoryVC
+            
+            break
             case "AttendanceSummary":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = triggeringMenu
