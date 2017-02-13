@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SCx-JR-8KT">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--School Admin Menu-->
+        <scene sceneID="bse-58-YGT">
+            <objects>
+                <viewController title="School Admin Menu" id="SCx-JR-8KT" customClass="SchoolAdminVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xph-0m-1HR"/>
+                        <viewControllerLayoutGuide type="bottom" id="2SF-BN-Mxw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bRJ-OH-Yra">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-fN-l1j">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send Bulk SMS"/>
+                                <connections>
+                                    <segue destination="Rd4-ba-YoM" kind="show" id="g5K-Bn-Et0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSd-WJ-mPq">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Daily Attendance Summary"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKK-gz-usu">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ezd-RQ-4nx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add Student"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-Zl-6BW">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yi7-ug-JWq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Update Student"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qit-rc-cMT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZFa-d4-o3x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add Teacher"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSH-N8-InP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TnL-Cc-hXh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Update Teacher"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyf-lF-9hP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZYX-gB-1O8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="changePassword:" destination="SCx-JR-8KT" eventType="touchUpInside" id="1ZK-G4-1da"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90L-MQ-GkN">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <segue destination="W0m-iZ-dCO" kind="show" id="kQe-dy-6xR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LKK-gz-usu" firstAttribute="leading" secondItem="gSd-WJ-mPq" secondAttribute="leading" id="15h-zH-7OR"/>
+                            <constraint firstItem="2SF-BN-Mxw" firstAttribute="top" secondItem="cyf-lF-9hP" secondAttribute="bottom" constant="169" id="B0B-vK-qiz"/>
+                            <constraint firstItem="qit-rc-cMT" firstAttribute="top" secondItem="BCk-Zl-6BW" secondAttribute="bottom" constant="8" id="DNg-GA-Z3j"/>
+                            <constraint firstItem="cyf-lF-9hP" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Fr9-8n-NAk"/>
+                            <constraint firstItem="LKK-gz-usu" firstAttribute="top" secondItem="gSd-WJ-mPq" secondAttribute="bottom" constant="8" symbolic="YES" id="HAm-f2-hsU"/>
+                            <constraint firstItem="zVZ-fN-l1j" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="IuV-Me-fqJ"/>
+                            <constraint firstItem="gSd-WJ-mPq" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="O5V-AZ-yAU"/>
+                            <constraint firstItem="BCk-Zl-6BW" firstAttribute="top" secondItem="LKK-gz-usu" secondAttribute="bottom" constant="8" id="Oxw-GK-r17"/>
+                            <constraint firstItem="BCk-Zl-6BW" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Sie-v9-xpW"/>
+                            <constraint firstItem="90L-MQ-GkN" firstAttribute="top" secondItem="cyf-lF-9hP" secondAttribute="bottom" constant="8" id="T2K-Js-fbB"/>
+                            <constraint firstItem="90L-MQ-GkN" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="UB3-E8-n7c"/>
+                            <constraint firstItem="TSH-N8-InP" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Z2F-XU-P1Z"/>
+                            <constraint firstItem="qit-rc-cMT" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="fAh-e9-q7I"/>
+                            <constraint firstItem="TSH-N8-InP" firstAttribute="top" secondItem="qit-rc-cMT" secondAttribute="bottom" constant="8" id="gaP-yB-cGu"/>
+                            <constraint firstItem="gSd-WJ-mPq" firstAttribute="top" secondItem="zVZ-fN-l1j" secondAttribute="bottom" constant="8" id="ljv-T7-ECw"/>
+                            <constraint firstItem="zVZ-fN-l1j" firstAttribute="top" secondItem="xph-0m-1HR" secondAttribute="bottom" constant="29" id="n7M-2E-7Nb"/>
+                            <constraint firstItem="LKK-gz-usu" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="oGY-52-39o"/>
+                            <constraint firstItem="cyf-lF-9hP" firstAttribute="leading" secondItem="LKK-gz-usu" secondAttribute="leading" id="oKK-uc-yJ7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="is1-6e-2Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.200000000000003" y="185.75712143928038"/>
+        </scene>
+        <!--Compose Bulk SMS-->
+        <scene sceneID="hju-hA-fqo">
+            <objects>
+                <viewController title="Compose Bulk SMS" id="Rd4-ba-YoM" customClass="ComposeBulkSMSVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wel-R4-43S"/>
+                        <viewControllerLayoutGuide type="bottom" id="AG1-3A-vzu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cup-vI-UGA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compose SMS (Max 200 char)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-qd-YVU">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kWe-LZ-uvJ">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-uV-DUb">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send to Whole School"/>
+                                <connections>
+                                    <action selector="sendWholeSchool:" destination="Rd4-ba-YoM" eventType="touchUpInside" id="mDT-lg-PBI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l2-Vt-8wX">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send to Selected Classes"/>
+                                <connections>
+                                    <action selector="sendSelectedClasses:" destination="Rd4-ba-YoM" eventType="touchUpInside" id="nPv-8p-P5p"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1l2-Vt-8wX" secondAttribute="trailing" constant="6" id="DlS-5Q-hf3"/>
+                            <constraint firstItem="1l2-Vt-8wX" firstAttribute="leading" secondItem="cup-vI-UGA" secondAttribute="leadingMargin" constant="6" id="F1t-le-nTq"/>
+                            <constraint firstItem="0Is-qd-YVU" firstAttribute="leading" secondItem="cup-vI-UGA" secondAttribute="leadingMargin" constant="21" id="Ihx-t6-9z0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Is-qd-YVU" secondAttribute="trailing" constant="12" id="OcO-dX-eBy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kWe-LZ-uvJ" secondAttribute="trailing" constant="6" id="UKM-AY-HK3"/>
+                            <constraint firstItem="AG1-3A-vzu" firstAttribute="top" secondItem="1l2-Vt-8wX" secondAttribute="bottom" constant="58" id="aE9-KJ-3qk"/>
+                            <constraint firstItem="bTp-uV-DUb" firstAttribute="leading" secondItem="cup-vI-UGA" secondAttribute="leadingMargin" constant="6" id="cVS-Wm-IxG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTp-uV-DUb" secondAttribute="trailing" constant="6" id="gSb-nM-ZwY"/>
+                            <constraint firstItem="kWe-LZ-uvJ" firstAttribute="leading" secondItem="cup-vI-UGA" secondAttribute="leadingMargin" constant="6" id="haE-cb-002"/>
+                            <constraint firstItem="0Is-qd-YVU" firstAttribute="top" secondItem="Wel-R4-43S" secondAttribute="bottom" id="hnu-aK-7FN"/>
+                            <constraint firstItem="bTp-uV-DUb" firstAttribute="centerX" secondItem="cup-vI-UGA" secondAttribute="centerX" id="q7u-Lt-Bzw"/>
+                            <constraint firstItem="1l2-Vt-8wX" firstAttribute="centerX" secondItem="cup-vI-UGA" secondAttribute="centerX" id="r8O-Xa-wIp"/>
+                            <constraint firstItem="bTp-uV-DUb" firstAttribute="top" secondItem="kWe-LZ-uvJ" secondAttribute="bottom" constant="53" id="uG5-O0-TU1"/>
+                            <constraint firstItem="kWe-LZ-uvJ" firstAttribute="top" secondItem="0Is-qd-YVU" secondAttribute="bottom" constant="19" id="yKk-RT-KpA"/>
+                            <constraint firstItem="1l2-Vt-8wX" firstAttribute="top" secondItem="bTp-uV-DUb" secondAttribute="bottom" constant="21" id="ze1-Zt-Pge"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txt_bulk_SMS" destination="kWe-LZ-uvJ" id="GGx-gI-7jy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXc-jD-Mg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765.60000000000002" y="185.75712143928038"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="BMS-ZL-Loy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="W0m-iZ-dCO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuB-iF-htJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-96" y="591"/>
+        </scene>
+    </scenes>
+</document>

@@ -31,7 +31,6 @@ class ComposeMessageVCViewController: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
-            alert.addAction(cancelAction)
             var dict = [String:String]()
             dict["message"] = the_message
             dict["teacher"] = SessionManager.getLoggedInUser() as String
@@ -41,6 +40,7 @@ class ComposeMessageVCViewController: UIViewController {
                 dict["class"] = self.the_class
                 dict["section"] = self.section
             }
+            
             
             for i in 0 ..< self.student_list.count  {
                 dict[MiscFunction.randomStringWithLength(len: 4) as String] = self.student_list[i]

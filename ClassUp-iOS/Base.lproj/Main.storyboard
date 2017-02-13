@@ -85,11 +85,20 @@
                         <outlet property="txtPassword" destination="N9O-wQ-D31" id="LwV-Pj-ef0"/>
                         <segue destination="WKT-8l-c7i" kind="presentation" identifier="toMainMenu" id="Flc-ka-kMa"/>
                         <segue destination="aw1-Sg-dkd" kind="presentation" identifier="toParentMenu" id="eso-O1-SRL"/>
+                        <segue destination="Rwz-dh-a9G" kind="show" identifier="toSchoolAdmin" id="bPB-Qy-eb6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qrw-iF-ZIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2052" y="134"/>
+        </scene>
+        <!--SchoolAdminStoryBoard-->
+        <scene sceneID="Ktd-xX-byh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SchoolAdminStoryBoard" id="Rwz-dh-a9G" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sb-Cz-gB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1463" y="410"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jka-Ox-jGT">
@@ -415,7 +424,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="YRf-9I-iaG">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attendance_header_cell" id="hcz-nY-isK" customClass="AttendanceHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attendance_header_cell" id="hcz-nY-isK" customClass="AttendanceHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="30" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcz-nY-isK" id="XIZ-b0-3Z4">
@@ -462,7 +471,7 @@
                                             <outlet property="roll_no" destination="IkK-a7-DSx" id="wjj-6H-2Mx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attendance_cell" rowHeight="40" id="1Fa-z6-KWZ" customClass="TakeAttendanceCellTVC" customModule="ClassUp_iOS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attendance_cell" rowHeight="40" id="1Fa-z6-KWZ" customClass="TakeAttendanceCellTVC" customModule="ClassUp_iOS">
                                         <rect key="frame" x="0.0" y="70" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Fa-z6-KWZ" id="OPT-ZI-vyR">
@@ -1032,7 +1041,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="42" sectionHeaderHeight="32" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nfr-e6-THP">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="hzh-cZ-iGC" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="hzh-cZ-iGC" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hzh-cZ-iGC" id="SDZ-X6-Qkf">
@@ -1113,7 +1122,7 @@
                                             <outlet property="the_class" destination="Xgq-cV-EW4" id="S54-Zu-9ei"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pending_test_cell" id="OkE-t9-VAL" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pending_test_cell" id="OkE-t9-VAL" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OkE-t9-VAL" id="H9E-5P-gE6">
@@ -1441,7 +1450,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="42" sectionHeaderHeight="32" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-45-FOq">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="HtA-Ix-UMt" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="HtA-Ix-UMt" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HtA-Ix-UMt" id="QzN-cL-4Zb">
@@ -1522,7 +1531,7 @@
                                             <outlet property="the_class" destination="6fP-JW-UFu" id="hu5-E1-GpZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="completed_test_cell" id="Kt1-se-FvC" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="completed_test_cell" id="Kt1-se-FvC" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kt1-se-FvC" id="fOd-Zk-Yzs">
@@ -1814,7 +1823,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGC-jL-fke">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bus_attendance_cell" id="Qid-jr-4RR" customClass="BusAttendanceCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bus_attendance_cell" id="Qid-jr-4RR" customClass="BusAttendanceCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qid-jr-4RR" id="fwo-8e-44Y">
@@ -1881,7 +1890,7 @@
                                             <outlet property="student_name" destination="9q3-og-DC0" id="07c-gs-had"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bus_attendance_header_cell" id="kmM-e9-WFK" customClass="BusAttendanceHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bus_attendance_header_cell" id="kmM-e9-WFK" customClass="BusAttendanceHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kmM-e9-WFK" id="xDe-Ml-9Wn">
@@ -2353,7 +2362,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="32" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8iQ-7q-zdm">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="att_summary_header_cell" id="yDk-Rw-GyS" customClass="AttendanceSummaryHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="att_summary_header_cell" id="yDk-Rw-GyS" customClass="AttendanceSummaryHeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yDk-Rw-GyS" id="1xt-Kw-bUY">
@@ -2449,7 +2458,7 @@
                                             <outlet property="roll_no" destination="Fli-ay-kbZ" id="ecC-DF-O7y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="att_summary_cell" id="0iv-wV-hUO" customClass="AttendanceSummaryCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="att_summary_cell" id="0iv-wV-hUO" customClass="AttendanceSummaryCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0iv-wV-hUO" id="sja-JA-CoV">
@@ -2947,7 +2956,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Cn-eB-O0L">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="student_selection_cell" id="s36-1z-gLS" customClass="StudentSelectionCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="student_selection_cell" id="s36-1z-gLS" customClass="StudentSelectionCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s36-1z-gLS" id="urp-hb-eZF">
@@ -3261,7 +3270,7 @@
         <!--Change PasswordVC-->
         <scene sceneID="ZcU-Xx-461">
             <objects>
-                <viewController id="BXt-uT-evK" customClass="ChangePasswordVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePassword" id="BXt-uT-evK" customClass="ChangePasswordVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xYb-1V-7Me"/>
                         <viewControllerLayoutGuide type="bottom" id="kQ6-tM-Ed8"/>
@@ -3575,10 +3584,10 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ward_list_cell" id="Qz0-fA-QM8" customClass="WardListCellTVC" customModule="ClassUp_iOS">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qz0-fA-QM8" id="rC5-M5-CfR">
-                                            <frame key="frameInset" width="1000" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-MH-F1J">
@@ -4578,7 +4587,7 @@
                                     <constraint firstAttribute="height" constant="150" id="5he-e2-YWg"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exam_result_header_cell" id="clb-M1-7fr" customClass="ExamResultHeaderCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exam_result_header_cell" id="clb-M1-7fr" customClass="ExamResultHeaderCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="clb-M1-7fr" id="5aq-Io-4ml">
@@ -4683,7 +4692,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exam_result_cell" id="7pR-Sd-PG0" customClass="ExamResultCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exam_result_cell" id="7pR-Sd-PG0" customClass="ExamResultCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7pR-Sd-PG0" id="ZZB-PI-NfX">
@@ -4912,7 +4921,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="862-47-YnS" id="0QW-c9-jd8">
-                                            <frame key="frameInset" width="375" height="91"/>
+                                            <frame key="frameInset" width="375" height="90.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLb-hs-vDM">
@@ -5002,8 +5011,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Cuw-hu-iXb"/>
-        <segue reference="fac-Hp-6Ip"/>
-        <segue reference="4NT-2p-P35"/>
+        <segue reference="xXD-Bw-bKr"/>
         <segue reference="GRw-vL-cPK"/>
+        <segue reference="4NT-2p-P35"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-//import ReachabilitySwift
 
 
 class LoginVC: UIViewController {
@@ -107,7 +106,13 @@ class LoginVC: UIViewController {
                                         self.showAlert(title: "Login Failed", message: "Institute/School's subscription has expired. Please contact your seniors")
                                     }
                                     else    {
-                                        self.performSegue(withIdentifier: "toMainMenu", sender: self)
+                                        // 13/02/17 if user is School Admin show School Admin menu
+                                        if response["school_admin"]  == "true"  {
+                                            self.performSegue(withIdentifier: "toSchoolAdmin", sender: self)
+                                        }
+                                        else    {
+                                            self.performSegue(withIdentifier: "toMainMenu", sender: self)
+                                        }
                                     }
                                 }else{
                                     // a parent has logged in
