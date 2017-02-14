@@ -82,6 +82,8 @@
 		A4ED5CF41E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */; };
 		A4ED5CF61E51A17900888DD1 /* SchoolAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */; };
 		A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */; };
+		A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */; };
+		A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */; };
 		DD67D170529E938ED446578B /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +168,8 @@
 		A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SchoolAdminStoryBoard.storyboard; path = ../SchoolAdminStoryBoard.storyboard; sourceTree = "<group>"; };
 		A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolAdminVC.swift; sourceTree = "<group>"; };
 		A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBulkSMSVC.swift; sourceTree = "<group>"; };
+		A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassBulkSMSVC.swift; sourceTree = "<group>"; };
+		A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListCell.swift; sourceTree = "<group>"; };
 		C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +238,7 @@
 				A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */,
 				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
+				A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */,
 				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
 				A4053CAB1DD9C9970090D89D /* Env.swift */,
 				A4053CA11DD9C6F30090D89D /* ExamCellTVC.swift */,
@@ -246,7 +251,6 @@
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
 				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
 				A482F2501DB3E56100EA2811 /* Main.storyboard */,
-				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
 				A4166D8A1DC07947007114DA /* MainMenuVC.swift */,
 				A4053CB61DD9E7B00090D89D /* MarksHistoryCellTVC.swift */,
 				A4053CB41DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift */,
@@ -258,6 +262,9 @@
 				A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */,
 				A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */,
 				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
+				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
+				A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */,
+				A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */,
 				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
 				A455320C1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift */,
 				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
@@ -294,8 +301,7 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
-				A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */,
-				A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */,
+				A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				A4053CA81DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift in Sources */,
 				A4053CB31DD9D0500090D89D /* SubjectMarksModel.swift in Sources */,
 				A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */,
+				A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */,
 				A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */,
 				A4053CA21DD9C6F30090D89D /* ExamCellTVC.swift in Sources */,
 				A45532151DD7823B0088A3C9 /* StudentSelectionCell.swift in Sources */,
@@ -479,6 +486,7 @@
 				A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */,
 				A45532121DD77FFB0088A3C9 /* SelectClassSectionVC.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
+				A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
