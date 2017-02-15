@@ -19,8 +19,8 @@ class ComposeBulkSMSVC: UIViewController {
     }
 
     @IBAction func sendWholeSchool(_ sender: UIButton) {
-        let the_message = txt_bulk_SMS.text as String
-        if the_message == ""    {
+        let message_text = txt_bulk_SMS.text as String
+        if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")
         }
         else    {
@@ -30,7 +30,7 @@ class ComposeBulkSMSVC: UIViewController {
             alert.addAction(cancelAction)
             let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
                 var dict = [String:String]()
-                dict["message_text"] = the_message
+                dict["message_text"] = message_text
                 dict["from_device"] = "true"
                 dict["whole_school"] = "true"
                 dict["user"] = SessionManager.getLoggedInUser()
@@ -52,22 +52,33 @@ class ComposeBulkSMSVC: UIViewController {
     }
     
     @IBAction func sendSelectedClasses(_ sender: UIButton) {
+        let message_text = txt_bulk_SMS.text as String
+        if message_text == ""    {
+            showAlert(title: "Error", message: "Message is empty!")
+        }
+        else    {
+            performSegue(withIdentifier: "toSelectClassBulkSMS", sender: self)
+        
     }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        let vc = segue.destination as! SelectClassBulkSMSVC
+        let message_text = txt_bulk_SMS.text as String
+    vc.message_text = message_text}
+    
     
     func showAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

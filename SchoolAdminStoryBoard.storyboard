@@ -138,8 +138,12 @@
                                 <state key="normal" title="Send to Selected Classes"/>
                                 <connections>
                                     <action selector="sendSelectedClasses:" destination="Rd4-ba-YoM" eventType="touchUpInside" id="nPv-8p-P5p"/>
-                                    <segue destination="wHO-Uh-TAG" kind="show" id="x9q-bu-cIl"/>
                                 </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTf-nj-H6X">
+                                <frame key="frameInset" minX="164" minY="617" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,6 +167,7 @@
                     </view>
                     <connections>
                         <outlet property="txt_bulk_SMS" destination="kWe-LZ-uvJ" id="GGx-gI-7jy"/>
+                        <segue destination="wHO-Uh-TAG" kind="show" identifier="toSelectClassBulkSMS" id="Hzf-am-h63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXc-jD-Mg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="-96" y="591"/>
         </scene>
-        <!--Please Select-->
+        <!--Please Select Class-->
         <scene sceneID="39m-LJ-qhq">
             <objects>
-                <viewController title="Please Select" automaticallyAdjustsScrollViewInsets="NO" id="wHO-Uh-TAG" customClass="SelectClassBulkSMSVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Please Select Class" automaticallyAdjustsScrollViewInsets="NO" id="wHO-Uh-TAG" customClass="SelectClassBulkSMSVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="79W-Oq-8KR"/>
                         <viewControllerLayoutGuide type="bottom" id="WEZ-zW-6tq"/>
@@ -194,7 +199,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="kcs-YB-eE6" kind="unwind" identifier="toMainMenu" unwindAction="unwindToMainMenu:" id="kMa-w3-a5H"/>
+                                    <segue destination="kcs-YB-eE6" kind="unwind" identifier="toAdminMenu" unwindAction="unwindToAdminMenu:" id="kMa-w3-a5H"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8QX-lv-F5V">
@@ -204,7 +209,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2q1-2e-nLf" id="EHy-HS-LaW">
-                                            <frame key="frameInset" width="383" height="34.5"/>
+                                            <frame key="frameInset" width="383" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-wz-AYm" userLabel="The Class">
@@ -246,8 +251,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Send Message"/>
                                 <connections>
-                                    <action selector="composeMessageWithSender:" destination="wHO-Uh-TAG" eventType="touchUpInside" id="9F9-sc-AFG"/>
+                                    <action selector="sendBulkSMS:" destination="wHO-Uh-TAG" eventType="touchUpInside" id="mht-mu-bWA"/>
                                 </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q38-E7-mpe">
+                                <frame key="frameInset" minX="287" minY="624" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

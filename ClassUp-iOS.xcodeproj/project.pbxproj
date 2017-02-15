@@ -237,6 +237,7 @@
 				A48E11161DD4938F0008DF7D /* BusDelayMessageVC.swift */,
 				A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */,
 				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
+				A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */,
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
 				A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */,
 				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
@@ -301,7 +302,6 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
-				A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";

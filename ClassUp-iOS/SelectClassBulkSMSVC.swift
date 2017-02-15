@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import Just
+import Alamofire
 
 class ClassListSource:NSObject {
+    
     var the_class: String
     
     init(the_class: String)  {
@@ -23,8 +25,11 @@ class ClassListSource:NSObject {
 
 class SelectClassBulkSMSVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    var message_text: String = ""
     var class_list: [ClassListSource] = []
     var selection: [String] = []
+    
+    var cancelled = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +46,21 @@ class SelectClassBulkSMSVC: UIViewController, UITableViewDataSource, UITableView
                     let the_class: String = j[index]["standard"].string!
                     class_list.append(ClassListSource(the_class: the_class))
                 }
+                class_list.append(ClassListSource(the_class: "Teachers"))
+                class_list.append(ClassListSource(the_class: "Staff"))
             }
         }
-
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
+        lable.textColor = UIColor.black
+        lable.numberOfLines = 0
+        lable.textAlignment = NSTextAlignment.center
+        
+        lable.text = "Please Select"
+        self.navigationItem.titleView = lable
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,6 +117,59 @@ class SelectClassBulkSMSVC: UIViewController, UITableViewDataSource, UITableView
         }
     }
 
+    @IBAction func sendBulkSMS(_ sender: UIButton) {
+        
+        let alert: UIAlertController = UIAlertController(title: "Confirm Message(s) Sending", message: "Are you sure to send the message(s)?", preferredStyle: .alert )
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let confirmAction =
+            UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                self.cancelled = false
+                let school_id = SessionManager.getSchoolId()
+                let user = SessionManager.getLoggedInUser()
+                let whole_school = "false"
+                let message_text = self.message_text
+                var dict = [String:String]()
+                var classes_array: [String] = []
+                for i in 0 ..< self.selection.count  {
+                    classes_array.append(self.selection[i])
+                    dict[self.selection[i]] = self.selection[i]
+                }
+                
+                // prepare the json
+                let jsonObject: [String:AnyObject] = [
+                    "school_id": school_id as AnyObject,
+                    "user": user as AnyObject,
+                    "whole_school": whole_school as AnyObject,
+                    "message_text": message_text as AnyObject,
+                    "classes_array": classes_array as AnyObject
+                    
+                ]
+            
+            let server_ip = MiscFunction.getServerIP()
+            let url = "\(server_ip)/operations/send_bulk_sms/"
+            Alamofire.request(url, method: .post, parameters: jsonObject, encoding: JSONEncoding.default).responseJSON { response in
+                
+            }
+            self.performSegue(withIdentifier: "toAdminMenu", sender: self)
+            self.dismiss(animated: true, completion: nil)
+            return
+        })
+        alert.addAction(confirmAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let destinationVC = segue.destination as! SchoolAdminVC
+        if cancelled    {
+            destinationVC.comingFrom = "BulkSMSCancelled"
+        } else{
+            destinationVC.comingFrom = "BulkSMS"
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -112,5 +180,6 @@ class SelectClassBulkSMSVC: UIViewController, UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
+
