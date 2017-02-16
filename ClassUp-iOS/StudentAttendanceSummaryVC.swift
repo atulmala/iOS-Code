@@ -10,8 +10,6 @@ import UIKit
 import SwiftyJSON
 
 class StudentAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-   
     @IBOutlet weak var student_name: UILabel!
     var student_id: String = ""
     var student_full_name: String = ""

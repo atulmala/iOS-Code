@@ -84,7 +84,6 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return message_list.count
     }

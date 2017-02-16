@@ -35,6 +35,10 @@ class SchoolAdminVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
+        // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary
+        // pop-up appears on screen
+        comingFrom = ""
     }
 
 
@@ -48,6 +52,11 @@ class SchoolAdminVC: UIViewController {
         
         let vc = storyboard.instantiateViewController(withIdentifier: "ChangePassword")
         self.show(vc, sender: self)
+    }
+    
+    @IBAction func unwindToAdminMenu(segue: UIStoryboardSegue)   {
+        
+        
     }
 
     /*

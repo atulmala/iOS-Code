@@ -104,8 +104,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 btn_submit.setTitle("Submit", for: UIControlState.normal)
         }
         
-//        classPicker.delegate = self
-//        classPicker.dataSource = self
         
         // check if there is a working internet connection
         if !Reachability.isConnectedToNetwork() {
@@ -137,7 +135,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             MiscFunction.sendRequestToServer(url: subjectURL2, key: "subject_name", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
         }
 
-        
         class_section_subject_list[0] = class_list
         class_section_subject_list[1] = section_list
         class_section_subject_list[2] = subject_list
@@ -189,8 +186,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     func dateHandler(sender: UIDatePicker)  {
         let date_formatter = DateFormatter()
         date_formatter.timeStyle = DateFormatter.Style.short
-        //date_formatter.timeStyle = DateFormatter.Style.ShortStyle
-        //var str_date = date_formatter.stringFromDate(datePicker.date)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

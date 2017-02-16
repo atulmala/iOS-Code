@@ -31,6 +31,10 @@
 		A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DFFFC1E46264900711694 /* MessageHistoryCellTableViewCell.swift */; };
 		A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8A1DC07947007114DA /* MainMenuVC.swift */; };
 		A4166D8D1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */; };
+		A443A52B1E55D743001A64FC /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52A1E55D743001A64FC /* SelectDateVC.swift */; };
+		A443A52D1E55DF16001A64FC /* ShowSchoolAttSummVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52C1E55DF16001A64FC /* ShowSchoolAttSummVC.swift */; };
+		A443A52F1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */; };
+		A443A5311E55F167001A64FC /* School_Att_Summ_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */; };
 		A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */; };
 		A455320A1DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45532071DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift */; };
 		A455320B1DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45532081DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift */; };
@@ -115,6 +119,10 @@
 		A40DFFFC1E46264900711694 /* MessageHistoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHistoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		A4166D8A1DC07947007114DA /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateClassSectionSubjectVC.swift; sourceTree = "<group>"; };
+		A443A52A1E55D743001A64FC /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
+		A443A52C1E55DF16001A64FC /* ShowSchoolAttSummVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSchoolAttSummVC.swift; sourceTree = "<group>"; };
+		A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School_Att_Summ_Hdr_Cell.swift; sourceTree = "<group>"; };
+		A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School_Att_Summ_Cell.swift; sourceTree = "<group>"; };
 		A45532061DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceSummaryCellVC.swift; sourceTree = "<group>"; };
 		A45532071DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceSummaryHeaderCell.swift; sourceTree = "<group>"; };
 		A45532081DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAttendanceSummaryVC.swift; sourceTree = "<group>"; };
@@ -263,18 +271,22 @@
 				A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */,
 				A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */,
 				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
+				A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */,
+				A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */,
 				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
 				A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */,
 				A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */,
 				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
 				A455320C1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift */,
 				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
+				A443A52A1E55D743001A64FC /* SelectDateVC.swift */,
 				A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */,
 				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
 				A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */,
 				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
 				A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */,
 				A45532081DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift */,
+				A443A52C1E55DF16001A64FC /* ShowSchoolAttSummVC.swift */,
 				A4053C9D1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift */,
 				A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */,
 				A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */,
@@ -434,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A443A52F1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift in Sources */,
 				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
 				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
 				A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */,
@@ -477,6 +490,7 @@
 				A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */,
 				A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
+				A443A5311E55F167001A64FC /* School_Att_Summ_Cell.swift in Sources */,
 				A4053CAA1DD9C8790090D89D /* ExampleDefaults.swift in Sources */,
 				A4053C9A1DD9C37E0090D89D /* SubjectSelectionVC.swift in Sources */,
 				A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */,
@@ -486,6 +500,7 @@
 				A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */,
 				A45532121DD77FFB0088A3C9 /* SelectClassSectionVC.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
+				A443A52B1E55D743001A64FC /* SelectDateVC.swift in Sources */,
 				A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
@@ -500,6 +515,7 @@
 				A4053CA41DD9C77F0090D89D /* ExamResultVC.swift in Sources */,
 				A48E11191DD4938F0008DF7D /* BusAttendanceVC.swift in Sources */,
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
+				A443A52D1E55DF16001A64FC /* ShowSchoolAttSummVC.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,

@@ -152,7 +152,7 @@ class SelectClassBulkSMSVC: UIViewController, UITableViewDataSource, UITableView
             Alamofire.request(url, method: .post, parameters: jsonObject, encoding: JSONEncoding.default).responseJSON { response in
                 
             }
-            self.performSegue(withIdentifier: "toAdminMenu", sender: self)
+            self.performSegue(withIdentifier: "unwindToAdminMenu", sender: self)
             self.dismiss(animated: true, completion: nil)
             return
         })

@@ -10,14 +10,17 @@ import UIKit
 import Alamofire
 
 class ComposeBulkSMSVC: UIViewController {
-
+    
     @IBOutlet weak var txt_bulk_SMS: UITextView!
+    
+    var cancelled = true
+    var destination = "SelectClassBulkSMSVC"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func sendWholeSchool(_ sender: UIButton) {
         let message_text = txt_bulk_SMS.text as String
         if message_text == ""    {
@@ -29,6 +32,8 @@ class ComposeBulkSMSVC: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                self.destination = "SchoolAdminVC"
+                self.cancelled = false
                 var dict = [String:String]()
                 dict["message_text"] = message_text
                 dict["from_device"] = "true"
@@ -41,14 +46,13 @@ class ComposeBulkSMSVC: UIViewController {
                 Alamofire.request(url, method: .post, parameters: dict, encoding: JSONEncoding.default).responseJSON { response in
                     
                 }
-                //self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
+                self.performSegue(withIdentifier: "unwindToAdminMenu", sender: self)
                 self.dismiss(animated: true, completion: nil)
                 return
             })
             alert.addAction(confirmAction)
             present(alert, animated: true, completion: nil)
         }
-
     }
     
     @IBAction func sendSelectedClasses(_ sender: UIButton) {
@@ -57,9 +61,9 @@ class ComposeBulkSMSVC: UIViewController {
             showAlert(title: "Error", message: "Message is empty!")
         }
         else    {
+            destination = "SelectClassBulkSMS"
             performSegue(withIdentifier: "toSelectClassBulkSMS", sender: self)
-        
-    }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,18 +71,26 @@ class ComposeBulkSMSVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let vc = segue.destination as! SelectClassBulkSMSVC
-        let message_text = txt_bulk_SMS.text as String
-    vc.message_text = message_text}
-    
+        switch destination {
+            case "SelectClassBulkSMS":
+                let vc = segue.destination as! SelectClassBulkSMSVC
+                let message_text = txt_bulk_SMS.text as String
+                vc.message_text = message_text
+                break
+            case "SchoolAdminVC":
+                let vc = segue.destination as! SchoolAdminVC
+                vc.comingFrom = "BulkSMS"
+                break
+            default:
+                break
+        }
+    }
     
     func showAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -88,5 +100,5 @@ class ComposeBulkSMSVC: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
-
+    
 }
