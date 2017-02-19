@@ -60,41 +60,6 @@ class MarksProcessing: UIViewController  {
     }
     
     class func submit_marks_list(whether_grade_based: Bool) -> Bool   {
-//        // check if marks for a student have not been entered.
-//        for i in 0 ..< marks_list.count    {
-//            if !whether_grade_based {
-//                if marks_list[i].marks == "-5000.00" || marks_list[i].marks == "-5000"
-//                {
-//                    let student = marks_list[i].student
-//                    let roll_no = marks_list[i].roll_no
-//                    
-//                    let message = "Please enter marks for Roll No: \(roll_no) \(student) or mark as Absent"
-//                    let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-//                    
-//                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    present(alertController, animated: true, completion: nil)
-//                    
-//                    return false
-//                }
-//            }
-//            else    {
-//                if marks_list[i].grade == "-5000.00" || marks_list[i].grade == "-5000"
-//                    || marks_list[i].grade == "" {
-//                    let student = marks_list[i].student
-//                    let roll_no = marks_list[i].roll_no
-//                    
-//                    let message = "Please enter grades for Roll No: \(roll_no) \(student) or mark as Absent"
-//                    let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-//                    
-//                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    present(alertController, animated: true, completion: nil)
-//                    return false
-//                }
-//            }
-//        }
-        
         var marks_dictionary = [String:String]()
                 
         var id_array: [String] = []

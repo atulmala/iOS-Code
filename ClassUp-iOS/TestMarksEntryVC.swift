@@ -48,6 +48,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         MarksProcessing.save_marks_list(whether_grade_based: whether_grade_based)
         showAlert(title: "Done", message: "Marks/Grades Saved")
     }
+    
     @IBAction func submitMarks(sender: UIButton)  {
         // first, check if marks/grade for any student have been left to be filled
         for i in 0 ..< test_marks_list.count    {
@@ -85,11 +86,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
 
         if MarksProcessing.submit_marks_list(whether_grade_based: whether_grade_based) == true   {
-            //let alertController = UIAlertController(title: "Test Marks Submitted", message: "Test Marks/Grades have been submitted", preferredStyle: .alert)
-            
-//            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//            alertController.addAction(defaultAction)
-            //present(alertController, animated: true, completion: nil)
             performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
         }
     }
@@ -101,8 +97,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(TestMarksEntryVC.keyboardWillShow(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TestMarksEntryVC.keyboardWillHide(note:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        
         
         let server_ip: String = MiscFunction.getServerIP()
         var url: String = "\(server_ip)/academics/get_test_marks_list/\(test_id)/"

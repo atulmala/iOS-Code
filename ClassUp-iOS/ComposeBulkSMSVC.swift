@@ -26,6 +26,8 @@ class ComposeBulkSMSVC: UIViewController {
         if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")
         }
+        else if (message_text.characters.count) > 140       {showAlert(title: "Error", message: "Message is too large (\(message_text.characters.count) characters). Please restrict it to 140 characters!")
+        }
         else    {
             let alert: UIAlertController = UIAlertController(title: "Confirm Message(s) Sending", message: "Are you sure to send the message(s)?", preferredStyle: .alert )
             
@@ -60,7 +62,10 @@ class ComposeBulkSMSVC: UIViewController {
         if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")
         }
-        else    {
+        else    if (message_text.characters.count) > 140       {showAlert(title: "Error", message: "Message is too large (\(message_text.characters.count) characters). Please restrict it to 140 characters!")
+        }
+        else
+        {
             destination = "SelectClassBulkSMS"
             performSegue(withIdentifier: "toSelectClassBulkSMS", sender: self)
         }
@@ -78,17 +83,17 @@ class ComposeBulkSMSVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         switch destination {
-            case "SelectClassBulkSMS":
-                let vc = segue.destination as! SelectClassBulkSMSVC
-                let message_text = txt_bulk_SMS.text as String
-                vc.message_text = message_text
-                break
-            case "SchoolAdminVC":
-                let vc = segue.destination as! SchoolAdminVC
-                vc.comingFrom = "BulkSMS"
-                break
-            default:
-                break
+        case "SelectClassBulkSMS":
+            let vc = segue.destination as! SelectClassBulkSMSVC
+            let message_text = txt_bulk_SMS.text as String
+            vc.message_text = message_text
+            break
+        case "SchoolAdminVC":
+            let vc = segue.destination as! SchoolAdminVC
+            vc.comingFrom = "BulkSMS"
+            break
+        default:
+            break
         }
     }
     

@@ -80,6 +80,8 @@
 		A49081681DC1185C00A4170D /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49081671DC1185C00A4170D /* StudentModel.swift */; };
 		A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49081691DC11B5000A4170D /* AttendanceProcessing.swift */; };
 		A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */; };
+		A4918CD21E59F7E00099F5C5 /* AddStudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */; };
+		A4918CD41E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */; };
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
@@ -170,6 +172,8 @@
 		A49081671DC1185C00A4170D /* StudentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 		A49081691DC11B5000A4170D /* AttendanceProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceProcessing.swift; sourceTree = "<group>"; };
 		A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceHeaderCell.swift; sourceTree = "<group>"; };
+		A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentVC.swift; sourceTree = "<group>"; };
+		A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
+				A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */,
+				A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
 				A4053CB01DD9CBF50090D89D /* SubjectListCellTVC.swift in Sources */,
 				A47365CE1DD980DE00EDA30D /* WardListCellTVC.swift in Sources */,
+				A4918CD21E59F7E00099F5C5 /* AddStudentVC.swift in Sources */,
 				A460412A1DCDE4A2004E9BDE /* TestMarksModel.swift in Sources */,
 				A4665A461DCA37800049EB4D /* SetSubjectsVC.swift in Sources */,
 				A482F24F1DB3E56100EA2811 /* ViewController.swift in Sources */,
@@ -491,6 +498,7 @@
 				A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
 				A443A5311E55F167001A64FC /* School_Att_Summ_Cell.swift in Sources */,
+				A4918CD41E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift in Sources */,
 				A4053CAA1DD9C8790090D89D /* ExampleDefaults.swift in Sources */,
 				A4053C9A1DD9C37E0090D89D /* SubjectSelectionVC.swift in Sources */,
 				A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */,
