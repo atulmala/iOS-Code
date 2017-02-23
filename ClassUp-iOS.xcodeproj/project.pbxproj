@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAEF1DB532850011BFB6 /* SessionManager.swift */; };
-		A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAF11DB541A90011BFB6 /* Reachibility.swift */; };
 		A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */; };
 		A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */; };
 		A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */; };
@@ -90,14 +89,12 @@
 		A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */; };
 		A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */; };
 		A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */; };
-		DD67D170529E938ED446578B /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */; };
+		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FD15DB51580E823564ED733 /* Pods-ClassUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A404FAEF1DB532850011BFB6 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		A404FAF11DB541A90011BFB6 /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceSummaryVC.swift; sourceTree = "<group>"; };
 		A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuAttSummaryHeaderCellTVC.swift; sourceTree = "<group>"; };
 		A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExamTermVC.swift; sourceTree = "<group>"; };
@@ -182,7 +179,8 @@
 		A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListCell.swift; sourceTree = "<group>"; };
-		C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,28 +188,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD67D170529E938ED446578B /* Pods_ClassUp_iOS.framework in Frameworks */,
+				EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		66A5EDF6397A6B8C438C1DB1 /* Frameworks */ = {
+		014B9289085621D777663771 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66B83E74B84E51D40ACD6157 /* Pods_ClassUp_iOS.framework */,
+				F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		74C006A9CE8D6483A980106E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */,
-				2FD15DB51580E823564ED733 /* Pods-ClassUp-iOS.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		A482F2401DB3E56100EA2811 = {
@@ -219,10 +208,10 @@
 			children = (
 				A4D28AE41DB3F59A003B47F2 /* CartFile */,
 				A482F24B1DB3E56100EA2811 /* ClassUp-iOS */,
-				66A5EDF6397A6B8C438C1DB1 /* Frameworks */,
 				A482F25E1DB3E69C00EA2811 /* PodFile */,
-				74C006A9CE8D6483A980106E /* Pods */,
 				A482F24A1DB3E56100EA2811 /* Products */,
+				BEB1A5C8A15E5D1037F6B741 /* Pods */,
+				014B9289085621D777663771 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +226,7 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */,
 				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
 				A482F2531DB3E56100EA2811 /* Assets.xcassets */,
 				A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */,
@@ -261,6 +251,7 @@
 				A4053CA31DD9C77F0090D89D /* ExamResultVC.swift */,
 				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
 				A482F2581DB3E56100EA2811 /* Info.plist */,
+				A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */,
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
 				A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */,
 				A482F2501DB3E56100EA2811 /* Main.storyboard */,
@@ -274,7 +265,6 @@
 				A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */,
 				A47365C81DD9766A00EDA30D /* ParentMenuVC.swift */,
 				A460411E1DCDE37B004E9BDE /* PendingTestListVC.swift */,
-				A404FAF11DB541A90011BFB6 /* Reachibility.swift */,
 				A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */,
 				A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */,
 				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
@@ -318,10 +308,17 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
-				A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */,
-				A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */,
 			);
 			path = "ClassUp-iOS";
+			sourceTree = "<group>";
+		};
+		BEB1A5C8A15E5D1037F6B741 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */,
+				29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,12 +328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A482F25B1DB3E56100EA2811 /* Build configuration list for PBXNativeTarget "ClassUp-iOS" */;
 			buildPhases = (
-				3F6DFB1A8E48919C8C228E55 /* Check Pods Manifest.lock */,
+				18AB59514D0657DDE958C878 /* [CP] Check Pods Manifest.lock */,
 				A482F2451DB3E56100EA2811 /* Sources */,
 				A482F2461DB3E56100EA2811 /* Frameworks */,
 				A482F2471DB3E56100EA2811 /* Resources */,
-				254FCC7C2D976C094175F0F4 /* Embed Pods Frameworks */,
-				0E86506E5E01DAEE98E453A6 /* Copy Pods Resources */,
+				0CDF9849174536CE2FFA7BD6 /* [CP] Embed Pods Frameworks */,
+				AA30483314247629A6903A87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,29 +397,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E86506E5E01DAEE98E453A6 /* Copy Pods Resources */ = {
+		0CDF9849174536CE2FFA7BD6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		254FCC7C2D976C094175F0F4 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,19 +412,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F6DFB1A8E48919C8C228E55 /* Check Pods Manifest.lock */ = {
+		18AB59514D0657DDE958C878 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA30483314247629A6903A87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -494,7 +491,6 @@
 				A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */,
 				A455320B1DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift in Sources */,
 				A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */,
-				A404FAF21DB541A90011BFB6 /* Reachibility.swift in Sources */,
 				A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
 				A443A5311E55F167001A64FC /* School_Att_Summ_Cell.swift in Sources */,
@@ -649,7 +645,7 @@
 		};
 		A482F25C1DB3E56100EA2811 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C602D94921C0CA1C6D07A228 /* Pods-ClassUp-iOS.debug.xcconfig */;
+			baseConfigurationReference = CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -668,7 +664,7 @@
 		};
 		A482F25D1DB3E56100EA2811 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FD15DB51580E823564ED733 /* Pods-ClassUp-iOS.release.xcconfig */;
+			baseConfigurationReference = 29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

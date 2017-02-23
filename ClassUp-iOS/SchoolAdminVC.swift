@@ -19,6 +19,7 @@ class SchoolAdminVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         var message: String = ""
+        
         if comingFrom == "BulkSMS"    {
             message = "Message(s) Sent!"
             let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
@@ -27,6 +28,7 @@ class SchoolAdminVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
         if comingFrom == "BulkSMSCancelled"    {
             message = "Message Sending Cancelled!"
             let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
@@ -36,6 +38,15 @@ class SchoolAdminVC: UIViewController {
             self.present(final_confirm, animated: false , completion: nil)
         }
         
+        if comingFrom == "AddStudent"    {
+            message = "Student Added. Please login as teacher and check the Class."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+
         // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary
         // pop-up appears on screen
         comingFrom = ""

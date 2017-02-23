@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import ReachabilitySwift
 
 
 class LoginVC: UIViewController {
+    let reachability = Reachability()
     var comingFrom: String = ""
     
     @IBOutlet weak var txtPassword: UITextField!
@@ -19,10 +21,8 @@ class LoginVC: UIViewController {
     
     @IBAction func forgotPassword(sender: UIButton) {
         // check the connectivity to iternet
-        
-        if !Reachability.isConnectedToNetwork() {
+        if !(reachability?.isReachable)!   {
             showAlert(title: "Not connected to Internet", message: "It looks you that you are not connected to internet. Please check and try again")
-            
             return
         }
         
@@ -58,20 +58,17 @@ class LoginVC: UIViewController {
                 }
             }
         }
-        
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
         // check the connectivity to iternet
-        
-        if !Reachability.isConnectedToNetwork() {
+        if !(reachability?.isReachable)!   {
             showAlert(title: "Not connected to Internet", message: "It looks you that you are not connected to internet. Please check and try again")
             return
         }
         
         var userName:NSString = txtLogin.text! as NSString
         var password:NSString = txtPassword.text! as NSString
-        //var school_id:String = "";
         
         // verify if either username or password has been left blank
         if (userName.isEqual(to: "") || password.isEqual(to: ""))   {
@@ -128,10 +125,8 @@ class LoginVC: UIViewController {
                 }
             }else    {
                 self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
-                
             }
         }
-
     }
     
     func showAlert(title:String, message:String) {
@@ -160,7 +155,6 @@ class LoginVC: UIViewController {
     @IBAction func unwindToLogin(segue: UIStoryboardSegue)   {
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

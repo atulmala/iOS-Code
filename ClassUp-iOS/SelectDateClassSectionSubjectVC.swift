@@ -106,10 +106,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         
         
         // check if there is a working internet connection
-        if !Reachability.isConnectedToNetwork() {
-            showAlert(title: "Not connected to Internet", message: "It looks you that you are not connected to internet. Please check and try again")
-            return
-        }
+//        if !Reachability.isConnectedToNetwork() {
+//            showAlert(title: "Not connected to Internet", message: "It looks you that you are not connected to internet. Please check and try again")
+//            return
+//        }
 
         
         // We need to get the class, section and subject in their respective arrays

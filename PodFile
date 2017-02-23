@@ -7,4 +7,6 @@ target 'ClassUp-iOS' do
     pod 'SwiftCharts', :git => 'https://github.com/i-schuetz/SwiftCharts.git'
     pod 'SwiftyJSON'
     pod 'Just'
+    pod 'ReachabilitySwift', '~> 3'
+    pod 'IQKeyboardManagerSwift'
 end

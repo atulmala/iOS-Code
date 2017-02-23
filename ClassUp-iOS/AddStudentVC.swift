@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
@@ -34,9 +36,9 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         // Do any additional setup after loading the view.
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up
         // when the keyboard appears. So we register for keyboard notification
-        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
@@ -114,11 +116,70 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                 showAlert(title: "Error", message: "Mobile2 should be exactly 10 digits")
                 return
             }
-            
         }
         
-        
+        // after basic validations are done, we need to check that this registration number is not already in use
+        let server_ip: String = MiscFunction.getServerIP()
+        let school_id: String = SessionManager.getSchoolId()
+        let url: String = "\(server_ip)/setup/check_reg_no/?school_id=\(school_id)&reg_no=\(r_no)"
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                debugPrint(response)
+                if let value: AnyObject = response.result.value as AnyObject? {
+                    // handle the results as JSON, without a bunch of nested if loops
+                    let response = JSON(value)
+                    print(response)
+                    if response["status"].string == "error" {
+                        
+                        self.showAlert(title: "Error", message: response["error_message"].string!)
+                        return
+                        }
+                    else{
+                        // registration number is available. Add this student
+                        self.selected_class = self.class_section_list[0][self.class_section_picker.selectedRow(inComponent: 0)]
+                        self.selected_section = self.class_section_list[1][self.class_section_picker.selectedRow(inComponent: 1)]
+                        if self.selected_class == ""     {
+                            self.selected_class = self.class_list[0]
+                        }
+                        if self.selected_section == ""   {
+                            self.selected_section = self.section_list[0]
+                        }
+                        let prompt: String = "Are you sure to add \(r_no): \(f_name) \(l_name) C/o \(p_name) to class \(self.selected_class) \(self.selected_section)?"
+                        let alert: UIAlertController = UIAlertController(title: "Confirm Student Addition", message: prompt, preferredStyle: .alert )
+                        
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                            let user: String = SessionManager.getLoggedInUser()
+                            let parameters: Parameters = [
+                                "user": user,
+                                "school_id": school_id,
+                                "reg_no": r_no,
+                                "first_name": f_name,
+                                "last_name": l_name,
+                                "parent_name": p_name,
+                                "mobile1": m1,
+                                "mobile2": m2,
+                                "the_class": self.selected_class,
+                                "section": self.selected_section
+                            ]
+                            
+                            Alamofire.request("\(server_ip)/setup/add_student/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                                .responseJSON { response in
+                                    debugPrint(response)
+                            }
+                            self.performSegue(withIdentifier: "unwindToAdminMenu", sender: self)
+                            self.dismiss(animated: true, completion: nil)
+                            return
+                        })
+                        alert.addAction(confirmAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+        }
     }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -126,15 +187,14 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let destinationVC = segue.destination as! SchoolAdminVC
+        
+        destinationVC.comingFrom = "AddStudent"
+        
     }
-    */
     
     deinit {
         NotificationCenter.default.removeObserver(self)
