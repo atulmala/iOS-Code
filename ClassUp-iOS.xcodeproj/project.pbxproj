@@ -81,6 +81,7 @@
 		A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */; };
 		A4918CD21E59F7E00099F5C5 /* AddStudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */; };
 		A4918CD41E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */; };
+		A4974B381E5F567000B3A1B7 /* SelClassUpdateStuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */; };
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
@@ -171,6 +172,7 @@
 		A490816D1DC11E9B00A4170D /* AttendanceHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceHeaderCell.swift; sourceTree = "<group>"; };
 		A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentVC.swift; sourceTree = "<group>"; };
 		A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelClassUpdateStuVC.swift; sourceTree = "<group>"; };
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */,
 				A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */,
 				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
+				A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */,
 				A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */,
 				A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */,
 				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
@@ -467,6 +470,7 @@
 				A47365CB1DD97C2900EDA30D /* SelectWardVC.swift in Sources */,
 				A4053CA81DD9C7E90090D89D /* ExamResultHeaderCellTVC.swift in Sources */,
 				A4053CB31DD9D0500090D89D /* SubjectMarksModel.swift in Sources */,
+				A4974B381E5F567000B3A1B7 /* SelClassUpdateStuVC.swift in Sources */,
 				A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */,
 				A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */,
 				A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */,

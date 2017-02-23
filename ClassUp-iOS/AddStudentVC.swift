@@ -21,6 +21,11 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     @IBOutlet weak var class_section_picker: UIPickerView!
     @IBOutlet weak var mobile2: UITextField!
+    @IBOutlet weak var roll_no: UITextField!
+    
+    @IBOutlet weak var btn_add: UIButton!
+    @IBOutlet weak var btn_delete: UIButton!
+    
     
     // lists to hold classes, sections
     var class_list: [String] = []
@@ -118,6 +123,8 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             }
         }
         
+        let rl_no: String = roll_no.text!
+        
         // after basic validations are done, we need to check that this registration number is not already in use
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
@@ -160,6 +167,7 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                                 "parent_name": p_name,
                                 "mobile1": m1,
                                 "mobile2": m2,
+                                "roll_no": rl_no,
                                 "the_class": self.selected_class,
                                 "section": self.selected_section
                             ]
@@ -180,6 +188,8 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
 
     
+    @IBAction func deleteStudent(_ sender: UIButton) {
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
