@@ -11,6 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    var student_id: String = ""
+    var operation: String = "Add"
+    
 
     @IBOutlet weak var reg_no: UITextField!
     @IBOutlet weak var first_name: UITextField!
@@ -22,9 +25,12 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var class_section_picker: UIPickerView!
     @IBOutlet weak var mobile2: UITextField!
     @IBOutlet weak var roll_no: UITextField!
+    @IBOutlet weak var lbl_roll_no: UILabel!
     
     @IBOutlet weak var btn_add: UIButton!
     @IBOutlet weak var btn_delete: UIButton!
+    @IBOutlet weak var btn_update: UIButton!
+    
     
     
     // lists to hold classes, sections
@@ -37,13 +43,11 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up
         // when the keyboard appears. So we register for keyboard notification
-//        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(AddStudentVC.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
@@ -55,6 +59,59 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectClassSectionVC")
         class_section_list[0] = class_list
         class_section_list[1] = section_list
+        
+        // 24/02/17 if this view is opened for updating a student, we need to fetch the student details
+        if operation == "Update"    {
+            // change the title of the screen
+            self.title = "Update Student"
+            
+            
+            // show the delete  & update buttons
+            btn_delete.isHidden = false
+            btn_delete.isEnabled = true
+            btn_update.isHidden = false
+            btn_update.isEnabled = true
+            
+            // hide the add button
+            btn_add.isHidden = true
+            
+            // roll no is no longer optional
+            lbl_roll_no.text = "Roll No"
+            
+            // registration number cannot be edited in Update mode
+            reg_no.isEnabled = false
+            
+            
+            // get the details of the student
+            let url = "\(server_ip)/student/get_student_detail/\(student_id)"
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+                if let value: AnyObject = response.result.value as AnyObject? {
+                    // handle the results as JSON, without a bunch of nested if loops
+                    let response = JSON(value)
+                    print(response)
+                    self.reg_no.text = response["erp_id"].string
+                    self.first_name.text = response["first_name"].string
+                    self.last_name.text = response["last_name"].string
+                    self.parent_name.text = response["parent_name"].string
+                    self.mobile1.text = response["parent_mobile1"].string
+                    self.mobile2.text = response["parent_mobile2"].string
+                    self.roll_no.text = response["roll_no"].string
+                    
+                    // show the current class & section in the picker
+                    let current_class: String = response["class"].string!
+                    let current_section: String = response["section"].string!
+                    let class_index: Int = self.class_list.index(of: current_class)!
+                    let section_index: Int = self.section_list.index(of: current_section)!
+                    
+                    self.class_section_picker.selectRow(class_index, inComponent: 0, animated: true)
+                    self.class_section_picker.selectRow(section_index, inComponent: 1, animated: true)
+                    
+                }else    {
+                    self.showAlert(title: "Error", message: "Failed to fetch student details. Please check your internet connection")
+                }
+            }
+
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -79,6 +136,8 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
 
     @IBAction func addStudent(_ sender: AnyObject) {
+        operation = "AddStudent"
+        
         //check for blank values
         let r_no: String = reg_no.text!
         if r_no == ""   {
@@ -111,7 +170,7 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         }
         
         if m1.characters.count != 10    {
-            showAlert(title: "Error", message: "Mobile2 should be exactly 10 digits")
+            showAlert(title: "Error", message: "Mobile1 should be exactly 10 digits")
                 return
         }
         
@@ -137,7 +196,6 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                     let response = JSON(value)
                     print(response)
                     if response["status"].string == "error" {
-                        
                         self.showAlert(title: "Error", message: response["error_message"].string!)
                         return
                         }
@@ -151,7 +209,7 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                         if self.selected_section == ""   {
                             self.selected_section = self.section_list[0]
                         }
-                        let prompt: String = "Are you sure to add \(r_no): \(f_name) \(l_name) C/o \(p_name) to class \(self.selected_class) \(self.selected_section)?"
+                        let prompt: String = "Are you sure to add \(r_no): \(f_name) \(l_name) C/o \(p_name), mobile 1: \(m1), mobile2: \(m2) to class \(self.selected_class) \(self.selected_section)?"
                         let alert: UIAlertController = UIAlertController(title: "Confirm Student Addition", message: prompt, preferredStyle: .alert )
                         
                         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -189,6 +247,124 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
 
     
     @IBAction func deleteStudent(_ sender: UIButton) {
+        operation = "DeleteStudent"
+        
+        let server_ip: String = MiscFunction.getServerIP()
+        let school_id: String = SessionManager.getSchoolId()
+        
+        let prompt: String = "Are you sure that you want to delete this Student?"
+        let alert: UIAlertController = UIAlertController(title: "Confirm Student Update", message: prompt, preferredStyle: .alert )
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            let user: String = SessionManager.getLoggedInUser()
+            let parameters: Parameters = [
+                "user": user,
+                "school_id": school_id,
+                "student_id": self.student_id,
+            ]
+            
+            Alamofire.request("\(server_ip)/setup/delete_student/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    debugPrint(response)
+            }
+            self.performSegue(withIdentifier: "unwindToAdminMenu", sender: self)
+            self.dismiss(animated: true, completion: nil)
+            return
+        })
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    @IBAction func updateStudent(_ sender: UIButton) {
+        operation = "UpdateStudent"
+        
+        //check for blank values
+        let f_name: String = first_name.text!
+        if f_name == "" {
+            showAlert(title: "Error", message: "First Name is blank")
+            return
+        }
+        
+        let l_name: String = last_name.text!
+        if l_name == ""     {
+            showAlert(title: "Error", message: "Last Name is blank")
+            return
+        }
+        
+        let p_name: String = parent_name.text!
+        if p_name == "" {
+            showAlert(title: "Error", message: "Parent Name is blank")
+            return
+        }
+        
+        let m1: String = mobile1.text!
+        if m1 == "" {
+            showAlert(title: "Error", message: "Mobile1 is blank")
+            return
+        }
+        
+        if m1.characters.count != 10    {
+            showAlert(title: "Error", message: "Mobile1 should be exactly 10 digits")
+            return
+        }
+        
+        let m2: String = mobile2.text!
+        if m2 != "" {
+            if m2.characters.count != 10    {
+                showAlert(title: "Error", message: "Mobile2 should be exactly 10 digits")
+                return
+            }
+        }
+        
+        let rl_no: String = roll_no.text!
+        
+        // after basic validations are done, we need to check that this registration number is not already in use
+        let server_ip: String = MiscFunction.getServerIP()
+        let school_id: String = SessionManager.getSchoolId()
+        let r_no: String = reg_no.text!
+        self.selected_class = self.class_section_list[0][self.class_section_picker.selectedRow(inComponent: 0)]
+        self.selected_section = self.class_section_list[1][self.class_section_picker.selectedRow(inComponent: 1)]
+        if self.selected_class == ""     {
+            self.selected_class = self.class_list[0]
+        }
+        if self.selected_section == ""   {
+            self.selected_section = self.section_list[0]
+        }
+        
+        let prompt: String = "Are you sure to add \(r_no): \(f_name) \(l_name) C/o \(p_name), mobile 1: \(m1), mobile2: \(m2) to class \(self.selected_class) \(self.selected_section)?"
+        let alert: UIAlertController = UIAlertController(title: "Confirm Student Update", message: prompt, preferredStyle: .alert )
+                        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            let user: String = SessionManager.getLoggedInUser()
+            let parameters: Parameters = [
+                "user": user,
+                "school_id": school_id,
+                "student_id": self.student_id,
+                "reg_no": r_no,
+                "first_name": f_name,
+                "last_name": l_name,
+                "parent_name": p_name,
+                "mobile1": m1,
+                "mobile2": m2,
+                "roll_no": rl_no,
+                "the_class": self.selected_class,
+                "section": self.selected_section
+            ]
+            
+            Alamofire.request("\(server_ip)/setup/update_student/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                .responseJSON { response in
+                    debugPrint(response)
+            }
+            self.performSegue(withIdentifier: "unwindToAdminMenu", sender: self)
+            self.dismiss(animated: true, completion: nil)
+            return
+        })
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -202,34 +378,25 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         // Pass the selected object to the new view controller.
         let destinationVC = segue.destination as! SchoolAdminVC
         
-        destinationVC.comingFrom = "AddStudent"
-        
+        switch operation {
+            case "AddStudent":
+                destinationVC.comingFrom = "AddStudent"
+                break
+            case "UpdateStudent":
+                destinationVC.comingFrom = "UpdateStudent"
+                break
+            case "DeleteStudent":
+                destinationVC.comingFrom = "DeleteStudent"
+                break
+            default:
+                break
+        }
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-        
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
-    func dismissKeyboard()  {
-        view.endEditing(true)
-    }
     
     func showAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

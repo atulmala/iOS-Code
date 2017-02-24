@@ -62,7 +62,7 @@ class ParentMenuVC: UIViewController {
         // Pass the selected object to the new view controller.
         switch triggeringMenu   {
             case "CommunicationHistory":
-                let destinationVC = segue.destination as! MessageHistoryVC
+                _ = segue.destination as! MessageHistoryVC
             
             break
             case "AttendanceSummary":

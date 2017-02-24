@@ -82,6 +82,8 @@
 		A4918CD21E59F7E00099F5C5 /* AddStudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */; };
 		A4918CD41E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */; };
 		A4974B381E5F567000B3A1B7 /* SelClassUpdateStuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */; };
+		A4974B3A1E60228500B3A1B7 /* SelectStudentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4974B391E60228500B3A1B7 /* SelectStudentTVC.swift */; };
+		A4976B9C1E6052F30017C815 /* StuNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4976B9B1E6052F20017C815 /* StuNameCell.swift */; };
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
@@ -173,6 +175,8 @@
 		A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStudentVC.swift; sourceTree = "<group>"; };
 		A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelClassUpdateStuVC.swift; sourceTree = "<group>"; };
+		A4974B391E60228500B3A1B7 /* SelectStudentTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectStudentTVC.swift; sourceTree = "<group>"; };
+		A4976B9B1E6052F20017C815 /* StuNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StuNameCell.swift; sourceTree = "<group>"; };
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
@@ -270,14 +274,15 @@
 				A443A5301E55F167001A64FC /* School_Att_Summ_Cell.swift */,
 				A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */,
 				A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */,
-				A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */,
 				A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */,
+				A4974B371E5F567000B3A1B7 /* SelClassUpdateStuVC.swift */,
 				A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */,
 				A455320F1DD77FFB0088A3C9 /* SelectClassSectionVC.swift */,
 				A455320C1DD732920088A3C9 /* SelectCriteriaAttSummaryVC.swift */,
 				A4166D8C1DC0AFD2007114DA /* SelectDateClassSectionSubjectVC.swift */,
 				A443A52A1E55D743001A64FC /* SelectDateVC.swift */,
 				A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */,
+				A4974B391E60228500B3A1B7 /* SelectStudentTVC.swift */,
 				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
 				A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */,
 				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
@@ -290,6 +295,7 @@
 				A49081671DC1185C00A4170D /* StudentModel.swift */,
 				A45532141DD7823B0088A3C9 /* StudentSelectionCell.swift */,
 				A49081651DC1180600A4170D /* StudentStopModel.swift */,
+				A4976B9B1E6052F20017C815 /* StuNameCell.swift */,
 				A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */,
 				A4053CB11DD9CF660090D89D /* SubjectMarksHistoryVC.swift */,
 				A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */,
@@ -453,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A443A52F1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift in Sources */,
+				A4976B9C1E6052F30017C815 /* StuNameCell.swift in Sources */,
 				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
 				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
 				A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */,
@@ -517,6 +524,7 @@
 				A460411B1DCD8169004E9BDE /* TestDetailsVC.swift in Sources */,
 				A4053C9E1DD9C6B50090D89D /* StuAttSummaryCellTVC.swift in Sources */,
 				A4053CA01DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift in Sources */,
+				A4974B3A1E60228500B3A1B7 /* SelectStudentTVC.swift in Sources */,
 				A46041291DCDE4A2004E9BDE /* TestMarksEntryVC.swift in Sources */,
 				A49081641DC1174800A4170D /* TakeAttendanceVC.swift in Sources */,
 				A46041281DCDE4A2004E9BDE /* TestMarksEntryHeaderCell.swift in Sources */,

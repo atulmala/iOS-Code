@@ -57,6 +57,7 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selected_class = class_section_list[0][pickerView.selectedRow(inComponent: 0)]
         selected_section = class_section_list[1][pickerView.selectedRow(inComponent: 1)]
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {

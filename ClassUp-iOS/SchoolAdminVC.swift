@@ -46,6 +46,26 @@ class SchoolAdminVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
+        if comingFrom == "DeleteStudent"    {
+            message = "Student Deleted. Please login as teacher and check the Class."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+        
+        if comingFrom == "UpdateStudent"    {
+            message = "Student Updated. Please login as teacher and check the Class."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+
+
 
         // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary
         // pop-up appears on screen

@@ -64,14 +64,26 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let vc = segue.destination as! SelectStudentTVC
+        
+        if selected_class == "" {
+            selected_class = class_list[0]
+        }
+        if selected_section == ""   {
+            selected_section = section_list[0]
+        }
+        
+        vc.the_class = selected_class
+        vc.section = selected_section
     }
-    */
+    
 
 }
