@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4024EA91E66E918002C1935 /* SelectTeacherTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */; };
+		A4024EAB1E66F1A9002C1935 /* TeacherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EAA1E66F1A9002C1935 /* TeacherCell.swift */; };
+		A4024EAD1E671367002C1935 /* EditTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EAC1E671367002C1935 /* EditTeacher.swift */; };
 		A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A404FAEF1DB532850011BFB6 /* SessionManager.swift */; };
 		A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */; };
 		A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */; };
@@ -97,6 +100,9 @@
 
 /* Begin PBXFileReference section */
 		29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTeacherTVC.swift; sourceTree = "<group>"; };
+		A4024EAA1E66F1A9002C1935 /* TeacherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherCell.swift; sourceTree = "<group>"; };
+		A4024EAC1E671367002C1935 /* EditTeacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTeacher.swift; sourceTree = "<group>"; };
 		A404FAEF1DB532850011BFB6 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		A4053C931DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceSummaryVC.swift; sourceTree = "<group>"; };
 		A4053C951DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuAttSummaryHeaderCellTVC.swift; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
 				A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */,
 				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
+				A4024EAC1E671367002C1935 /* EditTeacher.swift */,
 				A4053CAB1DD9C9970090D89D /* Env.swift */,
 				A4053CA11DD9C6F30090D89D /* ExamCellTVC.swift */,
 				A4053CA91DD9C8790090D89D /* ExampleDefaults.swift */,
@@ -284,6 +291,7 @@
 				A4053C971DD9C2BD0090D89D /* SelectExamTermVC.swift */,
 				A4974B391E60228500B3A1B7 /* SelectStudentTVC.swift */,
 				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
+				A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */,
 				A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */,
 				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
 				A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */,
@@ -299,13 +307,13 @@
 				A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */,
 				A4053CB11DD9CF660090D89D /* SubjectMarksHistoryVC.swift */,
 				A4053CB21DD9D0500090D89D /* SubjectMarksModel.swift */,
-				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 				A4665A4B1DCA4F4D0049EB4D /* SubjectModel.swift */,
 				A4665A491DCA4DF30049EB4D /* SubjectSelectionCell.swift */,
 				A4053C9F1DD9C6CB0090D89D /* SubjectSelectionCellTVC.swift */,
 				A4053C991DD9C37E0090D89D /* SubjectSelectionVC.swift */,
 				A49081611DC1174800A4170D /* TakeAttendanceCellTVC.swift */,
 				A49081621DC1174800A4170D /* TakeAttendanceVC.swift */,
+				A4024EAA1E66F1A9002C1935 /* TeacherCell.swift */,
 				A460412C1DCDE521004E9BDE /* TestCellVC.swift */,
 				A456F7FF1DCF6D6500E844F9 /* TestDetailsTBC.swift */,
 				A460411A1DCD8169004E9BDE /* TestDetailsVC.swift */,
@@ -317,6 +325,7 @@
 				A482F24E1DB3E56100EA2811 /* ViewController.swift */,
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
+				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 				A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */,
 				A4053CA71DD9C7E90090D89D /* ExamResultCellTVC.swift in Sources */,
 				A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */,
+				A4024EAB1E66F1A9002C1935 /* TeacherCell.swift in Sources */,
 				A45532111DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift in Sources */,
 				A455320A1DD72DAF0088A3C9 /* AttendanceSummaryHeaderCell.swift in Sources */,
 				A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */,
@@ -532,10 +542,12 @@
 				A48E11191DD4938F0008DF7D /* BusAttendanceVC.swift in Sources */,
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
 				A443A52D1E55DF16001A64FC /* ShowSchoolAttSummVC.swift in Sources */,
+				A4024EA91E66E918002C1935 /* SelectTeacherTVC.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,
+				A4024EAD1E671367002C1935 /* EditTeacher.swift in Sources */,
 				A4053C9C1DD9C3AA0090D89D /* MessageToSchoolVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
