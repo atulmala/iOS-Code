@@ -61,6 +61,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add Teacher"/>
+                                <connections>
+                                    <segue destination="zXG-7Z-22k" kind="show" id="rxU-eq-rOa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSH-N8-InP">
                                 <constraints>
@@ -562,7 +565,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Qg-Qb-OhF" id="6Zs-b1-J2Y">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYI-jU-BEG">
@@ -595,7 +598,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikQ-bH-kxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333.60000000000002" y="122.78860569715144"/>
+            <point key="canvasLocation" x="455" y="913"/>
         </scene>
         <!--Edit Teacher-->
         <scene sceneID="46p-qI-mn0">
@@ -630,8 +633,8 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZT-lc-F4h">
-                                <nil key="textColor"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BZT-lc-F4h">
+                                <color key="textColor" red="0.40078017049999998" green="0.34641879889999999" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -693,6 +696,14 @@
                                     <outlet property="delegate" destination="qCh-Qa-xbs" id="nR9-c0-pCa"/>
                                 </connections>
                             </pickerView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZz-fd-OVW">
+                                <frame key="frameInset" minX="276" minY="564" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="9iL-Lz-UCp" kind="unwind" identifier="unwindToAdminMenu" unwindAction="unwindToAdminMenuWithSegue:" id="cBg-dC-vdD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -740,8 +751,111 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Did-RD-IE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9iL-Lz-UCp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1120.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1326" y="878"/>
+        </scene>
+        <!--Add Teacher-->
+        <scene sceneID="4K9-LP-dYJ">
+            <objects>
+                <viewController title="Add Teacher" id="zXG-7Z-22k" customClass="AddTeacherVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dbB-ch-W5K"/>
+                        <viewControllerLayoutGuide type="bottom" id="448-fc-HRc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ni3-LC-Lgh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxe-Uz-Uut">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="6rw-ks-Rzd"/>
+                                    <constraint firstAttribute="width" constant="141" id="HCK-p8-Ec5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="60V-Hf-dhi">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-hN-9Xy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CYs-e9-R8n"/>
+                                    <constraint firstAttribute="width" constant="171" id="fab-7f-Lbt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81E-Au-1Xr">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oq7-sP-b1A">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0z9-uH-ZEM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-7n-qKn">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcr-kT-zdy">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add Teacher"/>
+                                <connections>
+                                    <action selector="addTeacher:" destination="zXG-7Z-22k" eventType="touchUpInside" id="hDZ-Uj-qCQ"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo1-HX-5v4">
+                                <frame key="frameInset" minX="164" minY="358" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="bdm-qN-9y1" kind="unwind" identifier="unwindToAdminMenu" unwindAction="unwindToAdminMenuWithSegue:" id="4n1-TR-OyC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b3B-7n-qKn" firstAttribute="top" secondItem="oq7-sP-b1A" secondAttribute="bottom" constant="8" id="26f-jg-2pZ"/>
+                            <constraint firstItem="b3B-7n-qKn" firstAttribute="leading" secondItem="oq7-sP-b1A" secondAttribute="leading" id="524-7R-CYs"/>
+                            <constraint firstItem="60V-Hf-dhi" firstAttribute="top" secondItem="Fxe-Uz-Uut" secondAttribute="bottom" constant="8" symbolic="YES" id="5y1-qj-Tu7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="60V-Hf-dhi" secondAttribute="leading" id="9sy-h1-BkR"/>
+                            <constraint firstItem="Fxe-Uz-Uut" firstAttribute="top" secondItem="dbB-ch-W5K" secondAttribute="bottom" constant="8" symbolic="YES" id="BZG-72-mgT"/>
+                            <constraint firstItem="oq7-sP-b1A" firstAttribute="leading" secondItem="81E-Au-1Xr" secondAttribute="leading" id="F1e-Y3-CmP"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Fxe-Uz-Uut" secondAttribute="leading" id="Jok-0V-4TE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oq7-sP-b1A" secondAttribute="trailing" constant="60" id="Llx-98-xHz"/>
+                            <constraint firstItem="M8C-hN-9Xy" firstAttribute="top" secondItem="60V-Hf-dhi" secondAttribute="bottom" constant="32" id="M5G-po-QTO"/>
+                            <constraint firstItem="b3B-7n-qKn" firstAttribute="trailing" secondItem="oq7-sP-b1A" secondAttribute="trailing" constant="38" id="Nb9-Fk-Y25"/>
+                            <constraint firstItem="81E-Au-1Xr" firstAttribute="leading" secondItem="M8C-hN-9Xy" secondAttribute="leading" id="R6O-pE-i8m"/>
+                            <constraint firstItem="oq7-sP-b1A" firstAttribute="top" secondItem="81E-Au-1Xr" secondAttribute="bottom" constant="23" id="UAb-pC-osB"/>
+                            <constraint firstItem="81E-Au-1Xr" firstAttribute="trailing" secondItem="60V-Hf-dhi" secondAttribute="trailing" id="VLK-jU-E3O"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="M8C-hN-9Xy" secondAttribute="leading" id="mIR-DI-O7C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="60V-Hf-dhi" secondAttribute="trailing" constant="22" id="ml3-Zn-b6n"/>
+                            <constraint firstItem="Qcr-kT-zdy" firstAttribute="top" secondItem="b3B-7n-qKn" secondAttribute="bottom" constant="41" id="nXW-OS-GsI"/>
+                            <constraint firstItem="Qcr-kT-zdy" firstAttribute="centerX" secondItem="ni3-LC-Lgh" secondAttribute="centerX" id="qOU-E4-fo4"/>
+                            <constraint firstItem="81E-Au-1Xr" firstAttribute="top" secondItem="M8C-hN-9Xy" secondAttribute="bottom" constant="8" symbolic="YES" id="reT-qG-cfQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="teacher_login" destination="b3B-7n-qKn" id="LBP-TQ-83i"/>
+                        <outlet property="teacher_mobile" destination="81E-Au-1Xr" id="2s6-Km-9Ln"/>
+                        <outlet property="teacher_name" destination="60V-Hf-dhi" id="0wz-DZ-Dsa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n6d-25-dei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bdm-qN-9y1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="661.60000000000002" y="122.78860569715144"/>
         </scene>
         <!--Main-->
         <scene sceneID="BMS-ZL-Loy">
@@ -1143,6 +1257,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U2H-ct-8Ta"/>
+        <segue reference="bP6-5d-oE7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -60,6 +60,9 @@
                                     <action selector="forgotPasswordWithSender:" destination="u2U-sb-05S" eventType="touchUpInside" id="myx-Qn-vZU"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a6f-e4-N4J">
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -69,7 +72,9 @@
                             <constraint firstItem="XHa-JM-W3h" firstAttribute="trailing" secondItem="N9O-wQ-D31" secondAttribute="trailing" id="Dft-vP-C6T"/>
                             <constraint firstItem="72Q-zi-3v8" firstAttribute="top" secondItem="Ibk-Wz-R6r" secondAttribute="top" constant="129" id="I9P-CK-IOw"/>
                             <constraint firstItem="N9O-wQ-D31" firstAttribute="centerX" secondItem="Ibk-Wz-R6r" secondAttribute="centerX" constant="-1" id="KIW-Fm-Bpk"/>
+                            <constraint firstItem="a6f-e4-N4J" firstAttribute="centerY" secondItem="Ibk-Wz-R6r" secondAttribute="centerY" id="Ljz-LV-XF6"/>
                             <constraint firstItem="72Q-zi-3v8" firstAttribute="trailing" secondItem="N9O-wQ-D31" secondAttribute="trailing" id="NKh-Fw-KAf"/>
+                            <constraint firstItem="a6f-e4-N4J" firstAttribute="centerX" secondItem="gqy-hk-rno" secondAttribute="centerX" id="WxE-P3-cAC"/>
                             <constraint firstItem="XHa-JM-W3h" firstAttribute="top" secondItem="PCQ-Jo-Si8" secondAttribute="bottom" constant="16" id="XcY-Pp-PIZ"/>
                             <constraint firstItem="PCQ-Jo-Si8" firstAttribute="top" secondItem="N9O-wQ-D31" secondAttribute="bottom" constant="11" id="Xf8-Xy-Y2r"/>
                             <constraint firstItem="72Q-zi-3v8" firstAttribute="top" secondItem="gqy-hk-rno" secondAttribute="bottom" constant="16" id="cbH-6S-9Ve"/>
@@ -81,6 +86,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="Ar1-7p-L1E"/>
                     <connections>
+                        <outlet property="activity_indicator" destination="a6f-e4-N4J" id="SS3-zF-oT8"/>
                         <outlet property="txtLogin" destination="72Q-zi-3v8" id="m9l-3w-eSu"/>
                         <outlet property="txtPassword" destination="N9O-wQ-D31" id="LwV-Pj-ef0"/>
                         <segue destination="WKT-8l-c7i" kind="presentation" identifier="toMainMenu" id="Flc-ka-kMa"/>
@@ -1041,7 +1047,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="42" sectionHeaderHeight="32" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nfr-e6-THP">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="hzh-cZ-iGC" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header_cell" id="hzh-cZ-iGC" customClass="HeaderCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hzh-cZ-iGC" id="SDZ-X6-Qkf">
@@ -1122,7 +1128,7 @@
                                             <outlet property="the_class" destination="Xgq-cV-EW4" id="S54-Zu-9ei"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pending_test_cell" id="OkE-t9-VAL" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pending_test_cell" id="OkE-t9-VAL" customClass="TestCellVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74" width="383" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OkE-t9-VAL" id="H9E-5P-gE6">
@@ -3584,10 +3590,10 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ward_list_cell" id="Qz0-fA-QM8" customClass="WardListCellTVC" customModule="ClassUp_iOS">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qz0-fA-QM8" id="rC5-M5-CfR">
-                                            <frame key="frameInset" width="1000" height="43"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-MH-F1J">
@@ -3700,7 +3706,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kjN-Ii-7ve">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stu_att_summary_header_cell" id="NJE-mb-Dwy" customClass="StuAttSummaryHeaderCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stu_att_summary_header_cell" id="NJE-mb-Dwy" customClass="StuAttSummaryHeaderCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NJE-mb-Dwy" id="Vaz-ky-2fh">
@@ -3765,7 +3771,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stu_att_summary_cell" id="8Pk-eL-Fcb" customClass="StuAttSummaryCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stu_att_summary_cell" id="8Pk-eL-Fcb" customClass="StuAttSummaryCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Pk-eL-Fcb" id="RyI-Uz-as4">

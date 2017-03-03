@@ -53,8 +53,7 @@ class SelectTeacherTVC: UITableViewController {
             if let ct = count   {
                 for index in 0...ct-1   {
                     let teacher_name: String = j[index]["first_name"].string!
-                    let last_name: String = j[index]["last_name"].string!
-                    let full_name: String = teacher_name + " " + last_name
+                    let full_name: String = teacher_name
                     
                     let email: String = j[index]["email"].string!
                     let mobile: String = j[index]["mobile"].string!

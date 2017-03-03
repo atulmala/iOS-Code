@@ -64,6 +64,34 @@ class SchoolAdminVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
+        if comingFrom == "Delete Teacher"    {
+            message = "Teacher Deleted."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+        
+        if comingFrom == "UpdateTeacher"    {
+            message = "Teacher Updated."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+        
+        if comingFrom == "AddTeacher"    {
+            message = "Teacher Added."
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+
 
 
 

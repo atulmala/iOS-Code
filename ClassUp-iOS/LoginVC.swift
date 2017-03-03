@@ -16,6 +16,7 @@ class LoginVC: UIViewController {
     let reachability = Reachability()
     var comingFrom: String = ""
     
+    @IBOutlet weak var activity_indicator: UIActivityIndicatorView!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtLogin: UITextField!
     
@@ -33,6 +34,8 @@ class LoginVC: UIViewController {
             showAlert(title: "Alert", message: "Username is blank!")
         }
         else    {
+            activity_indicator.isHidden = false
+            activity_indicator.startAnimating()
             // if by mistake the user leaves any blank spaces in username or password, this can cause exception. Replace spaces by %20
             userName = userName.replacingOccurrences(of: " ", with: "%20") as NSString
             
@@ -75,6 +78,8 @@ class LoginVC: UIViewController {
             showAlert(title: "Login Failed!", message: "Either Username or password is blank")
         }
         else    {
+            activity_indicator.isHidden = false
+            activity_indicator.startAnimating()
             // if by mistake the user leaves any blank spaces in username or password, this can cause exception. Replace spaces by %20
             userName = userName.replacingOccurrences(of: " ", with: "%20") as NSString
             password = password.replacingOccurrences(of: " ", with: "%20") as NSString
@@ -139,6 +144,7 @@ class LoginVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        activity_indicator.isHidden = true
         txtLogin.text = ""
         txtPassword.text = ""
         if comingFrom == "PasswordChange"    {

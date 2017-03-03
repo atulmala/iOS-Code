@@ -253,7 +253,7 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         let school_id: String = SessionManager.getSchoolId()
         
         let prompt: String = "Are you sure that you want to delete this Student?"
-        let alert: UIAlertController = UIAlertController(title: "Confirm Student Update", message: prompt, preferredStyle: .alert )
+        let alert: UIAlertController = UIAlertController(title: "Confirm Student Delete", message: prompt, preferredStyle: .alert )
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
