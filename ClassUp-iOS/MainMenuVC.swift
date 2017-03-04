@@ -17,6 +17,7 @@ class MainMenuVC: UIViewController {
     var comingFrom: String = ""
     @IBOutlet weak var btnTakeUpdateAttendance: UIButton!
 
+    
     @IBAction func showCriteriaAttSummary(sender: UIButton) {
         triggering_menu = "showCriteriaAttSummary"
         //print("triggering menu=\(triggering_menu)")

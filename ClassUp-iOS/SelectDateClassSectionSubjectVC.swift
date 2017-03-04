@@ -14,20 +14,11 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     // the following variable stores which menu option was clicked in the previous screen
     var trigger: String = ""
 
-    @available(iOS 2.0, *)
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
-        
-    }
-
-    
     // the button which is at the bottom of the screen. Its caption will depend upon the sender variable
-    
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btn_submit: UIButton!
     // Pickers to select date, class, section, and subject
     @IBOutlet weak var datePicker: UIDatePicker!
-    
     @IBOutlet weak var classPicker: UIPickerView!
 
     
@@ -40,8 +31,20 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     var whether_grade_based: String = ""
     var test_comments: String = ""
     
+    // lists to hold classes, sections and subject
+    var class_list: [String] = []
+    var section_list: [String] = []
+    var subject_list: [String] = []
+    var class_section_subject_list: [[String]] = [[], [], []]
+    
+    var selected_class: String = ""
+    var selected_section: String = ""
+    var selected_subject: String = ""
+    
     @IBAction func goToAttendanceOrScheduleTest(sender: UIButton)
-     {
+    {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         MiscFunction.decomposeDate(date_picker: datePicker, day: &d, month: &m, year: &y)
         
         // chances are that the teacher may select the default entries in the class/section/subject
@@ -54,6 +57,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         if (selected_class == "")   {
             selected_class = class_list[0]
         }
+        
         if (selected_section == "") {
             selected_section = section_list[0]
         }
@@ -77,77 +81,79 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 print("default", terminator: "")
         }
     }
-    // lists to hold classes, sections and subject
-    var class_list: [String] = []
-    var section_list: [String] = []
-    var subject_list: [String] = []
-    var class_section_subject_list: [[String]] = [[], [], []]
-    
-    var selected_class: String = ""
-    var selected_section: String = ""
-    var selected_subject: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("inside viewDidLoad()")
-        print("trigger = \(trigger)")
-       
+        // No title for the back button in navigation section
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
+                                                                target: nil, action: nil)
         // set the caption of the submit button
         switch trigger   {
-            case "takeUpdateAttendance":
-                // attendance for future date is not allowed
-                datePicker.maximumDate = NSDate() as Date
-                btn_submit.setTitle("Take/Update Attendance", for: UIControlState.normal)
-            case "scheduleTest":
-                btn_submit.setTitle("Schedule Test", for: UIControlState.normal)
-            default:
-                btn_submit.setTitle("Submit", for: UIControlState.normal)
+        case "takeUpdateAttendance":
+            // attendance for future date is not allowed
+            datePicker.maximumDate = NSDate() as Date
+            btn_submit.setTitle("Take/Update Attendance", for: UIControlState.normal)
+        case "scheduleTest":
+            btn_submit.setTitle("Schedule Test", for: UIControlState.normal)
+        default:
+            btn_submit.setTitle("Submit", for: UIControlState.normal)
         }
         
         
-        // check if there is a working internet connection
-//        if !Reachability.isConnectedToNetwork() {
-//            showAlert(title: "Not connected to Internet", message: "It looks you that you are not connected to internet. Please check and try again")
-//            return
-//        }
+        
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        classPicker.delegate = self
+        classPicker.dataSource = self
         
         // We need to get the class, section and subject in their respective arrays
         
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
         let teacher: String = SessionManager.getLoggedInUser()
-
+        
         let classURL = "\(server_ip)/academics/class_list/\(school_id)/?format=json"
         
         let sectionURL = "\(server_ip)/academics/section_list/\(school_id)/?format=json"
         let subjectURL2 = "\(server_ip)/academics/subject_list/\(school_id)/?format=json"
         
         let subjectURL = "\(server_ip)/teachers/teacher_subject_list/\(teacher)/?format=json"
-        //print("subject url=\(subjectURL)")
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
         MiscFunction.sendRequestToServer(url: classURL, key: "standard", list: &class_list, sender: "SelectDateClassSectionSubjectTVC")
         MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectDateClassSectionSubjectTVC")
         
         
         MiscFunction.sendRequestToServer(url: subjectURL, key: "subject", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         // if teacher has not chosen subjects no subjects would be returned. Then get all the subjects
         if (subject_list.count<1) {
             MiscFunction.sendRequestToServer(url: subjectURL2, key: "subject_name", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
         }
-
+        
         class_section_subject_list[0] = class_list
         class_section_subject_list[1] = section_list
         class_section_subject_list[2] = subject_list
         
-        // No title for the back button in navigation section
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
-            target: nil, action: nil)
+        
+    }
+    
+        
+    @available(iOS 2.0, *)
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
         
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int    {
         return class_section_subject_list.count
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return class_section_subject_list[component][row]

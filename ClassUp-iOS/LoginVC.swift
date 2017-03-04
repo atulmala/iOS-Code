@@ -34,32 +34,51 @@ class LoginVC: UIViewController {
             showAlert(title: "Alert", message: "Username is blank!")
         }
         else    {
-            activity_indicator.isHidden = false
-            activity_indicator.startAnimating()
-            // if by mistake the user leaves any blank spaces in username or password, this can cause exception. Replace spaces by %20
-            userName = userName.replacingOccurrences(of: " ", with: "%20") as NSString
+            let propmt: String = "Are you sure you want to reset your password?"
             
-            // send the request to backend for verification
-            let server_ip: String = MiscFunction.getInitialServerIP(usr: userName as String)
+            let alert: UIAlertController = UIAlertController(title: "Confirm Action", message: propmt, preferredStyle: .alert )
             
-            // if the user has typed a wrong username then server ip will be "error"
-            let parameters: Parameters = ["user":userName as String]
-            
-            Alamofire.request("\(server_ip)/auth/forgot_password/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-                if let value: AnyObject = response.result.value as AnyObject? {
-                    // handle the results as JSON, without a bunch of nested if loops
-                    let response = JSON(value)
-                    print(response)
-                    if response["forgot_password"] == "successful"  {
-                        self.showAlert(title: "Password reset successful!", message: "You will soon receive your new password via SMS")
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                
+                self.activity_indicator.isHidden = false
+                self.activity_indicator.startAnimating()
+                // if by mistake the user leaves any blank spaces in username or password, this can cause exception. Replace spaces by %20
+                userName = userName.replacingOccurrences(of: " ", with: "%20") as NSString
+                
+                // send the request to backend for verification
+                let server_ip: String = MiscFunction.getInitialServerIP(usr: userName as String)
+                
+                // if the user has typed a wrong username then server ip will be "error"
+                let parameters: Parameters = ["user":userName as String]
+                
+                Alamofire.request("\(server_ip)/auth/forgot_password/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                    if let value: AnyObject = response.result.value as AnyObject? {
+                        // handle the results as JSON, without a bunch of nested if loops
+                        let response = JSON(value)
+                        print(response)
                         
+                        if response["forgot_password"] == "successful"  {
+                            self.activity_indicator.stopAnimating()
+                            self.activity_indicator.isHidden = true
+                            self.showAlert(title: "Password reset successful!", message: "You will soon receive your new password via SMS")
+                            
+                            
+                        }else    {
+                            self.activity_indicator.stopAnimating()
+                            self.activity_indicator.isHidden = true
+                            self.showAlert(title: "Password reset failed!", message: response["error_message"].string!)
+                        }
                     }else    {
+                        self.activity_indicator.stopAnimating()
+                        self.activity_indicator.isHidden = true
                         self.showAlert(title: "Password reset failed!", message: "User does not exist. Please contact ClassUp Support at info@classup.in")
                     }
-                }else    {
-                    self.showAlert(title: "Password reset failed!", message: "User does not exist. Please contact ClassUp Support at info@classup.in")
                 }
-            }
+            })
+            alert.addAction(confirmAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -126,7 +145,7 @@ class LoginVC: UIViewController {
                         }else    {
                             self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
                         }
-
+                        
                 }
             }else    {
                 self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
@@ -155,7 +174,12 @@ class LoginVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
-
+        
+    }
+    
+    override func viewDidLoad() {
+        activity_indicator.isHidden = true
+        activity_indicator.stopAnimating()
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue)   {

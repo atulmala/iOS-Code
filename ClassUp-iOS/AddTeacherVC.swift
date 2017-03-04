@@ -70,7 +70,7 @@ class AddTeacherVC: UIViewController {
             ]
             
             var outcome: String = ""
-            var error_message: String = ""
+            let error_message: String = ""
             Alamofire.request("\(server_ip)/teachers/add_teacher/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     debugPrint(response)

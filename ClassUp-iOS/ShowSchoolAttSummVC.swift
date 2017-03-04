@@ -65,11 +65,13 @@ class ShowSchoolAttSummVC: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    
+    
+    private func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header_cell = tableView.dequeueReusableCell(withIdentifier: "sch_att_summ_hdr_cell") as! School_Att_Summ_Hdr_Cell
         header_cell.backgroundColor = UIColor.cyan
         return header_cell
