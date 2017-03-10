@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import ReachabilitySwift
+import Firebase
+
+
 
 
 class LoginVC: UIViewController {
@@ -118,6 +121,17 @@ class LoginVC: UIViewController {
                             print(response)
                             if response["user_status"] == "active" && response["login"] == "successful" {
                                 SessionManager.setLoggedInUser(user: userName as String)
+                                
+                                // 10/03/17 for firebase messsging, send the token id to server
+                                let refreshedToken = FIRInstanceID.instanceID().token()
+                                let parameters: Parameters = ["user": userName as String,
+                                                              "device_token": refreshedToken! as String,
+                                                              "device_type": "iOS"]
+                                
+                                Alamofire.request("\(server_ip)/auth/map_device_token/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                                    .responseJSON { response in
+                                        debugPrint(response)
+                                }
                                 
                                 if let school_id = response["school_id"].int {
                                     SessionManager.setSchoolId(id: String(school_id))

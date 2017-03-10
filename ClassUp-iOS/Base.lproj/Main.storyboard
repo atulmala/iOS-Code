@@ -366,7 +366,7 @@
                                     <action selector="goToAttendanceOrScheduleTestWithSender:" destination="AKj-mf-FTd" eventType="touchUpInside" id="U62-Nb-aSO"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a0v-ym-gNX">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="a0v-ym-gNX">
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -440,7 +440,7 @@
                                         <rect key="frame" x="0.0" y="30" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcz-nY-isK" id="XIZ-b0-3Z4">
-                                            <frame key="frameInset" width="383" height="39.5"/>
+                                            <frame key="frameInset" width="383" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A/P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6D-Yf-mgc">
@@ -487,7 +487,7 @@
                                         <rect key="frame" x="0.0" y="70" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Fa-z6-KWZ" id="OPT-ZI-vyR">
-                                            <frame key="frameInset" width="383" height="39.5"/>
+                                            <frame key="frameInset" width="383" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-KJ-5kF">

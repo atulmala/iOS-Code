@@ -13,14 +13,14 @@ import Foundation
 class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     // the following variable stores which menu option was clicked in the previous screen
     var trigger: String = ""
-
+    
     // the button which is at the bottom of the screen. Its caption will depend upon the sender variable
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btn_submit: UIButton!
     // Pickers to select date, class, section, and subject
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var classPicker: UIPickerView!
-
+    
     
     var d: String = "1"
     var m: String = "1"
@@ -43,16 +43,13 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     
     @IBAction func goToAttendanceOrScheduleTest(sender: UIButton)
     {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        
         MiscFunction.decomposeDate(date_picker: datePicker, day: &d, month: &m, year: &y)
         
         // chances are that the teacher may select the default entries in the class/section/subject
         // picker. In this case the didSelectRow method would not fired and hence we will not get any
-        // values in selected_class, selected_section, and selected subject. In this case we will have 
+        // values in selected_class, selected_section, and selected subject. In this case we will have
         // to get the first values from the respective lists
-        print(m)
-        print(y)
         
         if (selected_class == "")   {
             selected_class = class_list[0]
@@ -66,19 +63,19 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             selected_subject = subject_list[0]
         }
         
-        // now depending upon whether we have to take attendance or schedule test 
+        // now depending upon whether we have to take attendance or schedule test
         // we will have to take different actions
         switch(trigger)  {
-            case "takeUpdateAttendance":
-                // perform the segue to navigate to the Take Attendance Screen
-                performSegue(withIdentifier: "to_take_attendance", sender: self)
+        case "takeUpdateAttendance":
+            // perform the segue to navigate to the Take Attendance Screen
+            performSegue(withIdentifier: "to_take_attendance", sender: self)
             
-            case "scheduleTest":
-                // perform segue to navigate to get max marks, pass marks, grade based and comments
-                performSegue(withIdentifier: "get_test_details", sender: self)
+        case "scheduleTest":
+            // perform segue to navigate to get max marks, pass marks, grade based and comments
+            performSegue(withIdentifier: "get_test_details", sender: self)
             
-            default:
-                print("default", terminator: "")
+        default:
+            print("default", terminator: "")
         }
     }
     
@@ -98,56 +95,54 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         default:
             btn_submit.setTitle("Submit", for: UIControlState.normal)
         }
-        
-        
-        
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         classPicker.delegate = self
         classPicker.dataSource = self
         
         // We need to get the class, section and subject in their respective arrays
-        
-        let server_ip: String = MiscFunction.getServerIP()
-        let school_id: String = SessionManager.getSchoolId()
-        let teacher: String = SessionManager.getLoggedInUser()
-        
-        let classURL = "\(server_ip)/academics/class_list/\(school_id)/?format=json"
-        
-        let sectionURL = "\(server_ip)/academics/section_list/\(school_id)/?format=json"
-        let subjectURL2 = "\(server_ip)/academics/subject_list/\(school_id)/?format=json"
-        
-        let subjectURL = "\(server_ip)/teachers/teacher_subject_list/\(teacher)/?format=json"
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
-        MiscFunction.sendRequestToServer(url: classURL, key: "standard", list: &class_list, sender: "SelectDateClassSectionSubjectTVC")
-        MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectDateClassSectionSubjectTVC")
-        
-        
-        MiscFunction.sendRequestToServer(url: subjectURL, key: "subject", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
-        
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-        // if teacher has not chosen subjects no subjects would be returned. Then get all the subjects
-        if (subject_list.count<1) {
-            MiscFunction.sendRequestToServer(url: subjectURL2, key: "subject_name", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
+        // 05/03/17 - we need to make sure that apis are called only during the first call to this function
+        if class_list.count == 0 {
+            let server_ip: String = MiscFunction.getServerIP()
+            let school_id: String = SessionManager.getSchoolId()
+            let teacher: String = SessionManager.getLoggedInUser()
+            
+            let classURL = "\(server_ip)/academics/class_list/\(school_id)/?format=json"
+            
+            let sectionURL = "\(server_ip)/academics/section_list/\(school_id)/?format=json"
+            let subjectURL2 = "\(server_ip)/academics/subject_list/\(school_id)/?format=json"
+            
+            let subjectURL = "\(server_ip)/teachers/teacher_subject_list/\(teacher)/?format=json"
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            
+            MiscFunction.sendRequestToServer(url: classURL, key: "standard", list: &class_list, sender: "SelectDateClassSectionSubjectTVC")
+            MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectDateClassSectionSubjectTVC")
+            MiscFunction.sendRequestToServer(url: subjectURL, key: "subject", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
+            
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+            
+            // if teacher has not chosen subjects no subjects would be returned. Then get all the subjects
+            if (subject_list.count<1) {
+                MiscFunction.sendRequestToServer(url: subjectURL2, key: "subject_name", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
+            }
+            
+            class_section_subject_list[0] = class_list
+            class_section_subject_list[1] = section_list
+            class_section_subject_list[2] = subject_list
         }
-        
-        class_section_subject_list[0] = class_list
-        class_section_subject_list[1] = section_list
-        class_section_subject_list[2] = subject_list
-        
-        
     }
     
-        
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.stopAnimating()
+    }
+    
     @available(iOS 2.0, *)
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
-        
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int    {
@@ -176,14 +171,14 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         // we are showing class, section, and subject. They all need different widths
         switch component    {
-            case 0: // class
-                return 100
-            case 1: // section
-                return 40
-            case 2: // subject
-                return 200
-            default:
-                return 50
+        case 0: // class
+            return 100
+        case 1: // section
+            return 40
+        case 2: // subject
+            return 200
+        default:
+            return 50
         }
         
     }
@@ -198,10 +193,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -242,7 +237,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
             let yy = y.substring(from: index)
             destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
-
+            
         default:
             break
         }

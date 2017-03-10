@@ -13,7 +13,6 @@ import Just
 
 class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDelegate    {
     // the below varialbes have been passed by segues in TakeAttendance. They will be used to
-    //@IBOutlet weak var activity_indicator: UIActivityIndicatorView!
     // call the API to get the attendance l of students for a particular class/section/subject combination
     // on the given date
     var d: String = ""
@@ -31,11 +30,16 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var toMainMenu: UIButton!
     
+    
+    // spinner to be shown during loading of table
+    let spinner: UIActivityIndicatorView = UIActivityIndicatorView()
+    let loading_label: UILabel = UILabel()
+    
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer)    {
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began   {
             let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
             if tableView.indexPathForRow(at: touchPoint) != nil {
-                // ge the name of the student
+                // get the name of the student
                 
                 let cell = tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)! as IndexPath) as! TakeAttendanceCellTVC
                 let student = cell.full_name.text!
@@ -76,13 +80,21 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        spinner.startAnimating()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundView = spinner
         self.automaticallyAdjustsScrollViewInsets = false
         
         // add the long tap functionality. Long tapping on a student's name will initiate a call to the parent
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TakeAttendanceVC.longPress(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
+        
         
         // call the api to get the list of students, roll number and id
         let server_ip: String = MiscFunction.getServerIP()
@@ -142,7 +154,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
 
         // set the universal absentee list
         AttendanceProcessing.set_absentee_list(list: absentee_list)
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -225,7 +236,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header_cell = tableView.dequeueReusableCell(withIdentifier: "attendance_header_cell") as! AttendanceHeaderCell
         header_cell.backgroundColor = UIColor.cyan
@@ -235,7 +245,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         header_cell.present_absent.text = "A/P"
         
         return header_cell
-        
     }
     
     @IBAction func submitAttendance(sender: UIButton) {
@@ -248,11 +257,9 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         alert.addAction(cancelAction)
         
         let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
-            
-            //var t: TakeAttendanceVC = self
-            
             let server_ip = MiscFunction.getServerIP()
             let teacher = SessionManager.getLoggedInUser()
+            
             // update the server tables to indicate that the attendance for this
             // class/section/subject/date was taken
             var url1 = "\(server_ip)/attendance/attendance_taken/\(self.school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(self.d)/\(self.m)/\(self.y)/\(teacher)/"
@@ -344,7 +351,4 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         let destinationVC = segue.destination as! MainMenuVC
         destinationVC.comingFrom = "TakeAttendanceVC"
     }
-    
-    
-
 }

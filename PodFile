@@ -9,4 +9,7 @@ target 'ClassUp-iOS' do
     pod 'Just'
     pod 'ReachabilitySwift', '~> 3'
     pod 'IQKeyboardManagerSwift'
+    pod 'GoogleToolboxForMac/Logger'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 end
