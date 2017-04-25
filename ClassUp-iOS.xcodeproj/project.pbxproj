@@ -92,6 +92,7 @@
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
+		A4D9611B1EAFD7DC008BF09C /* HWListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */; };
 		A4ED5CF41E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */; };
 		A4ED5CF61E51A17900888DD1 /* SchoolAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */; };
 		A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */; };
@@ -191,6 +192,7 @@
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
+		A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HWListVC.swift; sourceTree = "<group>"; };
 		A4ED5CF31E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SchoolAdminStoryBoard.storyboard; path = ../SchoolAdminStoryBoard.storyboard; sourceTree = "<group>"; };
 		A4ED5CF51E51A17900888DD1 /* SchoolAdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolAdminVC.swift; sourceTree = "<group>"; };
 		A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBulkSMSVC.swift; sourceTree = "<group>"; };
@@ -244,7 +246,6 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A4BD42E21E6DCC1B00E68432 /* ClassUp-iOS.entitlements */,
 				A4918CD11E59F7E00099F5C5 /* AddStudentVC.swift */,
 				A4024EAE1E69644E002C1935 /* AddTeacherVC.swift */,
 				A482F24C1DB3E56100EA2811 /* AppDelegate.swift */,
@@ -260,6 +261,7 @@
 				A48B30631DD476D20049D760 /* BusRouteSelectionVC.swift */,
 				A47365C61DD88FD100EDA30D /* ChangePasswordVC.swift */,
 				A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */,
+				A4BD42E21E6DCC1B00E68432 /* ClassUp-iOS.entitlements */,
 				A460411C1DCDE37B004E9BDE /* CompletedTestVC.swift */,
 				A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */,
 				A455320E1DD77FFB0088A3C9 /* ComposeMessageVCViewController.swift */,
@@ -334,6 +336,7 @@
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
+				A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,
+				A4D9611B1EAFD7DC008BF09C /* HWListVC.swift in Sources */,
 				A4024EAD1E671367002C1935 /* EditTeacher.swift in Sources */,
 				A4053C9C1DD9C3AA0090D89D /* MessageToSchoolVC.swift in Sources */,
 			);
@@ -689,7 +693,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClassUp-iOS/ClassUp-iOS.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Atul Gupta (F4Z3N7U443)";
 				DEVELOPMENT_TEAM = F64T6ZEDL7;
 				INFOPLIST_FILE = "ClassUp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -709,14 +713,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClassUp-iOS/ClassUp-iOS.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Atul Gupta (F64T6ZEDL7)";
 				DEVELOPMENT_TEAM = F64T6ZEDL7;
 				INFOPLIST_FILE = "ClassUp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ClassUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6706fcdb-263d-469e-90ac-1854299721d2";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: *";
+				PROVISIONING_PROFILE = "df90dcad-db50-4100-92d9-439ec1ea3f14";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.ClassUp";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
