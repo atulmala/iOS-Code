@@ -12,4 +12,5 @@ target 'ClassUp-iOS' do
     pod 'GoogleToolboxForMac/Logger'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    pod 'SDWebImage', '~>3.8'
 end
