@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 
-class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
+class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     // the following variable stores which menu option was clicked in the previous screen
     var trigger: String = ""
     
@@ -20,6 +20,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     // Pickers to select date, class, section, and subject
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var classPicker: UIPickerView!
+    @IBOutlet weak var date_label: UILabel!
     
     
     var d: String = "1"
@@ -41,9 +42,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     var selected_section: String = ""
     var selected_subject: String = ""
     
+    var image: UIImage!
+    
     @IBAction func goToAttendanceOrScheduleTest(sender: UIButton)
     {
-        
         MiscFunction.decomposeDate(date_picker: datePicker, day: &d, month: &m, year: &y)
         
         // chances are that the teacher may select the default entries in the class/section/subject
@@ -73,6 +75,15 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         case "scheduleTest":
             // perform segue to navigate to get max marks, pass marks, grade based and comments
             performSegue(withIdentifier: "get_test_details", sender: self)
+        
+        case "HWListVC":
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+                imagePicker.allowsEditing = false
+                self.present(imagePicker, animated: true, completion: nil)
+            }
             
         default:
             print("default", terminator: "")
@@ -92,6 +103,9 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             btn_submit.setTitle("Take/Update Attendance", for: UIControlState.normal)
         case "scheduleTest":
             btn_submit.setTitle("Schedule Test", for: UIControlState.normal)
+        case "HWListVC":
+            date_label.text = "Due Date"
+            btn_submit.setTitle("Take Pic", for: UIControlState.normal)
         default:
             btn_submit.setTitle("Submit", for: UIControlState.normal)
         }
@@ -188,58 +202,81 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         let date_formatter = DateFormatter()
         date_formatter.timeStyle = DateFormatter.Style.short
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            image = pickedImage
+            performSegue(withIdentifier: "to_review_hw", sender: self)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        //let destinationVC = segue.destinationViewController as! TakeAttendanceTVC
         switch trigger  {
-        case "takeUpdateAttendance":
-            let destinationVC = segue.destination as! TakeAttendanceVC
-            destinationVC.the_class = selected_class
-            destinationVC.section = selected_section
-            destinationVC.subject = selected_subject
-            
-            // date, month, and year contains "optional( ) - we need to remove optional and parantheses
-            let index = d.index(d.startIndex, offsetBy: 9)
-            let dd = d.substring(from: index)
-            destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
-            let mm = m.substring(from: index)
-            destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
-            let yy = y.substring(from: index)
-            destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
-            if subject_list.contains("Main")    {
-                destinationVC.whether_main = true
-            }
-            else    {
-                destinationVC.whether_main = false
-            }
-            
-        case "scheduleTest":
-            let destinationVC = segue.destination as! TestDetailsVC
-            destinationVC.the_class = selected_class
-            destinationVC.section = selected_section
-            destinationVC.subject = selected_subject
-            // date, month, and year contains "optional( ) - we need to remove optional and parantheses
-            let index = d.index(d.startIndex, offsetBy: 9)
-            let dd = d.substring(from: index)
-            destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
-            let mm = m.substring(from: index)
-            destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
-            let yy = y.substring(from: index)
-            destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
-            
-        default:
-            break
+            case "takeUpdateAttendance":
+                let destinationVC = segue.destination as! TakeAttendanceVC
+                destinationVC.the_class = selected_class
+                destinationVC.section = selected_section
+                destinationVC.subject = selected_subject
+                
+                // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+                let index = d.index(d.startIndex, offsetBy: 9)
+                let dd = d.substring(from: index)
+                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+                let mm = m.substring(from: index)
+                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+                let yy = y.substring(from: index)
+                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+                if subject_list.contains("Main")    {
+                    destinationVC.whether_main = true
+                }
+                else    {
+                    destinationVC.whether_main = false
+                }
+                
+            case "scheduleTest":
+                let destinationVC = segue.destination as! TestDetailsVC
+                destinationVC.the_class = selected_class
+                destinationVC.section = selected_section
+                destinationVC.subject = selected_subject
+                
+                // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+                let index = d.index(d.startIndex, offsetBy: 9)
+                let dd = d.substring(from: index)
+                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+                let mm = m.substring(from: index)
+                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+                let yy = y.substring(from: index)
+                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+                
+            case "HWListVC":
+                let destinationVC = segue.destination as! ReviewHWVC
+                destinationVC.sender = "CreateHW"
+                destinationVC.the_class = selected_class
+                destinationVC.section = selected_section
+                destinationVC.subject = selected_subject
+                
+                // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+                let index = d.index(d.startIndex, offsetBy: 9)
+                let dd = d.substring(from: index)
+                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+                let mm = m.substring(from: index)
+                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+                let yy = y.substring(from: index)
+                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+                
+                destinationVC.image = image
+                
+            default:
+                break
         }
     }
     

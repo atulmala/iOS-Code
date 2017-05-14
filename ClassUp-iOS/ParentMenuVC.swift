@@ -54,6 +54,10 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "CommunicationHistory"
         performSegue(withIdentifier: "to_communication_history", sender: self)
     }
+    @IBAction func show_hw_list(_ sender: UIButton) {
+        triggeringMenu = "HWListForParent"
+        performSegue(withIdentifier: "selectWard", sender: self)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -63,8 +67,7 @@ class ParentMenuVC: UIViewController {
         switch triggeringMenu   {
             case "CommunicationHistory":
                 _ = segue.destination as! MessageHistoryVC
-            
-            break
+                break
             case "AttendanceSummary":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = triggeringMenu
@@ -80,6 +83,9 @@ class ParentMenuVC: UIViewController {
             case "CommunicateWithSchool":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "CommunicateWithSchool"
+            case "HWListForParent":
+                let destinationVC = segue.destination as! SelectWardVC
+                destinationVC.trigger = "HWListForParent"
             default:
                 break
         }

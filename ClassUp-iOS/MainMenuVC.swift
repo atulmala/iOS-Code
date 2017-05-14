@@ -161,6 +161,17 @@ class MainMenuVC: UIViewController {
             self.present(final_confirm, animated: false , completion: nil)
         }
         
+        // 10/05/2017 - added when coming here after creating HomeWork
+        if comingFrom == "CreateHW"    {
+            message = "Home Work upload in progress. It will take a few minutes and then the new HW will appear in the HW List"
+            let final_confirm = UIAlertController(title: "Homw Work Uploaded", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+
+        
         // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary 
         // pop-up appears on screen
         comingFrom = ""

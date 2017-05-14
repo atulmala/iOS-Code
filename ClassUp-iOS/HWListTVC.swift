@@ -35,10 +35,18 @@ class HWModel: NSObject {
 }
 
 class HWListTVC: UITableViewController {
+    var hw_list: [HWModel] = []
+    
+    var coming_from: String = ""
+    
     var id: String = ""
     var location = ""
+    var destination: String = ""
 
-    var hw_list: [HWModel] = []
+    var student_id: String = ""
+    var student_name: String = ""
+    
+    var url: String = ""
 
     @IBOutlet weak var nav_item: UINavigationItem!
     override func viewDidLoad() {
@@ -50,12 +58,17 @@ class HWListTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         nav_item.title = "HW List"
-        nav_item.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action:nil)
+        nav_item.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action:#selector(HWListTVC.createHW))
         
         let server_ip: String = MiscFunction.getServerIP()
         let user_id: String = SessionManager.getLoggedInUser()
         
-        let url: String = "\(server_ip)/academics/retrieve_hw/\(user_id)/?format=json"
+        if coming_from != "HWListForParent"  {
+            url = "\(server_ip)/academics/retrieve_hw/\(user_id)/?format=json"
+        }
+        else    {
+            url = "\(server_ip)/academics/retrieve_hw/\(student_id)/?format=json"
+        }
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
         if (count! > 0)  {
@@ -88,6 +101,11 @@ class HWListTVC: UITableViewController {
         }
     }
 
+    func createHW()   {
+        destination = "SelectDateClassSubVC"
+        performSegue(withIdentifier: "hw_list_to_date_class_sub_selection", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -118,14 +136,13 @@ class HWListTVC: UITableViewController {
         
         cell.subject.text = hw_list[indexPath.row].subject
         
-        
-
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         id = hw_list[indexPath.row].id
         location = hw_list[indexPath.row].location
+        destination = "ReviewHWVC"
         performSegue(withIdentifier: "show_hw_image", sender: self)
     }
     /*
@@ -170,10 +187,21 @@ class HWListTVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let destinationVC = segue.destination as! ReviewHWVC
-        destinationVC.sender = "TeacherApp"
-        destinationVC.id = id
-        destinationVC.location = location
+        switch destination {
+            case "ReviewHWVC":
+                let destinationVC = segue.destination as! ReviewHWVC
+                destinationVC.sender = "TeacherApp"
+                destinationVC.id = id
+                destinationVC.location = location
+                break
+            case "SelectDateClassSubVC":
+                let destinationVC = segue.destination as! SelectDateClassSectionSubjectVC
+                destinationVC.trigger = "HWListVC"
+                break
+            default:
+                break
+        }
+        
     }
     
 

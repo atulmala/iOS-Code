@@ -102,20 +102,22 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                     let subscription_status: String = j["subscription"].string!
                     if subscription_status != "expired" {
                         switch trigger  {
-                        case "AttendanceSummary":
-                            performSegue(withIdentifier: "to_stu_att_summary", sender: self)
-                            break
-                        case "ExamResult":
-                            performSegue(withIdentifier: "to_exam_list", sender: self)
-                            break
-                        case "SubjectwiseMarks":
-                            performSegue(withIdentifier: "to_show_subjects", sender: self)
-                            break
-                        case "CommunicateWithSchool":
-                            performSegue(withIdentifier: "to_message_school", sender: self)
-                            break
-                        default:
-                            break
+                            case "AttendanceSummary":
+                                performSegue(withIdentifier: "to_stu_att_summary", sender: self)
+                                break
+                            case "ExamResult":
+                                performSegue(withIdentifier: "to_exam_list", sender: self)
+                                break
+                            case "SubjectwiseMarks":
+                                performSegue(withIdentifier: "to_show_subjects", sender: self)
+                                break
+                            case "CommunicateWithSchool":
+                                performSegue(withIdentifier: "to_message_school", sender: self)
+                                break
+                            case "HWListForParent":
+                                performSegue(withIdentifier: "to_hw_list_parent", sender: self)
+                            default:
+                                break
                         }
                     }
                     else    {
@@ -150,7 +152,11 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         case "CommunicateWithSchool":
             let destinationVC = segue.destination as! MessageToSchoolVC
             destinationVC.student_id = student_id
-            
+        case "HWListForParent":
+            let destinationVC = segue.destination as! HWListTVC
+            destinationVC.student_id = student_id
+            destinationVC.student_name = student_name
+            destinationVC.coming_from = "HWListForParent"
             break
         default:
             break

@@ -92,7 +92,6 @@
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
-		A4D9611B1EAFD7DC008BF09C /* HWListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */; };
 		A4DAEC641EB7739B00206BA0 /* HWListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */; };
 		A4DAEC661EB795EB00206BA0 /* HWCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC651EB795EB00206BA0 /* HWCell.swift */; };
 		A4DAEC681EB81A5500206BA0 /* ReviewHWVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC671EB81A5500206BA0 /* ReviewHWVC.swift */; };
@@ -195,7 +194,6 @@
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
-		A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HWListVC.swift; sourceTree = "<group>"; };
 		A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HWListTVC.swift; sourceTree = "<group>"; };
 		A4DAEC651EB795EB00206BA0 /* HWCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HWCell.swift; sourceTree = "<group>"; };
 		A4DAEC671EB81A5500206BA0 /* ReviewHWVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHWVC.swift; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				A4053CA31DD9C77F0090D89D /* ExamResultVC.swift */,
 				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
 				A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */,
-				A4D9611A1EAFD7DC008BF09C /* HWListVC.swift */,
 				A482F2581DB3E56100EA2811 /* Info.plist */,
 				A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */,
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
@@ -577,7 +574,6 @@
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,
 				A49081661DC1180600A4170D /* StudentStopModel.swift in Sources */,
-				A4D9611B1EAFD7DC008BF09C /* HWListVC.swift in Sources */,
 				A4024EAD1E671367002C1935 /* EditTeacher.swift in Sources */,
 				A4053C9C1DD9C3AA0090D89D /* MessageToSchoolVC.swift in Sources */,
 			);
