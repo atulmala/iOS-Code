@@ -21,6 +21,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var subject: String = ""
     var destination: String = ""
 
+    @IBOutlet weak var table_view: UITableView!
     @IBOutlet weak var nav_bar: UINavigationItem!
     override func viewDidLoad() {
         
@@ -177,6 +178,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
                     let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
+                    self.table_view.reloadData()
                     
                     self.destination = "to_main_menu"
                     self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)

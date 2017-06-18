@@ -88,8 +88,10 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
+        tableView.separatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         tableView.backgroundView = spinner
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.automaticallyAdjustsScrollViewInsets = true
         
         // add the long tap functionality. Long tapping on a student's name will initiate a call to the parent
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TakeAttendanceVC.longPress(longPressGestureRecognizer:)))
@@ -121,7 +123,10 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
                         let the_id = j[index]["id"]
                         id = String(stringInterpolationSegment: the_id)
                     }
-                    student_list.append(StudentModel(id: id, full_name: full_name, roll_no: roll_no, whether_present: true))
+                    
+                    // 18/06/2017 - We now show the parent name
+                    let parent: String = j[index]["parent"].string!
+                    student_list.append(StudentModel(id: id, full_name: full_name, roll_no: roll_no, whether_present: true, parent: parent))
                 }
             }
         }
@@ -189,6 +194,10 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         return student_list.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("cellForRowAtIndexPath row=\(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "attendance_cell", for: indexPath as IndexPath) as! TakeAttendanceCellTVC
@@ -212,10 +221,12 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         cell.year.text = y
         cell.year.isHidden = true
         
-        cell.roll_number.text = student_list[indexPath.row].roll_no
+        cell.roll_number.text = "Roll No  \(student_list[indexPath.row].roll_no)"
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text =  student_list[indexPath.row].full_name
+        
+        cell.parent.text = student_list[indexPath.row].parent
         
         cell.selectionStyle = .none
         // check if this student was absent
@@ -237,21 +248,23 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header_cell = tableView.dequeueReusableCell(withIdentifier: "attendance_header_cell") as! AttendanceHeaderCell
-        header_cell.backgroundColor = UIColor.cyan
+//        let header_cell = tableView.dequeueReusableCell(withIdentifier: "attendance_header_cell") as! AttendanceHeaderCell
+//        header_cell.backgroundColor = UIColor.cyan
+//        
+//        header_cell.roll_no.text = "Roll No"
+//        header_cell.full_name.text = "Full Name"
+//        header_cell.present_absent.text = "A/P"
         
-        header_cell.roll_no.text = "Roll No"
-        header_cell.full_name.text = "Full Name"
-        header_cell.present_absent.text = "A/P"
-        
-        return header_cell
+//        return header_cell
+        return nil
     }
     
     @IBAction func submitAttendance(sender: UIButton) {
         // we need to present a confirmation dialog to the teacher before they decide to submit the attendance
+        let total = student_list.count
         let present_count = student_list.count - AttendanceProcessing.get_absentee_list().count
         let absent_count = AttendanceProcessing.get_absentee_list().count
-        let alert: UIAlertController = UIAlertController(title: "Confirm Attendance Submission", message: "Date: \(d)-\(m)-\(y) | Class: \(the_class)-\(section) | Subject: \(subject) | Present = \(present_count), Absent = \(absent_count)", preferredStyle: .alert )
+        let alert: UIAlertController = UIAlertController(title: "Confirm Attendance Submission", message: "Date: \(d)-\(m)-\(y) | Class: \(the_class)-\(section) | Subject: \(subject) | Total: \(total) | Present: \(present_count), Absent: \(absent_count)", preferredStyle: .alert )
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)

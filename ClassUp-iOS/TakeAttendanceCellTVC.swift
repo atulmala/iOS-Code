@@ -18,6 +18,7 @@ class TakeAttendanceCellTVC: UITableViewCell {
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var year: UILabel!
+    @IBOutlet weak var parent: UILabel!
     
     @IBOutlet weak var attendance_cell: UITableViewCell!
     

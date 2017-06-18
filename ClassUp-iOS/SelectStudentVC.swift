@@ -94,7 +94,10 @@ class SelectStudentVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                         let the_id = j[index]["id"]
                         id = String(stringInterpolationSegment: the_id)
                     }
-                    student_list.append(StudentModel(id: id, full_name: full_name, roll_no: roll_no, whether_present: true))
+                    
+                    // 18/06/2017 - we are getting parent also in the api call
+                    let parent: String = j[index]["parent"].string!
+                    student_list.append(StudentModel(id: id, full_name: full_name, roll_no: roll_no, whether_present: true, parent: parent))
                 }
             }
         }

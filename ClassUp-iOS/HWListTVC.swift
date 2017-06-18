@@ -145,6 +145,38 @@ class HWListTVC: UITableViewController {
         destination = "ReviewHWVC"
         performSegue(withIdentifier: "show_hw_image", sender: self)
     }
+    
+    // for swipe delete a test
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+        if editingStyle == .delete  {
+            let alert: UIAlertController = UIAlertController(title: "Confirm HW Deletion", message: "Are you sure that you want to delete this Home Work? ", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alert.addAction(cancelAction)
+            
+            let confirmAction = UIAlertAction(title: "Home Work", style: .default, handler: {(action: UIAlertAction) in
+                
+                let server_ip = MiscFunction.getServerIP()
+                let cell = tableView.cellForRow(at: indexPath as IndexPath) as! HWCell
+                let url = server_ip + "/academics/delete_hw/" + cell.id.text! + "/"
+                let r = Just.delete(url)
+                if r.statusCode == 200  {
+                    let alert: UIAlertController = UIAlertController(title: "Done", message: "Test Deleted", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                    alert.addAction(cancelAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.destination = "to_main_menu"
+                    self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
+                }
+            })
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
