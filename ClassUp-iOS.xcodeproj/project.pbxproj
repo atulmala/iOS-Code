@@ -92,6 +92,8 @@
 		A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */; };
 		A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */; };
 		A4D28AE51DB3F59A003B47F2 /* CartFile in Resources */ = {isa = PBXBuildFile; fileRef = A4D28AE41DB3F59A003B47F2 /* CartFile */; };
+		A4DA3C7D1EF9888E009DB8DF /* UpcomingTestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA3C7C1EF9888E009DB8DF /* UpcomingTestTVC.swift */; };
+		A4DA3C7F1EF98970009DB8DF /* UpcomintTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA3C7E1EF98970009DB8DF /* UpcomintTestCell.swift */; };
 		A4DAEC641EB7739B00206BA0 /* HWListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */; };
 		A4DAEC661EB795EB00206BA0 /* HWCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC651EB795EB00206BA0 /* HWCell.swift */; };
 		A4DAEC681EB81A5500206BA0 /* ReviewHWVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAEC671EB81A5500206BA0 /* ReviewHWVC.swift */; };
@@ -194,6 +196,8 @@
 		A4D28ADE1DB3EFC0003B47F2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A4D28AE21DB3F1F7003B47F2 /* MiscFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscFunctions.swift; sourceTree = "<group>"; };
 		A4D28AE41DB3F59A003B47F2 /* CartFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartFile; sourceTree = "<group>"; };
+		A4DA3C7C1EF9888E009DB8DF /* UpcomingTestTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingTestTVC.swift; sourceTree = "<group>"; };
+		A4DA3C7E1EF98970009DB8DF /* UpcomintTestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomintTestCell.swift; sourceTree = "<group>"; };
 		A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HWListTVC.swift; sourceTree = "<group>"; };
 		A4DAEC651EB795EB00206BA0 /* HWCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HWCell.swift; sourceTree = "<group>"; };
 		A4DAEC671EB81A5500206BA0 /* ReviewHWVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHWVC.swift; sourceTree = "<group>"; };
@@ -343,6 +347,8 @@
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 				A4DAEC651EB795EB00206BA0 /* HWCell.swift */,
 				A4DAEC671EB81A5500206BA0 /* ReviewHWVC.swift */,
+				A4DA3C7C1EF9888E009DB8DF /* UpcomingTestTVC.swift */,
+				A4DA3C7E1EF98970009DB8DF /* UpcomintTestCell.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
 				A40DFFFB1E46259500711694 /* MessageHistoryVC.swift in Sources */,
 				A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */,
+				A4DA3C7F1EF98970009DB8DF /* UpcomintTestCell.swift in Sources */,
 				A4053CA71DD9C7E90090D89D /* ExamResultCellTVC.swift in Sources */,
 				A47365C71DD88FD100EDA30D /* ChangePasswordVC.swift in Sources */,
 				A4024EAB1E66F1A9002C1935 /* TeacherCell.swift in Sources */,
@@ -537,6 +544,7 @@
 				A46041211DCDE37B004E9BDE /* PendingTestListVC.swift in Sources */,
 				A47365CF1DD980DE00EDA30D /* WardListTVC.swift in Sources */,
 				A4665A4C1DCA4F4D0049EB4D /* SubjectModel.swift in Sources */,
+				A4DA3C7D1EF9888E009DB8DF /* UpcomingTestTVC.swift in Sources */,
 				A443A5311E55F167001A64FC /* School_Att_Summ_Cell.swift in Sources */,
 				A4918CD41E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift in Sources */,
 				A4024EAF1E69644E002C1935 /* AddTeacherVC.swift in Sources */,
@@ -721,6 +729,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClassUp-iOS/ClassUp-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Atul Gupta (F64T6ZEDL7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Atul Gupta (F64T6ZEDL7)";
 				DEVELOPMENT_TEAM = F64T6ZEDL7;
 				INFOPLIST_FILE = "ClassUp-iOS/Info.plist";

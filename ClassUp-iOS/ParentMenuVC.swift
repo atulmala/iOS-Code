@@ -41,6 +41,7 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "ExamResult"
         performSegue(withIdentifier: "selectWard", sender: self)
     }
+    
     @IBAction func sbujectwiseMarks(sender: UIButton) {
         triggeringMenu = "SubjectwiseMarks"
         performSegue(withIdentifier: "selectWard", sender: self)
@@ -54,8 +55,14 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "CommunicationHistory"
         performSegue(withIdentifier: "to_communication_history", sender: self)
     }
+    
     @IBAction func show_hw_list(_ sender: UIButton) {
         triggeringMenu = "HWListForParent"
+        performSegue(withIdentifier: "selectWard", sender: self)
+    }
+    
+    @IBAction func upcoming_test(_ sender: UIButton)    {
+        triggeringMenu = "UpcomingTests"
         performSegue(withIdentifier: "selectWard", sender: self)
     }
     // MARK: - Navigation
@@ -86,6 +93,9 @@ class ParentMenuVC: UIViewController {
             case "HWListForParent":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "HWListForParent"
+            case "UpcomingTests":
+                let destinationVC = segue.destination as! SelectWardVC
+                destinationVC.trigger = "UpcomingTests"
             default:
                 break
         }

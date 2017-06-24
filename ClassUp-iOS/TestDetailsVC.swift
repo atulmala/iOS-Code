@@ -30,7 +30,7 @@ class TestDetailsVC: UIViewController {
     @IBOutlet weak var max_marks: UITextField!
     @IBOutlet weak var pass_marks: UITextField!
     @IBOutlet weak var grade_based: UISwitch!
-    @IBOutlet weak var comments: UITextField!
+    @IBOutlet weak var comments: UITextView!
     
     @IBOutlet weak var toMainMenu: UIButton!
     @IBOutlet weak var activity_indicator: UIActivityIndicatorView!
@@ -43,7 +43,7 @@ class TestDetailsVC: UIViewController {
             pass_marks.isEnabled = true
             pass_marks.text = ""
             pass_marks.placeholder = "Pass Marks"
-            whether_grade_based = "1"
+                        whether_grade_based = "1"
         }
         // switch is on
         if sender.isOn    {
@@ -98,6 +98,7 @@ class TestDetailsVC: UIViewController {
             cmnts = "No Comments"
             
             // if user has not entered any comment, let's put a default comment, otherwise cause error in http call
+            cmnts = comments.text!
             if cmnts == ""   {
                 cmnts = "No Comments"
                 
@@ -128,6 +129,11 @@ class TestDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        comments.placeholderText = "Test Topics/Comments (Optional)"
+        comments.layer.borderWidth = 1
+        comments.layer.borderColor = UIColor.black.cgColor
+
         max_marks.keyboardType = UIKeyboardType.numberPad
         pass_marks.keyboardType = UIKeyboardType.numberPad
         

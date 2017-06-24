@@ -70,9 +70,7 @@ class StudentAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITab
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //print("cellForRowAtIndexPath row=\(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "stu_att_summary_cell", for: indexPath as IndexPath) as! StuAttSummaryCellTVC
-        //let cell = tableView.cellForRowAtIndexPath(indexPath) as! TakeAttendanceCellTVC
         
         // Configure the cell...
         // we are storing id, class, section, date, month, and year as hidden in the cell

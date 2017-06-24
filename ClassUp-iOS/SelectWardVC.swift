@@ -119,6 +119,8 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                                 break
                             case "HWListForParent":
                                 performSegue(withIdentifier: "to_hw_list_parent", sender: self)
+                            case "UpcomingTests":
+                                performSegue(withIdentifier: "to_upcoming_tests", sender: self)
                             default:
                                 break
                         }
@@ -138,31 +140,36 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         switch trigger  {
-        case "AttendanceSummary":
-            let destinationVC = segue.destination as! StudentAttendanceSummaryVC
-            destinationVC.student_id = student_id
-            destinationVC.student_full_name = student_name
-            break
-        case "ExamResult":
-            let destinationVC = segue.destination as! SelectExamTermVC
-            destinationVC.student_id = student_id
-            destinationVC.student_full_name = student_name
-            break
-        case "SubjectwiseMarks":
-            let destinationVC = segue.destination as! SubjectSelectionVC
-            destinationVC.student_id = student_id
-            destinationVC.student_full_name = student_name
-        case "CommunicateWithSchool":
-            let destinationVC = segue.destination as! MessageToSchoolVC
-            destinationVC.student_id = student_id
-        case "HWListForParent":
-            let destinationVC = segue.destination as! HWListTVC
-            destinationVC.student_id = student_id
-            destinationVC.student_name = student_name
-            destinationVC.coming_from = "HWListForParent"
-            break
-        default:
-            break
+            case "AttendanceSummary":
+                let destinationVC = segue.destination as! StudentAttendanceSummaryVC
+                destinationVC.student_id = student_id
+                destinationVC.student_full_name = student_name
+                break
+            case "ExamResult":
+                let destinationVC = segue.destination as! SelectExamTermVC
+                destinationVC.student_id = student_id
+                destinationVC.student_full_name = student_name
+                break
+            case "SubjectwiseMarks":
+                let destinationVC = segue.destination as! SubjectSelectionVC
+                destinationVC.student_id = student_id
+                destinationVC.student_full_name = student_name
+            case "CommunicateWithSchool":
+                let destinationVC = segue.destination as! MessageToSchoolVC
+                destinationVC.student_id = student_id
+            case "HWListForParent":
+                let destinationVC = segue.destination as! HWListTVC
+                destinationVC.student_id = student_id
+                destinationVC.student_name = student_name
+                destinationVC.coming_from = "HWListForParent"
+                break
+            case "UpcomingTests":
+                let destinationVC = segue.destination as! UpcomingTestTVC
+                destinationVC.student_id = student_id
+                destinationVC.student_full_name = student_name
+                break
+            default:
+                break
         }
     }
     

@@ -11,10 +11,6 @@ import Just
 import SwiftyJSON
 
 class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var btn_submit: UIButton!
-    @IBOutlet weak var btn_save: UIButton!
-    
     @IBOutlet weak var toMainMenu: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,16 +36,12 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     var pm: String = ""
     var mm: String = ""
     
-    @IBAction func marksEntered(sender: UITextField) {
-    }
-    
-    
-    @IBAction func saveMarks(sender: UIButton) {
+    func saveMarks(sender: UIButton) {
         MarksProcessing.save_marks_list(whether_grade_based: whether_grade_based)
         showAlert(title: "Done", message: "Marks/Grades Saved")
     }
     
-    @IBAction func submitMarks(sender: UIButton)  {
+    func submitMarks(sender: UIButton)  {
         // first, check if marks/grade for any student have been left to be filled
         for i in 0 ..< test_marks_list.count    {
             if !whether_grade_based {
@@ -91,6 +83,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorColor = UIColor.blue
         
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up
         // when the keyboard appears. So we register for keyboard notification
@@ -123,7 +116,9 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                         marks_obtained = String(stringInterpolationSegment: mo)
                     }
                     
-                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name) )
+                    let parent_name: String = j[index]["parent"].string!
+                    
+                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name))
                 }
             }
         }
@@ -159,6 +154,12 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         self.navigationItem.titleView = lable
         
+        // 24/06/2017 - moving Save and Submit button to navigation bar
+        
+        let save_button = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(TestMarksEntryVC.saveMarks(sender:)))
+        
+        let submit_button = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(TestMarksEntryVC.submitMarks(sender:)))
+        navigationItem.rightBarButtonItems = [submit_button, save_button]
     }
     
     deinit {
@@ -188,26 +189,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         return 1
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header_cell = tableView.dequeueReusableCell(withIdentifier: "header_cell") as! TestMarksEntryHeaderCell
-        header_cell.backgroundColor = UIColor.cyan
-        
-        header_cell.roll_no.text = "Roll No"
-        header_cell.full_name.text = "Name"
-        if whether_grade_based  {
-            header_cell.marks.text = "Grade"
-            btn_save.setTitle("Save Grades", for: .normal)
-            btn_submit.setTitle("Submit Grades", for: .normal)
-        }
-        else    {
-            header_cell.marks.text = "Marks"
-        }
-        
-        header_cell.absent.text = "Abs?"
-        
-        return header_cell
-    }
-    
     func dismissKeyboard()  {
         view.endEditing(true)
     }
@@ -223,6 +204,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text = test_marks_list[indexPath.row].student
+        cell.parent_name.text = test_marks_list[indexPath.row].parent_name
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TestMarksEntryVC.dismissKeyboard))
         
 
@@ -284,19 +266,18 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.black
-        
         
         self.navigationItem.title = "Test Marks Entry"
     }

@@ -9,8 +9,7 @@
 import UIKit
 
 class TestMarksEntryCell: UITableViewCell {
-    
-    
+    @IBOutlet weak var parent_name: UILabel!
     @IBOutlet weak var marks_entry_id: UILabel!
     @IBOutlet weak var roll_no: UILabel!
     @IBOutlet weak var marks: UITextField!
