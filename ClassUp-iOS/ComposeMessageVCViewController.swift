@@ -61,6 +61,23 @@ class ComposeMessageVCViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
+        lable.textColor = UIColor.black
+        lable.numberOfLines = 0
+        lable.textAlignment = NSTextAlignment.left
+        
+        lable.text = "Compose Message"
+        self.navigationItem.titleView = lable
+        
+        // 25/06/2017 - moving the submit button to the navigation bar
+        
+        let send_button = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(ComposeMessageVCViewController.sendMessage(sender:)))
+        let cancel_button = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(ComposeMessageVCViewController.cancel(sender:)))
+        navigationItem.rightBarButtonItems = [cancel_button, send_button,]
+    }
+
+    
     @IBAction func cancel(sender: UIButton) {
         cancelled = true
         performSegue(withIdentifier: "unwindToMainMenu", sender: self)

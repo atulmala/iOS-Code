@@ -109,8 +109,11 @@ class SelectStudentVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.center
         
-        lable.text = "Please Select Student"
+        lable.text = "Tap to Select"
         self.navigationItem.titleView = lable
+        
+        let compose_message_btn = UIBarButtonItem(title: "Compose Message", style: .done, target: self, action: #selector(SelectStudentVC.composeMessage(sender:)))
+        navigationItem.rightBarButtonItems = [compose_message_btn,]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,6 +141,7 @@ class SelectStudentVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text =  student_list[indexPath.row].full_name as String
+        cell.parent_name.text = student_list[indexPath.row].parent as String
         
         cell.selectionStyle = .none
         if (selected_student.index(of: student_list[indexPath.row].id as String) != nil)  {

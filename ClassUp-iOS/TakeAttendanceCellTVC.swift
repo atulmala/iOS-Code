@@ -11,6 +11,7 @@ import UIKit
 class TakeAttendanceCellTVC: UITableViewCell {
 
     @IBOutlet weak var absentee_id: UILabel!
+    @IBOutlet weak var img_absent: UIView!
     // following six outlets corresponds to hidden lables in the cell. They will be used for api calls
     @IBOutlet weak var the_class: UILabel!
     @IBOutlet weak var section: UILabel!
@@ -36,17 +37,20 @@ class TakeAttendanceCellTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //img_absent.transform = CGAffineTransform(rotationAngle: -0.0872665);
     }
 
     @IBAction func attendanceMarked(sender: UISwitch) {
         if !sender.isOn   {
             //attendance_cell.backgroundColor = UIColor.redColor()
-            attendance_cell.backgroundColor = UIColor.orange
+            img_absent.isHidden = false
+            //attendance_cell.backgroundColor = UIColor.orange
             AttendanceProcessing.add_to_absentee_list(id: absentee_id.text!)
             AttendanceProcessing.remove_from_correction_list(id: absentee_id.text!)
         }
         else    {
-            attendance_cell.backgroundColor = UIColor.green
+            img_absent.isHidden = true
+            //attendance_cell.backgroundColor = UIColor.green
             AttendanceProcessing.remove_from_absentee_list(id: absentee_id.text!)
             AttendanceProcessing.add_to_correction_list(id: absentee_id.text!)
             // if this attendance is an update then this student is marked as absent in the db. We need

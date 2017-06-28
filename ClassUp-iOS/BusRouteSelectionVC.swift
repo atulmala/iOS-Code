@@ -55,8 +55,14 @@ class BusRouteSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let attendance_btn = UIBarButtonItem(title: "Take Attendance", style: .done, target: self, action: #selector(BusRouteSelectionVC.take_bus_attendance(sender:)))
+        let delay_btn = UIBarButtonItem(title: "Report Delay", style: .done, target: self, action: #selector(BusRouteSelectionVC.report_delay(sender:)))
+        navigationItem.rightBarButtonItems = [delay_btn, attendance_btn,]
+
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 2
     }
     
@@ -85,7 +91,7 @@ class BusRouteSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         //var str_date = date_formatter.stringFromDate(datePicker.date)
     }
 
-    @IBAction func take_bus_attendance(sender: UIButton) {
+    func take_bus_attendance(sender: UIButton) {
         trigger = "takeBusAttendance"
         
         MiscFunction.decomposeDate(date_picker: date_picker, day: &d, month: &m, year: &y)
@@ -105,7 +111,7 @@ class BusRouteSelectionVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         performSegue(withIdentifier: "take_bus_attendance", sender: self)
     }
     
-    @IBAction func report_delay(sender: UIButton) {
+    func report_delay(sender: UIButton) {
         trigger = "reportBusDelay"
         MiscFunction.decomposeDate(date_picker: date_picker, day: &d, month: &m, year: &y)
         

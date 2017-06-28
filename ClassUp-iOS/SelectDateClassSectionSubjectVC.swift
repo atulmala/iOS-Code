@@ -16,7 +16,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     
     // the button which is at the bottom of the screen. Its caption will depend upon the sender variable
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var btn_submit: UIButton!
     // Pickers to select date, class, section, and subject
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var classPicker: UIPickerView!
@@ -42,10 +41,13 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     var selected_section: String = ""
     var selected_subject: String = ""
     
+    var right_menu: String = ""
+    
     var image: UIImage!
     
     @IBAction func goToAttendanceOrScheduleTest(sender: UIButton)
     {
+        
         MiscFunction.decomposeDate(date_picker: datePicker, day: &d, month: &m, year: &y)
         
         // chances are that the teacher may select the default entries in the class/section/subject
@@ -68,21 +70,24 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         // now depending upon whether we have to take attendance or schedule test
         // we will have to take different actions
         switch(trigger)  {
-        case "takeUpdateAttendance":
-            // perform the segue to navigate to the Take Attendance Screen
-            performSegue(withIdentifier: "to_take_attendance", sender: self)
+            case "takeUpdateAttendance":
+                // perform the segue to navigate to the Take Attendance Screen
+                
+                performSegue(withIdentifier: "to_take_attendance", sender: self)
+                
+            case "scheduleTest":
+                
+                // perform segue to navigate to get max marks, pass marks, grade based and comments
+                performSegue(withIdentifier: "get_test_details", sender: self)
             
-        case "scheduleTest":
-            // perform segue to navigate to get max marks, pass marks, grade based and comments
-            performSegue(withIdentifier: "get_test_details", sender: self)
-        
-        case "HWListVC":
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-                imagePicker.allowsEditing = false
-                self.present(imagePicker, animated: true, completion: nil)
+            case "HWListVC":
+                
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker, animated: true, completion: nil)
             }
             
         default:
@@ -95,19 +100,21 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         // No title for the back button in navigation section
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
                                                                 target: nil, action: nil)
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         // set the caption of the submit button
         switch trigger   {
-        case "takeUpdateAttendance":
-            // attendance for future date is not allowed
-            datePicker.maximumDate = NSDate() as Date
-            btn_submit.setTitle("Take/Update Attendance", for: UIControlState.normal)
-        case "scheduleTest":
-            btn_submit.setTitle("Schedule Test", for: UIControlState.normal)
-        case "HWListVC":
-            date_label.text = "Due Date"
-            btn_submit.setTitle("Take Pic", for: UIControlState.normal)
-        default:
-            btn_submit.setTitle("Submit", for: UIControlState.normal)
+            case "takeUpdateAttendance":
+                right_menu = "Take Attendance"
+                // attendance for future date is not allowed
+                datePicker.maximumDate = NSDate() as Date
+            case "scheduleTest":
+                right_menu = "Schedule Test"
+            case "HWListVC":
+                right_menu = "Take Pic"
+                date_label.text = "Due Date"
+            default:
+                right_menu = "Next"
         }
     }
     
@@ -115,6 +122,9 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
         super.viewDidAppear(true)
         classPicker.delegate = self
         classPicker.dataSource = self
+        
+        let right_button = UIBarButtonItem(title: right_menu, style: .done, target: self, action: #selector(SelectDateClassSectionSubjectVC.goToAttendanceOrScheduleTest(sender:)))
+        navigationItem.rightBarButtonItems = [right_button]
         
         // We need to get the class, section and subject in their respective arrays
         // 05/03/17 - we need to make sure that apis are called only during the first call to this function
@@ -129,8 +139,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             let subjectURL2 = "\(server_ip)/academics/subject_list/\(school_id)/?format=json"
             
             let subjectURL = "\(server_ip)/teachers/teacher_subject_list/\(teacher)/?format=json"
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
+            
             
             MiscFunction.sendRequestToServer(url: classURL, key: "standard", list: &class_list, sender: "SelectDateClassSectionSubjectTVC")
             MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectDateClassSectionSubjectTVC")
@@ -151,8 +160,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        activityIndicator.stopAnimating()
+        //activityIndicator.stopAnimating()
     }
+    
+    
     
     @available(iOS 2.0, *)
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {

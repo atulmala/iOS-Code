@@ -154,14 +154,20 @@ class LoginVC: UIViewController {
                                     self.performSegue(withIdentifier: "toParentMenu", sender: self)
                                 }
                             }else    {
+                                self.activity_indicator.stopAnimating()
+                                self.activity_indicator.isHidden = true
                                 self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
                             }
                         }else    {
+                            self.activity_indicator.stopAnimating()
+                            self.activity_indicator.isHidden = true
                             self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
                         }
                         
                 }
             }else    {
+                activity_indicator.stopAnimating()
+                activity_indicator.isHidden = true
                 self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
             }
         }
@@ -192,6 +198,11 @@ class LoginVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        activity_indicator.isHidden = true
+        activity_indicator.stopAnimating()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         activity_indicator.isHidden = true
         activity_indicator.stopAnimating()
     }

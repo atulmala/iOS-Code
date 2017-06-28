@@ -21,6 +21,7 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
     var trigger: String = "SelectStudents"
     
     @IBOutlet weak var class_section_picker: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +42,13 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
             target: nil, action: nil)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let select_students_btn = UIBarButtonItem(title: "Select Student(s)", style: .done, target: self, action: #selector(SelectClassSectionVC.next(sender:)))
+        let whole_class_btn = UIBarButtonItem(title: "Whole Class", style: .done, target: self, action: #selector(SelectClassSectionVC.sendMessageToWholeClass(sender:)))
+        navigationItem.rightBarButtonItems = [whole_class_btn, select_students_btn,]
+    }
+
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
@@ -71,6 +79,7 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBAction func next(sender: UIButton) {
         trigger = "SelectStudents"
+        performSegue(withIdentifier: "select_students", sender: self)
     }
 
     

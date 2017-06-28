@@ -27,6 +27,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     var absentee_list_main: [String] = []
     var whether_main: Bool = true
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var toMainMenu: UIButton!
     
@@ -35,50 +36,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     let spinner: UIActivityIndicatorView = UIActivityIndicatorView()
     let loading_label: UILabel = UILabel()
     
-    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer)    {
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.began   {
-            let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
-            if tableView.indexPathForRow(at: touchPoint) != nil {
-                // get the name of the student
-                
-                let cell = tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)! as IndexPath) as! TakeAttendanceCellTVC
-                let student = cell.full_name.text!
-                let alert: UIAlertController = UIAlertController(title: "Calling Parent", message: "Do you want to call \(student) 's Parent?", preferredStyle: .alert )
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alert.addAction(cancelAction)
-                
-                let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
-                    let server_ip = MiscFunction.getServerIP()
-                    
-                    // get the phone number of the parent
-                    let student_id = cell.id.text!
-                    var mob_no: String = ""
-                    var url = "\(server_ip)/student/get_parent/\(student_id)/"
-                    url = url.replacingOccurrences(of: " ", with: "%20")
-                    let j = JSON(Just.get(url).json!)
-                    let the_mob_no = j["parent_mobile1"]
-                    let mob = String(stringInterpolationSegment: the_mob_no)
-                    mob_no = "tel:\(mob)"
-                    let alertController = UIAlertController(title: mob_no, message: mob_no, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                    let url1: NSURL = NSURL(string: mob_no)!
-                    if (UIApplication.shared.canOpenURL(url1 as URL))
-                    {
-                        UIApplication.shared.open(url1 as URL, options: [:], completionHandler: nil)
-                    }
-                    return
-                })
-                alert.addAction(confirmAction)
-                present(alert, animated: true, completion: nil)
-
-            }
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -87,16 +44,31 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.isHidden = false
+        indicator.startAnimating()
+        self.view.addSubview(spinner)
+        self.view.bringSubview(toFront: spinner)
+        spinner.isHidden = false
+        spinner.startAnimating()
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLineEtched
-        tableView.separatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
-        tableView.backgroundView = spinner
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        tableView.separatorColor = UIColor.blue
         self.automaticallyAdjustsScrollViewInsets = true
         
         // add the long tap functionality. Long tapping on a student's name will initiate a call to the parent
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TakeAttendanceVC.longPress(longPressGestureRecognizer:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         
+        
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         // call the api to get the list of students, roll number and id
         let server_ip: String = MiscFunction.getServerIP()
@@ -130,7 +102,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
                 }
             }
         }
-
+        
         
         // we also need to get the list of absent students for this class/section/subject/date
         var attendance_list_url = "\(server_ip)/attendance/retrieve/" + school_id + "/" +
@@ -140,7 +112,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         // as subject name such as Social Sciences contain spaces, those need to be replace by %20
         
         attendance_list_url = attendance_list_url.replacingOccurrences(of: " ", with: "%20")
- 
+        
         MiscFunction.sendRequestToServer(url: attendance_list_url, key: "student", list: &absentee_list, sender: "TakeAttendanceTVC")
         
         // Get also the list of students absent in the main attendance for this date
@@ -149,32 +121,32 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
             let main_attendance_list_url = "\(server_ip)/attendance/retrieve/" + school_id + "/" +
                 the_class + "/" + section + "/Main"  +
                 "/" + d + "/" + m + "/" + y + "/?format=json"
-        
+            
             MiscFunction.sendRequestToServer(url: main_attendance_list_url, key: "student", list: &absentee_list_main, sender: "TakeAttendanceTVC")
         }
         
         if subject != "Main"    {
             absentee_list += absentee_list_main
         }
-
+        
         // set the universal absentee list
         AttendanceProcessing.set_absentee_list(list: absentee_list)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
         lable.textColor = UIColor.black
         lable.numberOfLines = 0
-        lable.textAlignment = NSTextAlignment.center
+        lable.textAlignment = NSTextAlignment.left
         
-        lable.text = "Attendance     \(the_class)-\(section)       \(d)/\(m)/\(y)  \(subject)"
+        lable.text = "\(the_class)-\(section)  \(d)/\(m)/\(y)  \(subject)"
         self.navigationItem.titleView = lable
+        
+        // 25/06/2017 - moving the submit button to the navigation bar
+        
+        let submit_button = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(TakeAttendanceVC.submitAttendance(sender:)))
+        navigationItem.rightBarButtonItems = [submit_button]
+        tableView.reloadData()
+        spinner.stopAnimating()
+        spinner.isHidden = true
     }
     
     
@@ -194,10 +166,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         return student_list.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //print("cellForRowAtIndexPath row=\(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "attendance_cell", for: indexPath as IndexPath) as! TakeAttendanceCellTVC
@@ -205,7 +173,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         
         // Configure the cell...
         // we are storing id, class, section, date, month, and year as hidden in the cell
-        // so that we can access them in Cell specific view controller. 
+        // so that we can access them in Cell specific view controller.
         cell.id.text = student_list[indexPath.row].id
         cell.id.isHidden = true
         cell.the_class.text = the_class
@@ -234,32 +202,26 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         if let _ = AttendanceProcessing.get_absentee_list().index(of: cell.id.text!)  {
             //print("cell on indexpath.row=\(indexPath.row) with id=\(cell.id.text) & full name=\(cell.full_name.text) is absent")
             cell.whether_present.setOn(false, animated: true)
-            cell.contentView.backgroundColor = UIColor.orange
+            //cell.contentView.backgroundColor = UIColor.orange
+            cell.img_absent.isHidden = false
         }
         else    {
             //print("cell on indexpath.row=\(indexPath.row) with id=\(cell.id.text) & full name=\(cell.full_name.text) is present")
+            cell.img_absent.isHidden = true
             cell.isHighlighted = true
             cell.whether_present.setOn(true, animated: true)
             //cell.full_name.textColor = UIColor.greenColor()
-            cell.contentView.backgroundColor = UIColor.green
+            //cell.contentView.backgroundColor = UIColor.green
             
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header_cell = tableView.dequeueReusableCell(withIdentifier: "attendance_header_cell") as! AttendanceHeaderCell
-//        header_cell.backgroundColor = UIColor.cyan
-//        
-//        header_cell.roll_no.text = "Roll No"
-//        header_cell.full_name.text = "Full Name"
-//        header_cell.present_absent.text = "A/P"
-        
-//        return header_cell
         return nil
     }
     
-    @IBAction func submitAttendance(sender: UIButton) {
+    func submitAttendance(sender: UIButton) {
         // we need to present a confirmation dialog to the teacher before they decide to submit the attendance
         let total = student_list.count
         let present_count = student_list.count - AttendanceProcessing.get_absentee_list().count
@@ -316,6 +278,52 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         
         return
     }
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer)    {
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began   {
+            let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
+            if tableView.indexPathForRow(at: touchPoint) != nil {
+                // get the name of the student
+                
+                let cell = tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)! as IndexPath) as! TakeAttendanceCellTVC
+                let student = cell.full_name.text!
+                let alert: UIAlertController = UIAlertController(title: "Calling Parent", message: "Do you want to call \(student) 's Parent?", preferredStyle: .alert )
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+                
+                let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                    let server_ip = MiscFunction.getServerIP()
+                    
+                    // get the phone number of the parent
+                    let student_id = cell.id.text!
+                    var mob_no: String = ""
+                    var url = "\(server_ip)/student/get_parent/\(student_id)/"
+                    url = url.replacingOccurrences(of: " ", with: "%20")
+                    let j = JSON(Just.get(url).json!)
+                    let the_mob_no = j["parent_mobile1"]
+                    let mob = String(stringInterpolationSegment: the_mob_no)
+                    mob_no = "tel:\(mob)"
+                    let alertController = UIAlertController(title: mob_no, message: mob_no, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    let url1: NSURL = NSURL(string: mob_no)!
+                    if (UIApplication.shared.canOpenURL(url1 as URL))
+                    {
+                        UIApplication.shared.open(url1 as URL, options: [:], completionHandler: nil)
+                    }
+                    return
+                })
+                alert.addAction(confirmAction)
+                present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    }
+
     
     
     /*

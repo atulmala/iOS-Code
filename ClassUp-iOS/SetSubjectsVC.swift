@@ -22,7 +22,6 @@ class SetSubjectsVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var subjects_to_remove: [String] = []
     
     override func viewDidLoad() {
-        
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
         
@@ -48,7 +47,9 @@ class SetSubjectsVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         
         nav_item.title = "Tap a subject to select/de-select"
-        
+        let submit_button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SetSubjectsVC.setSubjects(sender:)))
+        navigationItem.rightBarButtonItems = [submit_button]
+
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

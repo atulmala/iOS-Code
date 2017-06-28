@@ -169,6 +169,12 @@ class BusAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let submit_btn = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(BusAttendanceVC.submitBusAttendance(sender:)))
+        navigationItem.rightBarButtonItems = [submit_btn,]
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

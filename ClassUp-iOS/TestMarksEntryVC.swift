@@ -81,6 +81,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorColor = UIColor.blue
@@ -144,13 +145,13 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
         lable.textColor = UIColor.white
         lable.numberOfLines = 0
-        lable.textAlignment = NSTextAlignment.center
+        lable.textAlignment = NSTextAlignment.left
         
         if whether_grade_based  {
-            lable.text = "Grades Entry     \(the_class)-\(section)        \(subject)"
+            lable.text = "\(the_class)-\(section) \(subject)"
         }
         else    {
-            lable.text = "Marks Entry     \(the_class)-\(section)        \(subject)"
+            lable.text = "\(the_class)-\(section) \(subject)"
         }
         self.navigationItem.titleView = lable
         

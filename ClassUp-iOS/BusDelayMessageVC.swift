@@ -60,6 +60,12 @@ class BusDelayMessageVC: UIViewController {
             return
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let report_btn = UIBarButtonItem(title: "Report", style: .done, target: self, action: #selector(BusDelayMessageVC.reportBusDelay(sender:)))
+        navigationItem.rightBarButtonItems = [report_btn,]
+        
+    }
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
