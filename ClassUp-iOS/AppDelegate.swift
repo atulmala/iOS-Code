@@ -10,17 +10,27 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 import UserNotifications
+import AWSMobileAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "AAAAntWM_N0:APA91bGgdoc-8iADBMRqiTtk4rn2KJ9VoC5AKBos26njb_b6SjDjyxpsTOOgch-7Z21--7dL9tLxo94zx6AoD7W7b9o2hSwvGy4GrSPnDQ7Xs4Ig2nKkKtXRVGKnGHAv-5uA2yKK8hQC"
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 30/06/2017 added for AWS Mobile Analytics
         IQKeyboardManager.sharedManager().enable = true
+        let region: AWSRegionType = AWSRegionType.USEast1
+        let credentials: AWSCognitoCredentialsProvider = AWSCognitoCredentialsProvider(regionType: region, identityPoolId: "us-east-1:3c5df3cc-591c-44f1-9624-0fb5fe21cee3")
+        let serviceConfiguration: AWSServiceConfiguration = AWSServiceConfiguration(region: region, credentialsProvider: credentials)
+        let analyticsConfiguration: AWSMobileAnalyticsConfiguration = AWSMobileAnalyticsConfiguration()
+        analyticsConfiguration.serviceConfiguration = serviceConfiguration
+        let analytics: AWSMobileAnalytics = AWSMobileAnalytics(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
+        
         
         // 10/03/17 - added for firebase messaging (push notification
         // Register for remote notifications. This shows a permission dialog on first run, to

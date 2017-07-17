@@ -33,7 +33,8 @@ class SelectCriteriaAttSummaryVC: UIViewController, UIPickerViewDataSource, UIPi
     }
 
 
-    @IBAction func showAttSummary(sender: UIButton) {
+    func showAttSummary(sender: UIButton) {
+        performSegue(withIdentifier: "showAttSummary", sender: self)
 
     }
     
@@ -107,12 +108,18 @@ class SelectCriteriaAttSummaryVC: UIViewController, UIPickerViewDataSource, UIPi
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // 16/07/2017 - moving the Show Attendance button to the navigation bar
+        
+        let show_button = UIBarButtonItem(title: "Show", style: .done, target: self, action: #selector(SelectCriteriaAttSummaryVC.showAttSummary(sender:)))
+        navigationItem.rightBarButtonItems = [show_button]
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int    {
         switch (pickerView) {
             case class_sub_sec_picker:
                 return class_section_subject_list.count
                 
-            
             case month_picker:
                 return 2
             
@@ -221,8 +228,6 @@ class SelectCriteriaAttSummaryVC: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
-
-
     // Do any additional setup after loading the view.
     
 
@@ -232,8 +237,6 @@ class SelectCriteriaAttSummaryVC: UIViewController, UIPickerViewDataSource, UIPi
         // Dispose of any resources that can be recreated.
     }
 
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

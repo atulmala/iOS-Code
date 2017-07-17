@@ -13,4 +13,5 @@ target 'ClassUp-iOS' do
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'SDWebImage', '~>3.8'
+    pod 'AWSMobileAnalytics'
 end

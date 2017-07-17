@@ -32,24 +32,15 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     @IBOutlet weak var toMainMenu: UIButton!
     
     
-    // spinner to be shown during loading of table
-    let spinner: UIActivityIndicatorView = UIActivityIndicatorView()
-    let loading_label: UILabel = UILabel()
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        spinner.startAnimating()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.isHidden = false
         indicator.startAnimating()
-        self.view.addSubview(spinner)
-        self.view.bringSubview(toFront: spinner)
-        spinner.isHidden = false
-        spinner.startAnimating()
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         tableView.separatorColor = UIColor.blue
@@ -69,7 +60,6 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         // call the api to get the list of students, roll number and id
         let server_ip: String = MiscFunction.getServerIP()
         school_id = SessionManager.getSchoolId()
@@ -145,8 +135,8 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         let submit_button = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(TakeAttendanceVC.submitAttendance(sender:)))
         navigationItem.rightBarButtonItems = [submit_button]
         tableView.reloadData()
-        spinner.stopAnimating()
-        spinner.isHidden = true
+        indicator.stopAnimating()
+        indicator.isHidden = true
     }
     
     
