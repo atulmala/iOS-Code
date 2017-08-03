@@ -70,9 +70,15 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         if (count! > 0)  {
             if let ct = count   {
                 for index in 0...ct-1   {
+                    let s_no = String(index + 1)
                     let first_name: String = j[index]["fist_name"].string!
                     let last_name: String = j[index]["last_name"].string!
-                    let full_name: String = first_name + " " + last_name
+                    var full_name: String = s_no + "    " + first_name + " " + last_name
+                    if (s_no.characters.count > 1)    {
+                        full_name = s_no + "   " + first_name + " " + last_name
+                    }
+                    
+                    
                     
                     var roll_no: String = ""
                     if let _ = j[index]["roll_number"].int {

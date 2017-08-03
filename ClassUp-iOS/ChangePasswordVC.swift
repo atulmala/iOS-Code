@@ -84,6 +84,10 @@ class ChangePasswordVC: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        let change_password_button = UIBarButtonItem(title: "Change Password", style: .done, target: self, action: #selector(ChangePasswordVC.changePassword(sender:)))
+        navigationItem.rightBarButtonItems = [change_password_button]
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -29,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let serviceConfiguration: AWSServiceConfiguration = AWSServiceConfiguration(region: region, credentialsProvider: credentials)
         let analyticsConfiguration: AWSMobileAnalyticsConfiguration = AWSMobileAnalyticsConfiguration()
         analyticsConfiguration.serviceConfiguration = serviceConfiguration
-        let analytics: AWSMobileAnalytics = AWSMobileAnalytics(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
+        
+        _ = AWSMobileAnalytics(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
         
         
         // 10/03/17 - added for firebase messaging (push notification
