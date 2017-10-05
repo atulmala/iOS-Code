@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSMobileAnalytics
 
 class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -84,7 +85,7 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     
     @IBAction func sendMessageToWholeClass(sender: UIButton) {
-        whole_class = true
+                whole_class = true
         trigger = "WholeClass"
         performSegue(withIdentifier: "to_compose_message_for_whole_class", sender: self)
     }
@@ -102,19 +103,33 @@ class SelectClassSectionVC: UIViewController, UIPickerViewDataSource, UIPickerVi
             selected_section = section_list[0]
         }
         switch trigger {
-        case "SelectStudents":
-            let destinationVC = segue.destination as! SelectStudentVC
-            destinationVC.the_class = selected_class
-            destinationVC.section = selected_section
-            break;
-        case "WholeClass":
-            let destinationVC = segue.destination as! ComposeMessageVCViewController
-            destinationVC.the_class = selected_class
-            destinationVC.section = selected_section
-            destinationVC.whole_class = true
-            break;
-        default:
-            break;
+            case "SelectStudents":
+                let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Send Message Selected Students")
+                eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                eventClient.record(event)
+                eventClient.submitEvents()
+
+                let destinationVC = segue.destination as! SelectStudentVC
+                destinationVC.the_class = selected_class
+                destinationVC.section = selected_section
+                break;
+            case "WholeClass":
+                let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Send Message Whole Class")
+                eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                eventClient.record(event)
+                eventClient.submitEvents()
+
+                let destinationVC = segue.destination as! ComposeMessageVCViewController
+                destinationVC.the_class = selected_class
+                destinationVC.section = selected_section
+                destinationVC.whole_class = true
+                break;
+            default:
+                break;
         }
     }
 }

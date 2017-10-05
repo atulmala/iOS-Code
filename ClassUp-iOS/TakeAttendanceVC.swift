@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Just
+import AWSMobileAnalytics
 
 class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDelegate    {
     // the below varialbes have been passed by segues in TakeAttendance. They will be used to
@@ -39,6 +40,14 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Initiated Attendance")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
         indicator.isHidden = false
         indicator.startAnimating()
         
@@ -228,6 +237,14 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         alert.addAction(cancelAction)
         
         let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            
+            let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+            let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+            let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Conducted Attendance")
+            eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+            eventClient.record(event)
+            eventClient.submitEvents()
+
             let server_ip = MiscFunction.getServerIP()
             let teacher = SessionManager.getLoggedInUser()
             

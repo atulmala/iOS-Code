@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AWSMobileAnalytics
 
 class ChangePasswordVC: UIViewController {
     @IBOutlet weak var new_password: UITextField!
@@ -87,6 +88,13 @@ class ChangePasswordVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let change_password_button = UIBarButtonItem(title: "Change Password", style: .done, target: self, action: #selector(ChangePasswordVC.changePassword(sender:)))
         navigationItem.rightBarButtonItems = [change_password_button]
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Change Password")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
     }
 
     override func didReceiveMemoryWarning() {

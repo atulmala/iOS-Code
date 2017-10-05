@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AWSMobileAnalytics
 
 class BusDelayMessageVC: UIViewController {
     var d: String = ""
@@ -64,6 +65,13 @@ class BusDelayMessageVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let report_btn = UIBarButtonItem(title: "Report", style: .done, target: self, action: #selector(BusDelayMessageVC.reportBusDelay(sender:)))
         navigationItem.rightBarButtonItems = [report_btn,]
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Bus Delay")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
         
     }
    

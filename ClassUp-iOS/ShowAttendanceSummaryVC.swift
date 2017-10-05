@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Just
+import AWSMobileAnalytics
 
 class ShowAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var subject: UILabel!
@@ -32,6 +33,15 @@ class ShowAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Teacher Attendance Summary")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
+        
         
         // Do any additional setup after loading the view.
 

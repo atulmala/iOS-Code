@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import AWSMobileAnalytics
 
 
 class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
@@ -76,6 +77,12 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 performSegue(withIdentifier: "to_take_attendance", sender: self)
                 
             case "scheduleTest":
+                let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Schedule Test")
+                eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                eventClient.record(event)
+                eventClient.submitEvents()
                 
                 // perform segue to navigate to get max marks, pass marks, grade based and comments
                 performSegue(withIdentifier: "get_test_details", sender: self)

@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import Just
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class SetSubjectsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var subject_name_list: [String] = []
@@ -22,6 +23,13 @@ class SetSubjectsVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var subjects_to_remove: [String] = []
     
     override func viewDidLoad() {
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Set Subjects")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
         let server_ip: String = MiscFunction.getServerIP()
         let school_id: String = SessionManager.getSchoolId()
         

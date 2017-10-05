@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class AddTeacherVC: UIViewController {
 
@@ -21,6 +22,12 @@ class AddTeacherVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Add Teacher")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
     }
 
     override func didReceiveMemoryWarning() {

@@ -27,11 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let region: AWSRegionType = AWSRegionType.USEast1
         let credentials: AWSCognitoCredentialsProvider = AWSCognitoCredentialsProvider(regionType: region, identityPoolId: "us-east-1:3c5df3cc-591c-44f1-9624-0fb5fe21cee3")
         let serviceConfiguration: AWSServiceConfiguration = AWSServiceConfiguration(region: region, credentialsProvider: credentials)
-        let analyticsConfiguration: AWSMobileAnalyticsConfiguration = AWSMobileAnalyticsConfiguration()
+        AWSServiceManager.default().defaultServiceConfiguration = AWSServiceManager.default().defaultServiceConfiguration
+        let analyticsConfiguration: AWSMobileAnalyticsConfiguration = AWSMobileAnalyticsConfiguration.init()
         analyticsConfiguration.serviceConfiguration = serviceConfiguration
         
-        _ = AWSMobileAnalytics(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
+        let analytics: AWSMobileAnalytics = AWSMobileAnalytics.init(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
         
+        SessionManager.setAnalytics(analytics: analytics)
         
         // 10/03/17 - added for firebase messaging (push notification
         // Register for remote notifications. This shows a permission dialog on first run, to

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AWSMobileAnalytics
 
 var marks_list: [TestMarksModel] = []
 
@@ -57,6 +58,13 @@ class MarksProcessing: UIViewController  {
         
         Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
         }
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Saved Marks")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
     }
     
     class func submit_marks_list(whether_grade_based: Bool) -> Bool   {
@@ -77,6 +85,13 @@ class MarksProcessing: UIViewController  {
         let url = "\(server_ip)/academics/submit_marks/\(school_id)/"
         Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
         }
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Submit Marks")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
         
         
         return true

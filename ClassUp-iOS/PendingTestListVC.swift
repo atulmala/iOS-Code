@@ -20,6 +20,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var section: String = ""
     var subject: String = ""
     var destination: String = ""
+    var test_tpye: String = ""
 
     @IBOutlet weak var table_view: UITableView!
     @IBOutlet weak var nav_bar: UINavigationItem!
@@ -74,7 +75,10 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
                         max_marks = "Grade Based"
                     }
                     
-                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb)))
+                    // 05/10/2017 - now we distinguish between unit test and term test. Hence getting the test type
+                    let test_type: String = j[index]["test_type"].string!
+                    
+                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type))
                 }
             }
         }
@@ -114,6 +118,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.max_marks.numberOfLines = 0
         cell.max_marks.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.max_marks.text = test_list[indexPath.row].max_marks
+        cell.test_type.text = test_list[indexPath.row].test_type
         
         return cell
     }
@@ -152,6 +157,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
         if cell.max_marks.text == "Grade Based" {
             whether_grade_based = true
         }
+        test_tpye = cell.test_type.text!
 
         destination = "to_test_marks_entry"
         performSegue(withIdentifier: "to_test_marks_entry", sender: self)
@@ -211,6 +217,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
             destinationVC.the_class = the_class
             destinationVC.section = section
             destinationVC.subject = subject
+            destinationVC.unit_or_term = test_tpye
         }
         if destination == "to_main_menu"    {
             let destinationVC = segue.destination as! MainMenuVC

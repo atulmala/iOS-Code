@@ -36,6 +36,9 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     var pm: String = ""
     var mm: String = ""
     
+    var unit_or_term = ""
+    
+    
     func saveMarks(sender: UIButton) {
         MarksProcessing.save_marks_list(whether_grade_based: whether_grade_based)
         showAlert(title: "Done", message: "Marks/Grades Saved")
@@ -109,7 +112,19 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                         let the_roll_no = j[index]["roll_no"]
                         roll_no = String(stringInterpolationSegment: the_roll_no)
                     }
-                    let full_name: String = j[index]["student"].string!
+                    // 04/10/2017 - we do not display the roll no separately. Instead show the 
+                    // serial number in front of the name and this can be considered as roll no
+                    let prefix: String = String(index + 1)
+                    var space: String
+                    if prefix.characters.count == 1 {
+                        space = ".    "
+                    }
+                    else{
+                        space = ".  "
+                    }
+                    
+                    let the_name: String = j[index]["student"].string!
+                    let full_name = "\(prefix)\(space)\(the_name)"
                     let grade: String = j[index]["grade"].string!
                     var marks_obtained: String = j[index]["marks_obtained"].string!
                     if let _ = j[index]["marks_obtained"].int{
@@ -117,9 +132,17 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                         marks_obtained = String(stringInterpolationSegment: mo)
                     }
                     
+                    // 04/10/2017 the request would also bring the PA marks, Notebook submission and sub 
+                    // enrichment marks
+                    let pt_marks: String = String(stringInterpolationSegment: j[index]["periodic_test_marks"])
+                    let notebook_sub_marks: String = String(stringInterpolationSegment:j[index]["periodic_test_marks"])
+
+
+                    let sub_enrich_marks: String = String(stringInterpolationSegment: j[index]["sub_enrich_marks"])
+                    
                     let parent_name: String = j[index]["parent"].string!
                     
-                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name))
+                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name, pt: pt_marks, nb: notebook_sub_marks, sub: sub_enrich_marks))
                 }
             }
         }
@@ -201,7 +224,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         
         cell.marks_entry_id.isHidden = true
         cell.marks_entry_id.text = test_marks_list[indexPath.row].id
-        cell.roll_no.text = test_marks_list[indexPath.row].roll_no
+        //cell.roll_no.text = test_marks_list[indexPath.row].roll_no
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text = test_marks_list[indexPath.row].student
@@ -264,16 +287,55 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         cell.marks.text = m
         
+        if unit_or_term != "term"   {
+            cell.lbl_nb.isHidden = true
+            cell.lbl_pt.isHidden = true
+            cell.lbl_se.isHidden = true
+            cell.pt_marks.isHidden = true
+            cell.notebook_sub_marks.isHidden = true
+            cell.sub_enrich_marks.isHidden = true
+        }
+        
+        if test_marks_list[indexPath.row].pt_marks == "-5000.0"  {
+            cell.pt_marks.text = ""
+        }
+        else{
+            cell.pt_marks.text = test_marks_list[indexPath.row].pt_marks
+        }
+        
+        if test_marks_list[indexPath.row].notebook_sub_marks == "-5000.0"   {
+            cell.notebook_sub_marks.text = ""
+        }
+        else{
+            cell.notebook_sub_marks.text = test_marks_list[indexPath.row].notebook_sub_marks
+        }
+        
+        if test_marks_list[indexPath.row].sub_enrich_marks == "-5000.0" {
+            cell.sub_enrich_marks.text = ""
+        }
+        else{
+            cell.sub_enrich_marks.text = test_marks_list[indexPath.row].sub_enrich_marks
+        }
+        
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if unit_or_term != "term"   {
+            return 91
+        }
+        else{
+            return 216        }
+    }
+    
+   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if unit_or_term != "term"   {
+            return 91
+        }
+        else{
+            return 216        }
+
+   }
     
     override func viewDidAppear(_ animated: Bool) {
         

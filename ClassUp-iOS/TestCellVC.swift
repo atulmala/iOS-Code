@@ -17,6 +17,8 @@ class TestCellVC: UITableViewCell {
     
     @IBOutlet weak var max_marks: UILabel!
     @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var test_type: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

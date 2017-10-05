@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import ReachabilitySwift
 import Firebase
+import AWSMobileAnalytics
 
 
 
@@ -102,6 +103,15 @@ class LoginVC: UIViewController {
         else    {
             activity_indicator.isHidden = false
             activity_indicator.startAnimating()
+            
+            // 16/09/2017 we are now implmenting AWS Analytics
+            let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+            let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+            let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Login Attempt")
+            eventClient.addGlobalAttribute(userName as String!, forKey: "user")
+            eventClient.record(event)
+            eventClient.submitEvents()
+            
             // if by mistake the user leaves any blank spaces in username or password, this can cause exception. Replace spaces by %20
             userName = userName.replacingOccurrences(of: " ", with: "%20") as NSString
             password = password.replacingOccurrences(of: " ", with: "%20") as NSString
@@ -135,6 +145,14 @@ class LoginVC: UIViewController {
                             print(response)
                             if response["user_status"] == "active" && response["login"] == "successful" {
                                 SessionManager.setLoggedInUser(user: userName as String)
+                                
+                                let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                                let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                                let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Login Result")
+                                eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                                eventClient.addGlobalAttribute("Success", forKey: "Login Result")
+                                eventClient.record(event)
+                                eventClient.submitEvents()
                                 
                                 // 10/03/17 for firebase messsging, send the token id to server
                                 let refreshedToken = FIRInstanceID.instanceID().token()
@@ -171,11 +189,26 @@ class LoginVC: UIViewController {
                                 self.activity_indicator.stopAnimating()
                                 self.activity_indicator.isHidden = true
                                 self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
+                                
+                                let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                                let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                                let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Login Result")
+                                eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                                eventClient.addGlobalAttribute("Failed", forKey: "Login Result")
+                                eventClient.record(event)
+                                eventClient.submitEvents()
                             }
                         }else    {
                             self.activity_indicator.stopAnimating()
                             self.activity_indicator.isHidden = true
                             self.showAlert(title: "Login Failed!", message: "Either Username/password is incorrect or user is inactive")
+                            let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+                            let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+                            let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Login Result")
+                            eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+                            eventClient.addGlobalAttribute("Failed", forKey: "Login Result")
+                            eventClient.record(event)
+                            eventClient.submitEvents()
                         }
                         
                 }

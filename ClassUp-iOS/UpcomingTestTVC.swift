@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSMobileAnalytics
 
 class UpcomingTestTVC: UITableViewController {
     var student_id: String = ""
@@ -18,6 +19,14 @@ class UpcomingTestTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Upcoming Tests")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import AWSMobileAnalytics
 
 var logged_in_user: String = ""
 var school_id: NSString = ""
-
+var analtics: AWSMobileAnalytics? = nil
 class SessionManager    {
     
     class func setLoggedInUser(user: String)    {
@@ -40,5 +41,14 @@ class SessionManager    {
     
     class func getSchoolId() -> String  {
         return school_id as String
+    }
+    
+    // 15/09/2017 provision for analytics
+    class func setAnalytics(analytics: AWSMobileAnalytics)  {
+        analtics = analytics
+    }
+    
+    class func getAnalytics() -> AWSMobileAnalytics {
+        return analtics!
     }
 }

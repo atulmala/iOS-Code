@@ -16,9 +16,15 @@ class TestMarksEntryCell: UITableViewCell {
     @IBOutlet weak var whether_absent: UISwitch!
     @IBOutlet weak var full_name: UILabel!
     
+    @IBOutlet weak var sub_enrich_marks: UITextField!
+    @IBOutlet weak var notebook_sub_marks: UITextField!
+    @IBOutlet weak var pt_marks: UITextField!
+    @IBOutlet weak var lbl_pt: UILabel!
+    @IBOutlet weak var lbl_nb: UILabel!
+    @IBOutlet weak var lbl_se: UILabel!
     var max_marks: String = ""
     var whether_grade_based: Bool = false
-    
+
        
     @IBAction func markAbsence(sender: UISwitch) {
         if sender.isOn    {

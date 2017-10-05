@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class StudentAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var student_name: UILabel!
@@ -21,6 +22,14 @@ class StudentAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Attendance Summary Parents")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
         student_name.text = "Attendance Summary for " + student_full_name
         
         let server_ip = MiscFunction.getServerIP()

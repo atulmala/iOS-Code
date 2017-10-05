@@ -16,8 +16,9 @@ class TestModel: NSObject{
     var subject: String
     var max_marks: String
     var grade_based: String
+    var test_type: String
     
-    init(id: String, date: String, the_class: String, section: String, subject: String, mm: String,  grade_based: String) {
+    init(id: String, date: String, the_class: String, section: String, subject: String, mm: String,  grade_based: String, test_type: String) {
         self.id = id
         self.date = date
         self.the_class = the_class
@@ -25,6 +26,7 @@ class TestModel: NSObject{
         self.subject = subject
         self.max_marks = mm
         self.grade_based = grade_based
+        self.test_type = test_type
         
         super.init()
     }

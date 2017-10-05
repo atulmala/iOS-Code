@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Just
+import AWSMobileAnalytics
 
 class MessageToSchoolVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var student_id: String = ""
@@ -57,6 +58,13 @@ class MessageToSchoolVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Parent Communication")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
         // when the keyboard appears, the textview and button the bottom gets hidden. We need to move the cells up
         // when the keyboard appears. So we register for keyboard notification
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up

@@ -10,6 +10,7 @@ import UIKit
 import SwiftCharts
 import SwiftyJSON
 import Just
+import AWSMobileAnalytics
 
 
 class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -29,6 +30,15 @@ class SubjectMarksHistoryVC: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var title_label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Subject Marks History")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.addGlobalAttribute(subject_name, forKey: "Subject")
+        eventClient.record(event)
+        eventClient.submitEvents()
+
         
         title_label.text = "\(subject_name) Marks History for \(student_full_name)"
         // Do any additional setup after loading the view.

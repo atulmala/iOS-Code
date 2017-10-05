@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AWSMobileAnalytics
 
 class ComposeBulkSMSVC: UIViewController {
     
@@ -22,6 +23,13 @@ class ComposeBulkSMSVC: UIViewController {
     }
     
     @IBAction func sendWholeSchool(_ sender: UIButton) {
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Bulk SMS Whole School")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+        
         let message_text = txt_bulk_SMS.text as String
         if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")
@@ -58,6 +66,13 @@ class ComposeBulkSMSVC: UIViewController {
     }
     
     @IBAction func sendSelectedClasses(_ sender: UIButton) {
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Bulk SMS Selected Classes")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
+        
         let message_text = txt_bulk_SMS.text as String
         if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")

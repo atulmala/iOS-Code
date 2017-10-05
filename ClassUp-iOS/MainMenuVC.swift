@@ -52,6 +52,12 @@ class MainMenuVC: UIViewController {
         performSegue(withIdentifier: "MainMenuToDateClassSectionSubjectSelection", sender: self)
 
     }
+    
+    @IBAction func scheduleTermTest(_ sender: UIButton) {
+        triggering_menu = "scheduleTermTest"
+        performSegue(withIdentifier: "MainMenuToDateClassSectionSubjectSelection", sender: self)
+    }
+    
     @IBAction func showTestsLists(sender: UIButton) {
         triggering_menu = "to_tests_list"
         performSegue(withIdentifier: "to_tests_list", sender: self)
@@ -197,6 +203,10 @@ class MainMenuVC: UIViewController {
                 destinationVC.trigger = triggering_menu
                 triggering_menu = ""
             case "scheduleTest":
+                let destintionVC = segue.destination as! SelectDateClassSectionSubjectVC
+                destintionVC.trigger = triggering_menu
+                triggering_menu = ""
+            case "scheduleTermTest":
                 let destintionVC = segue.destination as! SelectDateClassSectionSubjectVC
                 destintionVC.trigger = triggering_menu
                 triggering_menu = ""

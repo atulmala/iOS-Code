@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class EditTeacher: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     // lists to hold classes, sections
@@ -35,6 +36,13 @@ class EditTeacher: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     @IBOutlet weak var whether_class_teacher: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Edit Teacher")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
         let classURL = "\(server_ip)/academics/class_list/\(school_id)/?format=json"
         
         let sectionURL = "\(server_ip)/academics/section_list/\(school_id)/?format=json"
