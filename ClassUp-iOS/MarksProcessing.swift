@@ -18,15 +18,39 @@ class MarksProcessing: UIViewController  {
         marks_list = list
     }
     
-    class func update_marks_list(id: String, marks: String)   {
+    class func update_marks_list(id: String, marks: String, marks_type: String)   {
         var marks = marks
         for i in 0 ..< marks_list.count    {
             if marks_list[i].id == id   {
-                if marks == ""  {
-                    marks = "-5000.00"
+                switch marks_type   {
+                    case "main_marks":
+                        if marks == ""  {
+                            marks = "-5000.00"
+                        }
+                        marks_list[i].marks = marks
+                        marks_list[i].grade = marks
+                        break
+                    case "pt_marks":
+                        if marks == ""  {
+                            marks = "-5000.0"
+                        }
+                        marks_list[i].pt_marks = marks
+                        break
+                    case "notebook_marks":
+                        if marks == ""  {
+                            marks = "-5000.0"
+                        }
+                        marks_list[i].notebook_sub_marks = marks
+                        break
+                    case "sub_enrich_marks":
+                        if marks == ""  {
+                            marks = "-5000.0"
+                        }
+                        marks_list[i].sub_enrich_marks = marks
+                        break
+                    default:
+                        break
                 }
-                marks_list[i].marks = marks
-                marks_list[i].grade = marks
                 break
             }
         }
@@ -37,7 +61,7 @@ class MarksProcessing: UIViewController  {
     }
     
     class func save_marks_list(whether_grade_based: Bool)    {
-        var marks_dictionary = [String:String]()
+        var marks_dictionary = [String:[String:String]]()
         
         var id_array: [String] = []
         
@@ -45,10 +69,16 @@ class MarksProcessing: UIViewController  {
             id_array.append(marks_list[i].id)
             
             if !whether_grade_based {
-                marks_dictionary[marks_list[i].id] = marks_list[i].marks
+                marks_dictionary[marks_list[i].id] = [
+                    "marks": marks_list[i].marks,
+                    "pa": marks_list[i].pt_marks,
+                    "notebook": marks_list[i].notebook_sub_marks,
+                    "subject_enrich": marks_list[i].sub_enrich_marks
+                ]
+                
             }
             else    {
-                marks_dictionary[marks_list[i].id] = marks_list[i].grade
+                //marks_dictionary[marks_list[i].id] = marks_list[i].grade
             }
         }
         
@@ -68,16 +98,22 @@ class MarksProcessing: UIViewController  {
     }
     
     class func submit_marks_list(whether_grade_based: Bool) -> Bool   {
-        var marks_dictionary = [String:String]()
+        var marks_dictionary = [String:[String:String]]()
                 
         var id_array: [String] = []
         for i in 0 ..< marks_list.count    {
             id_array.append(marks_list[i].id)
             if !whether_grade_based {
-                marks_dictionary[marks_list[i].id] = marks_list[i].marks
+                marks_dictionary[marks_list[i].id] = [
+                    "marks": marks_list[i].marks,
+                    "pa": marks_list[i].pt_marks,
+                    "notebook": marks_list[i].notebook_sub_marks,
+                    "subject_enrich": marks_list[i].sub_enrich_marks
+                ]
+
             }
             else   {
-                marks_dictionary[marks_list[i].id] = marks_list[i].grade
+                //marks_dictionary[marks_list[i].id] = marks_list[i].grade
             }
         }
         let server_ip = MiscFunction.getServerIP()

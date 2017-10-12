@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import AWSMobileAnalytics
+import Just
 
 
 class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
@@ -86,6 +87,44 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 
                 // perform segue to navigate to get max marks, pass marks, grade based and comments
                 performSegue(withIdentifier: "get_test_details", sender: self)
+            
+        case "scheduleTermTest":
+            if selected_subject == "Main"   {
+                showAlert(title: "Test cannot be scheudled for Main", message: "Test cannot be created for Main please select another subject.")
+                break
+            }
+            
+            let alert: UIAlertController = UIAlertController(title: "Confirm Term Test", message: "Are you sure to schedule this Term Test?", preferredStyle: .alert )
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                let server_ip = MiscFunction.getServerIP()
+                let school_id: String = SessionManager.getSchoolId()
+                let user: String = SessionManager.getLoggedInUser()
+                let index = self.d.index(self.d.startIndex, offsetBy: 9)
+                let dd = self.d.substring(from: index)
+                let date = dd.substring(to: dd.index(before: dd.endIndex))
+                
+                let mm = self.m.substring(from: index)
+                let month = mm.substring(to: mm.index(before: mm.endIndex))
+                
+                let yy = self.y.substring(from: index)
+                let year = yy.substring(to: yy.index(before: yy.endIndex))
+                let max_marks = "80"
+                let pass_marks = "33"
+                let one = "1"
+                let syllabus = "Half yearly syllabus"
+                let term = "term"
+                let url = "\(server_ip)/academics/create_test1/\(school_id)/\(self.selected_class)/\(self.selected_section)/\(self.selected_subject)/\(user)/\(date)/\(month)/\(year)/\(max_marks)/\(pass_marks)/\(one)/\(syllabus)/\(term)/"
+                let url_string = url.replacingOccurrences(of: " ", with: "%20")
+                
+                Just.post(url_string)
+                self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
+                return
+            })
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
             
             case "HWListVC":
                 
@@ -238,6 +277,16 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let index = d.index(d.startIndex, offsetBy: 9)
+        let dd = d.substring(from: index)
+        let date = dd.substring(to: dd.index(before: dd.endIndex))
+        
+        let mm = m.substring(from: index)
+        let month = mm.substring(to: mm.index(before: mm.endIndex))
+        
+        let yy = y.substring(from: index)
+        let year = yy.substring(to: yy.index(before: yy.endIndex))
+
         switch trigger  {
             case "takeUpdateAttendance":
                 let destinationVC = segue.destination as! TakeAttendanceVC
@@ -267,14 +316,18 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 destinationVC.subject = selected_subject
                 
                 // date, month, and year contains "optional( ) - we need to remove optional and parantheses
-                let index = d.index(d.startIndex, offsetBy: 9)
-                let dd = d.substring(from: index)
-                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
-                let mm = m.substring(from: index)
-                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
-                let yy = y.substring(from: index)
-                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
                 
+                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+                
+                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+                
+                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+            
+            case "scheduleTermTest":
+                let destinationVC = segue.destination as! MainMenuVC
+                destinationVC.comingFrom = "scheduleTermTest"
+            
+            
             case "HWListVC":
                 let destinationVC = segue.destination as! ReviewHWVC
                 destinationVC.sender = "CreateHW"

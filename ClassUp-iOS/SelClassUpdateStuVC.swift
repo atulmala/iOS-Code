@@ -36,7 +36,17 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         class_section_list[0] = class_list
         class_section_list[1] = section_list
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let next_button = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(SelClassUpdateStuVC.next(_:)))
+        navigationItem.rightBarButtonItems = [next_button]
+        
+    }
 
+    func next(_ sender: UIButton) {
+        performSegue(withIdentifier: "to_select_student", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,17 +82,24 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let vc = segue.destination as! SelectStudentTVC
-        
-        if selected_class == "" {
-            selected_class = class_list[0]
+        switch trigger {
+            case "SelClassUpdateStu":
+                let vc = segue.destination as! SelectStudentTVC
+                
+                if selected_class == "" {
+                    selected_class = class_list[0]
+                }
+                if selected_section == ""   {
+                    selected_section = section_list[0]
+                }
+                
+                vc.the_class = selected_class
+                vc.section = selected_section
+        default:
+            break
         }
-        if selected_section == ""   {
-            selected_section = section_list[0]
-        }
         
-        vc.the_class = selected_class
-        vc.section = selected_section
+        
     }
     
 

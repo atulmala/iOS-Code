@@ -22,6 +22,8 @@ class TestMarksEntryCell: UITableViewCell {
     @IBOutlet weak var lbl_pt: UILabel!
     @IBOutlet weak var lbl_nb: UILabel!
     @IBOutlet weak var lbl_se: UILabel!
+    
+    var delegate: UIViewController?
     var max_marks: String = ""
     var whether_grade_based: Bool = false
 
@@ -33,7 +35,7 @@ class TestMarksEntryCell: UITableViewCell {
             marks.text = "ABS"
             let id = marks_entry_id.text
             let m = "-1000.00"
-            MarksProcessing.update_marks_list(id: id!, marks: m)
+            MarksProcessing.update_marks_list(id: id!, marks: m, marks_type: "main_marks")
             
         }
         if !sender.isOn{
@@ -42,7 +44,7 @@ class TestMarksEntryCell: UITableViewCell {
             marks.isUserInteractionEnabled = true
             let id = marks_entry_id.text
             let m = "-5000.00"
-            MarksProcessing.update_marks_list(id: id!, marks: m)
+            MarksProcessing.update_marks_list(id: id!, marks: m, marks_type: "main_marks")
         }
     }
     
@@ -58,19 +60,86 @@ class TestMarksEntryCell: UITableViewCell {
             // text field to become blank. Since this function is triggered after every keystroke
             // excepion may occur. Hence check for blank value
             if m != ""  {
-                if (NumberFormatter().number(from: m!)?.intValue)! > (NumberFormatter().number(from: max_marks)?.intValue)!    {
+                if (NumberFormatter().number(from: m!)?.floatValue)! > (NumberFormatter().number(from: max_marks)?.floatValue)!    {
                     _ = NumberFormatter().number(from: m!)
                     marks.text = ""
-                    let alertController = UIAlertController(title: "Warning", message: "Marks entered: \(m!) for \(full_name.text!) are more than Max Marks: \(max_marks)", preferredStyle: .alert)
-                    
+                    let alertController = UIAlertController(title: "Warning", message: "Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: \(max_marks)", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alertController.addAction(defaultAction)
+                    delegate?.present(alertController, animated: false)
                     return
                 }
             }
         }
-        MarksProcessing.update_marks_list(id: id!, marks: m!)
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "main_marks" )
     }
+    
+    @IBAction func updatePAMarks(_ sender: UITextField) {
+        let id = marks_entry_id.text
+        var m = pt_marks.text
+        if m == "." {
+            m = "0"
+        }
+        
+        if m != ""  {
+            if (NumberFormatter().number(from: m!)?.floatValue)! > 10.0   {
+                _ = NumberFormatter().number(from: m!)
+                pt_marks.text = ""
+                let alertController = UIAlertController(title: "Warning", message: "PA Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 10", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                delegate?.present(alertController, animated: false)
+                return
+            }
+        }
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "pt_marks")
+    }
+    
+    @IBAction func updateNoteBookMarks(_ sender: UITextField) {
+        let id = marks_entry_id.text
+        var m = notebook_sub_marks.text
+        if m == "." {
+            m = "0"
+        }
+        
+        if m != ""  {
+            if (NumberFormatter().number(from: m!)?.floatValue)! > 5.0   {
+                _ = NumberFormatter().number(from: m!)
+                notebook_sub_marks.text = ""
+                let alertController = UIAlertController(title: "Warning", message: "Notebook Submission Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 5", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                delegate?.present(alertController, animated: false)
+                return
+            }
+        }
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "notebook_marks")
+    }
+    
+    @IBAction func updateSubEnrichMarks(_ sender: UITextField) {
+        let id = marks_entry_id.text
+        var m = sub_enrich_marks.text
+        if m == "." {
+            m = "0"
+        }
+        
+        if m != ""  {
+            if (NumberFormatter().number(from: m!)?.floatValue)! > 5.0   {
+                _ = NumberFormatter().number(from: m!)
+                sub_enrich_marks.text = ""
+                let alertController = UIAlertController(title: "Warning", message: "Subject Enrichment Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 5", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                delegate?.present(alertController, animated: false)
+                return
+            }
+        }
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "sub_enrich_marks")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -87,8 +87,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
                         full_name = s_no + "   " + first_name + " " + last_name
                     }
                     
-                    
-                    
+            
                     var roll_no: String = ""
                     if let _ = j[index]["roll_number"].int {
                         let the_roll_no = j[index]["roll_number"]
@@ -194,7 +193,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         cell.year.text = y
         cell.year.isHidden = true
         
-        cell.roll_number.text = "Roll No  \(student_list[indexPath.row].roll_no)"
+        //cell.roll_number.text = "Roll No  \(student_list[indexPath.row].roll_no)"
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text =  student_list[indexPath.row].full_name

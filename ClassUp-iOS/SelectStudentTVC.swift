@@ -32,10 +32,12 @@ class SelectStudentTVC: UITableViewController {
                     let last_name: String = j[index]["last_name"].string!
                     
                     
-                    var roll_no: String = ""
-                    if let _ = j[index]["roll_number"].int {
-                        let the_roll_no = j[index]["roll_number"]
-                        roll_no = String(stringInterpolationSegment: the_roll_no)
+                    var roll_no: String = String(index + 1)
+                    if roll_no.characters.count > 1 {
+                        roll_no = roll_no + ". "
+                    }
+                    else{
+                        roll_no = roll_no + ".  "
                     }
                     
                     let full_name: String = roll_no + "   " + first_name + " " + last_name

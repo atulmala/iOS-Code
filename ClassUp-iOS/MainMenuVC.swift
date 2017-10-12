@@ -79,6 +79,12 @@ class MainMenuVC: UIViewController {
         
         
     }
+    
+    @IBAction func selectClassSecForCoScholastic(_ sender: UIButton) {
+        triggering_menu = "co_scholastics"
+        performSegue(withIdentifier: "selectClassSecForCoScholastic", sender: self)
+    }
+    
     override func viewDidLoad() {
         //print("Inside viewDidLoad of MainMenuVC")
         super.viewDidLoad()
@@ -103,6 +109,14 @@ class MainMenuVC: UIViewController {
         }
         if comingFrom == "TestDetailsVC"    {
             message = "Test Scheduled"
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+        if comingFrom == "scheduleTermTest"  {
+            message = "Term Test Scheduled"
             let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             final_confirm.addAction(OKAction)
@@ -212,6 +226,10 @@ class MainMenuVC: UIViewController {
                 triggering_menu = ""
             case "to_tests_list":
                 _ = segue.destination as! TestDetailsTBC
+                triggering_menu = ""
+            case "co_scholastic":
+                let destinationVC = segue.destination as! SelClassUpdateStuVC
+                destinationVC.trigger = triggering_menu
                 triggering_menu = ""
             default:
                 break;

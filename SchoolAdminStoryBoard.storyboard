@@ -123,7 +123,7 @@
         <!--Select Class-->
         <scene sceneID="SaZ-Uq-u0o">
             <objects>
-                <viewController title="Select Class" id="b1V-h5-KdA" customClass="SelClassUpdateStuVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelClassSection" title="Select Class" id="b1V-h5-KdA" customClass="SelClassUpdateStuVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O64-Xy-fKM"/>
                         <viewControllerLayoutGuide type="bottom" id="zse-px-ySO"/>
@@ -143,27 +143,19 @@
                                     <outlet property="delegate" destination="b1V-h5-KdA" id="uD4-Qq-57D"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-eK-kuj">
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <segue destination="iiB-vN-w27" kind="show" id="uM9-UG-HhR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AXf-dW-Ag0" firstAttribute="top" secondItem="fn0-nt-svy" secondAttribute="bottom" constant="122" id="6Kq-8Y-8Dp"/>
-                            <constraint firstItem="g78-eK-kuj" firstAttribute="centerX" secondItem="cCj-N9-Tk9" secondAttribute="centerX" id="BWO-qQ-kZi"/>
+                            <constraint firstItem="AXf-dW-Ag0" firstAttribute="top" secondItem="fn0-nt-svy" secondAttribute="bottom" id="6Kq-8Y-8Dp"/>
                             <constraint firstItem="fn0-nt-svy" firstAttribute="leading" secondItem="cCj-N9-Tk9" secondAttribute="leadingMargin" constant="17" id="CFL-JC-KLO"/>
                             <constraint firstItem="AXf-dW-Ag0" firstAttribute="leading" secondItem="cCj-N9-Tk9" secondAttribute="leading" id="Kdv-4B-qea"/>
                             <constraint firstItem="fn0-nt-svy" firstAttribute="top" secondItem="O64-Xy-fKM" secondAttribute="bottom" id="b0s-qg-ALe"/>
                             <constraint firstAttribute="trailing" secondItem="AXf-dW-Ag0" secondAttribute="trailing" id="mxJ-3f-oTx"/>
-                            <constraint firstItem="zse-px-ySO" firstAttribute="top" secondItem="g78-eK-kuj" secondAttribute="bottom" constant="2" id="rEb-fA-m0a"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="class_section_picker" destination="AXf-dW-Ag0" id="nY2-oJ-Yta"/>
+                        <segue destination="iiB-vN-w27" kind="show" identifier="to_select_student" id="sOf-YJ-dU4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiC-c2-jWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,7 +175,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ktO-AG-ocv" id="hpe-3V-wGz">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE5-S6-6xI">
@@ -200,9 +192,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="B8m-Ki-q3J" firstAttribute="leading" secondItem="hpe-3V-wGz" secondAttribute="leadingMargin" constant="29" id="1fe-hd-3TG"/>
-                                        <constraint firstItem="B8m-Ki-q3J" firstAttribute="top" secondItem="hpe-3V-wGz" secondAttribute="topMargin" constant="3" id="6jW-bu-vJV"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="B8m-Ki-q3J" secondAttribute="trailing" constant="75" id="gYU-6H-0ZR"/>
+                                        <constraint firstItem="B8m-Ki-q3J" firstAttribute="leading" secondItem="hpe-3V-wGz" secondAttribute="leadingMargin" constant="10" id="1fe-hd-3TG"/>
                                         <constraint firstItem="B8m-Ki-q3J" firstAttribute="centerY" secondItem="hpe-3V-wGz" secondAttribute="centerY" id="mmr-GA-d5c"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -565,7 +555,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Qg-Qb-OhF" id="6Zs-b1-J2Y">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYI-jU-BEG">
@@ -1013,7 +1003,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qwI-yN-VQb">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sch_att_summ_hdr_cell" id="ciH-OI-eGI" customClass="School_Att_Summ_Hdr_Cell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sch_att_summ_hdr_cell" id="ciH-OI-eGI" customClass="School_Att_Summ_Hdr_Cell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ciH-OI-eGI" id="U38-KV-bCi">
@@ -1083,7 +1073,7 @@
                                             <outlet property="percentage" destination="AWF-Lu-8U2" id="9rP-lx-Bsy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sch_att_summary_cell" id="ZY7-M2-341" customClass="School_Att_Summ_Cell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sch_att_summary_cell" id="ZY7-M2-341" customClass="School_Att_Summ_Cell" customModule="ClassUp_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZY7-M2-341" id="ONm-c1-vBz">
@@ -1257,6 +1247,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bP6-5d-oE7"/>
+        <segue reference="U2H-ct-8Ta"/>
     </inferredMetricsTieBreakers>
 </document>
