@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     // lists to hold classes, sections
@@ -16,13 +18,23 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
     
     var selected_class: String = ""
     var selected_section: String = ""
+    var selected_term: String = ""
     
     var trigger: String = "SelClassUpdateStu"
     
     @IBOutlet weak var class_section_picker: UIPickerView!
 
+    @IBOutlet weak var term_segment: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if trigger == "co_scholastics"   {
+            term_segment.isHidden = false
+        }
+        else{
+            term_segment.isHidden = true
+        }
 
         // Do any additional setup after loading the view.
         let server_ip: String = MiscFunction.getServerIP()
@@ -44,12 +56,71 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
 
     func next(_ sender: UIButton) {
-        performSegue(withIdentifier: "to_select_student", sender: self)
+        if trigger == "co_scholastics"  {
+            if selected_class == "" {
+                selected_class = class_list[0]
+            }
+            if selected_section == ""   {
+                selected_section = section_list[0]
+            }
+            var good_to_go: Bool = true
+            
+            let server_ip: String = MiscFunction.getServerIP()
+            let teacher: String = SessionManager.getLoggedInUser()
+            let url: String = "\(server_ip)/teachers/whether_class_teacher2/\(teacher)/"
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+                    if let value: AnyObject = response.result.value as AnyObject? {
+                    // handle the results as JSON, without a bunch of nested if loops
+                    let response = JSON(value)
+                    print(response)
+                    
+                    if response["is_class_teacher"] == "true"  {
+                        let the_class: String = response["the_class"].string!
+                        let the_section: String = response["section"].string!
+                        
+                        if self.selected_class != the_class || self.selected_section != the_section   {
+                            self.showAlert(title: "Not a Class Teacher", message: "You are not the Class Teacher of \(self.selected_class) - \(self.selected_section)!")
+                            good_to_go = false
+                            return
+                        }
+                        
+                        if self.selected_term == ""  {
+                            self.showAlert(title: "Term not Selected", message: "Please selecte either Term 1 or Term 2")
+                            good_to_go = false
+                            return
+                        }
+                        
+                        if good_to_go   {
+                            self.performSegue(withIdentifier: "to_co_scholastic", sender: self)
+                        }
+                    }
+                    else    {
+                        self.showAlert(title: "You are not the Class Teacher of \(self.selected_class) - \(self.selected_section)!", message: response["error_message"].string!)
+                        return
+                    }
+                }
+            }
+            
+        }
+        else{
+            performSegue(withIdentifier: "to_select_student", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func select_term(_ sender: UISegmentedControl) {
+        switch term_segment.selectedSegmentIndex    {
+            case 0:
+                selected_term = "term1"
+            case 1:
+                selected_term = "term2"
+            default:
+                break
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -95,11 +166,32 @@ class SelClassUpdateStuVC: UIViewController, UIPickerViewDataSource, UIPickerVie
                 
                 vc.the_class = selected_class
                 vc.section = selected_section
-        default:
-            break
+            case "co_scholastics":
+                let vc =  segue.destination as! CoScholasticTVC
+                if selected_class == "" {
+                    selected_class = class_list[0]
+                }
+                if selected_section == ""   {
+                    selected_section = section_list[0]
+                }
+                
+                vc.the_class = selected_class
+                vc.section = selected_section
+                vc.term = selected_term
+            default:
+                break
         }
         
         
+    }
+    
+    func showAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 

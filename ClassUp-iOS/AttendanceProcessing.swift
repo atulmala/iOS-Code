@@ -21,7 +21,6 @@ class AttendanceProcessing  {
     class func remove_from_absentee_list(id: String)    {
         if let index = absentee_list.index(of: id)  {
             absentee_list.remove(at: index)
-            //print("removed=\(id). Now absentee_list=\(absentee_list)")
         }
         
     }

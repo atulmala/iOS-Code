@@ -143,19 +143,33 @@
                                     <outlet property="delegate" destination="b1V-h5-KdA" id="uD4-Qq-57D"/>
                                 </connections>
                             </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bbm-G5-fN2">
+                                <segments>
+                                    <segment title="Term 1"/>
+                                    <segment title="Term 2"/>
+                                </segments>
+                                <connections>
+                                    <action selector="select_term:" destination="b1V-h5-KdA" eventType="valueChanged" id="UvI-pl-Ja5"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bbm-G5-fN2" firstAttribute="top" secondItem="AXf-dW-Ag0" secondAttribute="bottom" constant="8" id="6I4-yX-pJy"/>
                             <constraint firstItem="AXf-dW-Ag0" firstAttribute="top" secondItem="fn0-nt-svy" secondAttribute="bottom" id="6Kq-8Y-8Dp"/>
                             <constraint firstItem="fn0-nt-svy" firstAttribute="leading" secondItem="cCj-N9-Tk9" secondAttribute="leadingMargin" constant="17" id="CFL-JC-KLO"/>
                             <constraint firstItem="AXf-dW-Ag0" firstAttribute="leading" secondItem="cCj-N9-Tk9" secondAttribute="leading" id="Kdv-4B-qea"/>
+                            <constraint firstItem="bbm-G5-fN2" firstAttribute="centerX" secondItem="AXf-dW-Ag0" secondAttribute="centerX" id="WGi-xE-0em"/>
                             <constraint firstItem="fn0-nt-svy" firstAttribute="top" secondItem="O64-Xy-fKM" secondAttribute="bottom" id="b0s-qg-ALe"/>
+                            <constraint firstItem="bbm-G5-fN2" firstAttribute="leading" secondItem="cCj-N9-Tk9" secondAttribute="leadingMargin" constant="73" id="bif-G5-ilu"/>
                             <constraint firstAttribute="trailing" secondItem="AXf-dW-Ag0" secondAttribute="trailing" id="mxJ-3f-oTx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="class_section_picker" destination="AXf-dW-Ag0" id="nY2-oJ-Yta"/>
+                        <outlet property="term_segment" destination="bbm-G5-fN2" id="03N-Mo-nbx"/>
                         <segue destination="iiB-vN-w27" kind="show" identifier="to_select_student" id="sOf-YJ-dU4"/>
+                        <segue destination="X2G-eW-8Cl" kind="show" identifier="to_co_scholastic" id="zz4-A5-MQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiC-c2-jWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -847,6 +861,14 @@
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="122.78860569715144"/>
         </scene>
+        <!--CoScholastic-->
+        <scene sceneID="hbD-cl-5UH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="CoScholastic" id="X2G-eW-8Cl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVb-c9-gxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="467"/>
+        </scene>
         <!--Main-->
         <scene sceneID="BMS-ZL-Loy">
             <objects>
@@ -1247,6 +1269,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U2H-ct-8Ta"/>
+        <segue reference="bP6-5d-oE7"/>
     </inferredMetricsTieBreakers>
 </document>

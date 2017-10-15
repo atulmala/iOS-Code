@@ -279,13 +279,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let index = d.index(d.startIndex, offsetBy: 9)
         let dd = d.substring(from: index)
-        let date = dd.substring(to: dd.index(before: dd.endIndex))
         
         let mm = m.substring(from: index)
-        let month = mm.substring(to: mm.index(before: mm.endIndex))
         
         let yy = y.substring(from: index)
-        let year = yy.substring(to: yy.index(before: yy.endIndex))
 
         switch trigger  {
             case "takeUpdateAttendance":

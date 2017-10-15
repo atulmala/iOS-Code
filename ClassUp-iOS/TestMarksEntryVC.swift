@@ -160,7 +160,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                     // 04/10/2017 the request would also bring the PA marks, Notebook submission and sub 
                     // enrichment marks
                     let pt_marks: String = String(stringInterpolationSegment: j[index]["periodic_test_marks"])
-                    let notebook_sub_marks: String = String(stringInterpolationSegment:j[index]["periodic_test_marks"])
+                    let notebook_sub_marks: String = String(stringInterpolationSegment:j[index]["notebook_marks"])
 
 
                     let sub_enrich_marks: String = String(stringInterpolationSegment: j[index]["sub_enrich_marks"])
@@ -204,7 +204,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         self.navigationItem.titleView = lable
         
         // 24/06/2017 - moving Save and Submit button to navigation bar
-        
         let save_button = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(TestMarksEntryVC.saveMarks(sender:)))
         
         let submit_button = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(TestMarksEntryVC.submitMarks(sender:)))
@@ -250,7 +249,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         
         cell.marks_entry_id.isHidden = true
         cell.marks_entry_id.text = test_marks_list[indexPath.row].id
-        //cell.roll_no.text = test_marks_list[indexPath.row].roll_no
         cell.full_name.numberOfLines = 0
         cell.full_name.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.full_name.text = test_marks_list[indexPath.row].student
@@ -274,28 +272,28 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         
         switch(m)   {
-        case "-5000.00":
-            m = ""
-            cell.whether_absent.setOn(false, animated: false)
-            cell.backgroundColor = UIColor.white
-            break
-        case "-1000.00":
-            m = "ABS"
-            cell.whether_absent.setOn(true, animated: false)
-            cell.marks.isUserInteractionEnabled = false
-            break
-        case "-5000":
-            m = ""
-            cell.whether_absent.setOn(false, animated: false)
-            cell.backgroundColor = UIColor.white
-            break
-        case "-1000":
-            m = "ABS"
-            cell.whether_absent.setOn(true, animated: false)
-            cell.marks.isUserInteractionEnabled = false
-            break
-        default:
-            cell.whether_absent.setOn(false, animated: false)
+            case "-5000.00":
+                m = ""
+                cell.whether_absent.setOn(false, animated: false)
+                cell.backgroundColor = UIColor.white
+                break
+            case "-1000.00":
+                m = "ABS"
+                cell.whether_absent.setOn(true, animated: false)
+                cell.marks.isUserInteractionEnabled = false
+                break
+            case "-5000":
+                m = ""
+                cell.whether_absent.setOn(false, animated: false)
+                cell.backgroundColor = UIColor.white
+                break
+            case "-1000":
+                m = "ABS"
+                cell.whether_absent.setOn(true, animated: false)
+                cell.marks.isUserInteractionEnabled = false
+                break
+            default:
+                cell.whether_absent.setOn(false, animated: false)
         }
         
         if !whether_grade_based {
@@ -351,7 +349,8 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             return 91
         }
         else{
-            return 216        }
+            return 216
+        }
     }
     
    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -366,8 +365,8 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
    
     
     override func viewDidAppear(_ animated: Bool) {
-        let nav = self.navigationController?.navigationBar
-        nav?.barStyle = UIBarStyle.black
+        _ = self.navigationController?.navigationBar
+        //nav?.barStyle = UIBarStyle.black
         
         self.navigationItem.title = "Test Marks Entry"
     }

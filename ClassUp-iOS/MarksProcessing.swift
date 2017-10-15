@@ -63,10 +63,7 @@ class MarksProcessing: UIViewController  {
     class func save_marks_list(whether_grade_based: Bool)    {
         var marks_dictionary = [String:[String:String]]()
         
-        var id_array: [String] = []
-        
         for i in 0 ..< marks_list.count    {
-            id_array.append(marks_list[i].id)
             
             if !whether_grade_based {
                 marks_dictionary[marks_list[i].id] = [

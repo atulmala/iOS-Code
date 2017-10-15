@@ -227,7 +227,7 @@ class MainMenuVC: UIViewController {
             case "to_tests_list":
                 _ = segue.destination as! TestDetailsTBC
                 triggering_menu = ""
-            case "co_scholastic":
+            case "co_scholastics":
                 let destinationVC = segue.destination as! SelClassUpdateStuVC
                 destinationVC.trigger = triggering_menu
                 triggering_menu = ""

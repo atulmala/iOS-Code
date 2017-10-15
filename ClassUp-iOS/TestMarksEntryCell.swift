@@ -20,8 +20,8 @@ class TestMarksEntryCell: UITableViewCell {
     @IBOutlet weak var notebook_sub_marks: UITextField!
     @IBOutlet weak var pt_marks: UITextField!
     @IBOutlet weak var lbl_pt: UILabel!
-    @IBOutlet weak var lbl_nb: UILabel!
     @IBOutlet weak var lbl_se: UILabel!
+    @IBOutlet weak var lbl_nb: UITextField!
     
     var delegate: UIViewController?
     var max_marks: String = ""
@@ -48,7 +48,7 @@ class TestMarksEntryCell: UITableViewCell {
         }
     }
     
-    @IBAction func updateMarks(sender: UITextField) {
+    @IBAction func updateMarks(_ sender: UITextField) {
         let id = marks_entry_id.text
         var m = marks.text
         if m == "." {
