@@ -105,6 +105,7 @@
 		A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */; };
 		A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */; };
 		A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */; };
+		A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +213,7 @@
 		A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListCell.swift; sourceTree = "<group>"; };
+		A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachersAttTVC.swift; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -358,6 +360,7 @@
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
+				A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */,
 				A4166D8B1DC07947007114DA /* MainMenuVC.swift in Sources */,
 				A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */,
+				A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */,
 				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
 				A4053CB01DD9CBF50090D89D /* SubjectListCellTVC.swift in Sources */,
 				A47365CE1DD980DE00EDA30D /* WardListCellTVC.swift in Sources */,

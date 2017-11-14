@@ -53,7 +53,6 @@ class SetSubjectsVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let already_set_subjects_url = "\(server_ip)/teachers/teacher_subject_list/\(logged_in_user)/?format=json"
         MiscFunction.sendRequestToServer(url: already_set_subjects_url, key: "subject", list: &already_set_subjects, sender: "SelectSubjectVC")
         
-        
         nav_item.title = "Tap a subject to select/de-select"
         let submit_button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(SetSubjectsVC.setSubjects(sender:)))
         navigationItem.rightBarButtonItems = [submit_button]

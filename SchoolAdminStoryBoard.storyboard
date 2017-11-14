@@ -32,7 +32,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Daily Attendance Summary"/>
                                 <connections>
-                                    <segue destination="5lT-W4-yQm" kind="show" id="TZV-K3-4ck"/>
+                                    <action selector="dailyAttSummary:" destination="SCx-JR-8KT" eventType="touchUpInside" id="Bgp-Zh-x9Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKK-gz-usu">
@@ -92,6 +92,13 @@
                                     <segue destination="W0m-iZ-dCO" kind="show" id="kQe-dy-6xR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEp-IV-Wij">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Teacher Attendance"/>
+                                <connections>
+                                    <action selector="teachersAttendance:" destination="SCx-JR-8KT" eventType="touchUpInside" id="GaH-Qa-Hs5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -100,12 +107,14 @@
                             <constraint firstItem="qit-rc-cMT" firstAttribute="top" secondItem="BCk-Zl-6BW" secondAttribute="bottom" constant="8" id="DNg-GA-Z3j"/>
                             <constraint firstItem="cyf-lF-9hP" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Fr9-8n-NAk"/>
                             <constraint firstItem="LKK-gz-usu" firstAttribute="top" secondItem="gSd-WJ-mPq" secondAttribute="bottom" constant="8" symbolic="YES" id="HAm-f2-hsU"/>
+                            <constraint firstItem="AEp-IV-Wij" firstAttribute="top" secondItem="TSH-N8-InP" secondAttribute="bottom" constant="10" id="Ipi-u7-zmh"/>
                             <constraint firstItem="zVZ-fN-l1j" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="IuV-Me-fqJ"/>
                             <constraint firstItem="gSd-WJ-mPq" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="O5V-AZ-yAU"/>
                             <constraint firstItem="BCk-Zl-6BW" firstAttribute="top" secondItem="LKK-gz-usu" secondAttribute="bottom" constant="8" id="Oxw-GK-r17"/>
                             <constraint firstItem="BCk-Zl-6BW" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Sie-v9-xpW"/>
                             <constraint firstItem="90L-MQ-GkN" firstAttribute="top" secondItem="cyf-lF-9hP" secondAttribute="bottom" constant="8" id="T2K-Js-fbB"/>
                             <constraint firstItem="90L-MQ-GkN" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="UB3-E8-n7c"/>
+                            <constraint firstItem="AEp-IV-Wij" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="XzP-JJ-hQ8"/>
                             <constraint firstItem="TSH-N8-InP" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="Z2F-XU-P1Z"/>
                             <constraint firstItem="qit-rc-cMT" firstAttribute="centerX" secondItem="bRJ-OH-Yra" secondAttribute="centerX" id="fAh-e9-q7I"/>
                             <constraint firstItem="TSH-N8-InP" firstAttribute="top" secondItem="qit-rc-cMT" secondAttribute="bottom" constant="8" id="gaP-yB-cGu"/>
@@ -115,10 +124,13 @@
                             <constraint firstItem="cyf-lF-9hP" firstAttribute="leading" secondItem="LKK-gz-usu" secondAttribute="leading" id="oKK-uc-yJ7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="5lT-W4-yQm" kind="show" identifier="selectDate" id="npz-WM-yRi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="is1-6e-2Q9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530" y="123"/>
+            <point key="canvasLocation" x="-1530.4000000000001" y="122.78860569715144"/>
         </scene>
         <!--Select Class-->
         <scene sceneID="SaZ-Uq-u0o">
@@ -189,7 +201,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ktO-AG-ocv" id="hpe-3V-wGz">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE5-S6-6xI">
@@ -455,28 +467,17 @@
                                     <constraint firstItem="D6a-m9-xc5" firstAttribute="centerX" secondItem="6yN-Sj-8bX" secondAttribute="centerX" id="Qpb-oR-gg9"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqU-Bg-QnN">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="xSh-UU-g2y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Show Attendance Summary"/>
-                                <connections>
-                                    <segue destination="yzl-gW-sOv" kind="show" id="AWd-Kk-eX3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gqU-Bg-QnN" firstAttribute="top" secondItem="6yN-Sj-8bX" secondAttribute="bottom" constant="49" id="aIb-K2-Cli"/>
-                            <constraint firstItem="gqU-Bg-QnN" firstAttribute="centerX" secondItem="nOM-jw-xLv" secondAttribute="centerX" id="aM6-mV-l7c"/>
                             <constraint firstItem="6yN-Sj-8bX" firstAttribute="leading" secondItem="nOM-jw-xLv" secondAttribute="leading" id="nKJ-am-tW4"/>
-                            <constraint firstItem="gqU-Bg-QnN" firstAttribute="leading" secondItem="nOM-jw-xLv" secondAttribute="leadingMargin" id="no2-vO-WdB"/>
                             <constraint firstItem="6yN-Sj-8bX" firstAttribute="top" secondItem="nOM-jw-xLv" secondAttribute="top" constant="158" id="sHQ-XH-Rmv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="D6a-m9-xc5" id="9UJ-Iu-Sg9"/>
+                        <segue destination="Xxg-nP-O8a" kind="show" identifier="to_teachers_attendance" id="Ugh-aa-tDb"/>
+                        <segue destination="yzl-gW-sOv" kind="show" identifier="showAttSummary" id="moe-De-VBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puQ-rr-PDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -569,7 +570,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Qg-Qb-OhF" id="6Zs-b1-J2Y">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYI-jU-BEG">
@@ -901,7 +902,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2q1-2e-nLf" id="EHy-HS-LaW">
-                                            <frame key="frameInset" width="383" height="34"/>
+                                            <frame key="frameInset" width="383" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiL-wz-AYm" userLabel="The Class">
@@ -1029,7 +1030,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ciH-OI-eGI" id="U38-KV-bCi">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQu-ng-YCL">
@@ -1099,7 +1100,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZY7-M2-341" id="ONm-c1-vBz">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esJ-ay-sPJ">
@@ -1267,8 +1268,59 @@
             </objects>
             <point key="canvasLocation" x="1438" y="-699"/>
         </scene>
+        <!--Teachers AttTVC-->
+        <scene sceneID="wgA-E3-iib">
+            <objects>
+                <tableViewController id="Xxg-nP-O8a" customClass="TeachersAttTVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LTT-ad-xZM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="teacher_cell" id="AaI-j8-vku" customClass="TeacherCell" customModule="ClassUp_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AaI-j8-vku" id="eik-Lg-Vmx">
+                                    <frame key="frameInset" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djS-hP-xlx">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-GK-xPF">
+                                            <frame key="frameInset" minX="248" minY="6" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="27A-vS-MpC" kind="unwind" identifier="gotoAdminMenu" unwindAction="unwindToAdminMenuWithSegue:" id="Fq3-UU-hX6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="djS-hP-xlx" firstAttribute="leading" secondItem="eik-Lg-Vmx" secondAttribute="leadingMargin" constant="21" id="jsU-Dd-qLG"/>
+                                        <constraint firstItem="djS-hP-xlx" firstAttribute="top" secondItem="eik-Lg-Vmx" secondAttribute="topMargin" constant="3" id="vMt-jR-Cks"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="teacher_name" destination="djS-hP-xlx" id="S20-Sm-rV7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xxg-nP-O8a" id="Yom-cy-tNf"/>
+                            <outlet property="delegate" destination="Xxg-nP-O8a" id="URn-9c-zXb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDF-lg-sbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="27A-vS-MpC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1437.5999999999999" y="122.78860569715144"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bP6-5d-oE7"/>
+        <segue reference="U2H-ct-8Ta"/>
     </inferredMetricsTieBreakers>
 </document>

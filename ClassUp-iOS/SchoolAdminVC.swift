@@ -28,6 +28,15 @@ class SchoolAdminVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         var message: String = ""
         
+        if comingFrom == "TeachersAttendance"   {
+            message = "Teacher Attendance submitted to Server"
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
+        
         if comingFrom == "BulkSMS"    {
             message = "Message(s) Sent!"
             let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
@@ -121,19 +130,41 @@ class SchoolAdminVC: UIViewController {
         self.show(vc, sender: self)
     }
     
+    @IBAction func dailyAttSummary(_ sender: UIButton) {
+        comingFrom = "AttendanceSummary"
+        performSegue(withIdentifier: "selectDate", sender: self)
+    }
+    
+    @IBAction func teachersAttendance(_ sender: UIButton) {
+        comingFrom = "TeachersAttendance"
+        performSegue(withIdentifier: "selectDate", sender: self)
+
+    }
     @IBAction func unwindToAdminMenu(segue: UIStoryboardSegue)   {
         
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch comingFrom {
+        case "TeachersAttendance":
+            let destinationVC = segue.destination as! SelectDateVC
+            destinationVC.comingFrom = "TeachersAttendance"
+            break
+        case "AttendanceSummary":
+            let destinationVc = segue.destination as! SelectDateVC
+            destinationVc.comingFrom = "AttendanceSummary"
+            break
+        default:
+            break
+        }
     }
-    */
+    
 
 }

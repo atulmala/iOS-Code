@@ -111,7 +111,7 @@ class TestDetailsVC: UIViewController {
             let school_id = SessionManager.getSchoolId()
             let user = SessionManager.getLoggedInUser()
             
-            let url = "\(server_ip)/academics/create_test/\(school_id)/\(the_class)/\(section)/\(subject)/\(user)/\(d)/\(m)/\(y)/\(mm)/\(pm)/\(whether_grade_based)/\(cmnts)/"
+            let url = "\(server_ip)/academics/create_test1/\(school_id)/\(the_class)/\(section)/\(subject)/\(user)/\(d)/\(m)/\(y)/\(mm)/\(pm)/\(whether_grade_based)/\(cmnts)/unit/"
             
             let url_string = url.replacingOccurrences(of: " ", with: "%20")
             
