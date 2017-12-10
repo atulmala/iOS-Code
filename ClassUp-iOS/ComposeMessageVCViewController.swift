@@ -11,6 +11,8 @@ import Alamofire
 
 
 class ComposeMessageVCViewController: UIViewController {
+    var coming_from: String = "TeacherCommunication"
+    var group_id: String = ""
     
     var student_list: [String] = []
     var whole_class: Bool = false
@@ -19,7 +21,7 @@ class ComposeMessageVCViewController: UIViewController {
     var cancelled: Bool = false
     
     @IBOutlet weak var message: UITextView!
-
+    
     @IBAction func sendMessage(sender: UIButton) {
         let the_message = message.text as String
         if the_message == ""    {
@@ -31,30 +33,39 @@ class ComposeMessageVCViewController: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
-            var dict = [String:String]()
-            dict["message"] = the_message
-            dict["teacher"] = SessionManager.getLoggedInUser() as String
-            dict["whole_class"] = "false"
-            if self.whole_class  {
-                dict["whole_class"] = "true"
-                dict["class"] = self.the_class
-                dict["section"] = self.section
-            }
-            
-            
-            for i in 0 ..< self.student_list.count  {
-                dict[MiscFunction.randomStringWithLength(len: 4) as String] = self.student_list[i]
-            }
-            print(dict)
-            let server_ip = MiscFunction.getServerIP()
-            let school_id = SessionManager.getSchoolId()
-            let url = "\(server_ip)/operations/send_message/\(school_id)/"
-            Alamofire.request(url, method: .post, parameters: dict, encoding: JSONEncoding.default).responseJSON { response in
-                
-            }
-            self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
-            self.dismiss(animated: true, completion: nil)
-            return
+                var dict = [String:String]()
+                dict["coming_from"] = self.coming_from
+                dict["message"] = the_message
+                dict["teacher"] = SessionManager.getLoggedInUser() as String
+                switch self.coming_from  {
+                    case "TeacherCommunication":
+                        dict["whole_class"] = "false"
+                        if self.whole_class  {
+                            dict["whole_class"] = "true"
+                            dict["class"] = self.the_class
+                            dict["section"] = self.section
+                        }
+                        for i in 0 ..< self.student_list.count  {
+                            dict[MiscFunction.randomStringWithLength(len: 4) as String] = self.student_list[i]
+                        }
+                        print(dict)
+                        break
+                    case "ActivityGroup":
+                        dict["group_id"] = self.group_id
+                        break
+                    default:
+                        break
+                    
+                }
+                let server_ip = MiscFunction.getServerIP()
+                let school_id = SessionManager.getSchoolId()
+                let url = "\(server_ip)/operations/send_message/\(school_id)/"
+                Alamofire.request(url, method: .post, parameters: dict, encoding: JSONEncoding.default).responseJSON { response in
+                    
+                }
+                self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
+                self.dismiss(animated: true, completion: nil)
+                return
             })
             alert.addAction(confirmAction)
             present(alert, animated: true, completion: nil)
@@ -76,7 +87,7 @@ class ComposeMessageVCViewController: UIViewController {
         let cancel_button = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(ComposeMessageVCViewController.cancel(sender:)))
         navigationItem.rightBarButtonItems = [cancel_button, send_button,]
     }
-
+    
     
     @IBAction func cancel(sender: UIButton) {
         cancelled = true
@@ -90,26 +101,26 @@ class ComposeMessageVCViewController: UIViewController {
         // set border around the text box
         message!.layer.borderWidth = 1
         message!.layer.borderColor = UIColor.black.cgColor
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let destinationVC = segue.destination as! MainMenuVC
         if cancelled    {
-        destinationVC.comingFrom = "SendMessageVCCancelled"
+            destinationVC.comingFrom = "SendMessageVCCancelled"
         } else{
             destinationVC.comingFrom = "SendMessageVC"
         }
@@ -123,7 +134,7 @@ class ComposeMessageVCViewController: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
-
     
-
+    
+    
 }

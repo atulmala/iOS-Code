@@ -1,16 +1,17 @@
 //
-//  MessageHistoryCellTableViewCell.swift
+//  ArrangementCell.swift
 //  ClassUp-iOS
 //
-//  Created by Atul Gupta on 04/02/17.
+//  Created by Atul Gupta on 23/11/17.
 //  Copyright © 2017 EmergeTech Mobile Products & Services Pvt Ltd. All rights reserved.
 //
 
 import UIKit
 
-class MessageHistoryCellTableViewCell: UITableViewCell {
-    @IBOutlet weak var message_date: UILabel!
-    @IBOutlet weak var message: UILabel!
+class ArrangementCell: UITableViewCell {
+    @IBOutlet weak var period: UILabel!
+
+    @IBOutlet weak var class_sec: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

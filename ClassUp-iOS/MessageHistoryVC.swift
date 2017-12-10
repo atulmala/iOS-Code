@@ -9,6 +9,7 @@
 import UIKit
 import Just
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class MessageModel:NSObject {
     var id: String
@@ -31,6 +32,13 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Communication History")
+        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         
@@ -74,6 +82,7 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         lable.text = "Message History"
         self.navigationItem.titleView = lable
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,7 +91,6 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return message_list.count

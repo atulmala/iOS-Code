@@ -1,16 +1,18 @@
 //
-//  MessageHistoryCellTableViewCell.swift
+//  ActivityGroupCell.swift
 //  ClassUp-iOS
 //
-//  Created by Atul Gupta on 04/02/17.
+//  Created by Atul Gupta on 27/11/17.
 //  Copyright © 2017 EmergeTech Mobile Products & Services Pvt Ltd. All rights reserved.
 //
 
 import UIKit
 
-class MessageHistoryCellTableViewCell: UITableViewCell {
-    @IBOutlet weak var message_date: UILabel!
-    @IBOutlet weak var message: UILabel!
+class ActivityGroupCell: UITableViewCell {
+    @IBOutlet weak var group_id: UILabel!
+    @IBOutlet weak var group_name: UILabel!
+    @IBOutlet weak var group_incharge: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
