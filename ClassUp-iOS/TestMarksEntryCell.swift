@@ -16,12 +16,14 @@ class TestMarksEntryCell: UITableViewCell {
     @IBOutlet weak var whether_absent: UISwitch!
     @IBOutlet weak var full_name: UILabel!
     
+    @IBOutlet weak var lbl_marks: UILabel!
     @IBOutlet weak var sub_enrich_marks: UITextField!
     @IBOutlet weak var notebook_sub_marks: UITextField!
+    @IBOutlet weak var prac_marks: UITextField!
     @IBOutlet weak var pt_marks: UITextField!
     @IBOutlet weak var lbl_pt: UILabel!
     @IBOutlet weak var lbl_se: UILabel!
-    @IBOutlet weak var lbl_nb: UITextField!
+    @IBOutlet weak var lbl_nb: UILabel!
     
     var delegate: UIViewController?
     var max_marks: String = ""
@@ -94,6 +96,16 @@ class TestMarksEntryCell: UITableViewCell {
             }
         }
         MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "pt_marks")
+    }
+    
+    @IBAction func updatePracMarks(_ sender: UITextField) {
+        let id = marks_entry_id.text
+        var m = prac_marks.text
+        
+        if m == "." {
+            m = "0"
+        }
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "prac_marks", whether_higher_class: true)
     }
     
     @IBAction func updateNoteBookMarks(_ sender: UITextField) {

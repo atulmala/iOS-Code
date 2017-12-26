@@ -140,6 +140,7 @@ class TakeAttendanceVC: UIViewController, UITableViewDataSource, UITableViewDele
         lable.textColor = UIColor.black
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.left
+        lable.textAlignment = NSTextAlignment.center
         
         lable.text = "\(the_class)-\(section)  \(d)/\(m)/\(y)  \(subject)"
         self.navigationItem.titleView = lable

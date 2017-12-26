@@ -21,6 +21,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var subject: String = ""
     var destination: String = ""
     var test_tpye: String = ""
+    var whether_higher_class = ""
 
     @IBOutlet weak var table_view: UITableView!
     @IBOutlet weak var nav_bar: UINavigationItem!
@@ -78,7 +79,13 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
                     // 05/10/2017 - now we distinguish between unit test and term test. Hence getting the test type
                     let test_type: String = j[index]["test_type"].string!
                     
-                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type))
+                    // 25/12/2017 - For higher classes (XI & XII), test handling will be different. We need to determine if the test is for higher classes
+                    var whether_higher_class: String = "false"
+                    if the_class == "XI" || the_class == "XII"  {
+                        whether_higher_class = "true"
+                    }
+                    
+                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class))
                 }
             }
         }
@@ -160,13 +167,12 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
         test_tpye = cell.test_type.text!
 
         destination = "to_test_marks_entry"
+        whether_higher_class = test_list[indexPath.row].whether_higher_class
         performSegue(withIdentifier: "to_test_marks_entry", sender: self)
     }
     
     // for swipe delete a test
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        
         if editingStyle == .delete  {
             let alert: UIAlertController = UIAlertController(title: "Confirm Test Deletion", message: "Are you sure that you want to delete this test? Any saved Marks/Grade will also be deleted", preferredStyle: .alert)
             
@@ -218,6 +224,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
             destinationVC.section = section
             destinationVC.subject = subject
             destinationVC.unit_or_term = test_tpye
+            destinationVC.whether_higher_class = whether_higher_class
         }
         if destination == "to_main_menu"    {
             let destinationVC = segue.destination as! MainMenuVC

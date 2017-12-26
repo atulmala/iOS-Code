@@ -77,7 +77,7 @@ class ComposeBulkSMSVC: UIViewController {
         if message_text == ""    {
             showAlert(title: "Error", message: "Message is empty!")
         }
-        else    if (message_text.characters.count) > 140       {showAlert(title: "Error", message: "Message is too large (\(message_text.characters.count) characters). Please restrict it to 140 characters!")
+        else    if (message_text.characters.count) > 300       {showAlert(title: "Error", message: "Message is too large (\(message_text.characters.count) characters). Please restrict it to 300 characters!")
         }
         else
         {

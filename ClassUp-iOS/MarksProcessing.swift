@@ -18,7 +18,7 @@ class MarksProcessing: UIViewController  {
         marks_list = list
     }
     
-    class func update_marks_list(id: String, marks: String, marks_type: String)   {
+    class func update_marks_list(id: String, marks: String, marks_type: String, whether_higher_class: Bool? = false)   {
         var marks = marks
         for i in 0 ..< marks_list.count    {
             if marks_list[i].id == id   {
@@ -48,6 +48,14 @@ class MarksProcessing: UIViewController  {
                         }
                         marks_list[i].sub_enrich_marks = marks
                         break
+                    case "prac_marks":
+                        if marks == ""  {
+                            marks = "-5000.0"
+                        }
+                        if whether_higher_class! {
+                            marks_list[i].prac_marks = marks
+                        }
+                    break
                     default:
                         break
                 }
@@ -70,9 +78,9 @@ class MarksProcessing: UIViewController  {
                     "marks": marks_list[i].marks,
                     "pa": marks_list[i].pt_marks,
                     "notebook": marks_list[i].notebook_sub_marks,
-                    "subject_enrich": marks_list[i].sub_enrich_marks
+                    "subject_enrich": marks_list[i].sub_enrich_marks,
+                    "prac_marks": marks_list[i].prac_marks
                 ]
-                
             }
             else    {
                 //marks_dictionary[marks_list[i].id] = marks_list[i].grade
@@ -105,9 +113,9 @@ class MarksProcessing: UIViewController  {
                     "marks": marks_list[i].marks,
                     "pa": marks_list[i].pt_marks,
                     "notebook": marks_list[i].notebook_sub_marks,
-                    "subject_enrich": marks_list[i].sub_enrich_marks
+                    "subject_enrich": marks_list[i].sub_enrich_marks,
+                    "prac_marks": marks_list[i].prac_marks
                 ]
-
             }
             else   {
                 //marks_dictionary[marks_list[i].id] = marks_list[i].grade

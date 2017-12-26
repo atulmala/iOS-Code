@@ -37,6 +37,12 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     var mm: String = ""
     
     var unit_or_term = ""
+    var whether_higher_class = ""
+    
+    let prac_subjects: [String] = ["Biology", "Physics", "Chemistry",
+                                   "Accountancy", "Business Studies", "Economics",
+                                   "Information Practices", "Computer Science", "Painting",
+                                   "Physical Education"]
     
     
     func saveMarks(sender: UIButton) {
@@ -59,35 +65,50 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                         return
                     }
                 
-                if unit_or_term == "term"   {
-                    if test_marks_list[i].pt_marks == "-5000.0" {
-                        let message = "Please enter PA marks for Roll No: \(student) or mark as Absent"
-                        let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-                        
-                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertController.addAction(defaultAction)
-                        present(alertController, animated: true, completion: nil)
-                        return
+                    if unit_or_term == "term"   {
+                        if whether_higher_class != "true"   {
+                            if test_marks_list[i].pt_marks == "-5000.0" || test_marks_list[i].pt_marks == "-5000" {
+                                let message = "Please enter PA marks for Roll No: \(student) or mark as Absent"
+                                let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                
+                                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(defaultAction)
+                                present(alertController, animated: true, completion: nil)
+                                return
+                            }
+                            if test_marks_list[i].notebook_sub_marks == "-5000.0" || test_marks_list[i].notebook_sub_marks == "-5000" {
+                                let message = "Please enter Notebook Submission marks for Roll No: \(student) or mark as Absent"
+                                let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                
+                                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(defaultAction)
+                                present(alertController, animated: true, completion: nil)
+                                return
+                            }
+                            if test_marks_list[i].sub_enrich_marks == "-5000.0" || test_marks_list[i].sub_enrich_marks == "-5000" {
+                                let message = "Please enter Subject Enrishment marks for Roll No: \(student) or mark as Absent"
+                                let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                
+                                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(defaultAction)
+                                present(alertController, animated: true, completion: nil)
+                                return
+                            }
+                        }
+                        else    {
+                            if prac_subjects.contains(subject)  {
+                                if test_marks_list[i].prac_marks == "-5000.0" || test_marks_list[i].prac_marks == "-5000"   {
+                                    let message = "Please enter Practical marks for Roll No: \(student) or mark as Absent"
+                                    let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                    
+                                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                    alertController.addAction(defaultAction)
+                                    present(alertController, animated: true, completion: nil)
+                                    return
+                                }
+                            }
+                        }
                     }
-                    if test_marks_list[i].notebook_sub_marks == "-5000.0" {
-                        let message = "Please enter Notebook Submission marks for Roll No: \(student) or mark as Absent"
-                        let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-                        
-                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertController.addAction(defaultAction)
-                        present(alertController, animated: true, completion: nil)
-                        return
-                    }
-                    if test_marks_list[i].sub_enrich_marks == "-5000.0" {
-                        let message = "Please enter Subject Enrishment marks for Roll No: \(student) or mark as Absent"
-                        let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-                        
-                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertController.addAction(defaultAction)
-                        present(alertController, animated: true, completion: nil)
-                        return
-                    }
-                }
             }
             else    {
                 if test_marks_list[i].grade == "-5000.00" || test_marks_list[i].grade == "-5000"
@@ -162,12 +183,17 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                     let pt_marks: String = String(stringInterpolationSegment: j[index]["periodic_test_marks"])
                     let notebook_sub_marks: String = String(stringInterpolationSegment:j[index]["notebook_marks"])
 
-
                     let sub_enrich_marks: String = String(stringInterpolationSegment: j[index]["sub_enrich_marks"])
+                    
+                    // 26/12/2017 practical marks for higher classes only if the class is a higer class
+                    var prac_marks: String = "0.0"
+                    if whether_higher_class == "true"   {
+                        prac_marks = String(stringInterpolationSegment: j[index]["prac_marks"])
+                    }
                     
                     let parent_name: String = j[index]["parent"].string!
                     
-                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name, pt: pt_marks, nb: notebook_sub_marks, sub: sub_enrich_marks))
+                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name, pt: pt_marks, nb: notebook_sub_marks, sub: sub_enrich_marks, prac: prac_marks))
                 }
             }
         }
@@ -191,9 +217,9 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         }
         
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
-        lable.textColor = UIColor.white
+        lable.textColor = UIColor.purple
         lable.numberOfLines = 0
-        lable.textAlignment = NSTextAlignment.left
+        lable.textAlignment = NSTextAlignment.center
         
         if whether_grade_based  {
             lable.text = "\(the_class)-\(section) \(subject)"
@@ -255,7 +281,6 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         cell.parent_name.text = test_marks_list[indexPath.row].parent_name
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TestMarksEntryVC.dismissKeyboard))
         
-
         cell.addGestureRecognizer(tap)
         
         var m: String = ""
@@ -318,6 +343,35 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             cell.pt_marks.isHidden = true
             cell.notebook_sub_marks.isHidden = true
             cell.sub_enrich_marks.isHidden = true
+            cell.prac_marks.isHidden = true
+        }
+        else {
+            if whether_higher_class == "true"   {
+                cell.lbl_nb.isHidden = true
+                cell.lbl_pt.isHidden = false
+                cell.lbl_marks.text = "Theory"
+                cell.lbl_pt.text = "Practical"
+                cell.lbl_se.isHidden = true
+                cell.pt_marks.isHidden = true
+                cell.pt_marks.isEnabled = false
+                cell.notebook_sub_marks.isHidden = true
+                cell.sub_enrich_marks.isHidden = true
+                
+                if (test_marks_list[indexPath.row].prac_marks == "-5000.0" || test_marks_list[indexPath.row].prac_marks == "-5000")  {
+                    cell.prac_marks.text = ""
+                }
+                else    {
+                    cell.prac_marks.text = test_marks_list[indexPath.row].prac_marks
+                }
+                
+                if !prac_subjects.contains(subject) {
+                    cell.prac_marks.isEnabled = false
+                    cell.prac_marks.text = "N/A"
+                }
+            }
+            else    {
+                cell.prac_marks.removeFromSuperview()
+            }
         }
         
         if (test_marks_list[indexPath.row].pt_marks == "-5000.0" || test_marks_list[indexPath.row].pt_marks == "-5000") {
@@ -349,7 +403,12 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             return 91
         }
         else{
-            return 216
+            if whether_higher_class == "true"   {
+                return 120
+            }
+            else    {
+                return 216
+            }
         }
     }
     
@@ -358,7 +417,12 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             return 91
         }
         else{
-            return 216
+            if whether_higher_class == "true"   {
+                return 120
+            }
+            else    {
+                return 216
+            }
         }
    }
     

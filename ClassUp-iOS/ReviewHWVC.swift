@@ -61,7 +61,7 @@ class ReviewHWVC: UIViewController, UIScrollViewDelegate {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd_HHmmss"
-        let timestamp = formatter.string(from: (from:date))
+        let timestamp = formatter.string(from: (from:date) as! Date)
         let teacher: String = SessionManager.getLoggedInUser()
         let school_id: String = SessionManager.getSchoolId()
         let imageFileName: String = "\(teacher)_\(the_class)-\(section)_\(subject)_\(timestamp).jpg"

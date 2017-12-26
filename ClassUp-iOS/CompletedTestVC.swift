@@ -21,6 +21,7 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
     var section: String = ""
     var subject: String = ""
     var test_type: String = ""
+    var whether_higher_class = ""
     var destination = ""
 
         override func viewDidLoad() {
@@ -70,7 +71,13 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
                     // 05/10/2017 - now we distinguish between unit test and term test. Hence getting the test type
                     let test_type: String = j[index]["test_type"].string!
                     
-                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type))
+                    // 25/12/2017 - For higher classes (XI & XII), test handling will be different. We need to determine if the test is for higher classes
+                    var whether_higher_class: String = "false"
+                    if the_class == "XI" || the_class == "XII"  {
+                        whether_higher_class = "true"
+                    }
+                    
+                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class))
                 }
             }
         }
@@ -159,6 +166,8 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         current_test_id = cell.test_id.text!
         test_type = cell.test_type.text!
         
+        whether_higher_class = test_list[indexPath.row].whether_higher_class
+        
         performSegue(withIdentifier: "to_test_marks_entry", sender: self)
         
     }
@@ -175,6 +184,7 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         destinationVC.section = section
         destinationVC.subject = subject
         destinationVC.unit_or_term = test_type
+        destinationVC.whether_higher_class = whether_higher_class
     }
 
     

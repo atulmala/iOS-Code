@@ -18,9 +18,10 @@ class TestMarksModel: NSObject  {
     var pt_marks: String
     var notebook_sub_marks: String
     var sub_enrich_marks: String
+    var prac_marks: String
     
     init(id: String, r: String, m: String, g: String, s: String,
-         pn: String, pt: String, nb: String, sub: String) {
+         pn: String, pt: String, nb: String, sub: String, prac: String) {
         self.id  = id
         self.marks = m
         self.grade = g
@@ -30,6 +31,7 @@ class TestMarksModel: NSObject  {
         self.pt_marks = pt
         self.notebook_sub_marks = nb
         self.sub_enrich_marks = sub
+        self.prac_marks = prac
         super.init()
     }
 }
