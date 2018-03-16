@@ -40,9 +40,11 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     var whether_higher_class = ""
     
     let prac_subjects: [String] = ["Biology", "Physics", "Chemistry",
-                                   "Accountancy", "Business Studies", "Economics",
-                                   "Information Practices", "Computer Science", "Painting",
+                                   "Accountancy", "Business Studies", "Economics", "Fine Arts",
+                                   "Information Practices", "Informatics Practices", "Computer Science", "Painting",
                                    "Physical Education"]
+    let absent_values: [String] = ["-1000", "-1000.0", "-1000.00"]
+    let null_values: [String] = ["-5000", "-5000.0", "-5000.00"]
     
     
     func saveMarks(sender: UIButton) {
@@ -97,14 +99,16 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                         }
                         else    {
                             if prac_subjects.contains(subject)  {
-                                if test_marks_list[i].prac_marks == "-5000.0" || test_marks_list[i].prac_marks == "-5000"   {
-                                    let message = "Please enter Practical marks for Roll No: \(student) or mark as Absent"
-                                    let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
-                                    
-                                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                                    alertController.addAction(defaultAction)
-                                    present(alertController, animated: true, completion: nil)
-                                    return
+                                if !absent_values.contains(test_marks_list[i].marks)    {
+                                    if null_values.contains(test_marks_list[i].prac_marks)  {
+                                        let message = "Please enter Practical marks for Roll No: \(student) or mark as Absent"
+                                        let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        present(alertController, animated: true, completion: nil)
+                                        return
+                                    }
                                 }
                             }
                         }
@@ -370,7 +374,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                 }
             }
             else    {
-                cell.prac_marks.removeFromSuperview()
+                cell.prac_marks?.removeFromSuperview()
             }
         }
         

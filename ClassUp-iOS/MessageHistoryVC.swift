@@ -16,6 +16,7 @@ class MessageModel:NSObject {
     var date: String
     var message: String
     
+    
     init(id: String, date: String, message: String)  {
         self.id = id
         self.date = date
@@ -29,6 +30,7 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     
     var message_list: [MessageModel] = []
+    var coming_from: String = "parent"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,10 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         // call the api to retrieve the messages sent to this parent
         let server_ip: String = MiscFunction.getServerIP()
         let user: String = SessionManager.getLoggedInUser()
-        let url: String =  "\(server_ip)/operations/retrieve_sms_history/\(user)/"
+        var url: String =  "\(server_ip)/operations/retrieve_sms_history/\(user)/"
+        if coming_from == "teacher" {
+            url = "\(server_ip)/teachers/circulars/\(user)/Admin/"
+        }
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
         if (count! > 0)  {

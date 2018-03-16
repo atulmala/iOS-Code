@@ -638,7 +638,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="YRf-9I-iaG">
-                                <rect key="frame" x="0.0" y="99" width="375" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="attendance_cell" rowHeight="150" id="1Fa-z6-KWZ" customClass="TakeAttendanceCellTVC" customModule="ClassUp_iOS">
@@ -815,7 +815,7 @@
                             <constraint firstItem="YRf-9I-iaG" firstAttribute="bottom" secondItem="CWI-OE-53f" secondAttribute="top" id="LWx-sI-0E4"/>
                             <constraint firstItem="Ctd-hJ-lN8" firstAttribute="centerX" secondItem="vk6-im-olL" secondAttribute="centerX" id="Oey-1g-eu3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YRf-9I-iaG" secondAttribute="trailing" constant="-16" id="Yu5-Id-91A"/>
-                            <constraint firstItem="YRf-9I-iaG" firstAttribute="top" secondItem="vk6-im-olL" secondAttribute="topMargin" constant="35" id="rCd-nr-g9Y"/>
+                            <constraint firstItem="YRf-9I-iaG" firstAttribute="top" secondItem="vk6-im-olL" secondAttribute="topMargin" id="rCd-nr-g9Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="swr-Wm-SqC"/>
@@ -844,7 +844,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Subject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXP-Ib-bgK">
-                                <rect key="frame" x="115" y="72" width="145" height="21"/>
+                                <rect key="frame" x="115" y="28" width="145" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="Chk-zj-kng"/>
                                     <constraint firstAttribute="height" constant="21" id="l0i-Ei-Sxe"/>
@@ -866,7 +866,7 @@
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kwW-3h-9Bm">
-                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subject_list_cell" id="tRR-bL-YMd" customClass="SubjectListCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
@@ -3102,7 +3102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Ward" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdx-qJ-2hz">
-                                <rect key="frame" x="115" y="72" width="145" height="21"/>
+                                <rect key="frame" x="115" y="28" width="145" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Glt-Q9-V2t"/>
                                     <constraint firstAttribute="width" constant="145" id="XNo-rG-v1A"/>
@@ -3124,7 +3124,7 @@
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ddZ-fN-yrQ">
-                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ward_list_cell" id="Qz0-fA-QM8" customClass="WardListCellTVC" customModule="ClassUp_iOS">
@@ -3310,13 +3310,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmy-v3-Kh8">
-                                <rect key="frame" x="16" y="74" width="338" height="18"/>
+                                <rect key="frame" x="16" y="30" width="338" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kjN-Ii-7ve">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stu_att_summary_header_cell" id="NJE-mb-Dwy" customClass="StuAttSummaryHeaderCellTVC" customModule="ClassUp_iOS" customModuleProvider="target">
@@ -3575,13 +3575,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQS-um-CXD">
-                                <rect key="frame" x="16" y="66" width="37.5" height="18"/>
+                                <rect key="frame" x="16" y="22" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppp-fi-Yn1">
-                                <rect key="frame" x="0.0" y="92" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="pzY-Gd-8cn">
@@ -3823,12 +3823,12 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irf-qF-gLm" userLabel="marks_graph">
-                                <rect key="frame" x="0.0" y="272.5" width="375" height="394.5"/>
+                                <rect key="frame" x="0.0" y="228.5" width="375" height="438.5"/>
                                 <color key="backgroundColor" red="0.73938576099999997" green="0.99100631179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJW-lI-YVm">
-                                <rect key="frame" x="16" y="250" width="119.5" height="20.5"/>
+                                <rect key="frame" x="16" y="206" width="119.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3915,7 +3915,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xb-6I-K3B">
-                                <rect key="frame" x="26" y="72" width="227" height="21"/>
+                                <rect key="frame" x="26" y="28" width="227" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="DeP-uq-wz7"/>
                                     <constraint firstAttribute="width" constant="227" id="y37-vQ-kEV"/>
@@ -3937,7 +3937,7 @@
                                 </variation>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWj-g0-18M">
-                                <rect key="frame" x="0.0" y="91" width="375" height="158"/>
+                                <rect key="frame" x="0.0" y="47" width="375" height="158"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="158" id="Ntf-0G-XD5"/>
                                 </constraints>
@@ -3957,13 +3957,13 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compose Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-j2-L6Q">
-                                <rect key="frame" x="26" y="247" width="168" height="24"/>
+                                <rect key="frame" x="26" y="203" width="168" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wu0-v2-H3T">
-                                <rect key="frame" x="131" y="378" width="113" height="33"/>
+                                <rect key="frame" x="131" y="334" width="113" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Send Message"/>
                                 <connections>
@@ -3971,7 +3971,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q0Y-DV-Pxm">
-                                <rect key="frame" x="26" y="286" width="323" height="80"/>
+                                <rect key="frame" x="26" y="242" width="323" height="80"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="u5m-fi-cZS">
@@ -4087,7 +4087,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Exam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfn-gn-9y0">
-                                <rect key="frame" x="115" y="72" width="145" height="21"/>
+                                <rect key="frame" x="115" y="28" width="145" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="Ss4-zS-u62"/>
                                     <constraint firstAttribute="height" constant="21" id="ajg-LE-Ol2"/>
@@ -4109,7 +4109,7 @@
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YgZ-SQ-yld">
-                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exam_list_cell" id="OSi-Kp-hCO" customClass="ExamCellTVC" customModule="ClassUp_iOS">
@@ -4219,13 +4219,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUk-OR-TYf">
-                                <rect key="frame" x="16" y="74" width="338" height="18"/>
+                                <rect key="frame" x="16" y="30" width="338" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-4Q-nrC">
-                                <rect key="frame" x="0.0" y="103.5" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="59.5" width="375" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="5he-e2-YWg"/>
@@ -4465,11 +4465,11 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUm-al-qCo">
-                                <rect key="frame" x="0.0" y="290" width="375" height="377"/>
+                                <rect key="frame" x="0.0" y="246" width="375" height="421"/>
                                 <color key="backgroundColor" red="0.73938576099999997" green="0.99100631179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject wise % marks comparison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVA-Lc-N3w">
-                                <rect key="frame" x="16" y="261" width="232.5" height="18"/>
+                                <rect key="frame" x="16" y="217" width="232.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -4557,7 +4557,7 @@
         <!--Message HistoryVC-->
         <scene sceneID="vOU-cH-tvh">
             <objects>
-                <viewController id="gLW-Zy-GOb" customClass="MessageHistoryVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageHistory" id="gLW-Zy-GOb" customClass="MessageHistoryVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fMB-Lx-jT0"/>
                         <viewControllerLayoutGuide type="bottom" id="3XR-1q-Xun"/>
@@ -4902,7 +4902,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="216" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="nYU-0h-V4z">
-                                <rect key="frame" x="0.0" y="129" width="383" height="538"/>
+                                <rect key="frame" x="0.0" y="64" width="383" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="marks_entry_cell" rowHeight="216" id="xrK-N7-FeW" customClass="TestMarksEntryCell" customModule="ClassUp_iOS">
@@ -5105,7 +5105,7 @@
                             <constraint firstItem="rsR-bG-bRc" firstAttribute="top" secondItem="nYU-0h-V4z" secondAttribute="bottom" constant="-41" id="Xoz-Zt-tA6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nYU-0h-V4z" secondAttribute="trailing" constant="-24" id="ijN-r4-Qqc"/>
                             <constraint firstItem="pM0-wG-vhS" firstAttribute="top" secondItem="rsR-bG-bRc" secondAttribute="bottom" constant="11" id="iz4-Xb-E1u"/>
-                            <constraint firstItem="nYU-0h-V4z" firstAttribute="top" secondItem="idz-gC-VIZ" secondAttribute="topMargin" constant="65" id="rJu-tM-OtD"/>
+                            <constraint firstItem="nYU-0h-V4z" firstAttribute="top" secondItem="idz-gC-VIZ" secondAttribute="topMargin" id="rJu-tM-OtD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vin-ZL-xQg"/>
@@ -5125,7 +5125,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rz9-Cy-N5U"/>
-        <segue reference="xXD-Bw-bKr"/>
+        <segue reference="fac-Hp-6Ip"/>
         <segue reference="PhV-0B-TUU"/>
         <segue reference="ebw-Bh-cvj"/>
         <segue reference="PnY-XX-i00"/>
