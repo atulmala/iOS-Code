@@ -121,6 +121,8 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                                 performSegue(withIdentifier: "to_hw_list_parent", sender: self)
                             case "UpcomingTests":
                                 performSegue(withIdentifier: "to_upcoming_tests", sender: self)
+                            case "TimeTable":
+                                performSegue(withIdentifier: "show_days_of_week", sender: self)
                             default:
                                 break
                         }
@@ -167,6 +169,11 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 let destinationVC = segue.destination as! UpcomingTestTVC
                 destinationVC.student_id = student_id
                 destinationVC.student_full_name = student_name
+                break
+            case "TimeTable":
+                let destinationVC = segue.destination as! DaysofWeek
+                destinationVC.coming_from = "student"
+                destinationVC.student_id = student_id
                 break
             default:
                 break

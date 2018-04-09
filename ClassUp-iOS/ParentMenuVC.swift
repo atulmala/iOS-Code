@@ -61,6 +61,10 @@ class ParentMenuVC: UIViewController {
         performSegue(withIdentifier: "selectWard", sender: self)
     }
     
+    @IBAction func show_days_of_week(_ sender: UIButton) {
+        triggeringMenu = "TimeTable"
+        performSegue(withIdentifier: "selectWard", sender: self)
+    }
     @IBAction func upcoming_test(_ sender: UIButton)    {
         triggeringMenu = "UpcomingTests"
         performSegue(withIdentifier: "selectWard", sender: self)
@@ -96,6 +100,10 @@ class ParentMenuVC: UIViewController {
             case "UpcomingTests":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "UpcomingTests"
+            case "TimeTable":
+                let destinationVC = segue.destination as! SelectWardVC
+                destinationVC.trigger = "TimeTable"
+                break
             default:
                 break
         }

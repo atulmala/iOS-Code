@@ -37,6 +37,8 @@
 		A41D17D11E72D4DC0046E164 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A41D17D01E72D4DC0046E164 /* GoogleService-Info.plist */; };
 		A42350F0205AB2910050E35C /* CommCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42350EF205AB2900050E35C /* CommCenterViewController.swift */; };
 		A42569941FDC251000F7D2C0 /* MessageReceiversCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42569931FDC251000F7D2C0 /* MessageReceiversCell.swift */; };
+		A427C898207B933F00275343 /* DaysofWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427C897207B933F00275343 /* DaysofWeek.swift */; };
+		A427C89A207B970B00275343 /* DayofWeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427C899207B970B00275343 /* DayofWeekCell.swift */; };
 		A443A52B1E55D743001A64FC /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52A1E55D743001A64FC /* SelectDateVC.swift */; };
 		A443A52D1E55DF16001A64FC /* ShowSchoolAttSummVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52C1E55DF16001A64FC /* ShowSchoolAttSummVC.swift */; };
 		A443A52F1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */; };
@@ -116,6 +118,8 @@
 		A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */; };
 		A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */; };
 		A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */; };
+		A4EFF585207BADD0006B34BF /* TimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF584207BADD0006B34BF /* TimeTableCell.swift */; };
+		A4EFF587207BAF12006B34BF /* TimeTableTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF586207BAF12006B34BF /* TimeTableTVC.swift */; };
 		A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */; };
 		A4F8F3B61FBE7A6F006E2728 /* Teacher-II.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
@@ -154,6 +158,8 @@
 		A41D17D01E72D4DC0046E164 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A42350EF205AB2900050E35C /* CommCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommCenterViewController.swift; sourceTree = "<group>"; };
 		A42569931FDC251000F7D2C0 /* MessageReceiversCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageReceiversCell.swift; sourceTree = "<group>"; };
+		A427C897207B933F00275343 /* DaysofWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysofWeek.swift; sourceTree = "<group>"; };
+		A427C899207B970B00275343 /* DayofWeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayofWeekCell.swift; sourceTree = "<group>"; };
 		A443A52A1E55D743001A64FC /* SelectDateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
 		A443A52C1E55DF16001A64FC /* ShowSchoolAttSummVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSchoolAttSummVC.swift; sourceTree = "<group>"; };
 		A443A52E1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School_Att_Summ_Hdr_Cell.swift; sourceTree = "<group>"; };
@@ -236,6 +242,8 @@
 		A4ED5CF71E52193600888DD1 /* ComposeBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CF91E536EC500888DD1 /* SelectClassBulkSMSVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassBulkSMSVC.swift; sourceTree = "<group>"; };
 		A4ED5CFB1E53772700888DD1 /* ClassListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassListCell.swift; sourceTree = "<group>"; };
+		A4EFF584207BADD0006B34BF /* TimeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableCell.swift; sourceTree = "<group>"; };
+		A4EFF586207BAF12006B34BF /* TimeTableTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableTVC.swift; sourceTree = "<group>"; };
 		A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachersAttTVC.swift; sourceTree = "<group>"; };
 		A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Teacher-II.storyboard"; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -397,6 +405,10 @@
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 				A42350EF205AB2900050E35C /* CommCenterViewController.swift */,
+				A427C897207B933F00275343 /* DaysofWeek.swift */,
+				A427C899207B970B00275343 /* DayofWeekCell.swift */,
+				A4EFF584207BADD0006B34BF /* TimeTableCell.swift */,
+				A4EFF586207BAF12006B34BF /* TimeTableTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -605,6 +617,7 @@
 				A4053CB71DD9E7B00090D89D /* MarksHistoryCellTVC.swift in Sources */,
 				A4ED5CFC1E53772700888DD1 /* ClassListCell.swift in Sources */,
 				A48E111A1DD4938F0008DF7D /* BusDelayMessageVC.swift in Sources */,
+				A427C89A207B970B00275343 /* DayofWeekCell.swift in Sources */,
 				A4053CA21DD9C6F30090D89D /* ExamCellTVC.swift in Sources */,
 				A45532151DD7823B0088A3C9 /* StudentSelectionCell.swift in Sources */,
 				A45532131DD77FFB0088A3C9 /* SelectStudentVC.swift in Sources */,
@@ -613,6 +626,7 @@
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A4AAAD801FCFA04200287E3A /* TeacherMessageRecordTVC.swift in Sources */,
 				A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */,
+				A4EFF587207BAF12006B34BF /* TimeTableTVC.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
 				A40DFFFB1E46259500711694 /* MessageHistoryVC.swift in Sources */,
 				A47365C91DD9766A00EDA30D /* ParentMenuVC.swift in Sources */,
@@ -644,6 +658,7 @@
 				A4DAEC641EB7739B00206BA0 /* HWListTVC.swift in Sources */,
 				A40DFFFD1E46264900711694 /* MessageHistoryCellTableViewCell.swift in Sources */,
 				A4DAEC661EB795EB00206BA0 /* HWCell.swift in Sources */,
+				A427C898207B933F00275343 /* DaysofWeek.swift in Sources */,
 				A42569941FDC251000F7D2C0 /* MessageReceiversCell.swift in Sources */,
 				A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
@@ -672,6 +687,7 @@
 				A4D28AE31DB3F1F7003B47F2 /* MiscFunctions.swift in Sources */,
 				A443A52D1E55DF16001A64FC /* ShowSchoolAttSummVC.swift in Sources */,
 				A4024EA91E66E918002C1935 /* SelectTeacherTVC.swift in Sources */,
+				A4EFF585207BADD0006B34BF /* TimeTableCell.swift in Sources */,
 				A49081631DC1174800A4170D /* TakeAttendanceCellTVC.swift in Sources */,
 				A48B30641DD476D20049D760 /* BusRouteSelectionVC.swift in Sources */,
 				A45532091DD72DAF0088A3C9 /* AttendanceSummaryCellVC.swift in Sources */,

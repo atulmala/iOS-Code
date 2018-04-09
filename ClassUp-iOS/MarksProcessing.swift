@@ -70,6 +70,7 @@ class MarksProcessing: UIViewController  {
     
     class func save_marks_list(whether_grade_based: Bool)    {
         var marks_dictionary = [String:[String:String]]()
+        var marks_dictionary1 = [String:String]()
         
         for i in 0 ..< marks_list.count    {
             
@@ -83,15 +84,20 @@ class MarksProcessing: UIViewController  {
                 ]
             }
             else    {
-                //marks_dictionary[marks_list[i].id] = marks_list[i].grade
+                marks_dictionary1[marks_list[i].id] = marks_list[i].grade
             }
         }
         
         let server_ip = MiscFunction.getServerIP()
         let url = "\(server_ip)/academics/save_marks/"
         
-        
-        Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
+        if !whether_grade_based {
+            Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
+            }
+        }
+        else    {
+            Alamofire.request(url, method: .post, parameters: marks_dictionary1, encoding: JSONEncoding.default).responseJSON { response in
+            }
         }
         
         let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
@@ -104,6 +110,7 @@ class MarksProcessing: UIViewController  {
     
     class func submit_marks_list(whether_grade_based: Bool) -> Bool   {
         var marks_dictionary = [String:[String:String]]()
+        var marks_dictionary1 = [String:String]()
                 
         var id_array: [String] = []
         for i in 0 ..< marks_list.count    {
@@ -118,13 +125,19 @@ class MarksProcessing: UIViewController  {
                 ]
             }
             else   {
-                //marks_dictionary[marks_list[i].id] = marks_list[i].grade
+                marks_dictionary1[marks_list[i].id] = marks_list[i].grade
             }
         }
         let server_ip = MiscFunction.getServerIP()
         let school_id = SessionManager.getSchoolId()
         let url = "\(server_ip)/academics/submit_marks/\(school_id)/"
-        Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
+        if !whether_grade_based {
+            Alamofire.request(url, method: .post, parameters: marks_dictionary, encoding: JSONEncoding.default).responseJSON { response in
+            }
+        }
+        else    {
+            Alamofire.request(url, method: .post, parameters: marks_dictionary1, encoding: JSONEncoding.default).responseJSON { response in
+            }
         }
         
         let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
