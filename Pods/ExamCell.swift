@@ -1,17 +1,16 @@
 //
-//  ExamCellTVC.swift
-//  ClassUp-iOS
+//  ExamCell.swift
+//  Alamofire
 //
-//  Created by Atul Gupta on 27/03/16.
-//  Copyright © 2016 EmergeTech Mobile Products & Services Pvt Ltd. All rights reserved.
+//  Created by Atul Gupta on 23/05/18.
 //
 
 import UIKit
 
-class ExamCellTVC: UITableViewCell {
+class ExamCell: UITableViewCell {
 
-    @IBOutlet weak var exam_title: UILabel!
     @IBOutlet weak var exam_id: UILabel!
+    @IBOutlet weak var exam: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +22,5 @@ class ExamCellTVC: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
 }

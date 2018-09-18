@@ -108,7 +108,7 @@ class LoginVC: UIViewController {
             let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
             let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
             let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Login Attempt")
-            eventClient.addGlobalAttribute(userName as String!, forKey: "user")
+            eventClient.addGlobalAttribute(userName as String?, forKey: "user")
             eventClient.record(event)
             eventClient.submitEvents()
             

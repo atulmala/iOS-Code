@@ -15,7 +15,6 @@ import SwiftyJSON
 class MainMenuVC: UIViewController {
     var triggering_menu: String = ""
     var comingFrom: String = ""
-    @IBOutlet weak var btnTakeUpdateAttendance: UIButton!
 
     
     @IBAction func showCriteriaAttSummary(sender: UIButton) {
@@ -47,20 +46,17 @@ class MainMenuVC: UIViewController {
             }
         }
     }
-    @IBAction func scheduleTest(sender: UIButton) {
-        triggering_menu = "scheduleTest"
-        performSegue(withIdentifier: "MainMenuToDateClassSectionSubjectSelection", sender: self)
-
-    }
     
-    @IBAction func scheduleTermTest(_ sender: UIButton) {
-        triggering_menu = "scheduleTermTest"
-        performSegue(withIdentifier: "MainMenuToDateClassSectionSubjectSelection", sender: self)
+    @IBAction func scheduleTest(_ sender: UIButton) {
+        triggering_menu = "scheduleTest"
+        performSegue(withIdentifier: "select_exam", sender: self)
+
     }
     
     @IBAction func showTestsLists(sender: UIButton) {
         triggering_menu = "to_tests_list"
-        performSegue(withIdentifier: "to_tests_list", sender: self)
+        performSegue(withIdentifier: "select_exam", sender: self)
+        //performSegue(withIdentifier: "to_tests_list", sender: self)
         
     }
     @IBAction func goToTakeUpdateAttendance(sender: UIButton) {
@@ -208,16 +204,21 @@ class MainMenuVC: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "show_exams" {
+            triggering_menu = "scheduleTest"
+            let destinationVC = segue.destination as! ExamListTeacherTVC
+            destinationVC.trigger = triggering_menu
+            triggering_menu = ""
+        }
         switch triggering_menu  {
             case "takeUpdateAttendance":
                 let destinationVC = segue.destination as! SelectDateClassSectionSubjectVC
                 destinationVC.trigger = triggering_menu
                 triggering_menu = ""
             case "scheduleTest":
-                let destintionVC = segue.destination as! SelectDateClassSectionSubjectVC
+                let destintionVC = segue.destination as! ExamListTeacherTVC
                 destintionVC.trigger = triggering_menu
                 triggering_menu = ""
             case "scheduleTermTest":

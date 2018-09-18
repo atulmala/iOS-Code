@@ -9,6 +9,7 @@
 import UIKit
 import Just
 import SwiftyJSON
+import AWSMobileAnalytics
 
 class TimeTableSource: NSObject {
     var the_class: String
@@ -97,6 +98,14 @@ class TimeTableTVC: UITableViewController {
             }
             tt_list.append(TimeTableSource(the_class: today_free_period, section: "", period: "", subject: ""))
         }
+        
+        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
+        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
+        let userName: String = SessionManager.getLoggedInUser()
+        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Time Table")
+        eventClient.addGlobalAttribute(userName as String?, forKey: "user")
+        eventClient.record(event)
+        eventClient.submitEvents()
     }
 
     override func didReceiveMemoryWarning() {
