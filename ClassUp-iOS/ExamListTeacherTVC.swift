@@ -59,6 +59,7 @@ class ExamListTeacherTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
+        cell.exam_title.text = title_list[indexPath.row]
         return cell
     }
     

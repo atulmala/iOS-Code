@@ -184,14 +184,6 @@
                                     <action selector="goToTakeUpdateAttendanceWithSender:" destination="hFH-Bs-fQz" eventType="touchUpInside" id="5Pg-d6-DG4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tri-0F-Bts">
-                                <rect key="frame" x="127" y="286" width="121" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Manage Tests"/>
-                                <connections>
-                                    <action selector="showTestsListsWithSender:" destination="hFH-Bs-fQz" eventType="touchUpInside" id="Ysr-uA-0de"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-gi-U1k">
                                 <rect key="frame" x="116.5" y="448" width="142" height="34"/>
                                 <constraints>
@@ -269,6 +261,14 @@
                                 <state key="normal" title="Schedule Test"/>
                                 <connections>
                                     <segue destination="Vkl-3g-Bow" kind="show" identifier="show_exams" id="vaP-aF-DM7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tri-0F-Bts">
+                                <rect key="frame" x="127" y="286" width="121" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Manage Tests"/>
+                                <connections>
+                                    <action selector="showTestsLists:" destination="hFH-Bs-fQz" eventType="touchUpInside" id="94Z-Rm-R3L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1093,7 +1093,7 @@
         <scene sceneID="B7g-oB-DPr">
             <objects>
                 <tableViewController id="Vkl-3g-Bow" customClass="ExamListTeacherTVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XSi-Cp-l4u">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="XSi-Cp-l4u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1127,8 +1127,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="exam" destination="W9h-g4-4PU" id="ZcX-9v-Hck"/>
                                     <outlet property="exam_id" destination="bCt-yU-J4v" id="G73-he-yLu"/>
+                                    <outlet property="exam_title" destination="W9h-g4-4PU" id="DQC-Ij-MFK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -4616,7 +4616,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7N5-4m-CjS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="message_history_cell" rowHeight="91" id="862-47-YnS" userLabel="message_history_cell" customClass="MessageHistoryCellTableViewCell" customModule="ClassUp_iOS" customModuleProvider="target">

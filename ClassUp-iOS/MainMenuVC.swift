@@ -53,9 +53,9 @@ class MainMenuVC: UIViewController {
 
     }
     
-    @IBAction func showTestsLists(sender: UIButton) {
+    @IBAction func showTestsLists(_ sender: UIButton) {
         triggering_menu = "to_tests_list"
-        performSegue(withIdentifier: "select_exam", sender: self)
+        performSegue(withIdentifier: "show_exams", sender: self)
         //performSegue(withIdentifier: "to_tests_list", sender: self)
         
     }
