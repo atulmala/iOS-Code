@@ -225,11 +225,13 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.center
         
+        let exam_title: String = SessionManager.get_exam_title()
+        
         if whether_grade_based  {
-            lable.text = "\(the_class)-\(section) \(subject)"
+            lable.text = "\(the_class)-\(section) \(subject) \(exam_title)"
         }
         else    {
-            lable.text = "\(the_class)-\(section) \(subject)"
+            lable.text = "\(the_class)-\(section) \(subject) \(exam_title)"
         }
         self.navigationItem.titleView = lable
         

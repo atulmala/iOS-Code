@@ -21,25 +21,29 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var subject: String = ""
     var destination: String = ""
     var test_tpye: String = ""
+    var exam_title: String = ""
     var whether_higher_class = ""
+    
+    var exam_id: String = ""
 
     @IBOutlet weak var table_view: UITableView!
-    @IBOutlet weak var nav_bar: UINavigationItem!
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
-        lable.textColor = UIColor.white
+        lable.textColor = UIColor.purple
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.center
         
-        lable.text = "Pending Test List"
+        exam_title = SessionManager.get_exam_title()
+        lable.text = "Pending Test List \(exam_title)"
         self.navigationItem.titleView = lable
         
         // call the api to ge the list of pending tests
         let server_ip: String = MiscFunction.getServerIP()
         let user: String = SessionManager.getLoggedInUser()
-        let url: String = "\(server_ip)/academics/pending_test_list/\(user)/?format=json"
+        let exam_id: String = SessionManager.get_exam_id()
+        
+        let url: String = "\(server_ip)/academics/pending_test_list/\(user)/\(exam_id)/?format=json"
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
         if count! > 0    {

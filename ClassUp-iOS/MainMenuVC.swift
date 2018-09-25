@@ -49,7 +49,7 @@ class MainMenuVC: UIViewController {
     
     @IBAction func scheduleTest(_ sender: UIButton) {
         triggering_menu = "scheduleTest"
-        performSegue(withIdentifier: "select_exam", sender: self)
+        performSegue(withIdentifier: "show_exams", sender: self)
 
     }
     
@@ -68,12 +68,11 @@ class MainMenuVC: UIViewController {
         triggering_menu = "set_subjects"
         //performSegueWithIdentifier("to_set_subjects", sender: self)
     }
+    
     @IBAction func logout(sender: UIButton) {
         SessionManager.logout()
         let vc: UIViewController = LoginVC()
         self.present(vc, animated: false, completion: nil)
-        
-        
     }
     
     @IBAction func selectClassSecForCoScholastic(_ sender: UIButton) {
@@ -206,12 +205,7 @@ class MainMenuVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "show_exams" {
-            triggering_menu = "scheduleTest"
-            let destinationVC = segue.destination as! ExamListTeacherTVC
-            destinationVC.trigger = triggering_menu
-            triggering_menu = ""
-        }
+        
         switch triggering_menu  {
             case "takeUpdateAttendance":
                 let destinationVC = segue.destination as! SelectDateClassSectionSubjectVC
@@ -226,7 +220,8 @@ class MainMenuVC: UIViewController {
                 destintionVC.trigger = triggering_menu
                 triggering_menu = ""
             case "to_tests_list":
-                _ = segue.destination as! TestDetailsTBC
+                let destinationVC = segue.destination as! ExamListTeacherTVC
+                destinationVC.trigger = triggering_menu
                 triggering_menu = ""
             case "co_scholastics":
                 let destinationVC = segue.destination as! SelClassUpdateStuVC

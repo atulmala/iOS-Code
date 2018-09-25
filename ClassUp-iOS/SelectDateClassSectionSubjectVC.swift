@@ -23,11 +23,12 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     @IBOutlet weak var classPicker: UIPickerView!
     @IBOutlet weak var date_label: UILabel!
     
-    
     var d: String = "1"
     var m: String = "1"
     var y: String = "1970"
     
+    var exam_type: String = ""
+    var exam_title: String = ""
     var max_marks: String = ""
     var passing_marks: String = ""
     var whether_grade_based: String = ""
@@ -49,7 +50,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     
     @IBAction func goToAttendanceOrScheduleTest(sender: UIButton)
     {
-        
         MiscFunction.decomposeDate(date_picker: datePicker, day: &d, month: &m, year: &y)
         
         // chances are that the teacher may select the default entries in the class/section/subject
@@ -78,6 +78,10 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 performSegue(withIdentifier: "to_take_attendance", sender: self)
                 
             case "scheduleTest":
+                if selected_subject == "Main"   {
+                    showAlert(title: "Test cannot be scheudled for Main", message: "Test cannot be created for Main please select another subject.")
+                    break
+                }
                 let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
                 let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
                 let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Schedule Test")
@@ -85,49 +89,54 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 eventClient.record(event)
                 eventClient.submitEvents()
                 
-                // perform segue to navigate to get max marks, pass marks, grade based and comments
-                performSegue(withIdentifier: "get_test_details", sender: self)
-            
-        case "scheduleTermTest":
-            if selected_subject == "Main"   {
-                showAlert(title: "Test cannot be scheudled for Main", message: "Test cannot be created for Main please select another subject.")
-                break
+                exam_type = SessionManager.get_exam_type()
+                // if it is a term test then no need to get test max marks & passing marks. Otherwise ask
+                if exam_type == "term"  {
+                    let index = d.index(d.startIndex, offsetBy: 9)
+                    let dd = self.d.substring(from: index)
+                    let date: String = dd.substring(to: dd.index(before: dd.endIndex))
+                    let mm = self.m.substring(from: index)
+                    let month: String = mm.substring(to: mm.index(before: mm.endIndex))
+                    let yy = self.y.substring(from: index)
+                    let year: String = yy.substring(to: yy.index(before: yy.endIndex))
+                    let alert: UIAlertController = UIAlertController(title: "Confirm Schedule Test", message: "Are you sure to schedule test of \(self.selected_subject), Class: \(self.selected_class)-\(self.selected_section) on \(date )/\(month)/\(year) for \(self.exam_title)?", preferredStyle: .alert )
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    alert.addAction(cancelAction)
+                    let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                        let server_ip = MiscFunction.getServerIP()
+                        let school_id: String = SessionManager.getSchoolId()
+                        let user: String = SessionManager.getLoggedInUser()
+                        let exam_id: String = SessionManager.get_exam_id()
+                        let index = self.d.index(self.d.startIndex, offsetBy: 9)
+                        let dd = self.d.substring(from: index)
+                        let date = dd.substring(to: dd.index(before: dd.endIndex))
+                        
+                        let mm = self.m.substring(from: index)
+                        let month = mm.substring(to: mm.index(before: mm.endIndex))
+                        
+                        let yy = self.y.substring(from: index)
+                        let year = yy.substring(to: yy.index(before: yy.endIndex))
+                        let max_marks = "80"
+                        let pass_marks = "33"
+                        let one = "1"
+                        let syllabus = "Half yearly syllabus"
+                        let url = "\(server_ip)/academics/create_test1/\(school_id)/\(self.selected_class)/\(self.selected_section)/\(self.selected_subject)/\(user)/\(date)/\(month)/\(year)/\(max_marks)/\(pass_marks)/\(one)/\(syllabus)/\(exam_id)/"
+                        let url_string = url.replacingOccurrences(of: " ", with: "%20")
+                        
+                        Just.post(url_string)
+                        self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
+                        return
+                    })
+                    alert.addAction(confirmAction)
+                    present(alert, animated: true, completion: nil)
+                }
+                else    {
+                    // this is not a term test. perform segue to navigate to get max marks, pass marks, grade based and comments
+                    performSegue(withIdentifier: "get_test_details", sender: self)
             }
             
-            let alert: UIAlertController = UIAlertController(title: "Confirm Term Test", message: "Are you sure to schedule this Term Test?", preferredStyle: .alert )
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alert.addAction(cancelAction)
-            let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
-                let server_ip = MiscFunction.getServerIP()
-                let school_id: String = SessionManager.getSchoolId()
-                let user: String = SessionManager.getLoggedInUser()
-                let index = self.d.index(self.d.startIndex, offsetBy: 9)
-                let dd = self.d.substring(from: index)
-                let date = dd.substring(to: dd.index(before: dd.endIndex))
-                
-                let mm = self.m.substring(from: index)
-                let month = mm.substring(to: mm.index(before: mm.endIndex))
-                
-                let yy = self.y.substring(from: index)
-                let year = yy.substring(to: yy.index(before: yy.endIndex))
-                let max_marks = "80"
-                let pass_marks = "33"
-                let one = "1"
-                let syllabus = "Half yearly syllabus"
-                let term = "term"
-                let url = "\(server_ip)/academics/create_test1/\(school_id)/\(self.selected_class)/\(self.selected_section)/\(self.selected_subject)/\(user)/\(date)/\(month)/\(year)/\(max_marks)/\(pass_marks)/\(one)/\(syllabus)/\(term)/"
-                let url_string = url.replacingOccurrences(of: " ", with: "%20")
-                
-                Just.post(url_string)
-                self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
-                return
-            })
-            alert.addAction(confirmAction)
-            present(alert, animated: true, completion: nil)
-            
             case "HWListVC":
-                
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
@@ -135,7 +144,6 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                     imagePicker.allowsEditing = false
                     self.present(imagePicker, animated: true, completion: nil)
             }
-            
         default:
             print("default", terminator: "")
         }
@@ -144,8 +152,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // No title for the back button in navigation section
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain,
-                                                                target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         // set the caption of the submit button
@@ -185,8 +192,7 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
             let subjectURL2 = "\(server_ip)/academics/subject_list/\(school_id)/?format=json"
             
             let subjectURL = "\(server_ip)/teachers/teacher_subject_list/\(teacher)/?format=json"
-            
-            
+        
             MiscFunction.sendRequestToServer(url: classURL, key: "standard", list: &class_list, sender: "SelectDateClassSectionSubjectTVC")
             MiscFunction.sendRequestToServer(url: sectionURL, key: "section", list: &section_list, sender: "SelectDateClassSectionSubjectTVC")
             MiscFunction.sendRequestToServer(url: subjectURL, key: "subject", list: &subject_list, sender: "SelectDateClassSectionSubjectTVC")
@@ -307,23 +313,25 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 }
                 
             case "scheduleTest":
-                let destinationVC = segue.destination as! TestDetailsVC
-                destinationVC.the_class = selected_class
-                destinationVC.section = selected_section
-                destinationVC.subject = selected_subject
-                
-                // date, month, and year contains "optional( ) - we need to remove optional and parantheses
-                
-                destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
-                
-                destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
-                
-                destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+                if exam_type != "term"  {
+                    let destinationVC = segue.destination as! TestDetailsVC
+                    destinationVC.the_class = selected_class
+                    destinationVC.section = selected_section
+                    destinationVC.subject = selected_subject
+                    destinationVC.exam_title = exam_title
+                    
+                    // date, month, and year contains "optional( ) - we need to remove optional and parantheses
+                    
+                    destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
+                    
+                    destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
+                    
+                    destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
+            }
             
             case "scheduleTermTest":
                 let destinationVC = segue.destination as! MainMenuVC
                 destinationVC.comingFrom = "scheduleTermTest"
-            
             
             case "HWListVC":
                 let destinationVC = segue.destination as! ReviewHWVC

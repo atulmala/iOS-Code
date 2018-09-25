@@ -17,9 +17,20 @@ class ExamListTeacherTVC: UITableViewController {
     var id_list: [String] = []
     var exam_type_list: [String] = []
     var title_list: [String] = []
+    
+    var selected_exam: String = ""
+    var selected_id: String = ""
+    var selected_exam_type: String = ""
+    
+    @IBOutlet weak var nav_item: UINavigationItem!
 
     override func viewDidLoad() {
+        print("starting")
         super.viewDidLoad()
+        self.view.tintColor = UIColor.black
+        nav_item.title = "Select an Exam"
+        nav_item.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action:#selector(ExamListTeacherTVC.go_next))
+        nav_item.rightBarButtonItem?.isEnabled = false
 
         let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
         let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
@@ -60,10 +71,47 @@ class ExamListTeacherTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
         cell.exam_title.text = title_list[indexPath.row]
+        cell.exam_id.text = id_list[indexPath.row]
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        nav_item.rightBarButtonItem?.isEnabled = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
+        if cell.accessoryType == .checkmark    {
+            cell.accessoryType = .none
+        }
+        else    {
+            cell.accessoryType = .checkmark
+        }
+        selected_id = id_list[indexPath.row]
+        selected_exam = title_list[indexPath.row]
+        selected_exam_type = exam_type_list[indexPath.row]
+        
+    }
+    
+    func go_next() {
+        print("entered next")
+        print("trigger = \(trigger)")
+        if trigger == "scheduleTest"    {
+            let alert = UIAlertController(title: "Please confirm", message: "Are you sure to schedule a test for \(selected_exam)?.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.performSegue(withIdentifier: "schedule_test_sel_class_sec_sub", sender: self)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                
+            }))
+            
+            present(alert, animated: true, completion: nil)
+        }
+        
+        if trigger == "to_tests_list"    {
+            performSegue(withIdentifier: "show_test_in_exam", sender: self)
+        }
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -99,14 +147,27 @@ class ExamListTeacherTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        SessionManager.set_exam_id(id: selected_id)
+        SessionManager.set_exam_type(ex_type: selected_exam_type)
+        SessionManager.set_exam_title(title: selected_exam)
+        
+        switch trigger {
+        case "scheduleTest":
+            let destinationVC = segue.destination as! SelectDateClassSectionSubjectVC
+            destinationVC.trigger = trigger
+            destinationVC.exam_title = selected_exam
+            
+        case "to_tests_list":
+            _ = segue.destination as! TestDetailsTBC
+        default:
+            break
+        }
     }
-    */
+    
 
 }

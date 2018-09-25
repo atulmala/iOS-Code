@@ -148,8 +148,6 @@ class HWListTVC: UITableViewController {
     
     // for swipe delete a test
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        
         if editingStyle == .delete  {
             let alert: UIAlertController = UIAlertController(title: "Confirm HW Deletion", message: "Are you sure that you want to delete this Home Work? ", preferredStyle: .alert)
             

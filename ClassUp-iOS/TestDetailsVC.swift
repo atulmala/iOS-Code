@@ -15,6 +15,7 @@ class TestDetailsVC: UIViewController {
     var the_class: String = ""
     var section: String = ""
     var subject: String = ""
+    var exam_title: String = ""
     var teacher: String = ""
     var d: String = ""
     var m: String = ""
@@ -92,34 +93,42 @@ class TestDetailsVC: UIViewController {
             whether_grade_based = "0"
             good_to_go = true
         }
+        
         if (good_to_go)  {
-            //activity_indicator.startAnimating()
-            //om
-            cmnts = "No Comments"
             
-            // if user has not entered any comment, let's put a default comment, otherwise cause error in http call
-            cmnts = comments.text!
-            if cmnts == ""   {
-                cmnts = "No Comments"
+            let alert: UIAlertController = UIAlertController(title: "Confirm Test Scheduling", message: "Are you sure to schedule this test: \(self.subject), Class: \(self.the_class)-\(self.section) on \(self.d)/\(self.m)/\(self.y), Max/Pass Marks: \(self.mm)/\(self.pm) for \(self.exam_title)?", preferredStyle: .alert )
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                self.cmnts = "No Comments"
                 
-            }
-
-            // remove any spcaces in comments as spaces causes error in http calls
-            cmnts = cmnts.replacingOccurrences(of: " ", with: "%20")
-            
-            let server_ip = MiscFunction.getServerIP()
-            let school_id = SessionManager.getSchoolId()
-            let user = SessionManager.getLoggedInUser()
-            
-            let url = "\(server_ip)/academics/create_test1/\(school_id)/\(the_class)/\(section)/\(subject)/\(user)/\(d)/\(m)/\(y)/\(mm)/\(pm)/\(whether_grade_based)/\(cmnts)/unit/"
-            
-            let url_string = url.replacingOccurrences(of: " ", with: "%20")
-            
-            Just.post(url_string)
-
-            performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
-            self.dismiss(animated: true, completion: nil)
-            return
+                // if user has not entered any comment, let's put a default comment, otherwise cause error in http call
+                self.cmnts = self.comments.text!
+                if self.self.cmnts == ""   {
+                    self.cmnts = "No Comments"
+                }
+                
+                // remove any spcaces in comments as spaces causes error in http calls
+                self.cmnts = self.cmnts.replacingOccurrences(of: " ", with: "%20")
+                
+                let server_ip = MiscFunction.getServerIP()
+                let school_id = SessionManager.getSchoolId()
+                let user = SessionManager.getLoggedInUser()
+                let exam_id: String = SessionManager.get_exam_id()
+                
+                let url = "\(server_ip)/academics/create_test1/\(school_id)/\(self.the_class)/\(self.section)/\(self.subject)/\(user)/\(self.d)/\(self.m)/\(self.y)/\(self.mm)/\(self.pm)/\(self.whether_grade_based)/\(self.cmnts)/\(exam_id)/"
+                
+                let url_string = url.replacingOccurrences(of: " ", with: "%20")
+                
+                Just.post(url_string)
+                
+                self.performSegue(withIdentifier: "gotoMainMenuScreen", sender: self)
+                self.dismiss(animated: true, completion: nil)
+                return
+            })
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
         }
     }
     

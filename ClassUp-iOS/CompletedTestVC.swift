@@ -30,7 +30,8 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         // call the api to ge the list of Completed tests
         let server_ip: String = MiscFunction.getServerIP()
         let user: String = SessionManager.getLoggedInUser()
-        let url: String = "\(server_ip)/academics/completed_test_list/\(user)/?format=json"
+        let exam_id = SessionManager.get_exam_id()
+        let url: String = "\(server_ip)/academics/completed_test_list/\(user)/\(exam_id)?format=json"
         //print("url=\(url)")
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
