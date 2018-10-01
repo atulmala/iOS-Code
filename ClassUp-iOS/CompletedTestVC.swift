@@ -16,6 +16,7 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
     var test_list: [TestModel] = []
     var current_test_id: String = ""
     var whether_grade_based: Bool = false
+    var exam_title: String = ""
     
     var the_class: String = ""
     var section: String = ""
@@ -26,12 +27,14 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
 
         override func viewDidLoad() {
         super.viewDidLoad()
+            exam_title = SessionManager.get_exam_title()
+            self.title = "\(exam_title) Completed Test List"
         
         // call the api to ge the list of Completed tests
         let server_ip: String = MiscFunction.getServerIP()
         let user: String = SessionManager.getLoggedInUser()
-        let exam_id = SessionManager.get_exam_id()
-        let url: String = "\(server_ip)/academics/completed_test_list/\(user)/\(exam_id)?format=json"
+            let exam_id: String = SessionManager.get_exam_id()
+        let url: String = "\(server_ip)/academics/completed_test_list/\(user)/\(exam_id)/?format=json"
         //print("url=\(url)")
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count

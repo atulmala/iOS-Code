@@ -27,6 +27,7 @@ class ExamListTeacherTVC: UITableViewController {
     override func viewDidLoad() {
         print("starting")
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelection = false
         self.view.tintColor = UIColor.black
         nav_item.title = "Select an Exam"
         nav_item.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action:#selector(ExamListTeacherTVC.go_next))
@@ -62,12 +63,14 @@ class ExamListTeacherTVC: UITableViewController {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return exam_type_list.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
         cell.exam_title.text = title_list[indexPath.row]
@@ -77,17 +80,16 @@ class ExamListTeacherTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         nav_item.rightBarButtonItem?.isEnabled = true
-        let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
-        if cell.accessoryType == .checkmark    {
+        /*let cell = tableView.dequeueReusableCell(withIdentifier: "teacher_exam_cell", for: indexPath) as! ExamCellTVC
+        f cell.accessoryType == .checkmark    {
             cell.accessoryType = .none
         }
         else    {
             cell.accessoryType = .checkmark
-        }
+        }*/
         selected_id = id_list[indexPath.row]
         selected_exam = title_list[indexPath.row]
         selected_exam_type = exam_type_list[indexPath.row]
-        
     }
     
     func go_next() {

@@ -323,15 +323,13 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                     // date, month, and year contains "optional( ) - we need to remove optional and parantheses
                     
                     destinationVC.d = dd.substring(to: dd.index(before: dd.endIndex))
-                    
                     destinationVC.m = mm.substring(to: mm.index(before: mm.endIndex))
-                    
                     destinationVC.y = yy.substring(to: yy.index(before: yy.endIndex))
             }
-            
-            case "scheduleTermTest":
-                let destinationVC = segue.destination as! MainMenuVC
-                destinationVC.comingFrom = "scheduleTermTest"
+            else    {
+                    let destinationVC = segue.destination as! MainMenuVC
+                    destinationVC.comingFrom = "scheduleTermTest"
+            }
             
             case "HWListVC":
                 let destinationVC = segue.destination as! ReviewHWVC

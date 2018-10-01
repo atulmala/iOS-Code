@@ -21,10 +21,9 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var subject: String = ""
     var destination: String = ""
     var test_tpye: String = ""
-    var exam_title: String = ""
     var whether_higher_class = ""
     
-    var exam_id: String = ""
+    var exam_title: String = ""
 
     @IBOutlet weak var table_view: UITableView!
     override func viewDidLoad() {
@@ -36,6 +35,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
         
         exam_title = SessionManager.get_exam_title()
         lable.text = "Pending Test List \(exam_title)"
+        self.title = "\(exam_title) Pending Test List"
         self.navigationItem.titleView = lable
         
         // call the api to ge the list of pending tests
