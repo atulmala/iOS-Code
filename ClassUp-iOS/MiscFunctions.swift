@@ -18,6 +18,7 @@ var server_ip: String = ""
 class MiscFunction  {
     class func sendRequestToServer(url: String, key: String,  list: inout [String], sender: String)  {
         print("url=\(url)")
+        
         let j = JSON(Just.get(url).json!)
         
         let count: Int? = j.count
@@ -81,8 +82,8 @@ class MiscFunction  {
     }
 
     class func getInitialServerIP(usr:String) -> String  {
-        server_ip = "http://127.0.0.1:8000"
-        //server_ip = "https://www.classupclient.com"
+        //server_ip = "http://127.0.0.1:8000"
+        server_ip = "https://www.classupclient.com"
         
         return server_ip;
     }
