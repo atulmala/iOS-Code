@@ -90,7 +90,7 @@ class ShowAttendanceSummaryVC: UIViewController, UITableViewDataSource, UITableV
                     
                     var roll_no: String = ""
                     if let _ = j[index]["roll_number"].int {
-                        let the_roll_no = j[index]["roll_number"]
+                        let the_roll_no = index + 1
                         roll_no = String(stringInterpolationSegment: the_roll_no)
                     }
                     roll_no_list.append(roll_no)
