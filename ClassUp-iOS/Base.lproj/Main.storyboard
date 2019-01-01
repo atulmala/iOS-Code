@@ -3313,7 +3313,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ld-5m-tlI">
-                                            <rect key="frame" x="112" y="-9" width="183" height="21.5"/>
+                                            <rect key="frame" x="112" y="-8.5" width="183" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="183" id="bHd-ua-rkD"/>
                                             </constraints>
