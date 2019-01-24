@@ -22,6 +22,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
     var destination: String = ""
     var test_tpye: String = ""
     var whether_higher_class = ""
+    var subject_prac: Bool = false
     
     var exam_title: String = ""
 
@@ -89,7 +90,9 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
                         whether_higher_class = "true"
                     }
                     
-                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class))
+                    let subject_prac = j[index]["subject_prac"].bool!
+                    
+                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class, subject_prac: subject_prac))
                 }
             }
         }
@@ -130,6 +133,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.max_marks.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.max_marks.text = test_list[indexPath.row].max_marks
         cell.test_type.text = test_list[indexPath.row].test_type
+        cell.subject_prac = test_list[indexPath.row].subject_prac
         
         return cell
     }
@@ -172,6 +176,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
 
         destination = "to_test_marks_entry"
         whether_higher_class = test_list[indexPath.row].whether_higher_class
+        subject_prac = test_list[indexPath.row].subject_prac
         performSegue(withIdentifier: "to_test_marks_entry", sender: self)
     }
     
@@ -229,6 +234,7 @@ class PendingTestListVC: UIViewController, UITableViewDataSource, UITableViewDel
             destinationVC.subject = subject
             destinationVC.unit_or_term = test_tpye
             destinationVC.whether_higher_class = whether_higher_class
+            destinationVC.subject_prac = subject_prac
         }
         if destination == "to_main_menu"    {
             let destinationVC = segue.destination as! MainMenuVC

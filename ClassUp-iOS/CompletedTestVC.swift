@@ -23,6 +23,7 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
     var subject: String = ""
     var test_type: String = ""
     var whether_higher_class = ""
+    var subject_prac: Bool = false
     var destination = ""
 
         override func viewDidLoad() {
@@ -81,7 +82,9 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
                         whether_higher_class = "true"
                     }
                     
-                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class))
+                    let subject_prac: Bool = j[index]["subject_prac"].bool!
+                    
+                    test_list.append(TestModel(id: id, date: ddmmyy, the_class: the_class, section: section, subject: subject, mm: max_marks, grade_based: String(stringInterpolationSegment: gb), test_type: test_type, whether_higher_class: whether_higher_class, subject_prac: subject_prac))
                 }
             }
         }
@@ -125,6 +128,7 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         cell.max_marks.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.max_marks.text = test_list[indexPath.row].max_marks
         cell.test_type.text = test_list[indexPath.row].test_type
+        cell.subject_prac = test_list[indexPath.row].subject_prac
         return cell
     }
     
@@ -171,12 +175,11 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         test_type = cell.test_type.text!
         
         whether_higher_class = test_list[indexPath.row].whether_higher_class
+        subject_prac = test_list[indexPath.row].subject_prac
         
         performSegue(withIdentifier: "to_test_marks_entry", sender: self)
         
     }
-    
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -189,10 +192,8 @@ class CompletedTestListVC: UIViewController, UITableViewDataSource, UITableViewD
         destinationVC.subject = subject
         destinationVC.unit_or_term = test_type
         destinationVC.whether_higher_class = whether_higher_class
+        destinationVC.subject_prac = subject_prac
     }
-
-    
-    
 }
 
 extension String {

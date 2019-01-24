@@ -38,6 +38,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     var unit_or_term = ""
     var whether_higher_class = ""
+    var subject_prac: Bool = false
     
     let prac_subjects: [String] = ["Biology", "Physics", "Chemistry",
                                    "Accountancy", "Business Studies", "Economics", "Fine Arts",
@@ -98,8 +99,9 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                             }
                         }
                         else    {
-                            if prac_subjects.contains(subject)  {
-                                if !absent_values.contains(test_marks_list[i].marks)    {
+                            //if prac_subjects.contains(subject)  {
+                            if subject_prac {
+                            if !absent_values.contains(test_marks_list[i].marks)    {
                                     if null_values.contains(test_marks_list[i].prac_marks)  {
                                         let message = "Please enter Practical marks for Roll No: \(student) or mark as Absent"
                                         let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
@@ -370,7 +372,8 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                     cell.prac_marks.text = test_marks_list[indexPath.row].prac_marks
                 }
                 
-                if !prac_subjects.contains(subject) {
+                //if !prac_subjects.contains(subject) {
+                if !subject_prac    {
                     cell.prac_marks.isEnabled = false
                     cell.prac_marks.text = "N/A"
                 }
