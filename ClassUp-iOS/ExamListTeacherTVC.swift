@@ -17,10 +17,14 @@ class ExamListTeacherTVC: UITableViewController {
     var id_list: [String] = []
     var exam_type_list: [String] = []
     var title_list: [String] = []
+    var start_date_list: [String] = []
+    var end_date_list: [String] = []
     
     var selected_exam: String = ""
     var selected_id: String = ""
     var selected_exam_type: String = ""
+    var selected_start_date: String = ""
+    var selected_end_date: String = ""
     
     @IBOutlet weak var nav_item: UINavigationItem!
 
@@ -46,11 +50,13 @@ class ExamListTeacherTVC: UITableViewController {
         let url = "\(server_ip)/academics/get_exam_list_teacher/\(teacher)/"
         
         MiscFunction.sendRequestToServer(url: url, key: "id", list: &id_list, sender: "ExamListTeacherTVC")
-        print(id_list)
+        //print(id_list)
         MiscFunction.sendRequestToServer(url: url, key: "exam_type", list: &exam_type_list, sender: "ExamListTeacherTvc")
-        print(exam_type_list)
+        //print(exam_type_list)
         MiscFunction.sendRequestToServer(url: url, key: "title", list: &title_list, sender: "ExamListTeacherTVC")
-        print(title_list)
+        //print(title_list)
+        MiscFunction.sendRequestToServer(url: url, key: "start_date", list: &start_date_list, sender: "ExamListTeacherTVC")
+        MiscFunction.sendRequestToServer(url: url, key: "end_date", list: &end_date_list, sender: "ExamListTeacherTVC")
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +96,8 @@ class ExamListTeacherTVC: UITableViewController {
         selected_id = id_list[indexPath.row]
         selected_exam = title_list[indexPath.row]
         selected_exam_type = exam_type_list[indexPath.row]
+        selected_start_date = start_date_list[indexPath.row]
+        selected_end_date = end_date_list[indexPath.row]
     }
     
     func go_next() {
@@ -157,6 +165,8 @@ class ExamListTeacherTVC: UITableViewController {
         SessionManager.set_exam_id(id: selected_id)
         SessionManager.set_exam_type(ex_type: selected_exam_type)
         SessionManager.set_exam_title(title: selected_exam)
+        SessionManager.set_start_date(start_date: selected_start_date)
+        SessionManager.set_end_date(end_date: selected_end_date)
         
         switch trigger {
         case "scheduleTest":

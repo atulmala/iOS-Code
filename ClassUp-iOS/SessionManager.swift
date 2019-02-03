@@ -14,6 +14,9 @@ var school_id: NSString = ""
 var exam_id: String = ""
 var exam_type: String = ""
 var exam_title: String = ""
+var exam_start_date: String = ""
+var exam_end_date: String = ""
+
 var analtics: AWSMobileAnalytics? = nil
 class SessionManager    {
     
@@ -77,5 +80,20 @@ class SessionManager    {
     
     class func getAnalytics() -> AWSMobileAnalytics {
         return analtics!
+    }
+    
+    // 03/02/2019 provision for restricing the dates to start and end dates of exam while scheduling tests
+    class func set_start_date(start_date: String) {
+        exam_start_date = start_date
+    }
+    class func get_start_date() -> String {
+        return exam_start_date
+    }
+    
+    class func set_end_date(end_date: String)   {
+        exam_end_date = end_date
+    }
+    class func get_end_date() -> String {
+        return exam_end_date
     }
 }

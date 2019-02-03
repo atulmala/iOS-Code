@@ -162,6 +162,16 @@ class SelectDateClassSectionSubjectVC: UIViewController,UIPickerViewDataSource, 
                 // attendance for future date is not allowed
                 datePicker.maximumDate = NSDate() as Date
             case "scheduleTest":
+                let df = DateFormatter()
+                df.dateFormat = "yyyy-MM-dd"
+                let start_date: String = SessionManager.get_start_date()
+                let end_date: String = SessionManager.get_end_date()
+                let sd = df.date(from: start_date)
+                let ed = df.date(from: end_date)
+                datePicker.maximumDate = ed
+                datePicker.minimumDate = sd
+                datePicker.date = sd!
+                
                 right_menu = "Schedule Test"
             case "HWListVC":
                 right_menu = "Take Pic"
