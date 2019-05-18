@@ -58,13 +58,14 @@ class ReviewHWVC: UIViewController, UIScrollViewDelegate {
     }
     
     func uploadHW() {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd_HHmmss"
-        let timestamp = formatter.string(from: (from:date) as! Date)
+        //let date = Date()
+        //let formatter = DateFormatter()
+        //formatter.dateFormat = "yyyyMMdd_HHmmss"
+        //let timestamp = formatter.string(from: (from:date) as! Date)
+        let random = Int.random(in: 0 ..< 100000)
         let teacher: String = SessionManager.getLoggedInUser()
         let school_id: String = SessionManager.getSchoolId()
-        let imageFileName: String = "\(teacher)_\(the_class)-\(section)_\(subject)_\(timestamp).jpg"
+        let imageFileName: String = "\(teacher)_\(the_class)-\(section)_\(subject)_\(String(random)).jpg"
         
         
         let imageData:NSData = UIImageJPEGRepresentation(image, 85)! as NSData
