@@ -39,8 +39,8 @@ class ImageVideoTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.estimatedRowHeight = 140
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150.0
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -118,12 +118,22 @@ class ImageVideoTVC: UITableViewController {
         cell.the_class.text = class_sec
         
         cell.short_link.text = image_list[indexPath.row].short_link
+        
 //        cell.short_link.isEditable = false
 //        cell.short_link.dataDetectorTypes = .link
         cell.short_description.text = image_list[indexPath.row].description
         
         return cell
      }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
     
     
     
