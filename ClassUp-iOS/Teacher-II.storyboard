@@ -137,7 +137,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="image_video_cell" rowHeight="148" id="jhC-V1-yM4" customClass="ImageVideoCell" customModule="ClassUp_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="148"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jhC-V1-yM4" id="qgl-Q2-egc">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jhC-V1-yM4" id="qgl-Q2-egc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="147.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -169,35 +169,32 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m2d-Nd-A7A">
-                                            <rect key="frame" x="16" y="30" width="329" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="329" id="j5O-5U-axy"/>
-                                                <constraint firstAttribute="height" constant="50" id="zdJ-t4-HGK" userLabel="height = 50"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkN-bX-c5x">
+                                            <rect key="frame" x="26" y="35.5" width="333" height="101.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="GkN-bX-c5x" firstAttribute="top" secondItem="TOU-uL-6ct" secondAttribute="bottom" constant="10" id="1JV-zT-MFK" userLabel="Short description.top = Date.bottom + 10"/>
                                         <constraint firstItem="JTY-J7-HBO" firstAttribute="leading" secondItem="2Li-Jg-vbn" secondAttribute="trailing" constant="8" id="6qP-vN-gcX" userLabel="Type.leading = leading + 100"/>
-                                        <constraint firstItem="m2d-Nd-A7A" firstAttribute="top" secondItem="qgl-Q2-egc" secondAttribute="top" constant="30" id="BO6-Zv-0Po"/>
                                         <constraint firstItem="YfQ-7B-4kd" firstAttribute="top" secondItem="JTY-J7-HBO" secondAttribute="top" constant="-8" id="Hx9-Ou-4d2" userLabel="Short link.top = Type.top -8"/>
                                         <constraint firstItem="TOU-uL-6ct" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leading" constant="20" id="LN9-wU-qqn"/>
                                         <constraint firstItem="2Li-Jg-vbn" firstAttribute="leading" secondItem="TOU-uL-6ct" secondAttribute="trailing" constant="8" id="Ohh-qc-Qgn" userLabel="The class.leading = leading + 60"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="YfQ-7B-4kd" secondAttribute="trailing" constant="10" id="Wml-8T-DLk"/>
                                         <constraint firstItem="2Li-Jg-vbn" firstAttribute="top" secondItem="TOU-uL-6ct" secondAttribute="top" id="ZWn-3U-Awy" userLabel="The class.top = top + 11"/>
+                                        <constraint firstItem="GkN-bX-c5x" firstAttribute="trailing" secondItem="qgl-Q2-egc" secondAttribute="trailingMargin" id="cBO-UQ-4l6"/>
                                         <constraint firstItem="JTY-J7-HBO" firstAttribute="top" secondItem="qgl-Q2-egc" secondAttribute="top" constant="11" id="cUl-4K-WgA"/>
                                         <constraint firstItem="TOU-uL-6ct" firstAttribute="top" secondItem="qgl-Q2-egc" secondAttribute="top" constant="11" id="cw1-8G-8lD"/>
-                                        <constraint firstItem="m2d-Nd-A7A" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leading" constant="16" id="e9z-G2-ApD"/>
-                                        <constraint firstAttribute="bottom" secondItem="m2d-Nd-A7A" secondAttribute="bottom" constant="5" id="eyZ-Hs-yRK"/>
+                                        <constraint firstItem="GkN-bX-c5x" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leadingMargin" constant="10" id="fLj-SG-bYX" userLabel="Short description.leading = leadingMargin + 10"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GkN-bX-c5x" secondAttribute="bottom" id="hOh-NH-PrY"/>
                                         <constraint firstItem="YfQ-7B-4kd" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leading" constant="158" id="lzN-2U-FXr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="date" destination="TOU-uL-6ct" id="9XO-ax-Qqa"/>
-                                    <outlet property="short_description" destination="m2d-Nd-A7A" id="hNu-J3-2Nh"/>
+                                    <outlet property="short_description" destination="GkN-bX-c5x" id="Rme-x1-sD2"/>
                                     <outlet property="short_link" destination="YfQ-7B-4kd" id="vQ9-As-sE9"/>
                                     <outlet property="the_class" destination="2Li-Jg-vbn" id="N1a-BN-Nko"/>
                                     <outlet property="type" destination="JTY-J7-HBO" id="PJY-RJ-aAs"/>

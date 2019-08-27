@@ -13,7 +13,7 @@ class ImageVideoCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var the_class: UILabel!
     @IBOutlet weak var short_link: UITextView!
-    @IBOutlet weak var short_description: UITextView!
+    @IBOutlet weak var short_description: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
