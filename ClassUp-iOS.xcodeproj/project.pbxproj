@@ -123,6 +123,8 @@
 		A4EFF587207BAF12006B34BF /* TimeTableTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF586207BAF12006B34BF /* TimeTableTVC.swift */; };
 		A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */; };
 		A4F8F3B61FBE7A6F006E2728 /* Teacher-II.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */; };
+		B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */; };
+		B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -248,6 +250,8 @@
 		A4EFF586207BAF12006B34BF /* TimeTableTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableTVC.swift; sourceTree = "<group>"; };
 		A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachersAttTVC.swift; sourceTree = "<group>"; };
 		A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Teacher-II.storyboard"; sourceTree = "<group>"; };
+		B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoTVC.swift; sourceTree = "<group>"; };
+		B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCell.swift; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -296,6 +300,8 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */,
+				B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */,
 				A4D188931FCBC1B000A7B443 /* ActivityGroupCell.swift */,
 				A4D188911FCBBF5C00A7B443 /* ActivityGroupsTVC.swift */,
 				A4D188951FCC169A00A7B443 /* ActivityMemberCell.swift */,
@@ -593,6 +599,7 @@
 				A443A52F1E55F148001A64FC /* School_Att_Summ_Hdr_Cell.swift in Sources */,
 				A4976B9C1E6052F30017C815 /* StuNameCell.swift in Sources */,
 				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
+				B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */,
 				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
 				A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */,
 				A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */,
@@ -642,6 +649,7 @@
 				A46041271DCDE4A2004E9BDE /* TestMarksEntryCell.swift in Sources */,
 				A456F8001DCF6D6500E844F9 /* TestDetailsTBC.swift in Sources */,
 				A4ED5CF61E51A17900888DD1 /* SchoolAdminVC.swift in Sources */,
+				B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */,
 				A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */,
 				A460411F1DCDE37B004E9BDE /* CompletedTestVC.swift in Sources */,
 				A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */,

@@ -77,11 +77,7 @@ class TimeTableTVC: UITableViewController {
                     let the_class = j[index]["the_class"].string!
                     let section = j[index]["section"].string!
                     
-                    var period: String = ""
-                    if let _ = j[index]["period"].int {
-                        let the_period = j[index]["period"]
-                        period = String(stringInterpolationSegment: the_period)
-                    }
+                    let period: String = j[index]["period"].string!
                     
                     if free_perios.contains(period) {
                         free_perios.remove(at: free_perios.index(of: period)!)
@@ -136,7 +132,7 @@ class TimeTableTVC: UITableViewController {
         
         if coming_from == "teacher" {
             if !the_class.contains("free")  {
-                details = "Period # \(period)  \(the_class)-\(section)     \(subject)"
+                details = "Period # \(period):  \(the_class)-\(section)     \(subject)"
             }
             else    {
                 details = the_class
@@ -146,7 +142,7 @@ class TimeTableTVC: UITableViewController {
         }
         
         if coming_from == "student" {
-            details = "Period # \(period)       \(subject)"
+            details = "Period # \(period):       \(subject)"
         }
 
         cell.time_table.text = details
