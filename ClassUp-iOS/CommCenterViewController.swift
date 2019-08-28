@@ -34,6 +34,16 @@ class CommCenterViewController: UIViewController {
             let destinationVC = segue.destination as! DaysofWeek
             destinationVC.coming_from = "teacher"
         }
+        
+        if segue.identifier == "share_pic"  {
+            let destinationVC = segue.destination as! ImageVideoTVC
+            destinationVC.coming_from = "share_pic"
+        }
+        
+        if segue.identifier == "share_video"  {
+            let destinationVC = segue.destination as! ImageVideoTVC
+            destinationVC.coming_from = "share_video"
+        }
     }
     
 

@@ -80,7 +80,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Share Videos"/>
                                 <connections>
-                                    <segue destination="XpG-JT-SrE" kind="show" id="ADf-vl-MbT"/>
+                                    <segue destination="XpG-JT-SrE" kind="show" identifier="share_video" id="ADf-vl-MbT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0k-Qj-6Tr">
@@ -108,6 +108,7 @@
                             <constraint firstItem="2Vl-G7-6dQ" firstAttribute="centerX" secondItem="z33-Jy-yWC" secondAttribute="centerX" id="UJZ-dv-Y6a"/>
                             <constraint firstItem="hFO-rv-cqn" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="VUI-1i-CiS"/>
                             <constraint firstItem="VOa-Lt-YH1" firstAttribute="top" secondItem="Co9-mn-P4d" secondAttribute="bottom" constant="80" id="YIP-pq-eCR"/>
+                            <constraint firstItem="T0U-Vt-LfI" firstAttribute="top" secondItem="MSr-91-kui" secondAttribute="bottom" constant="19" id="ZFt-kH-QzH"/>
                             <constraint firstItem="MSr-91-kui" firstAttribute="top" secondItem="VOa-Lt-YH1" secondAttribute="bottom" constant="30" id="bQO-3w-97c"/>
                             <constraint firstItem="p9E-yL-ze2" firstAttribute="top" secondItem="hFO-rv-cqn" secondAttribute="bottom" constant="22" id="flN-pq-1ZG"/>
                             <constraint firstItem="2Vl-G7-6dQ" firstAttribute="leading" secondItem="fza-ar-tXE" secondAttribute="leadingMargin" constant="25" id="ioz-dh-ggK"/>
@@ -123,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRH-kc-gBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="53"/>
+            <point key="canvasLocation" x="-628" y="61"/>
         </scene>
         <!--Image VideoTVC-->
         <scene sceneID="EW3-Pm-avx">
@@ -160,19 +161,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfQ-7B-4kd">
-                                            <rect key="frame" x="158" y="3" width="191" height="22"/>
+                                            <rect key="frame" x="175" y="3" width="174" height="22"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="fk1-2u-VYR"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkN-bX-c5x">
                                             <rect key="frame" x="26" y="35.5" width="333" height="101.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -189,7 +189,7 @@
                                         <constraint firstItem="TOU-uL-6ct" firstAttribute="top" secondItem="qgl-Q2-egc" secondAttribute="top" constant="11" id="cw1-8G-8lD"/>
                                         <constraint firstItem="GkN-bX-c5x" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leadingMargin" constant="10" id="fLj-SG-bYX" userLabel="Short description.leading = leadingMargin + 10"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GkN-bX-c5x" secondAttribute="bottom" id="hOh-NH-PrY"/>
-                                        <constraint firstItem="YfQ-7B-4kd" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leading" constant="158" id="lzN-2U-FXr"/>
+                                        <constraint firstItem="YfQ-7B-4kd" firstAttribute="leading" secondItem="qgl-Q2-egc" secondAttribute="leading" constant="175" id="lzN-2U-FXr" userLabel="Short link.leading = leading + 175"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -206,10 +206,112 @@
                             <outlet property="delegate" destination="XpG-JT-SrE" id="vxS-gO-eTK"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="59A-jF-33J" kind="show" identifier="show_gallery" id="iPr-mC-mZo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7W-u7-T68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.60000000000002" y="52.623688155922046"/>
+            <point key="canvasLocation" x="95" y="-697"/>
+        </scene>
+        <!--Image PickerVC-->
+        <scene sceneID="nqI-hk-eWb">
+            <objects>
+                <viewController id="59A-jF-33J" customClass="ImagePickerVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PvM-yd-Uir"/>
+                        <viewControllerLayoutGuide type="bottom" id="dki-Rm-exw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eKe-2r-nyw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ypb-lP-NPR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ypb-lP-NPR" firstAttribute="top" secondItem="eKe-2r-nyw" secondAttribute="top" id="9Vd-u5-5ab"/>
+                            <constraint firstItem="dki-Rm-exw" firstAttribute="top" secondItem="ypb-lP-NPR" secondAttribute="bottom" id="Tqc-F6-Ke6"/>
+                            <constraint firstAttribute="trailing" secondItem="ypb-lP-NPR" secondAttribute="trailing" id="bsp-hA-Sce"/>
+                            <constraint firstItem="ypb-lP-NPR" firstAttribute="leading" secondItem="eKe-2r-nyw" secondAttribute="leading" id="v9L-4w-cvj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image_pickeer" destination="ypb-lP-NPR" id="Auq-u7-rts"/>
+                        <segue destination="CSN-Of-ZC2" kind="show" identifier="sel_student_for_pic_sharing" id="5ha-sa-Vu9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDr-6b-AT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="-698"/>
+        </scene>
+        <!--Sel Student For Pic SharingVC-->
+        <scene sceneID="oR2-7L-BCV">
+            <objects>
+                <viewController id="CSN-Of-ZC2" customClass="SelStudentForPicSharingVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5tQ-aM-H28"/>
+                        <viewControllerLayoutGuide type="bottom" id="uMU-io-f0o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cv2-v2-bOA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brief Description of Image/Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FC-dt-xEg">
+                                <rect key="frame" x="29" y="53" width="223" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-d9-JIX">
+                                <rect key="frame" x="29" y="79" width="308" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" hint="Please enter brief description of selected image or video"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="OHk-Nv-YEm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gY-oq-mCC">
+                                <rect key="frame" x="0.0" y="264" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CSN-Of-ZC2" id="qxs-7O-f1W"/>
+                                    <outlet property="delegate" destination="CSN-Of-ZC2" id="muz-Mz-6ua"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Class/Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df0-Yk-nfM">
+                                <rect key="frame" x="29" y="235" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UZy-d9-JIX" firstAttribute="top" secondItem="5FC-dt-xEg" secondAttribute="bottom" constant="8" id="BFQ-GH-xZ9"/>
+                            <constraint firstItem="UZy-d9-JIX" firstAttribute="leading" secondItem="Cv2-v2-bOA" secondAttribute="leading" constant="29" id="Mff-dw-FjT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UZy-d9-JIX" secondAttribute="trailing" constant="22" id="Tll-89-XbZ"/>
+                            <constraint firstItem="5FC-dt-xEg" firstAttribute="leading" secondItem="Cv2-v2-bOA" secondAttribute="leading" constant="29" id="YmE-fv-0tg"/>
+                            <constraint firstItem="3gY-oq-mCC" firstAttribute="leading" secondItem="Cv2-v2-bOA" secondAttribute="leading" id="amA-7w-NLz"/>
+                            <constraint firstItem="df0-Yk-nfM" firstAttribute="top" secondItem="UZy-d9-JIX" secondAttribute="bottom" constant="28" id="bWc-CA-UT6"/>
+                            <constraint firstItem="UZy-d9-JIX" firstAttribute="leading" secondItem="df0-Yk-nfM" secondAttribute="leading" id="ejc-Za-7Vu"/>
+                            <constraint firstItem="3gY-oq-mCC" firstAttribute="top" secondItem="df0-Yk-nfM" secondAttribute="bottom" constant="8" id="igw-1c-p56"/>
+                            <constraint firstAttribute="trailing" secondItem="3gY-oq-mCC" secondAttribute="trailing" id="mTu-cH-MHL"/>
+                            <constraint firstItem="5FC-dt-xEg" firstAttribute="top" secondItem="5tQ-aM-H28" secondAttribute="bottom" constant="33" id="xwV-j4-qqb"/>
+                            <constraint firstItem="df0-Yk-nfM" firstAttribute="leading" secondItem="5FC-dt-xEg" secondAttribute="leading" id="xys-xn-xS6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="brief_description" destination="UZy-d9-JIX" id="O0X-xQ-eyx"/>
+                        <outlet property="class_sec_picker" destination="3gY-oq-mCC" id="gxD-vE-Gqz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E72-7L-cNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613.5999999999999" y="-699.40029985007504"/>
         </scene>
         <!--Daysof Week-->
         <scene sceneID="g0s-6P-e3O">
@@ -257,7 +359,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwa-bh-1ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="53"/>
+            <point key="canvasLocation" x="286" y="61"/>
         </scene>
         <!--Time TableTVC-->
         <scene sceneID="VA4-OM-SMF">
@@ -297,7 +399,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzq-tr-ZaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="53"/>
+            <point key="canvasLocation" x="1082" y="61"/>
         </scene>
         <!--Teacher Message History-->
         <scene sceneID="lXE-9L-elM">
@@ -383,7 +485,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUh-Bv-Lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2791" y="53"/>
+            <point key="canvasLocation" x="1809" y="61"/>
         </scene>
         <!--Teacher Message ReceiversTVC-->
         <scene sceneID="hW2-hW-zJb">
@@ -437,7 +539,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQA-cg-9oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3572" y="53"/>
+            <point key="canvasLocation" x="2542" y="61"/>
         </scene>
         <!--ArrangementsTVC-->
         <scene sceneID="Dnn-hR-et6">
@@ -971,7 +1073,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NZr-0g-tQc"/>
-        <segue reference="5we-bd-gtQ"/>
+        <segue reference="Jqz-Xy-LV5"/>
+        <segue reference="ADf-vl-MbT"/>
     </inferredMetricsTieBreakers>
 </document>

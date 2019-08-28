@@ -89,10 +89,19 @@ class ImageVideoTVC: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
         lable.textColor = UIColor.black
+        lable.font = lable.font.withSize(12)
         lable.numberOfLines = 0
         lable.textAlignment = NSTextAlignment.center
         lable.text = "Shared Image/Videos"
         self.navigationItem.titleView = lable
+        
+        let select_from_gallery = UIBarButtonItem(title: "Select from Gallery", style: .done, target: self, action: #selector(ImageVideoTVC.select_from_gallery(sender:)))
+        navigationItem.rightBarButtonItems = [select_from_gallery,]
+    }
+    
+    @IBAction func select_from_gallery(sender: UIButton)    {
+        performSegue(withIdentifier: "show_gallery", sender: self)
+        
     }
     
     // MARK: - Table view data source
@@ -119,8 +128,9 @@ class ImageVideoTVC: UITableViewController {
         
         cell.short_link.text = image_list[indexPath.row].short_link
         
-//        cell.short_link.isEditable = false
-//        cell.short_link.dataDetectorTypes = .link
+        cell.short_link.isEditable = false
+        cell.short_link.isSelectable = true
+        cell.short_link.dataDetectorTypes = UIDataDetectorTypes.link
         cell.short_description.text = image_list[indexPath.row].description
         
         return cell
@@ -132,6 +142,11 @@ class ImageVideoTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ImagePickerVC
+        destinationVC.coming_from = "share_pic"
     }
     
     
@@ -173,14 +188,11 @@ class ImageVideoTVC: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    
     
 }
