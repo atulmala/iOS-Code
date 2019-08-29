@@ -185,6 +185,16 @@ class MainMenuVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
+        // 28/08/2019 - added when coming from sharing picture
+        if comingFrom == "image_sharing"    {
+            message = "Image upload in progress. It will take a few moments. Will appear in the Shared Image list after successful upload"
+            let final_confirm = UIAlertController(title: "Image Upload in progress", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
 
         
         // we need to reinitialize comingFrom, otherwise it retains its value and unnecessary 

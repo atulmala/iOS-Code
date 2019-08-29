@@ -66,8 +66,6 @@ class ReviewHWVC: UIViewController, UIScrollViewDelegate {
         let teacher: String = SessionManager.getLoggedInUser()
         let school_id: String = SessionManager.getSchoolId()
         let imageFileName: String = "\(teacher)_\(the_class)-\(section)_\(subject)_\(String(random)).jpg"
-        
-        
         let imageData:NSData = UIImageJPEGRepresentation(image, 85)! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         

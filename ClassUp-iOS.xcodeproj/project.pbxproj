@@ -124,6 +124,7 @@
 		A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */; };
 		A4F8F3B61FBE7A6F006E2728 /* Teacher-II.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */; };
 		B7279EC1231587B500CC8F28 /* ImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */; };
+		B75A6B562317788E001F779C /* StudListForPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */; };
 		B7673D6A23163C94008E58FD /* SelStudentForPicSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */; };
 		B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */; };
 		B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */; };
@@ -253,6 +254,7 @@
 		A4F0E9381FB93F9A0018A32E /* TeachersAttTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeachersAttTVC.swift; sourceTree = "<group>"; };
 		A4F8F3B51FBE7A6F006E2728 /* Teacher-II.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Teacher-II.storyboard"; sourceTree = "<group>"; };
 		B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerVC.swift; sourceTree = "<group>"; };
+		B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudListForPicSharingTVC.swift; sourceTree = "<group>"; };
 		B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelStudentForPicSharingVC.swift; sourceTree = "<group>"; };
 		B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoTVC.swift; sourceTree = "<group>"; };
 		B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCell.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
 				B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */,
 				B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */,
+				B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */,
 				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
 				A4ADB9EA1FC6EF4D001C0C00 /* ArrangementCell.swift in Sources */,
+				B75A6B562317788E001F779C /* StudListForPicSharingTVC.swift in Sources */,
 				A4053CB01DD9CBF50090D89D /* SubjectListCellTVC.swift in Sources */,
 				A4D188981FCC16FC00A7B443 /* ActivityMemberTVC.swift in Sources */,
 				A4D188941FCBC1B000A7B443 /* ActivityGroupCell.swift in Sources */,

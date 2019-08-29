@@ -134,7 +134,8 @@ class TeacherMessageRecordTVC: UITableViewController {
         cell.sent_to.text = messsage_list[indexPath.row].sent_to
         cell.message.text = messsage_list[indexPath.row].message
         //cell.message.textAlignment = NSTextAlignment.left
-        //cell.message.numberOfLines = 0
+        cell.message.numberOfLines = 0
+        cell.message.lineBreakMode = NSLineBreakMode.byWordWrapping
         //cell.accessoryType = .disclosureIndicator
         //cell.message.sizeToFit()
         
@@ -148,11 +149,11 @@ class TeacherMessageRecordTVC: UITableViewController {
     }
     
    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140.0
+        return UITableViewAutomaticDimension
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 100
     }
     
 

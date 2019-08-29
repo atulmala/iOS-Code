@@ -80,7 +80,6 @@ class ImageVideoTVC: UITableViewController {
                         
                         image_list.append(ImageVideoModel(id: id, date: ddmmyy, type: type, the_class: the_class, section: section, location: location, short_link: short_link, description: description))
                     }
-                    
                 }
             }
         }

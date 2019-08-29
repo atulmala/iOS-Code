@@ -30,10 +30,8 @@ class SelectStudentTVC: UITableViewController {
                 for index in 0...ct-1   {
                     let first_name: String = j[index]["fist_name"].string!
                     let last_name: String = j[index]["last_name"].string!
-                    
-                    
                     var roll_no: String = String(index + 1)
-                    if roll_no.characters.count > 1 {
+                    if roll_no.count > 1 {
                         roll_no = roll_no + ". "
                     }
                     else{
