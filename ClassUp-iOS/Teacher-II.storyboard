@@ -43,8 +43,8 @@
                                     <segue destination="iAr-t1-qDE" kind="show" id="qbv-i4-FWZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOa-Lt-YH1">
-                                <rect key="frame" x="54.5" y="100" width="266" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOa-Lt-YH1">
+                                <rect key="frame" x="54.5" y="70" width="266" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Communicate with Parents"/>
                                 <connections>
@@ -59,16 +59,16 @@
                                     <segue destination="4y4-M0-TBZ" kind="show" identifier="toCirculars" id="A3u-kD-Ond"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSr-91-kui">
-                                <rect key="frame" x="54.5" y="166" width="266" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSr-91-kui">
+                                <rect key="frame" x="54.5" y="136" width="266" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Activity Group Communication"/>
                                 <connections>
                                     <segue destination="BUH-Yz-uUc" kind="show" id="DjP-5l-ZbW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0U-Vt-LfI">
-                                <rect key="frame" x="141.5" y="221" width="92" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0U-Vt-LfI">
+                                <rect key="frame" x="141.5" y="191" width="92" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Share Pics"/>
                                 <connections>
@@ -76,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z33-Jy-yWC">
-                                <rect key="frame" x="130" y="265" width="115" height="36"/>
+                                <rect key="frame" x="130" y="235" width="115" height="66"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Share Videos"/>
                                 <connections>
@@ -99,7 +99,6 @@
                         <constraints>
                             <constraint firstItem="MSr-91-kui" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="31r-sZ-my0"/>
                             <constraint firstItem="2Vl-G7-6dQ" firstAttribute="centerX" secondItem="T0U-Vt-LfI" secondAttribute="centerX" id="3Ow-dv-x9f"/>
-                            <constraint firstItem="MSr-91-kui" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="A7x-dK-W5C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p9E-yL-ze2" secondAttribute="trailing" constant="25" id="Dfb-ZS-6W1"/>
                             <constraint firstItem="Q0k-Qj-6Tr" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" constant="-0.5" id="DzD-1j-GcG"/>
                             <constraint firstItem="VOa-Lt-YH1" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="EHb-eW-ljG"/>
@@ -107,7 +106,7 @@
                             <constraint firstItem="hFO-rv-cqn" firstAttribute="top" secondItem="2Vl-G7-6dQ" secondAttribute="bottom" constant="34" id="PEo-lI-yXr"/>
                             <constraint firstItem="2Vl-G7-6dQ" firstAttribute="centerX" secondItem="z33-Jy-yWC" secondAttribute="centerX" id="UJZ-dv-Y6a"/>
                             <constraint firstItem="hFO-rv-cqn" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="VUI-1i-CiS"/>
-                            <constraint firstItem="VOa-Lt-YH1" firstAttribute="top" secondItem="Co9-mn-P4d" secondAttribute="bottom" constant="80" id="YIP-pq-eCR"/>
+                            <constraint firstItem="VOa-Lt-YH1" firstAttribute="top" secondItem="Co9-mn-P4d" secondAttribute="bottom" constant="50" id="YIP-pq-eCR"/>
                             <constraint firstItem="T0U-Vt-LfI" firstAttribute="top" secondItem="MSr-91-kui" secondAttribute="bottom" constant="19" id="ZFt-kH-QzH"/>
                             <constraint firstItem="MSr-91-kui" firstAttribute="top" secondItem="VOa-Lt-YH1" secondAttribute="bottom" constant="30" id="bQO-3w-97c"/>
                             <constraint firstItem="p9E-yL-ze2" firstAttribute="top" secondItem="hFO-rv-cqn" secondAttribute="bottom" constant="22" id="flN-pq-1ZG"/>
@@ -118,7 +117,6 @@
                             <constraint firstItem="z33-Jy-yWC" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="szb-xY-aig"/>
                             <constraint firstItem="p9E-yL-ze2" firstAttribute="leading" secondItem="fza-ar-tXE" secondAttribute="leadingMargin" constant="25" id="tCH-EA-UZP"/>
                             <constraint firstItem="2Vl-G7-6dQ" firstAttribute="centerY" secondItem="fza-ar-tXE" secondAttribute="centerY" id="uiQ-qb-MuC"/>
-                            <constraint firstItem="VOa-Lt-YH1" firstAttribute="centerX" secondItem="fza-ar-tXE" secondAttribute="centerX" id="wLa-8U-xib"/>
                         </constraints>
                     </view>
                 </viewController>

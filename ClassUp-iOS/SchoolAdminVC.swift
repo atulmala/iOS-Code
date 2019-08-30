@@ -108,6 +108,15 @@ class SchoolAdminVC: UIViewController {
             
             self.present(final_confirm, animated: false , completion: nil)
         }
+        
+        if comingFrom == "pic_share"    {
+            message = "Image Uploaded. It will be shared with Parents in few moments"
+            let final_confirm = UIAlertController(title: "Done", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            final_confirm.addAction(OKAction)
+            
+            self.present(final_confirm, animated: false , completion: nil)
+        }
 
 
 

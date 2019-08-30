@@ -126,6 +126,9 @@
 		B7279EC1231587B500CC8F28 /* ImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */; };
 		B75A6B562317788E001F779C /* StudListForPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */; };
 		B7673D6A23163C94008E58FD /* SelStudentForPicSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */; };
+		B79B60192318E4C100F39CC1 /* AdminImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */; };
+		B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */; };
+		B79B60212319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */; };
 		B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */; };
 		B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
@@ -256,6 +259,9 @@
 		B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerVC.swift; sourceTree = "<group>"; };
 		B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudListForPicSharingTVC.swift; sourceTree = "<group>"; };
 		B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelStudentForPicSharingVC.swift; sourceTree = "<group>"; };
+		B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminImagePickerVC.swift; sourceTree = "<group>"; };
+		B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPicSelectedVC.swift; sourceTree = "<group>"; };
+		B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectClassPicSharingTVC.swift; sourceTree = "<group>"; };
 		B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoTVC.swift; sourceTree = "<group>"; };
 		B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCell.swift; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -306,8 +312,6 @@
 		A482F24B1DB3E56100EA2811 /* ClassUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */,
-				B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */,
 				A4D188931FCBC1B000A7B443 /* ActivityGroupCell.swift */,
 				A4D188911FCBBF5C00A7B443 /* ActivityGroupsTVC.swift */,
 				A4D188951FCC169A00A7B443 /* ActivityMemberCell.swift */,
@@ -350,6 +354,9 @@
 				A460412E1DCDE56C004E9BDE /* HeaderCell.swift */,
 				A4DAEC651EB795EB00206BA0 /* HWCell.swift */,
 				A4DAEC631EB7739B00206BA0 /* HWListTVC.swift */,
+				B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */,
+				B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */,
+				B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */,
 				A482F2581DB3E56100EA2811 /* Info.plist */,
 				A4918CD31E5A0A750099F5C5 /* KeyboardLayoutConstraint.swift */,
 				A482F2551DB3E56100EA2811 /* LaunchScreen.storyboard */,
@@ -382,6 +389,7 @@
 				A45532101DD77FFB0088A3C9 /* SelectStudentVC.swift */,
 				A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */,
 				A47365CA1DD97C2900EDA30D /* SelectWardVC.swift */,
+				B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */,
 				A404FAEF1DB532850011BFB6 /* SessionManager.swift */,
 				A4665A451DCA37800049EB4D /* SetSubjectsVC.swift */,
 				A45532081DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift */,
@@ -392,6 +400,7 @@
 				A49081671DC1185C00A4170D /* StudentModel.swift */,
 				A45532141DD7823B0088A3C9 /* StudentSelectionCell.swift */,
 				A49081651DC1180600A4170D /* StudentStopModel.swift */,
+				B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */,
 				A4976B9B1E6052F20017C815 /* StuNameCell.swift */,
 				A4053CAF1DD9CBF50090D89D /* SubjectListCellTVC.swift */,
 				A4053CB11DD9CF660090D89D /* SubjectMarksHistoryVC.swift */,
@@ -424,9 +433,9 @@
 				A47365CC1DD980DE00EDA30D /* WardListCellTVC.swift */,
 				A47365CD1DD980DE00EDA30D /* WardListTVC.swift */,
 				A4053CAD1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift */,
-				B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */,
-				B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */,
-				B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */,
+				B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */,
+				B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */,
+				B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -609,11 +618,13 @@
 				A4976B9C1E6052F30017C815 /* StuNameCell.swift in Sources */,
 				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
 				B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */,
+				B79B60192318E4C100F39CC1 /* AdminImagePickerVC.swift in Sources */,
 				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
 				A4053C961DD9C1EC0090D89D /* StuAttSummaryHeaderCellTVC.swift in Sources */,
 				A4053C941DD9BC0F0090D89D /* StudentAttendanceSummaryVC.swift in Sources */,
 				A460412D1DCDE521004E9BDE /* TestCellVC.swift in Sources */,
 				A4F0E9391FB93F9A0018A32E /* TeachersAttTVC.swift in Sources */,
+				B79B60212319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift in Sources */,
 				A48E11181DD4938F0008DF7D /* BusAttendanceHeaderCell.swift in Sources */,
 				A4ADB9EA1FC6EF4D001C0C00 /* ArrangementCell.swift in Sources */,
 				B75A6B562317788E001F779C /* StudListForPicSharingTVC.swift in Sources */,
@@ -692,6 +703,7 @@
 				A443A52B1E55D743001A64FC /* SelectDateVC.swift in Sources */,
 				A4ED5CFA1E536EC500888DD1 /* SelectClassBulkSMSVC.swift in Sources */,
 				A4ADB9E81FC6E1AA001C0C00 /* ArrangementsTVC.swift in Sources */,
+				B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
