@@ -69,6 +69,13 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "UpcomingTests"
         performSegue(withIdentifier: "selectWard", sender: self)
     }
+    
+    @IBAction func image_video_list(_ sender: UIButton) {
+        triggeringMenu = "image_video"
+        performSegue(withIdentifier: "selectWard", sender: self)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -103,6 +110,10 @@ class ParentMenuVC: UIViewController {
             case "TimeTable":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "TimeTable"
+                break
+        case "image_video":
+                let destinationVC = segue.destination as! SelectWardVC
+                destinationVC.trigger = "image_video"
                 break
             default:
                 break

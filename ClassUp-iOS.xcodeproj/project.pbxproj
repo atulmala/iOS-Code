@@ -129,6 +129,7 @@
 		B79B60192318E4C100F39CC1 /* AdminImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */; };
 		B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */; };
 		B79B60212319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */; };
+		B79B60232319651000F39CC1 /* ParentImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60222319651000F39CC1 /* ParentImageVideoTVC.swift */; };
 		B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */; };
 		B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
@@ -262,6 +263,7 @@
 		B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminImagePickerVC.swift; sourceTree = "<group>"; };
 		B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPicSelectedVC.swift; sourceTree = "<group>"; };
 		B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectClassPicSharingTVC.swift; sourceTree = "<group>"; };
+		B79B60222319651000F39CC1 /* ParentImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentImageVideoTVC.swift; sourceTree = "<group>"; };
 		B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoTVC.swift; sourceTree = "<group>"; };
 		B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCell.swift; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */,
 				B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */,
 				B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */,
+				B79B60222319651000F39CC1 /* ParentImageVideoTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				A460412B1DCDE4A2004E9BDE /* TestModel.swift in Sources */,
 				A4AAAD801FCFA04200287E3A /* TeacherMessageRecordTVC.swift in Sources */,
 				A4ED5CF81E52193600888DD1 /* ComposeBulkSMSVC.swift in Sources */,
+				B79B60232319651000F39CC1 /* ParentImageVideoTVC.swift in Sources */,
 				A4EFF587207BAF12006B34BF /* TimeTableTVC.swift in Sources */,
 				A490816A1DC11B5100A4170D /* AttendanceProcessing.swift in Sources */,
 				A40DFFFB1E46259500711694 /* MessageHistoryVC.swift in Sources */,

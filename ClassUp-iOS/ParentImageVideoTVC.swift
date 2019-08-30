@@ -1,8 +1,8 @@
 //
-//  ImageVideoTVC.swift
+//  ParentImageVideoTVC.swift
 //  ClassUp-iOS
 //
-//  Created by Atul "The Advanced Prototype" Gupta on 17/08/19.
+//  Created by Atul "The Advanced Prototype" Gupta on 30/08/19.
 //  Copyright © 2019 EmergeTech Mobile Products & Services Pvt Ltd. All rights reserved.
 //
 
@@ -10,44 +10,21 @@ import UIKit
 import SwiftyJSON
 import Just
 
-class ImageVideoModel   {
-    var id: String
-    var date: String
-    var type: String
-    var the_class: String
-    var section: String
-    var location: String
-    var short_link: String
-    var description: String
-    
-    init(id: String, date: String, type: String, the_class: String, section: String, location: String, short_link: String, description: String) {
-        self.id = id
-        self.date = date
-        self.type = type
-        self.the_class = the_class
-        self.section = section
-        self.location = location
-        self.short_link = short_link
-        self.description = description
-        
-    }
-}
 
-class ImageVideoTVC: UITableViewController {
-    var image_list: [ImageVideoModel] = []
-    var coming_from: String = "teacher"
+class ParentImageVideoTVC: UITableViewController {
+    var student_id: String = ""
+    var student_name: String = ""
     
+    var image_list: [ImageVideoModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150.0
 
         let server_ip: String = MiscFunction.getServerIP()
-        let user: String = SessionManager.getLoggedInUser()
-        var url: String =  "\(server_ip)/operations/retrieve_sms_history/\(user)/"
-        if coming_from == "teacher" {
-            url = "\(server_ip)/pic_share/get_pic_video_list_teacher/\(user)/?format=json"
-        }
+        let url: String = "\(server_ip)/pic_share/get_pic_video_list_teacher/\(student_id)/?format=json"
+        
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
         if (count! > 0)  {
@@ -78,6 +55,7 @@ class ImageVideoTVC: UITableViewController {
                 }
             }
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,18 +66,10 @@ class ImageVideoTVC: UITableViewController {
         lable.textAlignment = NSTextAlignment.center
         lable.text = "Shared Image/Videos"
         self.navigationItem.titleView = lable
-        
-        let select_from_gallery = UIBarButtonItem(title: "Select from Gallery", style: .done, target: self, action: #selector(ImageVideoTVC.select_from_gallery(sender:)))
-        navigationItem.rightBarButtonItems = [select_from_gallery,]
     }
-    
-    @IBAction func select_from_gallery(sender: UIButton)    {
-        performSegue(withIdentifier: "show_gallery", sender: self)
-        
-    }
-    
+
     // MARK: - Table view data source
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -110,10 +80,10 @@ class ImageVideoTVC: UITableViewController {
         return image_list.count
     }
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "image_video_cell", for: indexPath) as! ImageVideoCell
-     
-     // Configure the cell...
+        
+        // Configure the cell...
         cell.date.text = image_list[indexPath.row].date
         cell.type.text = image_list[indexPath.row].type
         
@@ -128,7 +98,7 @@ class ImageVideoTVC: UITableViewController {
         cell.short_description.text = image_list[indexPath.row].description
         
         return cell
-     }
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -137,56 +107,5 @@ class ImageVideoTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ImagePickerVC
-        destinationVC.coming_from = "share_pic"
-    }
-    
-    
-    
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
-    
-    
+
 }
