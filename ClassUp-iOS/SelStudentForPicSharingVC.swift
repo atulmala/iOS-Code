@@ -118,7 +118,6 @@ class SelStudentForPicSharingVC: UIViewController, UIPickerViewDataSource, UIPic
                 dict["section"] = self.selected_section
                 dict["teacher"] = SessionManager.getLoggedInUser()
                 dict["school_id"] = school_id
-                
                 let server_ip = MiscFunction.getServerIP()
                 let url = "\(server_ip)/pic_share/upload_pic/"
                 Alamofire.request(url, method: .post, parameters: dict, encoding: JSONEncoding.default).responseJSON { response in self.showAlert(title: "Awaiting Image Upload status", message: "Awaiting Image Upload status" )

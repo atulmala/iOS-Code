@@ -21,7 +21,9 @@ class TestMarksEntryCell: UITableViewCell {
     @IBOutlet weak var notebook_sub_marks: UITextField!
     @IBOutlet weak var prac_marks: UITextField!
     @IBOutlet weak var pt_marks: UITextField!
+    @IBOutlet weak var multi_asses_marks: UITextField!
     @IBOutlet weak var lbl_pt: UILabel!
+    @IBOutlet weak var lbl_ma: UILabel!
     @IBOutlet weak var lbl_se: UILabel!
     @IBOutlet weak var lbl_nb: UILabel!
     
@@ -87,7 +89,7 @@ class TestMarksEntryCell: UITableViewCell {
             if (NumberFormatter().number(from: m!)?.floatValue)! > 10.0   {
                 _ = NumberFormatter().number(from: m!)
                 pt_marks.text = ""
-                let alertController = UIAlertController(title: "Warning", message: "PA Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 10", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Warning", message: "PA Marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 5", preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(defaultAction)
@@ -96,6 +98,28 @@ class TestMarksEntryCell: UITableViewCell {
             }
         }
         MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "pt_marks")
+    }
+    
+    @IBAction func updateMultAssessMarks(_sender: UITextField)  {
+        let id = marks_entry_id.text
+        var m = multi_asses_marks.text
+        if m == "." {
+            m = "0"
+        }
+        
+        if m != ""  {
+            if (NumberFormatter().number(from: m!)?.floatValue)! > 10.0   {
+                _ = NumberFormatter().number(from: m!)
+                pt_marks.text = ""
+                let alertController = UIAlertController(title: "Warning", message: "Multiple Assessment marks entered: \(m!) for Roll No: \(full_name.text!) are more than Max Marks: 5", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                delegate?.present(alertController, animated: false)
+                return
+            }
+        }
+        MarksProcessing.update_marks_list(id: id!, marks: m!, marks_type: "multi_asses_marks")
     }
     
     @IBAction func updatePracMarks(_ sender: UITextField) {

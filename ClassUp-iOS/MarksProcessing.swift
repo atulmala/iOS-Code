@@ -36,6 +36,12 @@ class MarksProcessing: UIViewController  {
                         }
                         marks_list[i].pt_marks = marks
                         break
+                    case "multi_asses_marks":
+                        if marks == ""  {
+                            marks = "-5000.00"
+                        }
+                        marks_list[i].multi_asses_marks = marks
+                        break
                     case "notebook_marks":
                         if marks == ""  {
                             marks = "-5000.0"
@@ -78,6 +84,7 @@ class MarksProcessing: UIViewController  {
                 marks_dictionary[marks_list[i].id] = [
                     "marks": marks_list[i].marks,
                     "pa": marks_list[i].pt_marks,
+                    "multi_assess": marks_list[i].multi_asses_marks,
                     "notebook": marks_list[i].notebook_sub_marks,
                     "subject_enrich": marks_list[i].sub_enrich_marks,
                     "prac_marks": marks_list[i].prac_marks
@@ -119,6 +126,7 @@ class MarksProcessing: UIViewController  {
                 marks_dictionary[marks_list[i].id] = [
                     "marks": marks_list[i].marks,
                     "pa": marks_list[i].pt_marks,
+                    "multi_assess": marks_list[i].multi_asses_marks,
                     "notebook": marks_list[i].notebook_sub_marks,
                     "subject_enrich": marks_list[i].sub_enrich_marks,
                     "prac_marks": marks_list[i].prac_marks

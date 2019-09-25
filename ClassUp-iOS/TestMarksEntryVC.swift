@@ -79,6 +79,15 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                                 present(alertController, animated: true, completion: nil)
                                 return
                             }
+                            if test_marks_list[i].multi_asses_marks == "-5000.0" || test_marks_list[i].multi_asses_marks == "-5000" {
+                                let message = "Please enter Multi Assess marks for Roll No: \(student) or mark as Absent"
+                                let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
+                                
+                                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(defaultAction)
+                                present(alertController, animated: true, completion: nil)
+                                return
+                            }
                             if test_marks_list[i].notebook_sub_marks == "-5000.0" || test_marks_list[i].notebook_sub_marks == "-5000" {
                                 let message = "Please enter Notebook Submission marks for Roll No: \(student) or mark as Absent"
                                 let alertController = UIAlertController(title: "Marks/Grade Submission Error", message: message, preferredStyle: .alert)
@@ -187,8 +196,8 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                     // 04/10/2017 the request would also bring the PA marks, Notebook submission and sub 
                     // enrichment marks
                     let pt_marks: String = String(stringInterpolationSegment: j[index]["periodic_test_marks"])
+                    let multi_asses_marks: String = String(stringInterpolationSegment: j[index]["multi_asses_marks"])
                     let notebook_sub_marks: String = String(stringInterpolationSegment:j[index]["notebook_marks"])
-
                     let sub_enrich_marks: String = String(stringInterpolationSegment: j[index]["sub_enrich_marks"])
                     
                     // 26/12/2017 practical marks for higher classes only if the class is a higer class
@@ -199,7 +208,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                     
                     let parent_name: String = j[index]["parent"].string!
                     
-                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name, pt: pt_marks, nb: notebook_sub_marks, sub: sub_enrich_marks, prac: prac_marks))
+                    test_marks_list.append(TestMarksModel(id: id, r: roll_no, m: marks_obtained, g: grade,s:full_name, pn:parent_name, pt: pt_marks, ma: multi_asses_marks, nb: notebook_sub_marks, sub: sub_enrich_marks, prac: prac_marks))
                 }
             }
         }
@@ -252,7 +261,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         let info: NSDictionary = note.userInfo! as NSDictionary
         let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
         let keyboardSize: CGSize = value.cgRectValue.size
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height + 100.0, 0.0)
         tableView.contentInset = contentInsets
         tableView.scrollIndicatorInsets = contentInsets
     }
@@ -347,8 +356,10 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
         if unit_or_term != "term"   {
             cell.lbl_nb.isHidden = true
             cell.lbl_pt.isHidden = true
+            cell.lbl_ma.isHidden = true
             cell.lbl_se.isHidden = true
             cell.pt_marks.isHidden = true
+            cell.multi_asses_marks.isHidden = true
             cell.notebook_sub_marks.isHidden = true
             cell.sub_enrich_marks.isHidden = true
             cell.prac_marks.isHidden = true
@@ -359,8 +370,10 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                 cell.lbl_pt.isHidden = false
                 cell.lbl_marks.text = "Theory"
                 cell.lbl_pt.text = "Practical"
+                cell.lbl_ma.isHidden = true
                 cell.lbl_se.isHidden = true
                 cell.pt_marks.isHidden = true
+                cell.multi_asses_marks.isHidden = true
                 cell.pt_marks.isEnabled = false
                 cell.notebook_sub_marks.isHidden = true
                 cell.sub_enrich_marks.isHidden = true
@@ -390,6 +403,13 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
             cell.pt_marks.text = test_marks_list[indexPath.row].pt_marks
         }
         
+        if (test_marks_list[indexPath.row].multi_asses_marks == "-5000.0" || test_marks_list[indexPath.row].multi_asses_marks == "-5000")   {
+            cell.multi_asses_marks.text = ""
+        }
+        else    {
+            cell.multi_asses_marks.text = test_marks_list[indexPath.row].multi_asses_marks
+        }
+        
         if (test_marks_list[indexPath.row].notebook_sub_marks == "-5000.0" || test_marks_list[indexPath.row].notebook_sub_marks == "-5000")   {
             cell.notebook_sub_marks.text = ""
         }
@@ -409,11 +429,11 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if unit_or_term != "term"   {
-            return 91
+            return 110
         }
         else{
             if whether_higher_class == "true"   {
-                return 120
+                return 160
             }
             else    {
                 return 216
