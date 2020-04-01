@@ -10,7 +10,8 @@ import UIKit
 
 class MessageHistoryCellTableViewCell: UITableViewCell {
     @IBOutlet weak var message_date: UILabel!
-    @IBOutlet weak var message: UILabel!
+//    @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var message: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

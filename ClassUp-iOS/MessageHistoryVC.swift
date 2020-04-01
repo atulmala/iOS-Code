@@ -105,8 +105,18 @@ class MessageHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "message_history_cell", for: indexPath as IndexPath) as! MessageHistoryCellTableViewCell
         cell.message_date.text = message_list[indexPath.row].date
         cell.message.text = message_list[indexPath.row].message
+        cell.message.isEditable = false
+        cell.message.dataDetectorTypes = .link
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return 100
     }
 
     /*

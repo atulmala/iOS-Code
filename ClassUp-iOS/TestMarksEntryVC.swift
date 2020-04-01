@@ -436,7 +436,7 @@ class TestMarksEntryVC: UIViewController, UITableViewDataSource, UITableViewDele
                 return 160
             }
             else    {
-                return 216
+                return 200
             }
         }
     }
