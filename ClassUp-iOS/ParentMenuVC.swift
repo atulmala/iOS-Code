@@ -46,15 +46,6 @@ class ParentMenuVC: UIViewController {
         triggeringMenu = "SubjectwiseMarks"
         performSegue(withIdentifier: "selectWard", sender: self)
     }
-    @IBAction func communicateWithSchool(sender: UIButton) {
-        triggeringMenu = "CommunicateWithSchool"
-        performSegue(withIdentifier: "selectWard", sender: self)
-    }
-    
-    @IBAction func communicationHistory(_ sender: UIButton) {
-        triggeringMenu = "CommunicationHistory"
-        performSegue(withIdentifier: "to_communication_history", sender: self)
-    }
     
     @IBAction func show_hw_list(_ sender: UIButton) {
         triggeringMenu = "HWListForParent"
@@ -70,11 +61,10 @@ class ParentMenuVC: UIViewController {
         performSegue(withIdentifier: "selectWard", sender: self)
     }
     
-    @IBAction func image_video_list(_ sender: UIButton) {
-        triggeringMenu = "image_video"
-        performSegue(withIdentifier: "selectWard", sender: self)
+    @IBAction func show_comm_center(_ sender: UIButton) {
+        triggeringMenu = "CommCenter"
+        performSegue(withIdentifier: "show_comm_center", sender: self)
     }
-    
     
     // MARK: - Navigation
 
