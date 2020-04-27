@@ -44,6 +44,12 @@ class CommCenterViewController: UIViewController {
             let destinationVC = segue.destination as! ImageVideoTVC
             destinationVC.coming_from = "share_video"
         }
+        
+        if segue.identifier == "show_online_classes"    {
+            let destinationVC = segue.destination as! OnlineClassesTVC
+            destinationVC.sender = "teacher"
+            destinationVC.teacher_id = SessionManager.getLoggedInUser()
+        }
     }
     
 

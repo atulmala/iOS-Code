@@ -12,9 +12,7 @@ import SwiftyJSON
 import ReachabilitySwift
 import Firebase
 import AWSMobileAnalytics
-
-
-
+import OneSignal
 
 class LoginVC: UIViewController {
     let reachability = Reachability()
@@ -156,9 +154,16 @@ class LoginVC: UIViewController {
                                 
                                 // 10/03/17 for firebase messsging, send the token id to server
                                 let refreshedToken = FIRInstanceID.instanceID().token()
-                                let parameters: Parameters = ["user": userName as String,
-                                                              "device_token": refreshedToken! as String,
-                                                              "device_type": "iOS"]
+                                
+                                // 11/04/2020 send the OneSignal player_id to server
+                                let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+                                let player_id: String = status.subscriptionStatus.userId
+                                let parameters: Parameters = [
+                                    "user": userName as String,
+                                    "device_token": refreshedToken! as String,
+                                    "device_type": "iOS",
+                                    "player_id": player_id
+                                ]
                                 
                                 Alamofire.request("\(server_ip)/auth/map_device_token/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                                     .responseJSON { response in

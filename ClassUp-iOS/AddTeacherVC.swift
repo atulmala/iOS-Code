@@ -20,14 +20,6 @@ class AddTeacherVC: UIViewController {
     @IBOutlet weak var teacher_login: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let analytics: AWSMobileAnalytics = SessionManager.getAnalytics()
-        let eventClient: AWSMobileAnalyticsEventClient = analytics.eventClient
-        let event: AWSMobileAnalyticsEvent = eventClient.createEvent(withEventType: "Add Teacher")
-        eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
-        eventClient.record(event)
-        eventClient.submitEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +73,7 @@ class AddTeacherVC: UIViewController {
             Alamofire.request("\(server_ip)/teachers/add_teacher/", method: .post, parameters: parameters, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     debugPrint(response)
-                    let json = JSON(response.result.value)
+                    let json = JSON(response.result.value!)
                     outcome = json["status"].string!
                     print(outcome)
                     print(error_message)
@@ -110,7 +102,6 @@ class AddTeacherVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    
     func isValidEmail(testStr:String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -118,8 +109,6 @@ class AddTeacherVC: UIViewController {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-
-
     
     // MARK: - Navigation
 

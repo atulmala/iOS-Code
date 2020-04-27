@@ -186,6 +186,7 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 break
         case "online_classes":
                 let destinationVC = segue.destination as! OnlineClassesTVC
+                destinationVC.sender = "student"
                 destinationVC.student_id = student_id
                 destinationVC.student_name = student_name
                 break

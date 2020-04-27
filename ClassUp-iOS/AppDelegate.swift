@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import UserNotifications
 import AWSMobileAnalytics
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let analytics: AWSMobileAnalytics = AWSMobileAnalytics.init(forAppId: "175b4dff4d244f67a3b493ca2fbf0904", configuration: analyticsConfiguration)
         
         SessionManager.setAnalytics(analytics: analytics)
+        
+        //START OneSignal initialization code
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "4f62be3e-1330-4fda-ac23-91757077abe3",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
+        //END OneSignal initializataion code
         
         // 10/03/17 - added for firebase messaging (push notification
         // Register for remote notifications. This shows a permission dialog on first run, to

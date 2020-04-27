@@ -51,8 +51,6 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         eventClient.addGlobalAttribute(SessionManager.getLoggedInUser(), forKey: "user")
         eventClient.record(event)
         eventClient.submitEvents()
-        
-        
 
         // Do any additional setup after loading the view.
         // when the keyboard appears, the cells in the bottom gets hidden. We need to move the cells up
@@ -73,7 +71,6 @@ class AddStudentVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         if operation == "Update"    {
             // change the title of the screen
             self.title = "Update Student"
-            
             
             // show the delete  & update buttons
             btn_delete.isHidden = false

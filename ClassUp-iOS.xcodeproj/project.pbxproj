@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53A81A2F772E24690F10CC65 /* Pods_OneSignalNotificaionServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1783421D75C8B5BB28A77181 /* Pods_OneSignalNotificaionServiceExtension.framework */; };
 		A4024EA91E66E918002C1935 /* SelectTeacherTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */; };
 		A4024EAB1E66F1A9002C1935 /* TeacherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EAA1E66F1A9002C1935 /* TeacherCell.swift */; };
 		A4024EAD1E671367002C1935 /* EditTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4024EAC1E671367002C1935 /* EditTeacher.swift */; };
@@ -132,13 +133,42 @@
 		B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */; };
 		B79B60212319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */; };
 		B79B60232319651000F39CC1 /* ParentImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60222319651000F39CC1 /* ParentImageVideoTVC.swift */; };
+		B7CCFB6824520B7F001B2C82 /* CreateOnlineClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCFB6724520B7F001B2C82 /* CreateOnlineClassVC.swift */; };
 		B7E1C53D243761F400142C7B /* ParentCommCenterVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1C53C243761F400142C7B /* ParentCommCenterVCViewController.swift */; };
 		B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */; };
 		B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */; };
+		B7F7E7B02441D8830033BD70 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7E7AF2441D8830033BD70 /* NotificationService.swift */; };
+		B7F7E7B42441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B7F7E7AD2441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC05A25BB7D010D886A870BD /* Pods_ClassUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B7F7E7B22441D8830033BD70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A482F2411DB3E56100EA2811 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7F7E7AC2441D8830033BD70;
+			remoteInfo = OneSignalNotificaionServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B7F7E7B82441D8830033BD70 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B7F7E7B42441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		158014CE8936BF01BF4F5C8B /* Pods-OneSignalNotificaionServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificaionServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificaionServiceExtension/Pods-OneSignalNotificaionServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		1783421D75C8B5BB28A77181 /* Pods_OneSignalNotificaionServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificaionServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A4024EA81E66E918002C1935 /* SelectTeacherTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTeacherTVC.swift; sourceTree = "<group>"; };
 		A4024EAA1E66F1A9002C1935 /* TeacherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherCell.swift; sourceTree = "<group>"; };
@@ -269,9 +299,14 @@
 		B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPicSelectedVC.swift; sourceTree = "<group>"; };
 		B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectClassPicSharingTVC.swift; sourceTree = "<group>"; };
 		B79B60222319651000F39CC1 /* ParentImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentImageVideoTVC.swift; sourceTree = "<group>"; };
+		B7CCFB6724520B7F001B2C82 /* CreateOnlineClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOnlineClassVC.swift; sourceTree = "<group>"; };
 		B7E1C53C243761F400142C7B /* ParentCommCenterVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCommCenterVCViewController.swift; sourceTree = "<group>"; };
 		B7E34A3E2307999000B4EFFA /* ImageVideoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoTVC.swift; sourceTree = "<group>"; };
 		B7E34A402307ADCB00B4EFFA /* ImageVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCell.swift; sourceTree = "<group>"; };
+		B7F7E7AD2441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificaionServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F7E7AF2441D8830033BD70 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B7F7E7B12441D8830033BD70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF1400ECFEC842C6B31A71B0 /* Pods-OneSignalNotificaionServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificaionServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificaionServiceExtension/Pods-OneSignalNotificaionServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -285,6 +320,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7F7E7AA2441D8830033BD70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53A81A2F772E24690F10CC65 /* Pods_OneSignalNotificaionServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -292,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				F650DC14D10FA13B7A875D35 /* Pods_ClassUp_iOS.framework */,
+				1783421D75C8B5BB28A77181 /* Pods_OneSignalNotificaionServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,6 +347,7 @@
 				A4D28AE41DB3F59A003B47F2 /* CartFile */,
 				A482F24B1DB3E56100EA2811 /* ClassUp-iOS */,
 				A482F25E1DB3E69C00EA2811 /* PodFile */,
+				B7F7E7AE2441D8830033BD70 /* OneSignalNotificaionServiceExtension */,
 				A482F24A1DB3E56100EA2811 /* Products */,
 				BEB1A5C8A15E5D1037F6B741 /* Pods */,
 				014B9289085621D777663771 /* Frameworks */,
@@ -313,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				A482F2491DB3E56100EA2811 /* ClassUp-iOS.app */,
+				B7F7E7AD2441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,8 +494,18 @@
 				B7E1C53C243761F400142C7B /* ParentCommCenterVCViewController.swift */,
 				B71444CD2437A7B0009D0C47 /* OnlineClassesTVC.swift */,
 				B71444CF2437A812009D0C47 /* OnlineClassCell.swift */,
+				B7CCFB6724520B7F001B2C82 /* CreateOnlineClassVC.swift */,
 			);
 			path = "ClassUp-iOS";
+			sourceTree = "<group>";
+		};
+		B7F7E7AE2441D8830033BD70 /* OneSignalNotificaionServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B7F7E7AF2441D8830033BD70 /* NotificationService.swift */,
+				B7F7E7B12441D8830033BD70 /* Info.plist */,
+			);
+			path = OneSignalNotificaionServiceExtension;
 			sourceTree = "<group>";
 		};
 		BEB1A5C8A15E5D1037F6B741 /* Pods */ = {
@@ -457,6 +513,8 @@
 			children = (
 				CF9782B2E7FDE9FCE78CAC3B /* Pods-ClassUp-iOS.debug.xcconfig */,
 				29962079393724DEAD35EE20 /* Pods-ClassUp-iOS.release.xcconfig */,
+				158014CE8936BF01BF4F5C8B /* Pods-OneSignalNotificaionServiceExtension.debug.xcconfig */,
+				CF1400ECFEC842C6B31A71B0 /* Pods-OneSignalNotificaionServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -473,16 +531,35 @@
 				A482F2461DB3E56100EA2811 /* Frameworks */,
 				A482F2471DB3E56100EA2811 /* Resources */,
 				0CDF9849174536CE2FFA7BD6 /* [CP] Embed Pods Frameworks */,
-				AA30483314247629A6903A87 /* [CP] Copy Pods Resources */,
+				B7F7E7B82441D8830033BD70 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B7F7E7B32441D8830033BD70 /* PBXTargetDependency */,
 			);
 			name = "ClassUp-iOS";
 			productName = "ClassUp-iOS";
 			productReference = A482F2491DB3E56100EA2811 /* ClassUp-iOS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B7F7E7AC2441D8830033BD70 /* OneSignalNotificaionServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7F7E7B72441D8830033BD70 /* Build configuration list for PBXNativeTarget "OneSignalNotificaionServiceExtension" */;
+			buildPhases = (
+				B7105D12707839D7B78115BF /* [CP] Check Pods Manifest.lock */,
+				B7F7E7A92441D8830033BD70 /* Sources */,
+				B7F7E7AA2441D8830033BD70 /* Frameworks */,
+				B7F7E7AB2441D8830033BD70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificaionServiceExtension;
+			productName = OneSignalNotificaionServiceExtension;
+			productReference = B7F7E7AD2441D8830033BD70 /* OneSignalNotificaionServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -490,7 +567,7 @@
 		A482F2411DB3E56100EA2811 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "EmergeTech Mobile Products & Services Pvt Ltd";
 				TargetAttributes = {
@@ -500,10 +577,24 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
+					};
+					B7F7E7AC2441D8830033BD70 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = F64T6ZEDL7;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -521,6 +612,7 @@
 			projectRoot = "";
 			targets = (
 				A482F2481DB3E56100EA2811 /* ClassUp-iOS */,
+				B7F7E7AC2441D8830033BD70 /* OneSignalNotificaionServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -538,6 +630,13 @@
 				A482F2521DB3E56100EA2811 /* Main.storyboard in Resources */,
 				A41D17D11E72D4DC0046E164 /* GoogleService-Info.plist in Resources */,
 				A4F8F3B61FBE7A6F006E2728 /* Teacher-II.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F7E7AB2441D8830033BD70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,19 +703,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA30483314247629A6903A87 /* [CP] Copy Pods Resources */ = {
+		B7105D12707839D7B78115BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificaionServiceExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassUp-iOS/Pods-ClassUp-iOS-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -631,6 +737,7 @@
 				A4053CAE1DD9CBCD0090D89D /* SubjectMarksHistoryVC.swift in Sources */,
 				B7E34A3F2307999000B4EFFA /* ImageVideoTVC.swift in Sources */,
 				B79B60192318E4C100F39CC1 /* AdminImagePickerVC.swift in Sources */,
+				B7CCFB6824520B7F001B2C82 /* CreateOnlineClassVC.swift in Sources */,
 				A4053C981DD9C2BD0090D89D /* SelectExamTermVC.swift in Sources */,
 				B7E1C53D243761F400142C7B /* ParentCommCenterVCViewController.swift in Sources */,
 				B71444CE2437A7B0009D0C47 /* OnlineClassesTVC.swift in Sources */,
@@ -749,7 +856,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7F7E7A92441D8830033BD70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7F7E7B02441D8830033BD70 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7F7E7B32441D8830033BD70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7F7E7AC2441D8830033BD70 /* OneSignalNotificaionServiceExtension */;
+			targetProxy = B7F7E7B22441D8830033BD70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A482F2501DB3E56100EA2811 /* Main.storyboard */ = {
@@ -871,6 +994,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ClassUp-iOS/ClassUp-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -910,6 +1034,73 @@
 			};
 			name = Release;
 		};
+		B7F7E7B52441D8830033BD70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 158014CE8936BF01BF4F5C8B /* Pods-OneSignalNotificaionServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F64T6ZEDL7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificaionServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClassUp.OneSignalNotificaionServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7F7E7B62441D8830033BD70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF1400ECFEC842C6B31A71B0 /* Pods-OneSignalNotificaionServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Atul Gupta (F64T6ZEDL7)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Atul Gupta (F64T6ZEDL7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F64T6ZEDL7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificaionServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ClassUp.OneSignalNotificaionServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -927,6 +1118,15 @@
 			buildConfigurations = (
 				A482F25C1DB3E56100EA2811 /* Debug */,
 				A482F25D1DB3E56100EA2811 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7F7E7B72441D8830033BD70 /* Build configuration list for PBXNativeTarget "OneSignalNotificaionServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F7E7B52441D8830033BD70 /* Debug */,
+				B7F7E7B62441D8830033BD70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -2839,13 +2839,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter New Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-A3-VQN">
-                                <rect key="frame" x="120" y="41" width="199" height="20.666666666666671"/>
+                                <rect key="frame" x="120" y="85" width="199" height="20.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYI-sU-Z6G">
-                                <rect key="frame" x="120" y="73.666666666666671" width="199" height="30"/>
+                                <rect key="frame" x="120" y="117.66666666666669" width="199" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -3276,7 +3276,7 @@
         <!--Online ClassesTVC-->
         <scene sceneID="CGq-IN-3Z9">
             <objects>
-                <tableViewController id="bVe-xL-Zuj" customClass="OnlineClassesTVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OnlineClassesTVC" id="bVe-xL-Zuj" customClass="OnlineClassesTVC" customModule="ClassUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K7u-lZ-pqa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3375,7 +3375,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="pdf_link" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-it-Vtr">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="pdf_link" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aZi-it-Vtr">
                                             <rect key="frame" x="108" y="139" width="276" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration">
@@ -3444,10 +3444,22 @@
                             <outlet property="delegate" destination="bVe-xL-Zuj" id="QUx-04-WMf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="K7u-lZ-pqa" id="zzU-rW-ZwW"/>
+                        <segue destination="ueT-qx-b82" kind="show" identifier="create_online_class" id="saW-Ly-QJu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbX-p3-zrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847.826086956522" y="-601.63043478260875"/>
+            <point key="canvasLocation" x="3335" y="-602"/>
+        </scene>
+        <!--CreateOnlineClassVC-->
+        <scene sceneID="9rD-r9-EG4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Teacher-II" referencedIdentifier="CreateOnlineClassVC" id="ueT-qx-b82" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vv-uC-XnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3898" y="-726"/>
         </scene>
         <!--Upcoming Tests-->
         <scene sceneID="9AB-hX-5Bv">
@@ -4427,7 +4439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytt-lb-PrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-602"/>
+            <point key="canvasLocation" x="1846" y="-602"/>
         </scene>
         <!--Exam ResultVC-->
         <scene sceneID="Nqm-0M-rKC">
@@ -4775,7 +4787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCh-Ev-qNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3516" y="-602"/>
+            <point key="canvasLocation" x="2610" y="-602"/>
         </scene>
         <!--Message HistoryVC-->
         <scene sceneID="vOU-cH-tvh">
@@ -5444,11 +5456,11 @@
     <inferredMetricsTieBreakers>
         <segue reference="rz9-Cy-N5U"/>
         <segue reference="QIS-a7-nlE"/>
-        <segue reference="fac-Hp-6Ip"/>
+        <segue reference="xXD-Bw-bKr"/>
         <segue reference="9oH-h2-6FM"/>
         <segue reference="PhV-0B-TUU"/>
         <segue reference="DRc-o6-sW1"/>
-        <segue reference="vdr-GG-42d"/>
+        <segue reference="PnY-XX-i00"/>
         <segue reference="Cuw-hu-iXb"/>
     </inferredMetricsTieBreakers>
 </document>

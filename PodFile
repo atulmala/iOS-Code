@@ -16,4 +16,9 @@ target 'ClassUp-iOS' do
     pod 'AWSMobileAnalytics'
     pod 'DLRadioButton', '~> 1.4'
     pod 'RadioButton'
+    pod 'OneSignal', '>= 2.11.2', '< 3.0'
+end
+
+target 'OneSignalNotificaionServiceExtension' do
+    pod 'OneSignal', '>= 2.11.2', '< 3.0'
 end

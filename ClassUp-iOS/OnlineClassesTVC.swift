@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Just
+import Alamofire
 
 class OnlineClassModel: NSObject {
     var id: String
@@ -31,19 +32,29 @@ class OnlineClassModel: NSObject {
         self.doc_link = doc_link
         super.init()
     }
-    
 }
 
 class OnlineClassesTVC: UITableViewController {
+    let server_ip: String = MiscFunction.getServerIP()
+    
     var lecture_list: [OnlineClassModel] = []
+    var sender: String = ""
+    var teacher_id: String = ""
     var student_id: String = ""
     var student_name: String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let server_ip: String = MiscFunction.getServerIP()
-        let url: String = "\(server_ip)/lectures/get_student_lectures/\(student_id)/"
+        
+        var url: String = ""
+        
+        if sender == "student"  {
+            url = "\(server_ip)/lectures/get_student_lectures/\(student_id)/"
+        }
+        if sender == "teacher"  {
+            url = "\(server_ip)/lectures/get_teacher_lectures/\(teacher_id)/"
+        }
         
         let j = JSON(Just.get(url).json!)
         let count: Int? = j.count
@@ -71,11 +82,12 @@ class OnlineClassesTVC: UITableViewController {
                     let youtube_link: String = j[index]["youtube_link"].string!
                     let pdf_link: String = j[index]["pdf_link"].string ?? "Unavailable"
                     
-                    
                     lecture_list.append(OnlineClassModel(id:id, date:ddmmyy, the_class:the_class, subject: subject, topic:topic, teacher:teacher, youtube_link: youtube_link, doc_link: pdf_link))
                 }
             }
         }
+        let longpress = UILongPressGestureRecognizer(target: self, action:#selector(OnlineClassesTVC.deleteLecture(gestureRecognizer:)))
+        self.tableView.addGestureRecognizer(longpress)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,24 +97,38 @@ class OnlineClassesTVC: UITableViewController {
         lable.textAlignment = NSTextAlignment.center
         lable.text = "Online Classes List"
         self.navigationItem.titleView = lable
+        
+        if sender == "teacher"  {
+            let create_button = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(OnlineClassesTVC.create(_:)))
+            navigationItem.rightBarButtonItems = [create_button]
+        }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    func create(_ sender: UIButton) {
+        performSegue(withIdentifier: "create_online_class", sender: "Self")
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return lecture_list.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "online_class_cell", for: indexPath) as! OnlineClassCell
-
+        
         // Configure the cell...
         cell.date.text = lecture_list[indexPath.row].date
         cell.the_class.text = lecture_list[indexPath.row].the_class
@@ -116,54 +142,87 @@ class OnlineClassesTVC: UITableViewController {
         cell.youtube_link.dataDetectorTypes = .link
         cell.youtube_link.isUserInteractionEnabled = true
         cell.pdf_link.text = lecture_list[indexPath.row].doc_link
-
+        
         return cell
     }
- 
+    
+    func deleteLecture(gestureRecognizer: UIGestureRecognizer)    {
+        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+        let locationInView = longPress.location(in: self.tableView)
+        var indexPath = self.tableView.indexPathForRow(at: locationInView)
+        let index = indexPath?[1] as! Int
+        print("long press indexPath = ", index)
+        let lecture_id = lecture_list[index].id
+        
+        let prompt: String = "Are you sure that you want Delete this Online Class?"
+        let alert: UIAlertController = UIAlertController(title: "Confirm Deletion", message: prompt, preferredStyle: .alert )
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+            let url = "\(self.server_ip)/lectures/delete_lecture/\(lecture_id)/"
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+            let r = Just.delete(url)
+            if r.ok     {
+                self.showAlert(title: "Deleted", message: "Online Class Deleted")
+            }
+        })
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func showAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
-    */
-
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -25,7 +25,6 @@ class EditTeacher: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     var teacher_login: String = ""
     var teacher_mobile: String = ""
     
-    
     var operation: String = ""
 
     @IBOutlet weak var class_secton_picker: UIPickerView!
@@ -155,7 +154,6 @@ class EditTeacher: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         })
         alert.addAction(confirmAction)
         self.present(alert, animated: true, completion: nil)
-
     }
     
     @IBAction func updateTeacher(_ sender: UIButton) {
@@ -281,6 +279,4 @@ class EditTeacher: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-
-
 }
