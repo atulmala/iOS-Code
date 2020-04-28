@@ -672,7 +672,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1z-r6-htI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="804"/>
+            <point key="canvasLocation" x="2639" y="815"/>
         </scene>
         <!--Activity GroupsTVC-->
         <scene sceneID="zhr-52-LYJ">
@@ -745,7 +745,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4XC-38-bus" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3417" y="804"/>
+            <point key="canvasLocation" x="3422" y="815"/>
         </scene>
         <!--Activity MemberTVC-->
         <scene sceneID="yrK-S7-CgF">
@@ -789,7 +789,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7F-LU-6Kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4134" y="804"/>
+            <point key="canvasLocation" x="4137" y="815"/>
         </scene>
         <!--MessageHistory-->
         <scene sceneID="0gn-zU-Kr4">
@@ -798,6 +798,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzG-xl-Gzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-102" y="392"/>
+        </scene>
+        <!--OnlineClassesTVC-->
+        <scene sceneID="ftj-Up-Fgg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="OnlineClassesTVC" id="nKd-k0-J8c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6b-e3-N8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253" y="823"/>
         </scene>
         <!--Create Online ClassVC-->
         <scene sceneID="2DW-Mp-aGf">
@@ -866,6 +874,11 @@
                                     <action selector="pickDocument:" destination="t2Q-Mv-HwH" eventType="touchUpInside" id="kjl-AJ-heV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmK-oH-uge">
+                                <rect key="frame" x="257" y="575" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -897,11 +910,12 @@
                         <outlet property="select_class_sub" destination="1b3-0d-euY" id="Pfb-wm-7DU"/>
                         <outlet property="select_document" destination="X0P-em-zEM" id="3FM-8a-0hO"/>
                         <outlet property="youtube_link" destination="XsF-Oc-FWd" id="mwf-Df-YOS"/>
+                        <segue destination="nKd-k0-J8c" kind="show" identifier="back_to_online_class_list" id="9L0-TN-yVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oc-r7-Joe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520.79999999999995" y="824.43778110944538"/>
+            <point key="canvasLocation" x="-831" y="824"/>
         </scene>
         <!--Select Class SectionVC-->
         <scene sceneID="dem-Pc-Xar">
@@ -973,7 +987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkg-MG-eXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="804"/>
+            <point key="canvasLocation" x="286" y="824"/>
         </scene>
         <!--Select Students-->
         <scene sceneID="nWt-dW-Mvg">
@@ -1143,7 +1157,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5n-wD-4Hb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rw8-o0-QCR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="804"/>
+            <point key="canvasLocation" x="1102" y="824"/>
         </scene>
         <!--Compose MessageVC View Controller-->
         <scene sceneID="wx7-rC-Lkl">
@@ -1238,10 +1252,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Srl-IL-gsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oOu-Te-82l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1877.5999999999999" y="803.74812593703155"/>
+            <point key="canvasLocation" x="1876" y="824"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f4W-4e-086"/>
+        <segue reference="NZr-0g-tQc"/>
     </inferredMetricsTieBreakers>
 </document>

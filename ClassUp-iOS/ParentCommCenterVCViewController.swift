@@ -42,7 +42,9 @@ class ParentCommCenterVCViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinqtionVC = segue.destination as! SelectWardVC
-        destinqtionVC.trigger = triggeringMenu
+        if segue.identifier != "to_communication_history"   {
+            let destinqtionVC = segue.destination as! SelectWardVC
+            destinqtionVC.trigger = triggeringMenu
+        }
     }
 }

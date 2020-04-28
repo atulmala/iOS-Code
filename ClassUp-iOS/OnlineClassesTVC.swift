@@ -52,7 +52,7 @@ class OnlineClassesTVC: UITableViewController {
         if sender == "student"  {
             url = "\(server_ip)/lectures/get_student_lectures/\(student_id)/"
         }
-        if sender == "teacher"  {
+        if sender == "teacher" || sender == "created_online_class" {
             url = "\(server_ip)/lectures/get_teacher_lectures/\(teacher_id)/"
         }
         
@@ -91,6 +91,7 @@ class OnlineClassesTVC: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("inside viewDidAppear")
         let lable = UILabel(frame: CGRect(x: 0, y: 0, width: 440, height: 44))
         lable.textColor = UIColor.black
         lable.numberOfLines = 0
@@ -98,15 +99,28 @@ class OnlineClassesTVC: UITableViewController {
         lable.text = "Online Classes List"
         self.navigationItem.titleView = lable
         
-        if sender == "teacher"  {
+        if sender == "teacher" {
             let create_button = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(OnlineClassesTVC.create(_:)))
             navigationItem.rightBarButtonItems = [create_button]
+        }
+        
+        if sender == "created_online_class"  {
+            let create_button = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(OnlineClassesTVC.create(_:)))
+            navigationItem.rightBarButtonItems = [create_button]
+            let count = self.navigationController?.viewControllers.count
+            self.navigationController?.viewControllers.remove(at: count! - 2)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("inside viewWillAppear OnlineClassesTVC")
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func create(_ sender: UIButton) {
@@ -165,6 +179,12 @@ class OnlineClassesTVC: UITableViewController {
             let r = Just.delete(url)
             if r.ok     {
                 self.showAlert(title: "Deleted", message: "Online Class Deleted")
+                DispatchQueue.main.async {
+                    print("lecture_list before deletion = ", self.lecture_list)
+                    self.lecture_list.remove(at: index)
+                    print("lecture_list after deletion = ", self.lecture_list)
+                    self.tableView.reloadData()
+                }
             }
         })
         alert.addAction(confirmAction)
@@ -178,6 +198,11 @@ class OnlineClassesTVC: UITableViewController {
         alertController.addAction(defaultAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToOnlineClassList(segue: UIStoryboardSegue)   {
+        
+        
     }
     
     /*

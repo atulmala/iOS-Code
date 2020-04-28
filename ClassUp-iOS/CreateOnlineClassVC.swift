@@ -117,8 +117,9 @@ class CreateOnlineClassVC: UIViewController, UIPickerViewDataSource, UIPickerVie
                     files: ["file": .url(self.pdf_URL!, nil)]
                 )
                 if r.ok {
-                    self.showAlert(title: "Online Class Created", message: "Online Class Created")
+                    self.performSegue(withIdentifier: "back_to_online_class_list", sender: self)
                 }
+                
             }
             else    {
                 let r = Just.post(
@@ -129,7 +130,7 @@ class CreateOnlineClassVC: UIViewController, UIPickerViewDataSource, UIPickerVie
                     ]
                 )
                 if r.ok {
-                    self.showAlert(title: "Online Class Created", message: "Online Class Created")
+                    self.performSegue(withIdentifier: "back_to_online_class_list", sender: self)
                 }
             }})
         alert.addAction(confirmAction)
@@ -184,14 +185,12 @@ class CreateOnlineClassVC: UIViewController, UIPickerViewDataSource, UIPickerVie
         present(alertController, animated: true, completion: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+        let destinationVC = segue.destination as! OnlineClassesTVC
+        destinationVC.sender = "created_online_class"
+        destinationVC.teacher_id = SessionManager.getLoggedInUser()
+        var count = self.navigationController?.viewControllers.count
+        print("first count = ", count)
+        self.navigationController?.viewControllers.remove(at: count! - 2)
+    }
 }
