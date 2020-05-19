@@ -61,6 +61,11 @@ class ParentMenuVC: UIViewController {
         performSegue(withIdentifier: "selectWard", sender: self)
     }
     
+    @IBAction func show_online_test(_ sender: UIButton) {
+        triggeringMenu = "OnlineTest"
+        performSegue(withIdentifier: "selectWard", sender: self)
+    }
+    
     @IBAction func show_comm_center(_ sender: UIButton) {
         triggeringMenu = "CommCenter"
         performSegue(withIdentifier: "show_comm_center", sender: self)
@@ -97,6 +102,9 @@ class ParentMenuVC: UIViewController {
             case "UpcomingTests":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "UpcomingTests"
+        case "OnlineTest":
+            let destinationVC = segue.destination as! SelectWardVC
+            destinationVC.trigger = "OnlineTest"
             case "TimeTable":
                 let destinationVC = segue.destination as! SelectWardVC
                 destinationVC.trigger = "TimeTable"

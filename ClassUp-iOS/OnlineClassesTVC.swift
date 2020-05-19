@@ -46,7 +46,6 @@ class OnlineClassesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         var url: String = ""
         
         if sender == "student"  {

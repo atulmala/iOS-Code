@@ -125,8 +125,10 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                                 performSegue(withIdentifier: "show_days_of_week", sender: self)
                             case "image_video":
                                 performSegue(withIdentifier: "image_video_list_parent", sender: self)
-                        case "online_classes":
-                            performSegue(withIdentifier: "show_online_classes", sender: self)
+                            case "online_classes":
+                                performSegue(withIdentifier: "show_online_classes", sender: self)
+                        case "OnlineTest":
+                            performSegue(withIdentifier: "show_online_test", sender: self)
                             default:
                                 break
                         }
@@ -190,6 +192,11 @@ class SelectWardVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                 destinationVC.student_id = student_id
                 destinationVC.student_name = student_name
                 break
+        case "OnlineTest":
+            let destinationVC = segue.destination as! OnlinTestListTVC
+            destinationVC.student_id = student_id
+            destinationVC.student_name = student_name
+            break
             default:
                 break
         }

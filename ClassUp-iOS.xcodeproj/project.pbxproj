@@ -129,6 +129,11 @@
 		B7279EC1231587B500CC8F28 /* ImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */; };
 		B75A6B562317788E001F779C /* StudListForPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */; };
 		B7673D6A23163C94008E58FD /* SelStudentForPicSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */; };
+		B78AA2FB247413AE00B5F048 /* OnlineQuestionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78AA2FA247413AE00B5F048 /* OnlineQuestionTVC.swift */; };
+		B78C09E62472C53F00291741 /* OnlineTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78C09E52472C53F00291741 /* OnlineTest.storyboard */; };
+		B78C09E82472C58B00291741 /* OnlinTestListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C09E72472C58B00291741 /* OnlinTestListTVC.swift */; };
+		B78C09EA2472CDC000291741 /* OnlineTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C09E92472CDC000291741 /* OnlineTestCell.swift */; };
+		B78C09EC2473026B00291741 /* ShowInstructionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78C09EB2473026B00291741 /* ShowInstructionsVC.swift */; };
 		B79B60192318E4C100F39CC1 /* AdminImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */; };
 		B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */; };
 		B79B60212319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */; };
@@ -295,6 +300,11 @@
 		B7279EC0231587B500CC8F28 /* ImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerVC.swift; sourceTree = "<group>"; };
 		B75A6B552317788E001F779C /* StudListForPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudListForPicSharingTVC.swift; sourceTree = "<group>"; };
 		B7673D6923163C94008E58FD /* SelStudentForPicSharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelStudentForPicSharingVC.swift; sourceTree = "<group>"; };
+		B78AA2FA247413AE00B5F048 /* OnlineQuestionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineQuestionTVC.swift; sourceTree = "<group>"; };
+		B78C09E52472C53F00291741 /* OnlineTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnlineTest.storyboard; sourceTree = "<group>"; };
+		B78C09E72472C58B00291741 /* OnlinTestListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinTestListTVC.swift; sourceTree = "<group>"; };
+		B78C09E92472CDC000291741 /* OnlineTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineTestCell.swift; sourceTree = "<group>"; };
+		B78C09EB2473026B00291741 /* ShowInstructionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInstructionsVC.swift; sourceTree = "<group>"; };
 		B79B60182318E4C100F39CC1 /* AdminImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminImagePickerVC.swift; sourceTree = "<group>"; };
 		B79B601E2318F7E300F39CC1 /* AdminPicSelectedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPicSelectedVC.swift; sourceTree = "<group>"; };
 		B79B60202319004100F39CC1 /* AdminSelectClassPicSharingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSelectClassPicSharingTVC.swift; sourceTree = "<group>"; };
@@ -495,6 +505,11 @@
 				B71444CD2437A7B0009D0C47 /* OnlineClassesTVC.swift */,
 				B71444CF2437A812009D0C47 /* OnlineClassCell.swift */,
 				B7CCFB6724520B7F001B2C82 /* CreateOnlineClassVC.swift */,
+				B78C09E52472C53F00291741 /* OnlineTest.storyboard */,
+				B78C09E72472C58B00291741 /* OnlinTestListTVC.swift */,
+				B78C09E92472CDC000291741 /* OnlineTestCell.swift */,
+				B78C09EB2473026B00291741 /* ShowInstructionsVC.swift */,
+				B78AA2FA247413AE00B5F048 /* OnlineQuestionTVC.swift */,
 			);
 			path = "ClassUp-iOS";
 			sourceTree = "<group>";
@@ -623,6 +638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A482F2571DB3E56100EA2811 /* LaunchScreen.storyboard in Resources */,
+				B78C09E62472C53F00291741 /* OnlineTest.storyboard in Resources */,
 				A482F2541DB3E56100EA2811 /* Assets.xcassets in Resources */,
 				A4ED5CF41E517F9500888DD1 /* SchoolAdminStoryBoard.storyboard in Resources */,
 				A482F25F1DB3E69C00EA2811 /* PodFile in Resources */,
@@ -798,6 +814,7 @@
 				B7E34A412307ADCB00B4EFFA /* ImageVideoCell.swift in Sources */,
 				A482F24D1DB3E56100EA2811 /* AppDelegate.swift in Sources */,
 				A460411F1DCDE37B004E9BDE /* CompletedTestVC.swift in Sources */,
+				B78C09EC2473026B00291741 /* ShowInstructionsVC.swift in Sources */,
 				A4053CB51DD9D1680090D89D /* MarksHistoryHeaderCellTVC.swift in Sources */,
 				A4D188961FCC169A00A7B443 /* ActivityMemberCell.swift in Sources */,
 				A455320B1DD72DAF0088A3C9 /* ShowAttendanceSummaryVC.swift in Sources */,
@@ -819,7 +836,9 @@
 				A42569941FDC251000F7D2C0 /* MessageReceiversCell.swift in Sources */,
 				A48E11171DD4938F0008DF7D /* BusAttendanceCellTVC.swift in Sources */,
 				A404FAF01DB532850011BFB6 /* SessionManager.swift in Sources */,
+				B78C09EA2472CDC000291741 /* OnlineTestCell.swift in Sources */,
 				A490816E1DC11E9B00A4170D /* AttendanceHeaderCell.swift in Sources */,
+				B78C09E82472C58B00291741 /* OnlinTestListTVC.swift in Sources */,
 				A46041201DCDE37B004E9BDE /* MarksProcessing.swift in Sources */,
 				A45532121DD77FFB0088A3C9 /* SelectClassSectionVC.swift in Sources */,
 				A49081681DC1185C00A4170D /* StudentModel.swift in Sources */,
@@ -828,6 +847,7 @@
 				A4ADB9E81FC6E1AA001C0C00 /* ArrangementsTVC.swift in Sources */,
 				B79B601F2318F7E300F39CC1 /* AdminPicSelectedVC.swift in Sources */,
 				A4D28ADF1DB3EFC0003B47F2 /* LoginVC.swift in Sources */,
+				B78AA2FB247413AE00B5F048 /* OnlineQuestionTVC.swift in Sources */,
 				A4665A4A1DCA4DF30049EB4D /* SubjectSelectionCell.swift in Sources */,
 				A460412F1DCDE56C004E9BDE /* HeaderCell.swift in Sources */,
 				A4053CAC1DD9C9970090D89D /* Env.swift in Sources */,
