@@ -9,6 +9,7 @@
 import UIKit
 import Just
 import SwiftyJSON
+import Alamofire
 
 class ShowInstructionsVC: UIViewController {
     var student_id: String = ""
@@ -49,10 +50,15 @@ class ShowInstructionsVC: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             let confirmAction = UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction) in
+                var params = [String:String]()
+                params["submitted_via"] = "iPhone"
                 let url1: String = "\(server_ip)/online_test/mark_attempted/\(self.student_id)/\(self.test_id)/"
-                Just.post(url1)
-                self.performSegue(withIdentifier: "to_online_test", sender: self)
-                })
+                Alamofire.request(url1, method: .post, parameters: params, encoding: JSONEncoding.default)
+                    .responseJSON { response in
+                        self.performSegue(withIdentifier: "to_online_test", sender: self)
+                }
+
+            })
             alert.addAction(confirmAction)
             self.present(alert, animated: true, completion: nil)
         }
@@ -68,12 +74,12 @@ class ShowInstructionsVC: UIViewController {
     }
     
     
-   
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     let destinationVC = segue.destination as! OnlineQuestionTVC
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! OnlineQuestionTVC
         destinationVC.test_id = test_id
         destinationVC.student_id = student_id
-     }
+    }
     
     
 }
