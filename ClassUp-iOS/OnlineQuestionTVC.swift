@@ -37,7 +37,7 @@ class OnlineQuestionTVC: UITableViewController {
     var question_list: [QuestionModel] = []
     
     var timer: Timer = Timer()
-    var duration: Int = 1 * 60
+    var duration: Int = 30 * 60
     var min_remaining: Int = 30
     var sec_remaining: Int = 0
     var time_remaining: String = "30:00"

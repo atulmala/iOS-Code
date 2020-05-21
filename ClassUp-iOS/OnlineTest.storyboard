@@ -271,21 +271,10 @@
                             <outlet property="delegate" destination="oYP-PP-rc2" id="Zbf-Id-lnd"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="C1n-Bz-0z8" kind="show" identifier="go_back_to_parent_menu" id="lck-bt-EUr"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmi-IV-1oY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152.80000000000001" y="-9.4452773613193415"/>
-        </scene>
-        <!--UIViewController-808-bw-1OV-->
-        <scene sceneID="4lU-bt-81S">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-808-bw-1OV" id="C1n-Bz-0z8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L88-Gk-cz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="810" y="-10"/>
         </scene>
     </scenes>
 </document>
